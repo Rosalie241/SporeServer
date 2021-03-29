@@ -1,0 +1,204 @@
+.assetBackground {
+	height: 188px;
+	width: 142px;
+	float: left;
+	padding-left: 8px;
+	padding-bottom: 2px;
+	background-repeat:no-repeat;
+}
+.sp_assetBackground {
+	height: 202px;
+	width: 154px;
+	float: left;
+	padding-left: 8px;
+	padding-bottom: 2px;
+	background-repeat:no-repeat;
+}
+.SP_CREATURE {
+	background-image: url(utfres://0x40484400!SPORECASTspdCardCreatureCE.png);			
+} 
+.SP_TRIBE_CREATURE{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardTribeCE.png);
+}
+.SP_CIV_CREATURE{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardCivCE.png);
+}
+.SP_SPACE_CREATURE{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardSpaceCE.png);
+}
+.SP_CITY_HALL{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardBuilding.png);
+}
+.SP_HOUSE{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardBuilding.png);
+}
+.SP_INDUSTRY{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardBuilding.png);
+}
+.SP_ENTERTAINMENT{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardBuilding.png);
+}
+.SP_MILITARY_LAND{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardLandVE.png.png);
+}
+.SP_MILITARY_WATER{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardSea.png);
+}
+.SP_MILITARY_AIR{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardAirVE.png);
+}
+.SP_ECONOMIC_LAND{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardLandVE.png.png);
+}
+.SP_ECONOMIC_WATER{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardSea.png);
+}
+.SP_ECONOMIC_AIR{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardAirVE.png);
+}
+.SP_CULTURAL_LAND{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardLandVE.png.png);
+}
+.SP_CULTURAL_WATER{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardSea.png);
+}
+.SP_CULTURAL_AIR{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardAirVE.png);
+}
+.SP_COLONY_LAND{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardLandVE.png.png);
+}
+.SP_COLONY_WATER{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardSea.png);
+}
+.SP_COLONY_AIR{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardAirVE.png);
+}
+.SP_UFO{
+	background-image: url(utfres://0x40484400!SPORECASTspdCardUFO.png);
+}
+.SP_ADV_UNSET, .SP_ADV_TEMPLATE, .SP_ADV_ATTACK, .SP_ADV_DEFEND, .SP_ADV_SOCIALIZE, .SP_ADV_EXPLORE, .SP_ADV_QUEST, .SP_ADV_STORY, .SP_ADV_COLLECT, .SP_ADV_PUZZLE {
+	background-image: url(utfres://0x40484400!SPORECASTspdCardUFO.png);
+}
+.CREATURE {
+	background-image: url(utfres://0x40484400!spdCardCreatureCE.png);			
+}       
+.TRIBE_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardTribeCE.png);
+}
+.CIV_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardCivCE.png);
+}
+.SPACE_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardSpaceCE.png);
+}
+.ADVENTURE_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardSpaceCE.png);
+}
+.CITY_HALL{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.HOUSE{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.INDUSTRY{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.ENTERTAINMENT{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.MILITARY_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.MILITARY_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.MILITARY_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.ECONOMIC_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.ECONOMIC_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.ECONOMIC_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.CULTURAL_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.CULTURAL_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.CULTURAL_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.COLONY_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.COLONY_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.COLONY_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.UFO{
+	background-image: url(utfres://0x40484400!spdCardUFO.png);
+}
+.ADV_UNSET, .ADV_TEMPLATE, .ADV_ATTACK, .ADV_DEFEND, .ADV_SOCIALIZE, .ADV_EXPLORE, .ADV_QUEST, .ADV_STORY, .ADV_COLLECT, .ADV_PUZZLE {
+	background-image: url(utfres://0x40484400!spdCardUFO.png);
+}
+
+
+.plusSign {
+	position: absolute;
+	bottom: 0px;
+	left: -5px;
+}
+
+.assetImage {
+	position: absolute;
+	top: 75px;
+	left: 25px;
+	height:90px;
+	width:90px;
+}
+
+body {
+	background-color: #0a2635;
+}
+
+.emptySlots {
+	position: absolute;
+	bottom:-50px;
+	left:10px;
+	width:300px;
+	height:150px;
+}
+
+.sporecastName{
+	position: absolute;
+	left:10px;
+	top:320px;
+}
+
+.sporecastDesc{
+	position: absolute;
+	right:200px;
+	top:300px;
+}
+.searchLeft {
+	position:absolute;
+	top: 4px;
+	left: 0px;
+	width: 30px;
+	height: 44px;
+}
+.searchRight {
+	position:absolute;
+	top: 0px;
+	right: 0px;
+	width: 30px;
+	height: 44px;
+}

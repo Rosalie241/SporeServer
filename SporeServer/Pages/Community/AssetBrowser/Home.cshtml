@@ -1,0 +1,344 @@
+﻿@page
+@model SporeServer.Pages.Community.AssetBrowser.HomeModel
+@{
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Asset Browser : Home</title>
+    <!--<base href="http://community.spore.com" />-->
+    <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game/createSporecast.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game/myspore.css" />
+
+
+    <style type="text/css">
+        h1 {
+            font-size: 12px;
+            font-family: 'Palatino Sans EA', Verdana, sans-serif;
+            margin: 0px;
+            padding-bottom: 2px;
+            padding-left: 3px;
+            padding-right: 3px;
+            padding-top: 6px;
+        }
+
+        h2 {
+            font-family: 'Palatino Sans EA', Verdana, sans-serif;
+            font-size: 12px;
+            margin: 0px;
+            padding: 0px;
+            display: inline;
+            color: #98e3fe;
+        }
+
+
+        h1.username {
+            font-size: 12px;
+            margin: 1px 0px;
+            padding: 0px;
+        }
+
+        .noavatar {
+            border: 2px solid #495e71;
+            background-color: #172540;
+            width: 144px;
+            height: 144px;
+            text-align: center;
+            vertical-align: middle;
+            padding-top: 7px;
+            position: absolute;
+            left: 10px;
+        }
+
+        #creaturesLeft {
+            position: absolute;
+            left: 0px;
+            bottom: 55px;
+        }
+
+        #creaturesRight {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        #contentfooter {
+            height: 100px;
+        }
+
+        .eventitem {
+            vertical-align: middle;
+        }
+
+        .eventicon {
+            vertical-align: middle;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        .gencensus {
+            padding-right: 9px;
+        }
+
+        .uploadcrea {
+            padding-left: 4px;
+            padding-right: 13px;
+        }
+
+        .peopcensus {
+            padding-right: 9px;
+        }
+
+        .addasset {
+            padding-right: 7px;
+        }
+
+        .iconavat {
+            padding-left: 3px;
+            padding-right: 6px;
+        }
+
+        .iconbuddy {
+            padding-left: 7px;
+            padding-right: 8px;
+        }
+
+        .iconcomments {
+            padding-left: 3px;
+            padding-right: 6px;
+        }
+
+        .iconship {
+            padding: 5px 5px 5px 0px;
+        }
+
+        .commentimg {
+            float: left;
+        }
+
+        .recentcomment {
+            border-bottom: 1px solid #6D7E8D;
+            margin-right: 15px;
+        }
+
+        .recentCommentBody {
+            background-color: #495E71;
+            margin: 0px 1px 0px 3px;
+            padding: 0px 0px 0px 15px;
+            clear: both;
+        }
+
+        .commenttext {
+            margin-left: 55px;
+        }
+
+        .commentLine {
+            border-bottom: none;
+            margin: 0 0 0 0;
+        }
+        /*.featuredCard {
+            font-size: 8px;
+            border-bottom: none;
+            margin: 0 0 0 0;
+            padding-top: 7px;
+            padding-right: 18px;
+            }*/
+        #avatar {
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            text-align: center;
+            background-color: #506c80;
+            background-image: url(utfres://0x40484400!AvatarFrame_128.png);
+            background-repeat: no-repeat;
+            width: 154px;
+            height: 154px;
+        }
+
+        .assetavatar {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .avatarcontainer {
+            height: 200px;
+        }
+
+        .tagline {
+            color: #98E3FE;
+            font-size: 8px;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="toppromos">
+
+        <div class="personalInfo">
+            <div class="avatarcontainer">
+
+
+
+                <div class="noavatar" style="margin-left:20px;"><img src="/static/war/images/game/spd/spd_NoAvatar.png" alt="Avatar" height="144px" width="144px" /></div>
+
+
+
+                <div class="usertext">
+                    <h1 class="username">@User.Identity.Name</h1>
+
+                    Subscribers: 0
+                    <br /> Sporecasts: 0
+                    <br /> Creations: 0
+
+                    <br />
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="featured">
+            <div class="header">
+                <div class="headerLeft"><img src="/static/war/images/game/spd/spd_EventHeaderIcon.png" alt="News" class="headericon" /></div>
+                <div class="headermiddle">
+                    <h1>Featured </h1>
+                </div>
+                <div class="headerRight"></div>
+            </div>
+            <div class="promo">
+
+                <div style="height: 220px; width: 170px; margin-left: 5px; text-align: center;">
+
+                    <div class="assetBackground CREATURE" style="float:none; clear: both;">
+                        <img src="http://static.spore.com/static/thumb/501/079/879/501079879912.png" alt="Nigel (Pose)" class="assetImage" />
+                        <div style="margin-top: 7px; height: 25px; text-align: center;">
+
+                            Nigel (Pose)
+
+                            <p style="font-size: 8px; border-bottom: none; margin: 0 0 0 0; padding-top: 7px;padding-right: 18px;">
+
+                                <a href="sporeprofile:2265191350" style="">DancingCritters</a>
+
+                            </p>
+                        </div>
+                    </div>
+                    <br />
+                    <div style="margin-top:14px;"><a href="spore:501079879912.2661483290" style="font-size: 8px;">Download Creation</a></div>
+                </div>
+
+                <div style="height: 220px; width: 170px; right: 5px; top: 0px; position:absolute;text-align: center;">
+
+                    <div class="sp_assetBackground SP_CREATURE" style="float:none; clear: both;">
+                        <img src="http://static.spore.com/static/thumb/501/088/755/501088755177.png" alt="The Guardian" class="assetImage" />
+                        <div style="margin-top: 20px; height: 25px; text-align: center;">
+
+                            Creator&#039;s Choice&hellip;
+
+
+
+                            <p style="font-size: 8px; border-bottom: none; margin: 0 0 0 0; padding-top: 9px; padding-right: 18px;">
+
+                                <a href="sporeprofile:501023912697" style="">adam215jj</a>
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <br />
+                    <div style="clear: both; padding-left: 8px; font-size: 8px;">
+
+                        <a href="sporecast:tag:spore.com,2006:aggregator/501034474101">Subscribe</a>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">
+                <div class="footerLeft"></div>
+                <div class="footermiddle"></div>
+                <div class="footerRight"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="news">
+        <div class="header">
+            <div class="headerLeft"><img src="/static/war/images/game/spd/spd_NewsHeaderIcon.png" alt="News" class="headericon" /></div>
+            <div class="headermiddle">
+                <h1>Latest Spore News</h1>
+            </div>
+            <div class="headerRight"></div>
+        </div>
+        <div class="promo">
+
+            <div class="newsitem">
+                <h2>Welcome to SporeServer</h2>
+                27/03/21<br /> 
+                Welcome to the new replacement server for Spore
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="footerLeft"></div>
+            <div class="footermiddle"></div>
+            <div class="footerRight"></div>
+        </div>
+    </div>
+
+    <div id="events">
+        <div class="header">
+            <div class="headerLeft"><img src="/static/war/images/game/spd/spd_EventHeaderIcon.png" alt="News" class="headericon" /></div>
+            <div class="headermiddle">
+                <h1>Events</h1>
+            </div>
+            <div class="headerRight"></div>
+        </div>
+        <div class="promo">
+
+            <p style="margin-left:5px;">You have no events! Create some creatures and make some friends!</p>
+        </div>
+        <div class="footer">
+            <div class="footerLeft"></div>
+            <div class="footermiddle"></div>
+            <div class="footerRight"></div>
+        </div>
+
+    </div>
+
+    <div id="comments">
+        <div class="header">
+            <div class="headerLeft">
+                <img src="/static/war/images/game/spd/spd_CommentsHeaderIcon.png" alt="News" class="headericon" />
+            </div>
+            <div class="headermiddle">
+                <div class="sectiontitle">
+                    <h1>Comments</h1>
+                </div>
+                <div class="headlink">
+                    <a href="community/assetBrowser/commentApproval">Manage Comments</a>
+                </div>
+            </div>
+            <div class="headerRight"></div>
+        </div>
+        <div class="recentCommentBody">
+
+        </div>
+        <div class="footer">
+            <div class="footerLeft"></div>
+            <div class="footermiddle"></div>
+            <div class="footerRight"></div>
+        </div>
+    </div>
+    <div id="contentfooter"></div>
+
+</body>
+
+</html>

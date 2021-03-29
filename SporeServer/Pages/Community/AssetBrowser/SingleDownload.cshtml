@@ -1,0 +1,141 @@
+﻿@page
+@model SporeServer.Pages.Community.AssetBrowser.SingleDownloadModel
+@{
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;" />
+    <title>Search Online</title>
+    <!--<base href="http://community.spore.com" />-->
+    <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game/search.css" />
+</head>
+
+<body>
+    <div>
+        <div class="searchArea">
+            <div id="bevelHeader" style="height: 35px;">
+                <div style="margin-top:8px; margin-left: 15px;">
+                    <h2>Search</h2>
+                </div>
+            </div>
+            <div id="bevelSides">
+                <form method="get" action="/community/assetBrowser/singleDownload">
+                    <div style="margin-left: 10px;">
+                        <input type="text" size="30" name="searchText" value="" style="float:left;" />
+
+                        <input type="hidden" name="action" value="SEARCH" />
+                        <div style="position: absolute; top:-5px; left: 370px;">
+                            <input type="submit" value="Search" class="submit" />
+                        </div>
+                    </div>
+                    <div class="cboxContainer cboxLeft1">
+                        <input type="checkbox" checked="checked" name="searchFields" value="name" />
+                        <div class="cboxLabel">Creation Name</div>
+                    </div>
+                    <div class="cboxContainer cboxRight1">
+                        <input type="checkbox" checked="checked" name="searchFields" value="author" />
+                        <div class="cboxLabel">Creator Name</div>
+                    </div>
+                    <div class="cboxContainer cboxLeft2">
+                        <input type="checkbox" checked="checked" name="searchFields" value="tags" />
+                        <div class="cboxLabel">Tags</div>
+                    </div>
+                    <div class="cboxContainer cboxRight2">
+                        <input type="checkbox" checked="checked" name="searchFields" value="description" />
+                        <div class="cboxLabel">Description</div>
+                    </div>
+                </form>
+            </div>
+            <div id="bevelFooter"></div>
+        </div>
+
+        <div style="position: absolute; top:185px; left:280px">
+            Or
+        </div>
+
+        <div class="browseArea">
+            <div id="bevelHeader" style="height: 35px;">
+                <div style="margin-top:8px; margin-left: 15px;">
+                    <h2>Browse</h2>
+                </div>
+            </div>
+            <div id="bevelSides" class="browseBevel">
+                <form method="get" action="/community/assetBrowser/singleDownload">
+                    <table class="browseTable">
+                        <tr>
+                            <td colspan="4" style="padding: 0px 0px 0px 0px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="browseType" value="ALL" />
+                                        </td>
+                                        <td>
+                                            All Creations
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="browseType" value="CRG" /><img src="utfres://0x40484400!ico-creatures.png" width="26" height="24" />
+                            </td>
+                            <td>
+                                <input type="radio" name="browseType" value="BLG" /><img src="utfres://0x40484400!ico-buildings.png" width="22" height="28" />
+                            </td>
+                            <td colspan="2">
+                                <input type="radio" name="browseType" value="ADV" /><img src="utfres://0x40484400!starburst-adventures.png" width="36" height="38" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="browseType" value="VCL_LND" /><img src="utfres://0x40484400!ico-vehicles-land.png" width="27" height="21" />
+                            </td>
+                            <td>
+                                <input type="radio" name="browseType" value="VCL_SEA" /><img src="utfres://0x40484400!ico-vehicles-sea.png" width="24" height="29" />
+                            </td>
+                            <td>
+                                <input type="radio" name="browseType" value="VCL_AIR" /><img src="utfres://0x40484400!ico-vehicles-air.png" width="26" height="22" />
+                            </td>
+                            <td>
+                                <input type="radio" name="browseType" value="UFO" /><img src="utfres://0x40484400!ico-spaceship.png" width="26" height="22" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <select name="filterView" class="dropdown">
+                                    <option value="NEWEST" selected="true">
+                                        Newest
+                                    </option>
+                                    <option value="OLDEST" selected="true">
+                                        Oldest
+                                    </option>
+                                    <option value="TOP_RATED" selected="true">
+                                        Most Popular
+                                    </option>
+                                    <option value="TOP_RATED_NEW" selected="true">
+                                        Most Popular New
+                                    </option>
+                                    <option value="FEATURED" selected="true">
+                                        Featured
+                                    </option>
+                                    <option value="RANDOM" selected="true">
+                                        Random
+                                    </option>
+                                </select>
+                                <input type="submit" value="Next >" class="submit" />
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="hidden" name="action" value="BROWSE" />
+                </form>
+            </div>
+            <div id="bevelFooter"></div>
+        </div>
+    </div>
+</body>
+
+</html>

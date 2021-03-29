@@ -1,0 +1,322 @@
+a:link, a:visited, a:active {
+color:#A6D8EF;
+text-decoration:underline;
+}
+a:hover {
+color: #003366;
+text-decoration:underline;
+}
+body, html {
+background-color: #273F5B;
+color: #FFFFFF;
+font-family: "Trebuchet EA", Verdana, sans-serif;
+width: 100%;
+height: 100%;
+margin: 0px;
+}
+#content {
+background-color: #273F5B;
+position: relative;
+height: 100%;
+}
+#buddycontent {
+background-color: #273F5B;
+position: relative;
+height: 100%;
+}
+* html #content {
+height: 100%;
+}
+#header {
+width: 100%;
+height: 60px;
+background-color:#162635;
+}
+#headermiddle {
+background-image: url(/static/war/images/game/spd/New_TileMiddle.png);
+background-repeat:repeat;
+margin-left: 108px;
+margin-right: 123px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+height: 60px;
+text-align: center;
+}
+#headermiddle h1 {
+font-size:18px;
+padding-top: 15px;
+margin: 0px;
+font-family: "Palatino Sans EA", Verdana, sans-serif;
+}
+.headerLeft {
+position:absolute;
+top: 0px;
+left: 0px;
+width: 108px;
+height: 60px;
+}
+.headerRight {
+position:absolute;
+top: 0px;
+right: 0px;
+width: 123px;
+height: 60px;
+}
+#search {
+text-align:center;
+height: 45px;
+background-color:#162635;
+}
+.submit {
+height: 25px;
+width: 80px;
+text-align: center;
+vertical-align: middle;
+color: #FFFFFF;
+padding: 5px;
+margin-top: 3px;
+font-size: 8px;
+}
+.text {
+text-align: left;
+vertical-align:baseline;
+height: 25px;
+margin-top: 4px;
+}
+
+/*.searchLeft {
+position:absolute;
+top: 0px;
+left: 0px;
+width: 36px;
+height: 44px;
+}
+.searchRight {
+position:absolute;
+top: 0px;
+right: 0px;
+width: 31px;
+height: 44px;
+}*/
+#searchmiddle {
+text-align:center;
+height: 45px;
+background-image: url(/static/war/images/game/spd/spd_LargeCard_AssetNameBkrd.png);
+background-repeat:repeat; 
+}
+#search p {
+margin: 0px;
+display:inline;
+}
+#results {
+padding-bottom: 10px;
+}
+#paging {
+background-color: #1C2A45;
+height: 20px;
+font-size: 8px;
+margin: 0px 0px;
+padding: 3px;
+border-left: 1px solid #23374a;
+border-right: 1px solid #23374a;
+border-top: 1px solid #23374a;
+}
+#paging .next {
+position:absolute;
+right:0px;
+margin-right: 10px;
+font-size:9px;
+width: 200px;
+text-align: right;
+padding-top: 3px;
+}
+#paging .context {
+position:absolute;
+left:0px;
+margin-left: 10px;
+font-size: 9px;
+padding-top: 4px;
+}
+.nextarrow {
+width: 5px;
+height: 8px;
+margin-left: 5px;
+}
+.prevarrow {
+width: 5px;
+height: 8px;
+margin-left: 5px;
+}
+#results table {
+margin: 0px 10px 5px 10px;
+width: 90%;
+}
+#results td {
+padding: 2px;
+text-align: left;
+}
+#results td.odd {
+
+}
+table.buddyresults {
+margin: 0px 0px;
+background-color: #273F5B;
+}
+table.buddyresults tr{
+background-color:#A6D8EF;
+}
+td.findsporecast {
+border-top: 1px solid #23374a;
+border-bottom: 1px solid #23374a;
+width: 100%;
+}
+.sporecast {
+margin-top:5px;
+}
+.sporecast p {
+border:none;
+}
+h3 {
+font-family: "Palatino Sans EA", Verdana, sans-serif;
+color:#A6D8EF;
+}
+td.avatar {
+width: 25%;
+}
+td.avatar2col {
+width: 10%;
+}
+.noavatar {
+background-color:#172444;
+}
+td.avatar img{
+width: 24px;
+height: 24px;
+}
+td.avatar2col img{
+width: 25px;
+height: 24px;
+}
+
+td.buddyname {
+width: 50%;
+font-size: 8px;
+}
+td.buddyname2col {
+width: 25%;
+}
+td.add {
+width: 25%;
+font-size: 8px;
+}
+td.add2col {
+width: 15%;
+font-size: 8px;
+}
+.footer {
+width: 100%;
+height: 13px;
+}
+.footermiddle {
+background-image: url(/static/war/images/game/spd/spd_BottomTile.png);
+background-repeat:repeat-x;
+margin-left: 16px;
+margin-right: 14px;
+height: 13px;
+text-align: left;
+vertical-align:bottom;
+padding-left: 2px;
+}
+.footerLeft {
+position:absolute;
+top: 0px;
+left: 2px;
+width: 14px;
+height: 13px;
+background-image: url(/static/war/images/game/spd/spd_BottomLefttCorner.png);
+background-repeat:no-repeat;
+}
+.footerRight {
+position:absolute;
+top: 0px;
+right: 0px;
+width: 14px;
+height: 13px;
+background-image: url(/static/war/images/game/spd/spd_BottomRightCorner.png);
+background-repeat:no-repeat;
+}
+
+.header {
+width: 100%;
+height: 39px;
+}
+.headermiddle {
+background-image: url(/static/war/images/game/spd/spd_HeaderGraphicTile.png);
+background-repeat:repeat;
+margin-left: 37px;
+margin-right: 22px;
+height: 39px;
+text-align: left;
+vertical-align:middle;
+}
+.headlink {
+position:absolute;
+right: 0px;
+margin-top:8px;
+font-size:9px;
+width: 30%;
+text-align:right;
+}
+.sectiontitle{
+width: 60%;
+position:absolute;
+left:0px;
+}
+.headerLeft {
+position:absolute;
+top: 0px;
+left: 0px;
+width: 37px;
+height: 39px;
+background-image: url(/static/war/images/game/spd/spd_HeaderGraphicLeft.png);
+background-repeat:no-repeat;
+}
+.headerLeftrecent {
+position:absolute;
+top: 0px;
+left: 0px;
+width: 26px;
+height: 39px;
+background-image: url(/static/war/images/game/spd/spd_HeaderGraphicLeft2.png);
+background-repeat:no-repeat;
+}
+.headermiddlerecent {
+background-image: url(/static/war/images/game/spd/spd_HeaderGraphicTile.png);
+background-repeat:repeat;
+margin-left: 26px;
+margin-right: 22px;
+height: 39px;
+text-align: left;
+vertical-align:middle;
+}
+.headerRight {
+position:absolute;
+top: 0px;
+right: 0px;
+width: 22px;
+height: 39px;
+background-image: url(/static/war/images/game/spd/spd_HeaderGraphicRight.png);
+background-repeat:no-repeat;
+}
+.headericon {
+width: 24px;
+height: 21px;
+padding-top: 5px;
+padding-left: 4px;
+}
+.promo {
+background-color:#495E71;
+margin: 0px 1px 0px 3px;
+padding: 0px 10px 0px 15px;
+clear: both;
+}

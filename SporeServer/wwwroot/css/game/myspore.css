@@ -1,0 +1,523 @@
+body, html{
+	font-smooth: always;
+}
+body {
+	background-color: #283f5b;
+	color: #FFFFFF;
+	font-family: 'Trebuchet EA', Verdana, sans-serif;
+	font-size:10px;
+	margin-left:5px;
+	
+}
+h3 { 
+	font-family: 'Trebuchet EA', Verdana, sans-serif;
+	font-size: 11pt;
+	color: #98e3fe;
+}
+h4 { 
+	font-family: 'Trebuchet EA', Verdana, sans-serif;
+	font-size: 8px;
+	color: #98e3fe;
+}
+				
+a:link, a:visited {
+	text-decoration:underline;
+	color: #98e3fe;
+}
+a:hover {
+	text-decoration:underline;
+	color: #efa264;
+}
+a:active {
+	text-decoration:underline;
+	color: #172540;
+}
+
+/* A user's tagline. */
+.tagline {
+	color: #a8bb9f;
+	font-size: 12px;
+}
+/*
+h2.tagline {
+	color: #a8bb9f;
+	size: 10pt;
+}*/
+#content {
+	background-color: #162635;
+	position: relative;
+	height: 100%;
+}
+
+/* Headers: The dark blue bands that sit on top of panes on a given page. */
+.header {
+width: 100%;
+height: 39px;
+}
+
+.headermiddle, .headermiddlenoicon {
+background-image: url(utfres://0x40484400!spd_HeaderGraphicTile.png);
+background-repeat:repeat;
+margin-left: 37px;
+margin-right: 22px;
+height: 39px;
+text-align: left;
+vertical-align:middle;
+}
+
+.headermiddlenoicon {
+	margin-left: 25px;
+}
+
+.headlink {
+position:absolute;
+right: 0px;
+margin-top:8px;
+font-size:9px;
+width: 30%;
+text-align:right;
+}
+.sectiontitle{
+width: 60%;
+position:absolute;
+left:0px;
+}
+.headerLeft, .headerLeftNoIcon {
+position:absolute;
+top: 0px;
+left: 0px;
+width: 37px;
+height: 39px;
+background-image: url(utfres://0x40484400!spd_HeaderGraphicLeft.png);
+background-repeat:no-repeat;
+}
+
+/* The left side of a header that doesn't have a round icon on the end. It just has a mirror of the right edge.*/
+.headerLeftNoIcon {
+   width: 25px;
+   background-image: url(utfres://0x40484400!spd_HeaderGraphicLeft2.png);
+   margin-left: 2px;
+}
+   
+
+.headerLeftrecent {
+position:absolute;
+top: 0px;
+left: 0px;
+width: 26px;
+height: 39px;
+background-image: url(utfres://0x40484400!spd_HeaderGraphicLeft2.png);
+background-repeat:no-repeat;
+}
+.headermiddlerecent {
+background-image: url(utfres://0x40484400!spd_HeaderGraphicTile.png);
+background-repeat:repeat;
+margin-left: 26px;
+margin-right: 22px;
+height: 39px;
+text-align: left;
+vertical-align:middle;
+}
+.headerRight {
+position:absolute;
+top: 0px;
+right: 0px;
+width: 22px;
+height: 39px;
+background-image: url(utfres://0x40484400!spd_HeaderGraphicRight.png);
+background-repeat:no-repeat;
+}
+
+.headericon {
+width: 24px;
+height: 21px;
+padding-top: 5px;
+padding-left: 4px;
+}
+
+/* The title  that sits in the header bar. */
+.headerTitle {
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+}
+
+/* The definition for a "main" pane, which is to say one of the large rectangles on a given
+   browser page (the "achievements" pane in profile, for instance)
+*/
+.mainpane {
+    background-color: #495E71;
+}
+
+		/* The generic template for a full-width bucket. */
+		div.genericpagebucket {
+		    display: block;
+		    width: 100%;
+		    background-color:#495E71;
+		}
+		
+		
+        /* For pages (such as profile) that don't have the in-game browser's thick title bar. */
+		div.pagetitle {
+		    background-color: #17435C;
+			font-family: 'Trebuchet EA', Verdana, sans-serif;
+			font-size:14px;
+			text-align: center;
+			height: 40px;
+	    }
+			    
+
+/* styles for the no-image rounded-corner boxes */
+.roundBoxTop, .roundBoxBottom {display:block; height: 5px;}
+.roundBoxContent {display: block;}
+.roundBoxTop *, .roundBoxBottom *{
+	 display: block; height: 1px; overflow: hidden;
+}
+.r1{margin: 0 5px}
+.r2{margin: 0 3px}
+.r3{margin: 0 2px}
+.r4{margin: 0 1px; height: 2px}
+
+
+.promo {
+background-color:#495E71;
+margin: 0px 1px 0px 3px;
+padding: 0px 10px 0px 15px;
+clear: both;
+}
+.promoNoicon{
+background-color:#495E71;
+margin: 0px 1px 0px 3px;
+padding: 0px 10px 0px 15px;
+clear: both;
+}
+.promo p {
+border-bottom:1px solid #6D7E8D;
+padding-bottom: 5px;
+margin: 0px 40px 0px 20px;
+vertical-align:top;
+}
+.intropromo p{
+border-bottom:none;
+padding-bottom: 5px;
+margin: 0px 40px 0px 20px;
+vertical-align:top;
+}
+.newsitem {
+border-bottom:1px solid #6D7E8D;
+padding-bottom: 5px;
+margin: 0px 40px 0px 20px;
+vertical-align:top;
+}
+.footer {
+width: 100%;
+height: 13px;
+}
+.footermiddle {
+background-image: url(utfres://0x40484400!spd_BottomTile.png);
+background-repeat:repeat-x;
+margin-left: 16px;
+margin-right: 14px;
+height: 13px;
+text-align: left;
+vertical-align:bottom;
+padding-left: 2px;
+}
+.footerLeft {
+position:absolute;
+top: 0px;
+left: 2px;
+width: 14px;
+height: 13px;
+background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png);
+background-repeat:no-repeat;
+}
+.footerRight {
+position:absolute;
+top: 0px;
+right: 0px;
+width: 14px;
+height: 13px;
+background-image: url(utfres://0x40484400!spd_BottomRightCorner.png);
+background-repeat:no-repeat;
+}
+#intro {
+margin-bottom: 5px;
+}
+#news {
+margin-bottom: 5px;
+}
+#events {
+margin-bottom: 10px;
+}
+#comments {
+margin-bottom: 5px;
+}
+.commentauthor {
+color: #98e3fe;
+}
+.commentdate {
+font-size:9px;
+}
+#toppromos{
+	width: 100%;
+	height: 300px;
+	margin-bottom: 5px;
+}
+.personalInfo{
+position: absolute;
+left: 0px;
+width: 240px;
+height: 200px;
+}
+#featured {
+margin-left: 230px;
+}
+#recentcreations{
+margin-left:400px;
+}
+.promorecent{
+background-color:#495E71;
+margin: 0px 1px 0px 0px;
+padding: 0px 10px 0px 15px;
+clear: both;
+}
+#avatar {
+position: absolute;
+left: 0px;
+top: 15px;
+width: 144px;
+text-align:center;
+}
+.assetavatar{
+margin-top: 30px;
+/*margin-right: 20px;*/
+}
+.cornergraphics{
+position: absolute;
+right: -5px;
+top: -5px;
+}
+h1.username {
+font-size:14px;
+}
+#creaturesLeft{
+position:absolute;
+left: 0px;
+bottom: 55px;
+}
+#creaturesRight{
+position: absolute;
+right:0px;
+bottom: 0px;
+}
+#contentfooter{
+height: 100px;
+}
+.eventitem{
+vertical-align: middle;
+}
+.eventicon {
+vertical-align: middle;
+padding-top: 2px;
+padding-bottom: 2px;
+}
+.gencensus{
+padding-right: 9px;
+}
+.uploadcrea{
+padding-left: 4px;
+padding-right: 13px;
+}
+.peopcensus{
+padding-right: 9px;
+}
+.addasset{
+padding-right: 7px;
+}
+.iconavat{
+padding-left: 3px;
+padding-right: 6px;
+}
+.iconbuddy{
+padding-left: 7px;
+padding-right: 8px;
+}
+.iconcomments{
+padding-left: 3px;
+padding-right: 6px;
+}
+.iconship{
+padding: 5px 5px 5px 0px;
+}
+.commentimg {
+position:absolute;
+top:5px;
+left:0px;
+}
+.recentcomment {
+border-bottom:1px solid #6D7E8D;
+padding: 5px 0px;
+
+}
+.commenttext {
+margin-left: 65px;
+height:55px;
+}
+
+/* Styles used by profile.jsp. */
+         /* Holds the avatar icon, the username, and the tagline*/
+		div.avatarBucket {
+			width: 160px; 
+			margin-right: 10px;
+			height: 160px;
+			top: 5px; /* because the title bar of ach's lifts up a little*/
+			position: absolute;
+			left: 0px;
+		}
+		div.avatar {
+			background-color: #506c80;
+			background-image: url(utfres://0x40484400!AvatarFrame_128.png);
+			background-repeat:no-repeat;
+			width: 188px;
+			height: 188px;
+			position: absolute;
+			left: 15px;
+			text-align: center;
+			vertical-align: center;
+			display: block;
+		}
+		
+		/* The username (tagline is h2). Tall margin-top because absolute pos of avatar
+		   d */
+		div.usertext{	
+			margin-left: 20px;
+			padding-top: 160px;
+			text-align: left;
+			font-size: 9px;
+			width: 200px;
+		}
+		
+		/* An individual achievement */
+		div.achievement {
+			background-color: #506c80;
+		    display: block;
+		    margin-top: 5px;
+		    margin-bottom: 5px;
+		}
+		
+		img.ach_image {
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 5px;
+			left: 5px;
+		}
+		
+		.addassetprofile {
+		    width: 24px;
+		    height: 24px;
+		    position: absolute;
+		    bottom: 0px;
+		    left: 0px;
+		 }
+		
+		div.ach_title {
+			text-align:left; 
+			margin-left:30px; 
+			font-size:12px;
+			display: block;
+		}
+		div.ach_desc {
+		    display: block;
+			text-align:left; 
+			margin-left:30px; 
+			font-size:8px;
+		}
+		
+
+		.customavatar{
+			text-align: center;
+			vertical-align:middle;			
+			/*background-color: #506c80;
+			background-image: url(utfres://0x40484400!AvatarFrame_128.png);
+			background-repeat:no-repeat;*/
+			width: 154px;
+			height: 156px;
+			position: absolute;
+			left: 15px;
+		}
+		.customborder {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+		}
+		.customimage {
+			padding-left: 0px;
+			padding-top: 5px;
+		}
+		
+		/* An individual creation */
+	    div.creation {
+	    	display: inline-block;
+	    	height: 80px;
+	    	width: 70px;
+	    	padding-left: 5px;
+	    	padding-right: 5px;
+	    	margin-left: 5px;
+	    	margin-top: 10px;
+	    }
+	    	    
+		
+		/* An individual sporecast */
+		div.sporecast {
+		    background-color: #506c80;
+		    display: list-item;
+		    list-style-type: none;
+			margin-left:10px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			width=100%;
+			height=100px;
+		}
+
+		div.sporecast .title {
+		    display: inline;
+		    margin-right: 10px;
+			font-family: 'Trebuchet EA', Verdana, sans-serif;
+			font-size: 14px;
+			color: #FFFFFF;
+			margin-left: 10px;
+	    }
+	    
+		/* The subscribe/unsubscribe button */
+	    .sporecast-subscribe {
+	        display: inline-block;
+                margin-top: 0px;
+	        margin-left: 80px;
+	        background-color: #EEEEEE;
+	        color: #666666;
+			font-family: 'Trebuchet EA', Verdana, sans-serif;
+	        font-size: 8px;
+	        width: 90px;
+	        height: 8px;
+	     }
+	     
+	     /* Hide all the underlines, etc. for the links. */
+	     .sporecast-subscribe a:link {
+	        color: #666666;
+	        text-decoration: none;
+	     } 
+	     .sporecast-subscribe a:visited {
+	        color: #666666;
+	        text-decoration: none;
+	     } 
+	     .sporecast-subscribe a:active {
+	        color: #666666;
+	        text-decoration: none;
+	     } 
+
+	/* styles for the commentapproval block user section */
+	#blocked ul {
+	list-style:none;
+	}

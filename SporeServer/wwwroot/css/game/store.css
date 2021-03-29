@@ -1,0 +1,354 @@
+/* CSS Document */
+body {
+background-color:#162635;
+color: #FFFFFF;
+font-family: "Trebuchet EA", Verdana, sans-serif;
+padding:0px;
+margin:0px;
+}
+a:link {
+color: #FFFFFF;
+text-decoration:none;
+}
+a:hover {
+color: #FFFFFF;
+text-decoration:underline;
+}
+h2 {
+color:#FFFFFF;
+font-family: "Palatino Sans EA", Verdana, sans-serif;
+font-size: 12px;
+margin: 0px;
+}
+#leftcontent {
+margin-left: 5px;
+margin-right: 220px;
+height:659px;
+}
+#leftcontentsmall {
+margin-left: 0px;
+margin-right: 5px;
+width: 100%;
+}
+#rightcontent {
+position: absolute;
+right: 0px;
+bottom:0px;
+width: 220px;
+padding-left: 5px;
+height: 659px;
+background-image: url(/static/war/images/game/store/right_panel_sm.png);
+background-repeat:no-repeat;
+background-position:bottom right;
+}	
+#rightcontent img {
+width: 220px;
+height: 659px;
+position:absolute;
+right: 0px;
+bottom:0px;
+}
+
+#promotop{
+background-color:#506c81;
+border: 1px solid #091326;
+margin-right: 215px;
+margin-top: 0px;
+height: 165px;
+width: 100%;
+}
+#promotopsm{
+background-color:#506c81;
+border: 1px solid #091326;
+margin-right: 5px;
+margin-top: 0px;
+height: 165px;
+}
+#promocenter {
+background-color:#293b4f;
+border: 1px solid #435A6A;
+margin-right: 215px;
+margin-top: 5px;
+color:#FFFFFF;
+height: 200px;
+width: 100%;
+font-size: 8px;
+}
+#promocentersm {
+background-color:#293b4f;
+border: 1px solid #435A6A;
+margin-right:5px;
+margin-top: 5px;
+color:#FFFFFF;
+height: 200px;
+font-size: 8px;
+}
+#promobottom {
+background-color:#0a1225;
+border: 1px solid #435A6A;
+margin-right: 215px;
+margin-top: 5px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+height: 200px;
+width: 100%;
+}
+#promobottomsm {
+background-color:#0a1225;
+border: 1px solid #435A6A;
+margin-right:5px;
+margin-top: 5px;
+margin-bottom: 0px;
+height: 200px;
+}
+#promofourth{
+background-color:#506c81;
+border: 1px solid #091326;
+margin-right: 215px;
+margin-top: 5px;
+height: 165px;
+width: 100%;
+}
+#promofourthsm{
+background-color:#506c81;
+border: 1px solid #091326;
+margin-right: 5px;
+margin-top: 5px;
+height: 165px;
+}
+.header {
+width: 100%;
+height: 41px;
+margin-top: 3px;
+}
+.headermiddle {
+background-image: url(/static/war/images/game/spd/storehead_center.png);
+background-repeat:repeat;
+margin-left: 19px;
+margin-right: 19px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+height: 41px;
+text-align: center;
+}
+.headermiddle h1 {
+font-size:14px;
+margin: 0px;
+font-family: "Palatino Sans EA", Verdana, sans-serif;
+color: #FFFFFF;
+text-align:left;
+}
+.storeheaderLeft {
+position:absolute;
+top: 0px;
+left: 2px;
+width: 19px;
+height: 41px;
+}
+.storeheaderRight {
+position:absolute;
+top: 0px;
+right: 0px;
+width: 19px;
+height: 41px;
+}
+#promotopleft {
+position: absolute;
+top: 9px;
+left: 20px;
+width: 220px;
+height: 150px;
+}
+#promotopcenter {
+margin-top: 15px;
+margin-left: 151px;
+margin-right: 190px;
+height: 150px;
+width: 180px;
+color:#FFFFFF;
+font-size:8px;
+}
+#promotopright {
+position: absolute;
+top: 15px;
+right: 0px;
+width: 190px;
+height: 150px;
+}
+#promocenterleft {
+margin-top: 15px;
+margin-left: 151px;
+margin-right: 190px;
+height: 170px;
+width: 180px;
+color:#FFFFFF;
+font-size:8px;
+}
+#promocentercenter {
+position: absolute;
+top: 9px;
+left: 20px;
+width: 220px;
+height: 170px;
+}
+#promocenterright {
+position: absolute;
+top: 15px;
+right: 0px;
+width: 190px;
+height: 170px;
+}
+#promobottomleft {
+position: absolute;
+top: 9px;
+left: 15px;
+width: 220px;
+height: 130px;
+padding-left: 5px;
+}
+#promobottomcenter {
+margin-top: 15px;
+margin-left: 151px;
+margin-right: 190px;
+height: 165px;
+width: 180px;
+color:#FFFFFF;
+font-size:8px;
+}
+#promobottomright {
+position: absolute;
+top: 15px;
+right: 0px;
+width: 190px;
+height: 165px;
+}
+.orderbutton {
+background-image: url(/static/war/images/game/store/GoButton.png);
+background-repeat:no-repeat;
+width: 156px;
+height: 75px;
+text-align:center;
+padding-top: 20px;
+color: #FFFFFF;
+font-family: "Palatino Sans EA", Verdana, sans-serif;
+font-size: 12px;
+}
+.promotopimg {
+margin-top: 5px;
+margin-left: 10px;
+width: 141px;
+height: 92px;
+} 
+.promocenterimg {
+margin-top: 5px;
+margin-left: 5px;
+width: 141px;
+height: 92px;
+} 
+.promobottomimg {
+margin-top: 5px;
+margin-left: 5px;
+width: 141px;
+height: 92px;
+} 
+.promotoprightimg {
+margin-top: 5px;
+margin-left: 5px;
+width: 141px;
+height: 92px;
+} 
+#promorighttopcenter {
+margin-top: 15px;
+margin-left: 10px;
+margin-right: 190px;
+height: 150px;
+width: 170px;
+color:#FFFFFF;
+font-size:8px;
+text-align: left;
+}
+#rightpromotop {
+background-image:url(/static/war/images/game/store/MBG.png);
+background-repeat:no-repeat;
+width: 195px;
+height: 272px;
+margin-left: 5px;
+padding: 5px;
+font-size:8px;
+text-align: center;
+}
+#rightpromobottom {
+background-color:#0a1225;
+width: 141px;
+height: 92px;
+margin-left: 0px;
+margin-top: 5px;
+border: 1px solid #435A6A;
+text-align: center;
+}
+#rightpromotopimg {
+margin-top: 5px;
+margin-left: 5px;
+width: 141px;
+height: 92px;
+}
+#rightpromotopcta {
+position: absolute;
+bottom: 34px;
+left: 15px;
+width: 137px;
+height: 29px;
+text-align: center;
+}
+#rightpromobottombk{
+background-image:url(/static/war/images/game/store/ZZBGtop.png);
+background-repeat:no-repeat;
+width: 196px;
+height: 305px;
+background-color:#0a1225;
+}
+#rightpromobottomtext{
+width: 181px;
+height: 123px;
+background-image:url(/static/war/images/game/store/ZZtextBG.png);
+background-repeat:no-repeat;
+margin-top: 5px;
+margin-bottom: 5px;
+font-size: 8px;
+}
+#promorightbottomcenter2 {
+margin-top: 0px;
+margin-left: 10px;
+margin-right: 190px;
+height: 10px;
+width: 170px;
+color:#FFFFFF;
+font-size:8px;
+text-align: center
+}
+#promorightbottomcenter {
+margin-top: 25px;
+margin-left: 10px;
+margin-right: 190px;
+height: 150px;
+width: 170px;
+color:#FFFFFF;
+font-size:8px;
+text-align: left;
+}
+
+#rightpromobottomtext p {
+padding: 5px 10px;
+}
+.zazzle {
+padding-left: 7px;
+padding-top: 5px;
+height: 76px;
+width: 180px;
+}
+.zazzletwo {
+margin-top: 15px;
+margin-left: 25px;
+width: 141px;
+height: 92px;
+}

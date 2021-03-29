@@ -1,0 +1,449 @@
+﻿@page
+@model SporeServer.Pages.Community.AssetBrowser.CreateSporecastModel
+@{
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;" />
+    <title>Browse Sporecasts</title>
+    <!--<base href="http://community.spore.com" />-->
+    <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game/singleDownload.css" />
+</head>
+
+<body>
+
+
+    <div id="search">
+        <div id="searchmiddle">
+            <form method="get" action="/community/assetBrowser/createSporecast">
+                <p>
+                    <input type="text" name="searchText" value="" class="text" />
+                </p>
+
+
+                <p>
+                    <select name="filter" class="dropdown">
+                        <option value="">Type</option>
+
+                        <option value="731352134">
+
+                            Creature
+
+                        </option>
+
+                        <option value="925772804">
+
+                            &nbsp;&nbsp;Tribe Creature
+
+                        </option>
+
+                        <option value="3435355206">
+
+                            &nbsp;&nbsp;Civ Creature
+
+                        </option>
+
+                        <option value="1701259998">
+
+                            &nbsp;&nbsp;Space Creature
+
+                        </option>
+
+                        <option value="1098430696">
+
+                            &nbsp;&nbsp;Captain
+
+                        </option>
+
+                        <option value="597278293">
+
+                            Building
+
+                        </option>
+
+                        <option value="2582195973">
+
+                            &nbsp;&nbsp;City Hall
+
+                        </option>
+
+                        <option value="1312782199">
+
+                            &nbsp;&nbsp;House
+
+                        </option>
+
+                        <option value="1203833171">
+
+                            &nbsp;&nbsp;Factory
+
+                        </option>
+
+                        <option value="1925484929">
+
+                            &nbsp;&nbsp;Entertainment
+
+                        </option>
+
+                        <option value="610804372">
+
+                            Vehicle
+
+                        </option>
+
+                        <option value="2101559213">
+
+                            &nbsp;&nbsp;Military Land
+
+                        </option>
+
+                        <option value="2408988107">
+
+                            &nbsp;&nbsp;Military Water
+
+                        </option>
+
+                        <option value="1142739942">
+
+                            &nbsp;&nbsp;Military Air
+
+                        </option>
+
+                        <option value="4134578755">
+
+                            &nbsp;&nbsp;Economic Land
+
+                        </option>
+
+                        <option value="709969833">
+
+                            &nbsp;&nbsp;Economic Water
+
+                        </option>
+
+                        <option value="441321224">
+
+                            &nbsp;&nbsp;Economic Air
+
+                        </option>
+
+                        <option value="2597835946">
+
+                            &nbsp;&nbsp;Religious Land
+
+                        </option>
+
+                        <option value="522855862">
+
+                            &nbsp;&nbsp;Religious Water
+
+                        </option>
+
+                        <option value="1151075343">
+
+                            &nbsp;&nbsp;Religious Air
+
+                        </option>
+
+                        <option value="3155182054">
+
+                            &nbsp;&nbsp;Colony Land
+
+                        </option>
+
+                        <option value="3243677146">
+
+                            &nbsp;&nbsp;Colony Water
+
+                        </option>
+
+                        <option value="546349339">
+
+                            &nbsp;&nbsp;Colony Air
+
+                        </option>
+
+                        <option value="1198168263">
+
+                            Spaceship
+
+                        </option>
+
+                        <option value="912954125">
+
+                            Adventures
+
+                        </option>
+
+                        <option value="544802838">
+
+                            &nbsp;&nbsp;No Genre
+
+                        </option>
+
+                        <option value="662802406">
+
+                            &nbsp;&nbsp;Template
+
+                        </option>
+
+                        <option value="679140572">
+
+                            &nbsp;&nbsp;Attack
+
+                        </option>
+
+                        <option value="3276561940">
+
+                            &nbsp;&nbsp;Defend
+
+                        </option>
+
+                        <option value="4218637521">
+
+                            &nbsp;&nbsp;Socialize
+
+                        </option>
+
+                        <option value="939347469">
+
+                            &nbsp;&nbsp;Explore
+
+                        </option>
+
+                        <option value="3290583454">
+
+                            &nbsp;&nbsp;Quest
+
+                        </option>
+
+                        <option value="3027271567">
+
+                            &nbsp;&nbsp;Story
+
+                        </option>
+
+                        <option value="631695982">
+
+                            &nbsp;&nbsp;Collect
+
+                        </option>
+
+                        <option value="3799898836">
+
+                            &nbsp;&nbsp;Puzzle
+
+                        </option>
+
+                    </select>
+                </p>
+
+                <p><input type="submit" value="Search" class="submit" /></p>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div style="margin-left: 0px;">
+        <div id="paging">
+            <div class="context">
+
+
+
+                Showing 1-8 of 2,460
+
+
+
+
+
+
+            </div>
+            <div class="next">
+
+                <!-- no page back -->
+
+
+                <a href="/assetBrowser/createSporecast/0"><img src="/static/war/images/game/spd/previousArrow.png" alt="previous" class="previousarrow" />previous</a>
+
+
+
+
+
+                <a href="/assetBrowser/createSporecast/8">next<img src="/static/war/images/game/spd/nextArrow.png" alt="next" class="nextarrow" /></a>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="allassets">
+
+
+
+
+
+        <div class="assetContainer">
+            <div class="assetBackground TRIBE_CREATURE">
+                <img src="/static/thumb/501/090/103/501090103611.png" alt="HobBloglin" class="assetImage" />
+                <div class="assetTitle">
+
+
+                    HobBloglin
+
+
+                    <p class="assetAuthor">Gefian</p>
+                </div>
+            </div>
+            <div class="linkContainer">
+                <p class="assetLinks"><a href="spore:501090103611.925772804">Add to Sporecast</a></p>
+            </div>
+        </div>
+
+        <div class="assetContainer">
+            <div class="assetBackground TRIBE_CREATURE">
+                <img src="/static/thumb/501/090/103/501090103608.png" alt="Chochoman" class="assetImage" />
+                <div class="assetTitle">
+
+
+                    Chochoman
+
+
+                    <p class="assetAuthor">Gefian</p>
+                </div>
+            </div>
+            <div class="linkContainer">
+                <p class="assetLinks"><a href="spore:501090103608.925772804">Add to Sporecast</a></p>
+            </div>
+        </div>
+
+        <div class="assetContainer">
+            <div class="assetBackground TRIBE_CREATURE">
+                <img src="/static/thumb/501/090/101/501090101763.png" alt="Fyffeller" class="assetImage" />
+                <div class="assetTitle">
+
+
+                    Fyffeller
+
+
+                    <p class="assetAuthor">Gefian</p>
+                </div>
+            </div>
+            <div class="linkContainer">
+                <p class="assetLinks"><a href="spore:501090101763.925772804">Add to Sporecast</a></p>
+            </div>
+        </div>
+
+        <div class="assetContainer">
+            <div class="assetBackground ECONOMIC_WATER">
+                <img src="/static/thumb/501/090/103/501090103592.png" alt="catricletenaval" class="assetImage" />
+                <div class="assetTitle">
+
+                    catricleten...
+
+
+
+                    <p class="assetAuthor">9hiago98</p>
+                </div>
+            </div>
+            <div class="linkContainer">
+                <p class="assetLinks"><a href="spore:501090103592.709969833">Add to Sporecast</a></p>
+            </div>
+        </div>
+
+        <div class="assetContainer">
+            <div class="assetBackground ECONOMIC_AIR">
+                <img src="/static/thumb/501/090/103/501090103583.png" alt="comercialista" class="assetImage" />
+                <div class="assetTitle">
+
+                    comercialis...
+
+
+
+                    <p class="assetAuthor">9hiago98</p>
+                </div>
+            </div>
+            <div class="linkContainer">
+                <p class="assetLinks"><a href="spore:501090103583.441321224">Add to Sporecast</a></p>
+            </div>
+        </div>
+
+        <div class="assetContainer">
+            <div class="assetBackground ENTERTAINMENT">
+                <img src="/static/thumb/501/090/103/501090103484.png" alt="salao de festa" class="assetImage" />
+                <div class="assetTitle">
+
+                    salao de fe...
+
+
+
+                    <p class="assetAuthor">9hiago98</p>
+                </div>
+            </div>
+            <div class="linkContainer">
+                <p class="assetLinks"><a href="spore:501090103484.1925484929">Add to Sporecast</a></p>
+            </div>
+        </div>
+
+        <div class="assetContainer">
+            <div class="assetBackground CULTURAL_WATER">
+                <img src="/static/thumb/501/090/102/501090102800.png" alt="ZZeeee Fuun 847" class="assetImage" />
+                <div class="assetTitle">
+
+                    ZZeeee Fuun...
+
+
+
+                    <p class="assetAuthor">Aegipan1313</p>
+                </div>
+            </div>
+            <div class="linkContainer">
+                <p class="assetLinks"><a href="spore:501090102800.522855862">Add to Sporecast</a></p>
+            </div>
+        </div>
+
+        <div class="assetContainer">
+            <div class="assetBackground HOUSE">
+                <img src="/static/thumb/501/090/103/501090103482.png" alt="casa dos catriclete" class="assetImage" />
+                <div class="assetTitle">
+
+                    casa dos ca...
+
+
+
+                    <p class="assetAuthor">9hiago98</p>
+                </div>
+            </div>
+            <div class="linkContainer">
+                <p class="assetLinks"><a href="spore:501090103482.1312782199">Add to Sporecast</a></p>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,457 @@
+body, html {
+	background-color: #273F5B;
+	color: #FFFFFF;
+	font-family: "Palatino Sans EA", Verdana, Arial, Helvetica, sans-serif;	
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+}	
+h1{
+	font-family: "Palatino Sans EA", Verdana, Arial, Helvetica, sans-serif;	
+	font-size: 12pt;
+	margin: 0px;
+	text-align: center;
+}
+h2 {
+	font-family: "Palatino Sans EA", Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	margin: 0px;
+	padding: 0px;
+	font-weight:bold;
+	color:#ffffff;
+}
+a:link, a:visited, a:active {
+	color: #9FCDE4;
+	text-decoration:underline;
+}
+a:hover {
+	color: #ffffff;
+	text-decoration:underline;
+}
+.submit {
+	height: 25px;
+	width: 80px;
+	text-align: center;
+	vertical-align: middle;
+	color: #FFFFFF;
+	padding: 5px;
+	margin-top: 1px;
+	font-size: 8px;
+}
+.searchArea {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 400px;
+	height: 150px;
+}
+.browseHeader {	
+	font-size: 22px;
+	color: #a0a0a0;	
+}
+.browseArea {
+	position: absolute;
+	top: 210px;
+	left: 10px;
+}
+.assetContainer {
+	width: 150px;
+	height: 238px;
+	float: left;
+}
+.assetBackground {
+	height: 188px;
+	width: 142px;	
+	background-repeat:no-repeat;
+}
+.assetLinks {
+	text-align: center;
+	font-size:8px;
+}
+.assetTitle {
+	margin-top: 6px; 
+	height: 15px; 
+	margin-left: 6px;
+	text-align: center;
+}
+.assetAuthor {
+	font-size: 8px; 
+	text-align: center;
+}
+p.assetAuthor{margin:1px 0px 2px 0px}
+.linkContainer {
+	position:relative;
+	padding:0px;
+}
+.assetImage {
+	position: absolute;
+	top: 75px;
+	left: 25px;
+	height:90px;
+	width:90px;
+}
+.adv-assetImage {
+	top: 42px;
+	left: 7px;
+	height:127px;
+	width:127px;	
+}
+.CREATURE {
+	background-image: url(utfres://0x40484400!spdCardCreatureCE.png);			
+}       
+.TRIBE_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardTribeCE.png);
+}
+.CIV_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardCivCE.png);
+}
+.SPACE_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardSpaceCE.png);
+}
+.ADVENTURE_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardSpaceCE.png);
+}
+.CITY_HALL{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.HOUSE{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.INDUSTRY{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.ENTERTAINMENT{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.MILITARY_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.MILITARY_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.MILITARY_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.ECONOMIC_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.ECONOMIC_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.ECONOMIC_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.CULTURAL_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.CULTURAL_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.CULTURAL_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.COLONY_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.COLONY_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.COLONY_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.UFO{
+	background-image: url(utfres://0x40484400!spdCardUFO.png);
+}
+.ADV_UNSET, .ADV_TEMPLATE, .ADV_ATTACK, .ADV_DEFEND, .ADV_SOCIALIZE, .ADV_EXPLORE, .ADV_QUEST, .ADV_STORY, .ADV_COLLECT, .ADV_PUZZLE {
+	background-image: url(utfres://0x40484400!spdCardUFO.png);
+}
+.adv-points-value {
+	position: absolute;
+	top: 13px;
+	left: 12px;
+	font-size:8px;
+}
+.adv-points-value100 {
+	left: 10px;
+}
+.adv-points{	
+	background-repeat:no-repeat;	
+	height: 40px;
+	width: 36px;
+	position: absolute;
+	top: 45px;
+	right: 9px;
+}
+.adv-points-ADV_UNSET {
+	background-image: url(utfres://0x40484400!Type-mini-nogenre.png);
+}
+.adv-points-ADV_TEMPLATE {
+	background-image: url(utfres://0x40484400!Type-mini-template.png);
+}
+.adv-points-ADV_STORY {
+	background-image: url(utfres://0x40484400!Type-mini-story.png);
+}
+.adv-points-ADV_ATTACK {
+	background-image: url(utfres://0x40484400!Type-mini-attack.png);
+}
+.adv-points-ADV_DEFEND {
+	background-image: url(utfres://0x40484400!Type-mini-defend.png);
+}
+.adv-points-ADV_SOCIALIZE {
+	background-image: url(utfres://0x40484400!Type-mini-socialize.png);
+}
+.adv-points-ADV_EXPLORE {
+	background-image: url(utfres://0x40484400!Type-mini-explore.png);
+}
+.adv-points-ADV_QUEST {
+	background-image: url(utfres://0x40484400!Type-mini-quest.png);
+}
+.adv-points-ADV_PUZZLE {
+	background-image: url(utfres://0x40484400!Type-mini-puzzle.png);
+}
+.adv-points-ADV_COLLECT {
+	background-image: url(utfres://0x40484400!Type-mini-collect.png);
+}
+.adv-threebumps {
+	background-image: url(utfres://0x40484400!3-bumps.png);
+	height: 46px;
+	width: 131px;	
+	background-repeat:no-repeat;
+	position: absolute;
+	top: 140px;
+	left: 5px;	
+}
+.adv-playcount-icon {
+	background-image: url(utfres://0x40484400!Play-count.png);
+	height: 21px;
+	width: 24px;
+	background-repeat:no-repeat;
+	position: absolute;
+	top: 7px;
+	left: 55px;		
+}
+.adv-playcount {
+	position: absolute;
+	top: 20px;
+	left: 45px;
+}
+.unlocked-capt-icon {
+	background-image: url(utfres://0x40484400!No-captain.png);
+	height: 47px;
+	width: 37px;
+	position: absolute;
+	top: 85px;
+	right: 9px;		
+}
+.rating-icon {	
+	height: 21px;
+	width: 21px;
+	background-repeat:no-repeat;
+	position: absolute;
+	top: 7px;
+	left: 10px;	
+}
+.non-adv-rating-icon {	
+	height: 21px;
+	width: 21px;
+	background-repeat:no-repeat;
+	position: absolute;
+	top: 155px;
+	left: 12px;	
+}
+.rating-icon0 {
+	background-image: url(utfres://0x40484400!Rating-mini0.png);
+}
+.rating-icon-2 {
+	background-image: url(utfres://0x40484400!Rating-mini-2.png);
+}
+.rating-icon-1 {
+	background-image: url(utfres://0x40484400!Rating-mini-1.png);
+}
+.rating-icon_1 {
+	background-image: url(utfres://0x40484400!Rating-mini+1.png);
+}
+.rating-icon_2 {
+	background-image: url(utfres://0x40484400!Rating-mini+2.png);
+}
+.difficulty-icon {
+	height: 13px;
+	width: 31px;
+	position: absolute;
+	top: 7px;
+	left: 95px;		
+}
+.difficulty-icon-1 {
+	background-image: url(utfres://0x40484400!Difficulty-mini-1.png);
+}
+.difficulty-icon-2 {
+	background-image: url(utfres://0x40484400!Difficulty-mini-2.png);
+}
+.difficulty-icon-3 {
+	background-image: url(utfres://0x40484400!Difficulty-mini-3.png);
+}
+.difficulty-icon-4 {
+	background-image: url(utfres://0x40484400!Difficulty-mini-4.png);
+}
+.difficulty-icon-5 {
+	background-image: url(utfres://0x40484400!Difficulty-mini-5.png);
+}
+.next {
+	position:absolute;
+	right:0px;
+	margin-right: 10px;
+	font-size:10px;
+	width: 200px;
+	text-align: right;
+	padding-top: 3px;
+}
+#bevelHeader {
+	width: 560px;
+	height: 25px;
+	background-image: url(utfres://0x40484400!search_header_tint_560.png);
+	background-repeat:no-repeat;
+	vertical-align: middle;
+}
+#bevelSides {
+	width: 560px;
+	background-image: url(utfres://0x40484400!search_sides_560.png);
+	background-repeat:repeat;
+	height: 120px;
+}
+#bevelFooter {
+	width: 560px;
+	background-image: url(utfres://0x40484400!search_footer_560.png);
+	background-repeat:no-repeat;
+	height: 17px;
+}
+.cboxContainer {
+	position: absolute; 
+	width: 180px;
+}
+.cboxContainer INPUT {
+	float:left;
+}
+.cboxLeft1 {
+	top:40px; 
+	left:10px;
+}
+.cboxLeft2 {
+	top:80px; 
+	left:10px;
+}
+.cboxRight1 {
+	top:40px; 
+	left:200px; 
+}
+.cboxRight2 {
+	top:80px; 
+	left:200px; 
+}
+.cboxLabel {
+	margin-top: 2px; 
+	font-size: 10pt; 
+	font-weight: bold;
+}
+table.browseTable TD {
+	width: 500px;	
+	padding: 0px 2px 10px 2px;
+	vertical-align:middle;
+	text-align:middle;
+	margin: 0px;	
+}
+table.browseTable {
+	width: 500px;
+	padding-left: 15px;
+	margin-top: -10px;
+}
+table.browseTable_ADV {
+	width: 360px;
+}
+.browseBevel {
+	height: 180px;
+}
+.browseBevel_LV {
+	height: 130px;
+}
+.browseBevel_LANG {
+	height: 30px;
+}
+.browseBevel_ADV {
+	height: 200px;
+	width: 400px;
+	background-image: url(utfres://0x40484400!search_sides_400.png);
+}
+.bevelHeader_ADV {
+	width: 400px;
+	background-image: url(utfres://0x40484400!search_header_tint_400.png);
+}
+.bevelFooter_ADV {
+	width: 400px;
+	background-image: url(utfres://0x40484400!search_footer_400.png);	
+}
+.browseBevel_DIFF {
+	height: 200px;
+	width: 120px;	
+	background-image: url(utfres://0x40484400!search_sides_120.png);
+}
+.bevelHeader_DIFF {
+	width: 120px;
+	background-image: url(utfres://0x40484400!search_header_tint_120.png);
+}
+.bevelFooter_DIFF {
+	width: 120px;
+	background-image: url(utfres://0x40484400!search_footer_120.png);
+}
+.dropdown {
+	float: left;
+	margin-top: 7px;
+	padding-left:10px;
+}
+.bigBgd {
+	background-color: #273F5B;
+	width: 846px;
+	height: 669px;
+	background-position: bottom right;	
+	background-repeat:no-repeat;
+}
+.startBgd {
+	background-image: url(utfres://0x40484400!bckgd_step1.png);
+}
+.crgBgd {
+	background-image: url(utfres://0x40484400!bckgd_creatures.png);
+}
+.advBgd {
+	background-image: url(utfres://0x40484400!bckgd_adventures.png);
+}
+.bldBgd {
+	background-image: url(utfres://0x40484400!bckgd_buildings.png);
+}
+.lvBgd {
+	background-image: url(utfres://0x40484400!bckgd_landvehicles.png);
+}
+.avBgd {
+	background-image: url(utfres://0x40484400!bckgd_airvehicles.png);
+}
+.svBgd {
+	background-image: url(utfres://0x40484400!bckgd_seavehicles.png);
+}
+.diffBoxes {
+	margin-left: 20px; 
+	margin-top: 10px; 
+	width: 80px;
+}
+table.diffTable {
+	width:120px;
+	padding-left:5px;
+}
+table.diffTable TD {
+	width: 10px;	
+	padding: 10px 0px 0px 10px;
+	vertical-align:middle;
+	text-align:middle;
+	margin: 0px;	
+}
+headerTitle {
+	font-size: 40px;
+	margin-left: 0px;	
+}

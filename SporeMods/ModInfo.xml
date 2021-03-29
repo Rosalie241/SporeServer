@@ -1,0 +1,9 @@
+<mod displayName="SporeRedirectTraffic" 
+	unique="SporeRedirectTraffic" 
+	description="This mod will redirect all network traffic" 
+	installerSystemVersion="1.0.1.1" 
+	dllsBuild="2.5.20">
+	<prerequisite>SporeRedirectTraffic.dll</prerequisite>
+	<prerequisite>SporeForceHTTP.dll</prerequisite>
+	<prerequisite>SporeFixHTTP.dll</prerequisite>
+</mod>

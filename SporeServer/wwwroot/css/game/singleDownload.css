@@ -1,0 +1,377 @@
+body, html {
+background-color: #273F5B;
+	color: #FFFFFF;
+	font-family: "Trebuchet EA", Verdana, sans-serif;
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+}
+a:link, a:visited, a:active {
+	color: #A7D7ED;
+	text-decoration:underline;
+}
+a:hover {
+	color: #fff;
+	text-decoration:underline;
+}
+#content {
+background-color: #162635;
+position: relative;
+height: 100%;
+}
+* html #content {
+height: 100%;
+}
+#header {
+width: 100%;
+height: 60px;
+background-color:#162635;
+}
+#headermiddle {
+background-image: url(utfres://0x40484400!New_TileMiddle.png);
+background-repeat:repeat;
+margin-left: 108px;
+margin-right: 123px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+height: 60px;
+text-align: center;
+}
+#headermiddle h1 {
+font-size:18px;
+padding-top: 15px;
+margin: 0px;
+font-family: "Palatino Sans EA", Verdana, sans-serif;
+}
+.headerLeft {
+position:absolute;
+top: 0px;
+left: 0px;
+width: 108px;
+height: 60px;
+}
+.headerRight {
+position:absolute;
+top: 0px;
+right: 0px;
+width: 123px;
+height: 60px;
+}
+#search {
+text-align:center;
+height: 45px;
+background-color:#162635;
+}
+.dropdown {
+margin-top:4px;
+}
+.submit {
+height: 25px;
+width: 80px;
+text-align: center;
+vertical-align: middle;
+color: #FFFFFF;
+padding: 5px;
+margin-top: 1px;
+font-size: 8px;
+}
+
+.text {
+text-align: left;
+vertical-align:baseline;
+height: 25px;
+margin-top: 4px;
+}
+#searchmiddle {
+text-align:center;
+height: 45px;
+background-image: url(utfres://0x40484400!spd_LargeCard_AssetNameBkrd.png);
+background-repeat:repeat; 
+}
+#search p {
+margin: 0px;
+display:inline;
+}
+#results {
+border-left: 1px solid #000000;
+border-right: 1px solid #000000;
+padding-bottom: 10px;
+}
+#paging {
+background-color: #1C2A45;
+height: 20px;
+width: 99%;
+font-size: 8px;
+margin: 0px;
+padding: 3px 0px;
+color:#fff;
+}
+#paging .next {
+position:absolute;
+right:0px;
+margin-right: 10px;
+font-size:9px;
+width: 200px;
+text-align: right;
+padding-top: 3px;
+}
+#paging .context {
+position:absolute;
+left:0px;
+margin-left: 10px;
+font-size: 9px;
+padding-top: 4px;
+}
+#paging a:link, #paging a:visited, #paging a:active {
+	color: #fff;
+	text-decoration:underline;
+}
+#paging a:hover {
+	color: #A7D7ED;
+	text-decoration:underline;
+}
+.nextarrow {
+width: 5px;
+height: 8px;
+margin-left: 5px;
+}
+.prevarrow {
+width: 5px;
+height: 8px;
+margin-left: 5px;
+}
+#results table {
+background-color: #506c80;
+margin: 0px 10px 5px 10px;
+border-left: 1px solid #23374a;
+border-right: 1px solid #23374a;
+border-bottom: 1px solid #23374a; 
+width: 90%;
+}
+#results td {
+background-color: #506c80;
+padding: 2px;
+text-align: left;
+}
+#results td.odd {
+background-color: #394e5e;
+}
+table.buddyresults {
+margin: 0px 10px;
+}
+td.findsporecast {
+border-top: 1px solid #23374a;
+border-bottom: 1px solid #23374a;
+background-color: #506c80;
+width: 100%;
+}
+h3 {
+font-family: "Palatino Sans EA", Verdana, sans-serif;
+}
+td.avatar {
+width: 25%;
+}
+td.avatar2col {
+width: 10%;
+}
+td.avatar img{
+width: 25px;
+height: 24px;
+}
+td.avatar2col img{
+width: 25px;
+height: 24px;
+}
+
+td.buddyname {
+width: 50%;
+font-size: 8px;
+}
+td.buddyname2col {
+width: 25%;
+}
+td.add {
+width: 25%;
+font-size: 8px;
+}
+td.add2col {
+width: 15%;
+font-size: 8px;
+}
+
+#footer {
+position: relative;
+bottom: 0px;
+width: 100%;
+height: 101px;
+margin-top: -101px;
+}
+.footerLeft {
+position: absolute;
+bottom: 0px;
+left: 0px;
+width: 194px;
+height: 101px;
+}
+.footerRight {
+position: absolute;
+bottom: 0px;
+right: 0px;
+width: 309px;
+height: 101px;
+}
+#footermiddle {
+	position: absolute;
+	bottom: 0px;
+	left: 194px;
+	right: 309px;
+	background-image: url(utfres://0x40484400!FindBuddy_BottomTile.png);
+	background-repeat:repeat;
+	height: 101px;
+	text-align: center;
+}
+#allassets {
+poairio
+margin-top:5px;
+border:1px solid #fff;
+}
+.assetContainer {
+	width: 150px;
+	float: left;
+	padding-bottom: 15px;
+}
+.assetBackground {
+	height: 188px;
+	width: 142px;	
+	background-repeat:no-repeat;
+}
+.assetLinks {
+	text-align: center;
+	font-size:8px;
+}
+.assetTitle {
+	margin-top: 8px; 
+	height: 20px; 
+	margin-left: 6px;
+	text-align: center;
+}
+.assetAuthor {
+	font-size: 8px; 
+	text-align: center;
+}
+.linkContainer {
+position:relative;
+	padding:0px;
+}
+
+.assetImage {
+	position: absolute;
+	top: 75px;
+	left: 25px;
+	height:90px;
+	width:90px;
+}
+
+.CREATURE {
+	background-image: url(utfres://0x40484400!spdCardCreatureCE.png);			
+}       
+.TRIBE_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardTribeCE.png);
+}
+.CIV_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardCivCE.png);
+}
+.SPACE_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardSpaceCE.png);
+}
+.ADVENTURE_CREATURE{
+	background-image: url(utfres://0x40484400!spdCardSpaceCE.png);
+}
+.CITY_HALL{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.HOUSE{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.INDUSTRY{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.ENTERTAINMENT{
+	background-image: url(utfres://0x40484400!spdCardBuilding.png);
+}
+.MILITARY_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.MILITARY_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.MILITARY_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.ECONOMIC_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.ECONOMIC_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.ECONOMIC_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.CULTURAL_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.CULTURAL_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.CULTURAL_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.COLONY_LAND{
+	background-image: url(utfres://0x40484400!spdCardLandVE.png);
+}
+.COLONY_WATER{
+	background-image: url(utfres://0x40484400!spdCardSea.png);
+}
+.COLONY_AIR{
+	background-image: url(utfres://0x40484400!spdCardAirVE.png);
+}
+.UFO{
+	background-image: url(utfres://0x40484400!spdCardUFO.png);
+}
+.ADV_UNSET, .ADV_TEMPLATE, .ADV_ATTACK, .ADV_DEFEND, .ADV_SOCIALIZE, .ADV_EXPLORE, .ADV_QUEST, .ADV_STORY, .ADV_COLLECT, .ADV_PUZZLE {
+	background-image: url(utfres://0x40484400!spdCardUFO.png);
+}
+.emptySlots {
+	position: absolute;
+	bottom:-50px;
+	left:10px;
+	width:300px;
+	height:150px;
+}
+
+.sporecastName{
+	position: absolute;
+	left:10px;
+	top:320px;
+}
+
+.sporecastDesc{
+	position: absolute;
+	right:200px;
+	top:300px;
+}
+.searchLeft {
+	position:absolute;
+	top: 4px;
+	left: 0px;
+	width: 30px;
+	height: 44px;
+}
+.searchRight {
+	position:absolute;
+	top: 0px;
+	right: 0px;
+	width: 30px;
+	height: 44px;
+}
+
