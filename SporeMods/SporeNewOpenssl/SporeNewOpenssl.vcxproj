@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6D85351F-5F3F-4EE3-8714-2BBA1D646C8D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>SporeNewOpenssl</RootNamespace>
+    <RootNamespace>SporeNewOpenSSL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
