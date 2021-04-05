@@ -44,12 +44,6 @@
 // configure options
 //
 
-// saves cookie from previous sessions
-// and injects them when a header
-// doesn't contain a cookie,
-// this is required for SporeServer
-#define SPORENEWOPENSSL_FIXHTTP
-
 // forces HTTPS on all connections
 #define SPORENEWOPENSSL_FORCEHTTPS
 
@@ -68,14 +62,14 @@ static int			OpenSSL_ThreadId = -1;
 
 static void DisplayError(const char* fmt, ...)
 {
-	char buf[2000];
+	char buf[200];
 
 	va_list args;
 	va_start(args, fmt);
 	vsprintf(buf, fmt, args);
 	va_end(args);
 
-	MessageBoxA(NULL, buf, "SporeModernOpenssl", MB_OK | MB_ICONERROR);
+	MessageBoxA(NULL, buf, "SporeModernOpenSSL", MB_OK | MB_ICONERROR);
 }
 
 //
@@ -112,6 +106,7 @@ static int WINAPI closesocket_detour(SOCKET s)
 	// the game always calls closesocket
 	if (OpenSSL_ThreadId == GetCurrentThreadId())
 	{
+		OpenSSL_ThreadId = -1;
 		OpenSSL_MTX.unlock();
 	}
 
@@ -170,65 +165,15 @@ static_detour(SSLConnectDetour, int(void*)) {
 static_detour(SSLReadDetour, int(void*, void*, int)) {
 	int detoured(void* ssl, void* buffer, int num)
 	{
-		return SSL_read(OpenSSL_SSL, buffer, num);;
+		return SSL_read(OpenSSL_SSL, buffer, num);
 	}
 };
+
 
 static_detour(SSLWriteDetour, int(void*, const void*, int)) {
 	int detoured(void* ssl, const void* buffer, int num)
 	{
-#ifdef SPORENEWOPENSSL_FIXHTTP
-		static char* cookie_str = NULL;
-		static bool sent_cookie = false;
-		static bool saved_cookie = false;
-		static bool in_header = false;
-
-		const char* str_buf = (const char*)buffer;
-
-		// begin of HTTP header
-		if (strstr(str_buf, "GET") != NULL ||
-			strstr(str_buf, "POST") != NULL)
-		{
-			in_header = true;
-			sent_cookie = false;
-		}
-		// store cookie
-		else if (strstr(str_buf, "Cookie:") != NULL)
-		{
-			// hopefully this won't fail, ever
-			cookie_str = _strdup(str_buf);
-			if (cookie_str == NULL)
-			{
-				DisplayError("strdup(buf) Failed: %li", GetLastError());
-				return -1;
-			}
-
-			saved_cookie = true;
-			sent_cookie = true;
-		}
-		// end of HTTP header
-		else if (strcmp(str_buf, "\r\n") == 0
-			&& in_header)
-		{
-			// inject cookie if no cookie has been sent
-			if (saved_cookie
-				&& !sent_cookie)
-			{
-				int ret;
-				ret = SSL_write(OpenSSL_SSL, cookie_str, strlen(cookie_str));
-				if (ret <= 0)
-				{
-					return ret;
-				}
-			}
-
-			in_header = false;
-		}
-
 		return SSL_write(OpenSSL_SSL, buffer, num);
-#else
-		return SSL_write(OpenSSL_SSL, buffer, num);
-#endif
 	}
 };
 
