@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SporeServer;
 using SporeServer.Areas.Identity.Data;
+using SporeServer.Middleware;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -36,17 +37,6 @@ namespace SporeServer
         {
             services.AddControllers();
             services.AddRazorPages();
-
-            services.ConfigureApplicationCookie(options =>
-            {
-                // Cookie settings
-                //options.Cookie = true;
-               // options.ExpireTimeSpan = TimeSpan.FromHours(5);
-
-                options.LoginPath = "";
-                options.AccessDeniedPath = "";
-                options.SlidingExpiration = true;
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,8 +47,11 @@ namespace SporeServer
                 app.UseDeveloperExceptionPage();
             }
 
-            // TODO:
-            // app.UseHttpsRedirection();
+            app.UseMiddleware<SporeAuthMiddleware>();
+
+            app.UseHttpsRedirection();
+
+            app.UseHsts();
 
             app.UseStaticFiles();
 
@@ -74,10 +67,9 @@ namespace SporeServer
                 endpoints.MapRazorPages();
             });
 
-
             app.UseStatusCodePages(async context =>
             {
-                Console.WriteLine($"{context.HttpContext.Request.Method} {context.HttpContext.Request.Path}");
+                Console.WriteLine($"{context.HttpContext.Request.Method} {context.HttpContext.Request.Path}{context.HttpContext.Request.QueryString}");
                 Console.WriteLine(context.HttpContext.Response.StatusCode);
             });
         }

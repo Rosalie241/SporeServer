@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -21,7 +24,7 @@ namespace SporeServer.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SporeServerContextConnection")));
 
-                services.AddIdentity<SporeServerUser, IdentityRole>(options =>
+                services.AddIdentity<SporeServerUser, IdentityRole<Int64>>(options =>
                 {
                     // Password settings.
                     options.Password.RequireDigit = true;
@@ -44,7 +47,27 @@ namespace SporeServer.Areas.Identity
                     // TODO maybe?
                     // I don't have a smtp server yet though..
                     options.SignIn.RequireConfirmedAccount = false;
+
+                    
                 }).AddEntityFrameworkStores<SporeServerContext>().AddDefaultTokenProviders();
+
+                services.ConfigureApplicationCookie(options =>
+                {
+                    // Cookie settings
+                    options.Cookie.HttpOnly = true;
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                    options.SlidingExpiration = true;
+
+                    // Disable login page redirect
+                    options.Events = new CookieAuthenticationEvents()
+                    {
+                        OnRedirectToLogin = context =>
+                        {
+                            context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                            return Task.FromResult(0);
+                        }
+                    };
+                });
             });
         }
     }

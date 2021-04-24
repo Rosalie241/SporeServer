@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Asset Browser : Home</title>
-    <!--<base href="http://community.spore.com" />-->
+    <base href="https://community.spore.com" />
     <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
     <link rel="stylesheet" type="text/css" href="/css/game/createSporecast.css" />
     <link rel="stylesheet" type="text/css" href="/css/game/myspore.css" />
@@ -186,17 +186,16 @@
                 <div class="noavatar" style="margin-left:20px;"><img src="/static/war/images/game/spd/spd_NoAvatar.png" alt="Avatar" height="144px" width="144px" /></div>
 
 
+            <div class="usertext">
+                <h1 class="username">@User.Identity.Name</h1>
 
-                <div class="usertext">
-                    <h1 class="username">@User.Identity.Name</h1>
+                Subscribers: @(Model.GetSubscriberCountAsync())
+                <br /> Sporecasts: 0
+                <br /> Creations: 0
 
-                    Subscribers: 0
-                    <br /> Sporecasts: 0
-                    <br /> Creations: 0
+                <br />
 
-                    <br />
-
-                </div>
+            </div>
             </div>
         </div>
 
@@ -323,7 +322,7 @@
                     <h1>Comments</h1>
                 </div>
                 <div class="headlink">
-                    <a href="community/assetBrowser/commentApproval">Manage Comments</a>
+                    <a href="/community/assetBrowser/commentApproval">Manage Comments</a>
                 </div>
             </div>
             <div class="headerRight"></div>

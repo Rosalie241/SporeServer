@@ -7,12 +7,15 @@
  *  You should have received a copy of the GNU Affero General Public License
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SporeServer.Areas.Identity.Data;
+using SporeServer.Data;
 using SporeServer.Models;
 
 namespace SporeServer.Pages.Community.Auth
@@ -20,25 +23,45 @@ namespace SporeServer.Pages.Community.Auth
     [AllowAnonymous]
     public class RegisterNewModel : PageModel
     {
+        private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
 
-        public RegisterNewModel(UserManager<SporeServerUser> userManager)
+        public RegisterNewModel(SporeServerContext context, UserManager<SporeServerUser> userManager)
         {
+            _context = context;
             _userManager = userManager;
         }
 
         public async Task<IActionResult> OnGetAsync(RegisterInfo info)
         {
             if (!ModelState.IsValid)
+            {
                 return Page();
+            }
+
+            var user = new SporeServerUser
+            {
+                UserName = info.DisplayName,
+                Email = info.Email
+            };
 
             IdentityResult result = await _userManager.CreateAsync(
-                new SporeServerUser { 
-                    UserName = info.DisplayName, 
-                    Email = info.Email 
-                }, info.Password);
+                user, info.Password);
 
-            return LocalRedirect(Request.Path + "?success=" + result.Succeeded);
+            if (!result.Succeeded)
+            {
+                Console.WriteLine("FAILEDDD");
+            }
+            else
+            {
+                Console.WriteLine("REDIRECTING NOWWW");
+                Console.WriteLine(LocalRedirect(Request.Path + "?success=" + result.Succeeded).Url);
+            }
+                   
+            // TODO
+            return Redirect($"https://localhost/community/auth/registerNew?success={result.Succeeded}");
+
+            //return LocalRedirect(Request.Path + "?success=" + result.Succeeded);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace SporeServer.Pages.Community.AssetBrowser
     {
         public void OnGet()
         {
+            Console.WriteLine("SingleDownload: " + Request.QueryString);
         }
     }
 }

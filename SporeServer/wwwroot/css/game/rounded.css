@@ -1,0 +1,27 @@
+
+.roundedBoxContent h1{
+	background: url(/static/war/images/game/reg/info.png);
+	width: 470px;
+	height: 27px;
+	background-repeat:no-repeat;
+	font-family: "Palatino Sans EA", Arial, sans-serif;
+font-size: 14pt;
+margin: 0px;
+padding: 0px 5px;
+font-weight:bold;
+}
+.roundedBoxContent {
+margin: 0px 5px;
+}
+
+/* no-image rounded box */
+.roundBoxTop, .roundBoxBottom {display:block; height: 5px;}
+.roundBoxContent {display: block;}
+.roundBoxTop *, .roundBoxBottom *{
+	 display: block; height: 1px; overflow: hidden;
+}
+.r1{margin: 0 5px}
+.r2{margin: 0 3px}
+.r3{margin: 0 2px}
+.r4{margin: 0 1px; height: 2px}
+

@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 
 namespace SporeServer.AtomFeed.Types
 {
+    [XmlType("entry")]
     public class Entry
     {
         [XmlElement("id")]

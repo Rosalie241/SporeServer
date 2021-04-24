@@ -37,7 +37,7 @@ namespace SporeServer.AtomFeed
         {
             return new ContentResult()
             {
-                ContentType = "text/xml",
+                ContentType = "application/atom+xml",
                 Content = _xml
             };
         }

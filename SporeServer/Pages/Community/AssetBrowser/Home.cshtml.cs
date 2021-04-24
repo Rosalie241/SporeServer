@@ -14,14 +14,41 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SporeServer.Data;
+using Microsoft.AspNetCore.Identity;
+using SporeServer.Areas.Identity.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace SporeServer.Pages.Community.AssetBrowser
 {
     [Authorize]
     public class HomeModel : PageModel
     {
+        private readonly SporeServerContext _context;
+        private readonly UserManager<SporeServerUser> _userManager;
+
+        public HomeModel(SporeServerContext context, UserManager<SporeServerUser> userManager)
+        {
+            _context = context;
+            _userManager = userManager;
+        }
+
+        public int GetSubscriberCountAsync()
+        {
+           // SporeServerUser user = await _userManager.GetUserAsync(User);
+
+            //if (user == null)
+            //{
+              //  return -1;
+            //}
+
+            return 0; // _context.Users.Where(u => u.Buddies.Contains(user)).Count();
+        }
+
         public void OnGet()
         {
+          
+
         }
     }
 }
