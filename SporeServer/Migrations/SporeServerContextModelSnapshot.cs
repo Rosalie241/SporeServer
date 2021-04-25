@@ -158,6 +158,9 @@ namespace SporeServer.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
+                    b.Property<long>("ParentAssetId")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("Size")
                         .HasColumnType("bigint");
 
@@ -166,6 +169,9 @@ namespace SporeServer.Migrations
 
                     b.Property<string>("Tags")
                         .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("Timestamp")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("Used")
                         .HasColumnType("tinyint(1)");
@@ -181,6 +187,7 @@ namespace SporeServer.Migrations
                         {
                             AssetId = 600000000000L,
                             AuthorId = 1L,
+                            ParentAssetId = 0L,
                             Size = 0L,
                             Slurped = false,
                             Used = false
@@ -259,7 +266,7 @@ namespace SporeServer.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "aa8904df-440c-4aa5-a6b9-27b258ac2401",
+                            ConcurrencyStamp = "e5e067ab-61bf-40f8-9f5d-4a5bc630ceed",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NextAssetId = 0L,

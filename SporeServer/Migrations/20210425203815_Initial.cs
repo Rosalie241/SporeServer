@@ -165,7 +165,9 @@ namespace SporeServer.Migrations
                 {
                     AssetId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    ParentAssetId = table.Column<long>(type: "bigint", nullable: false),
                     Used = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     AuthorId = table.Column<long>(type: "bigint", nullable: false),
                     Name = table.Column<string>(type: "longtext", nullable: true),
                     Description = table.Column<string>(type: "longtext", nullable: true),
@@ -187,12 +189,12 @@ namespace SporeServer.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NextAssetId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1L, 0, "aa8904df-440c-4aa5-a6b9-27b258ac2401", null, false, false, null, 0L, null, null, null, null, false, null, false, null });
+                values: new object[] { 1L, 0, "e5e067ab-61bf-40f8-9f5d-4a5bc630ceed", null, false, false, null, 0L, null, null, null, null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "Assets",
-                columns: new[] { "AssetId", "AuthorId", "Description", "Name", "Size", "Slurped", "Tags", "Used" },
-                values: new object[] { 600000000000L, 1L, null, null, 0L, false, null, false });
+                columns: new[] { "AssetId", "AuthorId", "Description", "Name", "ParentAssetId", "Size", "Slurped", "Tags", "Timestamp", "Used" },
+                values: new object[] { 600000000000L, 1L, null, null, 0L, 0L, false, null, null, false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

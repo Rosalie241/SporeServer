@@ -16,9 +16,19 @@ namespace SporeServer.Areas.Identity.Data
         public Int64 AssetId { get; set; }
         
         /// <summary>
+        ///     Parent Asset Id
+        /// </summary>
+        public Int64 ParentAssetId { get; set; }
+
+        /// <summary>
         ///     Whether it's used
         /// </summary>
         public bool Used { get; set; }
+
+        /// <summary>
+        ///     Asset Timestamp
+        /// </summary>
+        public DateTime? Timestamp { get; set; }
 
         /// <summary>
         ///     Asset Author Id

@@ -31,6 +31,8 @@ namespace SporeServer.Controllers.Community
         [HttpGet("deleteAsset/{id}")]
         public async Task<IActionResult> DeleteAsset(Int64 Id)
         {
+            Console.WriteLine($"/community/assetBrowser/deleteAsset/{Id}{Request.QueryString}");
+
             var asset = await _context.Assets.FindAsync(Id);
             var user = await _userManager.GetUserAsync(User);
 
@@ -38,6 +40,7 @@ namespace SporeServer.Controllers.Community
             // is the current user id
             if (asset.AuthorId != user.Id)
             {
+                Console.WriteLine("errr user.id");
                 return Ok();
             }
 
@@ -61,8 +64,6 @@ namespace SporeServer.Controllers.Community
             {
                 Console.WriteLine(e);
             }
-
-            Console.WriteLine("/community/assetBrowser/deleteAsset/" + Id);
 
             return Ok();
         }

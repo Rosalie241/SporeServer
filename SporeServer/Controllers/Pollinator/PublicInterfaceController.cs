@@ -36,7 +36,7 @@ namespace SporeServer.Controllers.Pollinator
         {
             Console.WriteLine($"Pollinator/public-interface/AssetUploadServlet{Request.QueryString}");
 
-            int slurpValue;
+            int slurpValue = 0;
 
             // the game client always sends the slurp query
             // and it's always either 0 or 1
@@ -44,8 +44,24 @@ namespace SporeServer.Controllers.Pollinator
                 !int.TryParse(Request.Query["slurp"], out slurpValue) ||
                 (slurpValue != 0 && slurpValue != 1))
             {
-                Console.WriteLine("no slurp valueeeee");
                 return Ok();
+            }
+
+            Int64 parentId = 0;
+            SporeServerAsset parentAsset = null;
+
+            // the game sometimes sends a parent id,
+            // make sure we can parse it
+            if (Request.Query.ContainsKey("parent") &&
+                !Int64.TryParse(Request.Query["parent"], out parentId))
+            {
+                return Ok();
+            }
+
+            // try to find the parent asset
+            if (parentId != 0)
+            {
+                parentAsset = await _context.Assets.FindAsync(parentId);
             }
 
             var user = await _userManager.GetUserAsync(User);
@@ -108,6 +124,8 @@ namespace SporeServer.Controllers.Pollinator
 
             // update the previously unused asset
             asset.Used = true;
+            asset.Timestamp = DateTime.Now;
+            asset.ParentAssetId = parentId;
             asset.Name = formAsset.ModelData.FileName;
             asset.Description = formAsset.Description;
             asset.Size = formAsset.ModelData.Length;
