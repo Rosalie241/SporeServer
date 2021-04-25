@@ -48,7 +48,6 @@ namespace SporeServer.Controllers.Pollinator
             }
 
             Int64 parentId = 0;
-            SporeServerAsset parentAsset = null;
 
             // the game sometimes sends a parent id,
             // make sure we can parse it
@@ -58,10 +57,12 @@ namespace SporeServer.Controllers.Pollinator
                 return Ok();
             }
 
-            // try to find the parent asset
-            if (parentId != 0)
+            // when we can't find the asset,
+            // reset parentId
+            if (parentId != 0 &&
+                (await _context.Assets.FindAsync(parentId)) == null)
             {
-                parentAsset = await _context.Assets.FindAsync(parentId);
+                parentId = 0;
             }
 
             var user = await _userManager.GetUserAsync(User);
