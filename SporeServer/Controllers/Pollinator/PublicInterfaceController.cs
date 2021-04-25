@@ -48,27 +48,44 @@ namespace SporeServer.Controllers.Pollinator
                 return Ok();
             }
 
-            var asset = await _context.Assets.FindAsync(formAsset.AssetId);
+            var user = await _userManager.GetUserAsync(User);
 
-            // make sure the asset isn't already used,
-            // if we can't find it, something's wrong
-            if (asset == null || 
-                asset.Used)
+            // make sure the requested assetId is the user's nextAssetId
+            if (user.NextAssetId != formAsset.AssetId)
             {
-                Console.WriteLine("HNG USED");
                 return Ok();
             }
 
-            string baseFilePath = Path.Combine(_env.WebRootPath, "usercontent", $"{asset.AssetId}");
+            var asset = await _context.Assets.FindAsync(formAsset.AssetId);
+
+            // make sure the asset exists and
+            // make sure it isn't already used
+            if (asset == null ||
+                asset.Used)
+            {
+                return Ok();
+            }
+
+            string baseFilePath = Path.Combine(_env.WebRootPath, "static", "usercontent");
+            string xmlFile = Path.Combine(baseFilePath, $"{asset.AssetId}.xml");
+            string pngFile = Path.Combine(baseFilePath, $"{asset.AssetId}.png");
 
             try
             {
+                // make sure the directory exists
+                if (!Directory.Exists(baseFilePath))
+                {
+                    Directory.CreateDirectory(baseFilePath);
+                }
+
+                // make sure we can load the xml
+                // and validate it
                 SporeModel model = SporeModel.SerializeFromXml(formAsset.ModelData.OpenReadStream());
                 SporeModel.Validate(model);
 
-                System.IO.File.WriteAllText(baseFilePath + ".xml", SporeModel.DeserializeToxml(model));
-
-                using (Stream stream = System.IO.File.OpenWrite(baseFilePath + ".png"))
+                // save PNG & XML
+                System.IO.File.WriteAllText(xmlFile, SporeModel.DeserializeToxml(model));
+                using (Stream stream = System.IO.File.OpenWrite(pngFile))
                 {
                     await formAsset.ThumbnailData.CopyToAsync(stream);
                     await stream.FlushAsync();
@@ -77,7 +94,7 @@ namespace SporeServer.Controllers.Pollinator
             catch (Exception e)
             {
                 // cleanup when failed
-                foreach (string file in new string[] { baseFilePath + ".xml", baseFilePath + ".png"})
+                foreach (string file in new string[] { xmlFile, pngFile })
                 {
                     if (System.IO.File.Exists(file))
                     {

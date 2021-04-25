@@ -20,19 +20,30 @@ namespace SporeServer.Data
         {
             base.OnModelCreating(builder);
 
-            // make sure we don't start at 1 for asset ids
+            // specify property type
             builder.Entity<SporeServerAsset>()
                 .Property(a => a.AssetId)
-                .UseIdentityColumn(seed: 600000000);
+                .ValueGeneratedOnAdd();
+
+            // create dummy user for dummy asset
+            builder.Entity<SporeServerUser>()
+                .HasData(new SporeServerUser()
+                {
+                    Id = 1
+                });
+
+            // create dummy asset with starting id
+            builder.Entity<SporeServerAsset>()
+                .HasData(new SporeServerAsset()
+                {
+                    AssetId = 600000000000,
+                    Used = false,
+                    AuthorId = 1
+                });
 
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
-        }
-
-        public async void ReserveNewAsset(SporeServerUser user)
-        {
-            
         }
     }
 }

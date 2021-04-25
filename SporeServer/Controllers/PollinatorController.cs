@@ -56,6 +56,10 @@ namespace SporeServer.Controllers
                 await _userManager.UpdateAsync(user);
             }
 
+            Console.WriteLine(AtomFeedBuilder.CreateFromTemplate<HandshakeTemplate>(
+                    new HandshakeTemplate(user)
+                ).ToContentResult().Content);
+
             return AtomFeedBuilder.CreateFromTemplate<HandshakeTemplate>(
                     new HandshakeTemplate(user)
                 ).ToContentResult();

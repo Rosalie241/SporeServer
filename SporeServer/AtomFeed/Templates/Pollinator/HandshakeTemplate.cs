@@ -19,22 +19,12 @@ namespace SporeServer.AtomFeed.Templates.Pollinator
 
         public HandshakeTemplate(SporeServerUser user)
         {
-            //BigInteger a = BigInteger.Parse(Guid.NewGuid().ToString().Replace("-", ""), NumberStyles.AllowHexSpecifier);
+            var author = new Author(user);
+            var currentDate = DateTime.Now;
 
-            Author author = new Author()
-            {
-                Name = user.UserName,
-                Uri = user.Id.ToString()
-            };
-
-            //UserId = "501089776639";
-            UserId = user.Id.ToString();
+            UserId = user.Id;
             ScreenName = author.Name;
-
-
-            Console.WriteLine(user.NextAssetId);
-            // TODO
-            NextId = user.NextAssetId; // 501089776639; // a.ToString();
+            NextId = user.NextAssetId;
 
             // TODO, what does this mean?
             RefreshRate = 120;
@@ -45,26 +35,25 @@ namespace SporeServer.AtomFeed.Templates.Pollinator
                 {
                     Id = "tag:spore.com,2006:maxis/adventures/en_US",
                     Title = "Maxis Adventures",
-                    Updated = DateTime.Now,
+                    Updated = currentDate,
                     Subtitle = "Free creations from Maxis.",
                     SubCount = 0,
                     Link = new Link("https://pollinator.spore.com/pollinator/atom/maxis/adventures/en_US")
                 }
-            };
+            }.ToArray();
+
             MyFeeds = new List<Entry>()
             {
                 new Entry()
                 {
-                    //Id = "tag:spore.com,2006:user/501089776639",
                     Id = $"tag:spore.com,2006:user/{user.Id}",
                     Title = user.UserName,
-                    Updated = DateTime.Now,
+                    Updated = currentDate,
                     Author = author,
                     SubCount = 0,
-                    //Link = new Link("http://pollinator.spore.com/pollinator/atom/user/501089776639")
                     Link = new Link($"https://pollinator.spore.com/pollinator/atom/user/{user.Id}")
                 }
-            };
+            }.ToArray();
             /*
             Subscriptions = new List<Entry>();
             if (user.Buddies != null)
@@ -91,23 +80,22 @@ namespace SporeServer.AtomFeed.Templates.Pollinator
                 }
                 
             }*/
-
             InvisibleFeeds = new List<Entry>()
             {
                 new Entry()
                 {
                     Id = "tag:spore.com,2006:downloadQueue",
                     Title = user.UserName,
-                    Updated = DateTime.Now,
+                    Updated = currentDate,
                     Author = author,
                     SubCount = 0,
                     Link = new Link("https://pollinator.spore.com/pollinator/atom/downloadQueue")
                 }
-            };
+            }.ToArray();
         }
 
         [XmlElement("user-id")]
-        public string UserId { get; set; }
+        public Int64 UserId { get; set; }
 
         [XmlElement("screen-name")]
         public string ScreenName { get; set; }
@@ -119,15 +107,15 @@ namespace SporeServer.AtomFeed.Templates.Pollinator
         public int RefreshRate { get; set; }
 
         [XmlArray("maxis-feeds")]
-        public List<Entry> MaxisFeeds { get; set; }
+        public Entry[] MaxisFeeds { get; set;  }
 
         [XmlArray("my-feeds")]
-        public List<Entry> MyFeeds { get; set; }
+        public Entry[] MyFeeds { get; set; }
 
         [XmlArray("subscriptions")]
-        public List<Entry> Subscriptions { get; set; }
+        public Entry[] Subscriptions { get; set; }
 
         [XmlArray("invisible-feeds")]
-        public List<Entry> InvisibleFeeds { get; set; }
+        public Entry[] InvisibleFeeds { get; set; }
     }
 }

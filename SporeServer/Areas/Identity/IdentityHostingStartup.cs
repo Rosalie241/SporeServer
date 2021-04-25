@@ -21,8 +21,10 @@ namespace SporeServer.Areas.Identity
             builder.ConfigureServices((context, services) =>
             {
                 services.AddDbContext<SporeServerContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("SporeServerContextConnection")));
+                    options.UseMySql(
+                        context.Configuration.GetConnectionString("SporeServerContextConnection"),
+                        new MariaDbServerVersion(new Version(10, 5, 9))
+                ));
 
                 services.AddIdentity<SporeServerUser, IdentityRole<Int64>>(options =>
                 {
@@ -48,7 +50,7 @@ namespace SporeServer.Areas.Identity
                     // I don't have a smtp server yet though..
                     options.SignIn.RequireConfirmedAccount = false;
 
-                    
+
                 }).AddEntityFrameworkStores<SporeServerContext>().AddDefaultTokenProviders();
 
                 services.ConfigureApplicationCookie(options =>
