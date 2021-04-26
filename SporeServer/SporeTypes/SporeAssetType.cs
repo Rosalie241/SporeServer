@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SporeServer.SporeTypes
 {
-    public enum AssetType : Int64
+    public enum SporeAssetType : Int64
     {
         Creature = 0x2b978c46,
         Building = 0x2399be55,
