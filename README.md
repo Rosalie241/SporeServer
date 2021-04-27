@@ -2,7 +2,7 @@
 A WIP Spore Server replacement
 
 
-# Project Structure
+# Projects
 
 * SporeServer
    * Replacement server
