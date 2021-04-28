@@ -1,8 +1,15 @@
-﻿using System;
+﻿/*
+ * SporeServer - https://github.com/Rosalie241/SporeServer
+ *  Copyright (C) 2021 Rosalie Wanders <rosalie@mailbox.org>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero General Public License version 3.
+ *  You should have received a copy of the GNU Affero General Public License
+ *  along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml;
 
 #nullable enable annotations
@@ -67,14 +74,26 @@ namespace SporeServer.Models.Xml
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static Int32? ParseInt32(XmlNode? node)
+        public static Int32? ParseInt32_Null(XmlNode? node)
         {
             if (node == null)
             {
                 return null;
             }
 
-            return Convert.ToInt32(node.InnerText);
+            string value = node.InnerText;
+
+            if (value.StartsWith("0x"))
+            {
+                // hex
+                value = value.Remove(0, 2);
+                return Convert.ToInt32(value, 16);
+            }
+            else
+            {
+                // not hex
+                return Convert.ToInt32(value);
+            }
         }
 
         /// <summary>
@@ -122,8 +141,13 @@ namespace SporeServer.Models.Xml
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static Int64[] ParseInt64List(XmlNode? node)
+        public static Int64[]? ParseInt64List(XmlNode? node)
         {
+            if (node == null)
+            {
+                return null;
+            }
+
             List<Int64> items = new List<Int64>();
 
             foreach (string item in node.InnerText.Split(','))
@@ -143,6 +167,22 @@ namespace SporeServer.Models.Xml
             }
 
             return items.ToArray();
+        }
+
+        /// <summary>
+        ///     Parses string from XmlNode,
+        ///     returns null when node is null
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public static string ParseString_Null(XmlNode? node)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+
+            return node.InnerText;
         }
 
         /// <summary>
