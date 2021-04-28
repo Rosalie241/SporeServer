@@ -198,30 +198,33 @@ namespace SporeServer.Models.Xml
 
                         XmlNode goalNode = actNode.SelectSingleNode("goals");
 
-                        foreach (XmlNode scenarioNode in goalNode.SelectNodes("cScenarioGoal"))
+                        if (goalNode != null)
                         {
-                            XmlNode dialogsNode = scenarioNode.SelectSingleNode("dialog");
-
-                            var goal = new SporeModelScenarioResourceActGoal();
-                            var dialogs = new List<string>();
-
-                            goal.Type = XmlHelper.ParseInt32_Null(scenarioNode.SelectSingleNode("type"));
-                            if (dialogsNode != null)
+                            foreach (XmlNode scenarioNode in goalNode.SelectNodes("cScenarioGoal"))
                             {
-                                foreach (XmlNode dialogNode in dialogsNode.SelectNodes("cScenarioDialog"))
+                                XmlNode dialogsNode = scenarioNode.SelectSingleNode("dialog");
+
+                                var goal = new SporeModelScenarioResourceActGoal();
+                                var dialogs = new List<string>();
+
+                                goal.Type = XmlHelper.ParseInt32_Null(scenarioNode.SelectSingleNode("type"));
+                                if (dialogsNode != null)
                                 {
-                                    string text = XmlHelper.ParseString_Null(dialogNode.SelectSingleNode("text"));
-                                    if (text != null)
+                                    foreach (XmlNode dialogNode in dialogsNode.SelectNodes("cScenarioDialog"))
                                     {
-                                        dialogs.Add(text);
+                                        string text = XmlHelper.ParseString_Null(dialogNode.SelectSingleNode("text"));
+                                        if (text != null)
+                                        {
+                                            dialogs.Add(text);
+                                        }
                                     }
                                 }
-                            }
 
-                            goal.Dialogs = dialogs.ToArray();
-                            goals.Add(goal);
+                                goal.Dialogs = dialogs.ToArray();
+                                goals.Add(goal);
+                            }
+                            act.Goals = goals.ToArray();
                         }
-                        act.Goals = goals.ToArray();
 
                         acts.Add(act);
                     }
@@ -574,7 +577,7 @@ namespace SporeServer.Models.Xml
                         XmlElement actElement = document.CreateElement("cScenarioAct");
 
                         // <goals />
-                        if (act.Goals.Length > 0)
+                        if (act.Goals != null)
                         {
                             XmlElement goalsElement = document.CreateElement("goals");
 
@@ -632,7 +635,7 @@ namespace SporeServer.Models.Xml
                 }
                
                 // <classes />
-                if (model.ScenarioResource.Classes.Length > 0)
+                if (model.ScenarioResource.Classes != null)
                 {
                     XmlElement classesElement = document.CreateElement("classes");
 
