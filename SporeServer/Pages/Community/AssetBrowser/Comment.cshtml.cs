@@ -8,15 +8,16 @@
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SporeServer.Pages.Community.AssetBrowser
 {
     public class CommentModel : PageModel
     {
-        public void OnGet(Int64 Id)
+        public void OnGet(Int64 id)
         {
-            // TODO
+            Console.WriteLine($"/community/assetBrowser/comment/{id}");
         }
     }
 }
