@@ -6,6 +6,11 @@
 # Spore mods
 *.sporemod
 
+# SporeServer wwwroot user content
+SporeServer/wwwroot/static/model
+SporeServer/wwwroot/static/thumb
+SporeServer/wwwroot/static/image
+
 # User-specific files
 *.rsuser
 *.suo

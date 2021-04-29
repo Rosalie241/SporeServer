@@ -1,14 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SporeServer.AtomFeed.Types;
-using System;
-using System.Collections.Generic;
+﻿/*
+ * SporeServer - https://github.com/Rosalie241/SporeServer
+ *  Copyright (C) 2021 Rosalie Wanders <rosalie@mailbox.org>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero General Public License version 3.
+ *  You should have received a copy of the GNU Affero General Public License
+ *  along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+using Microsoft.AspNetCore.Mvc;
+using SporeServer.ContentResultHelper.AtomFeed.Types;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace SporeServer.AtomFeed
+namespace SporeServer.ContentResultHelper.AtomFeed
 {
     public class Utf8StringWriter : StringWriter
     {
@@ -17,6 +22,8 @@ namespace SporeServer.AtomFeed
 
     public class AtomFeedBuilder
     {
+        private readonly string _xml;
+
         public AtomFeedBuilder(string xml)
         {
             _xml = xml;
@@ -24,14 +31,13 @@ namespace SporeServer.AtomFeed
 
         public static AtomFeedBuilder CreateFromTemplate<Type>(object template)
         {
-            Utf8StringWriter stringWriter = new Utf8StringWriter();
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Type));
+            using var stringWriter = new Utf8StringWriter();
+            var xmlSerializer = new XmlSerializer(typeof(Type));
 
             xmlSerializer.Serialize(stringWriter, template, ((BaseClass)template).Namespaces);
 
             return new AtomFeedBuilder(stringWriter.ToString());
         }
-
 
         public ContentResult ToContentResult()
         {
@@ -41,7 +47,5 @@ namespace SporeServer.AtomFeed
                 Content = _xml
             };
         }
-
-        private string _xml { get; set; }
     }
 }

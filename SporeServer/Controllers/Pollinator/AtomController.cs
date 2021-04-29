@@ -8,17 +8,10 @@
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SporeServer.SporeTypes;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
-using System.Xml.Serialization;
 
 namespace SporeServer.Controllers.Pollinator
 {
@@ -29,7 +22,7 @@ namespace SporeServer.Controllers.Pollinator
     {
         // GET /pollinator/atom/asset
         [HttpGet("asset")]
-        public async Task<IActionResult> Asset()
+        public IActionResult Asset()
         {
             //Console.WriteLine(Request.QueryString);
             Console.WriteLine($"/pollinator/atom/Asset{Request.QueryString}");
@@ -37,16 +30,30 @@ namespace SporeServer.Controllers.Pollinator
             return Ok();
         }
 
-        /*
+
+        // GET /pollinator/atom/randomAsset
         [HttpGet("randomAsset")]
-        public  IActionResult RandomAsset()
+        public IActionResult RandomAsset()
         {
             Console.WriteLine($"/pollinator/atom/randomAsset{Request.QueryString}");
 
-            return Ok();
-        }*/
+            string modelType = Request.Query["asset.function"];
 
-        // GET  /pollinator/atom/downloadQueue
+            if (!Enum.IsDefined(typeof(SporeModelType), Int64.Parse(modelType)))
+            {
+                Console.WriteLine("UNDEFINED: " + modelType);
+            }
+            else
+            {
+                SporeModelType type = (SporeModelType)Int64.Parse(modelType);
+
+                Console.WriteLine("DEFINED: " + type.ToString());
+            }
+
+            return Ok();
+        }
+
+        // GET /pollinator/atom/downloadQueue
         [HttpGet("downloadQueue")]
         public IActionResult DownloadQueue()
         {
@@ -143,7 +150,7 @@ namespace SporeServer.Controllers.Pollinator
 
         // GET /pollinator/atom/subscribe
         [HttpGet("subscribe")]
-        public async Task<IActionResult> Subscribe()
+        public IActionResult Subscribe()
         {
             Console.WriteLine($"/pollinator/atom/subscribe{Request.QueryString}");
 
@@ -157,7 +164,7 @@ namespace SporeServer.Controllers.Pollinator
 
         // GET /pollinator/atom/user/{userId}
         [HttpGet("user/{userId}")]
-        public async Task<IActionResult> User(Int64 userId)
+        public IActionResult AtomUser(Int64 userId)
         {
             Console.WriteLine("/pollinator/atom/user/" + userId);
             return Ok();

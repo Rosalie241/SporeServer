@@ -1,13 +1,21 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿/*
+ * SporeServer - https://github.com/Rosalie241/SporeServer
+ *  Copyright (C) 2021 Rosalie Wanders <rosalie@mailbox.org>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero General Public License version 3.
+ *  You should have received a copy of the GNU Affero General Public License
+ *  along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Data;
+using SporeServer.Services;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SporeServer.Controllers.Community
@@ -19,51 +27,38 @@ namespace SporeServer.Controllers.Community
     {
         private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
-        private readonly IWebHostEnvironment _env;
-        public AssetBrowserController(SporeServerContext context, UserManager<SporeServerUser> userManager, IWebHostEnvironment env)
+        private readonly IAssetManager _assetManager;
+        public AssetBrowserController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager)
         {
             _context = context;
             _userManager = userManager;
-            _env = env;
+            _assetManager = assetManager;
         }
 
-        // GET /community/assetBrowser/deleteAsset/{Id}
+        // GET /community/assetBrowser/deleteAsset/{id}
         [HttpGet("deleteAsset/{id}")]
-        public async Task<IActionResult> DeleteAsset(Int64 Id)
+        public async Task<IActionResult> DeleteAsset(Int64 id)
         {
-            Console.WriteLine($"/community/assetBrowser/deleteAsset/{Id}{Request.QueryString}");
+            Console.WriteLine($"/community/assetBrowser/deleteAsset/{id}{Request.QueryString}");
 
-            var asset = await _context.Assets.FindAsync(Id);
+            var asset = await _context.Assets.FindAsync(id);
             var user = await _userManager.GetUserAsync(User);
+
+            // make sure the asset exists
+            if (asset == null)
+            {
+                return Ok();
+            }
 
             // make sure the asset authorId
             // is the current user id
             if (asset.AuthorId != user.Id)
             {
-                Console.WriteLine("errr user.id");
                 return Ok();
             }
 
-            // remove the asset from the database
-            _context.Assets.Remove(asset);
-            await _context.SaveChangesAsync();
-
-            // attempt to cleanup asset files
-            string baseFilePath = Path.Combine(_env.WebRootPath, "static", "usercontent");
-            string xmlFile = Path.Combine(baseFilePath, $"{asset.AssetId}.xml");
-            string pngFile = Path.Combine(baseFilePath, $"{asset.AssetId}.png");
-
-            try
-            {
-                foreach (string file in new string[] { xmlFile, pngFile })
-                {
-                    System.IO.File.Delete(file);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            // delete the asset
+            await _assetManager.DeleteAsync(asset);
 
             return Ok();
         }

@@ -1,9 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+ * SporeServer - https://github.com/Rosalie241/SporeServer
+ *  Copyright (C) 2021 Rosalie Wanders <rosalie@mailbox.org>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero General Public License version 3.
+ *  You should have received a copy of the GNU Affero General Public License
+ *  along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+using SporeServer.SporeTypes;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SporeServer.Areas.Identity.Data
 {
@@ -46,6 +52,16 @@ namespace SporeServer.Areas.Identity.Data
         public string Name { get; set; }
         
         /// <summary>
+        ///     ModelType of Asset
+        /// </summary>
+        public SporeModelType ModelType { get; set; }
+
+        /// <summary>
+        ///     AssetType of Asset
+        /// </summary>
+        public SporeAssetType Type { get; set; }
+
+        /// <summary>
         ///     Description of Asset
         /// </summary>
         public string Description { get; set; }
@@ -56,12 +72,12 @@ namespace SporeServer.Areas.Identity.Data
         public string Tags { get; set; }
         
         /// <summary>
-        ///     FileSize of xml
+        ///     FileSize of PNG
         /// </summary>
         public Int64 Size { get; set; }
 
         /// <summary>
-        ///     Automatically uploaded or not
+        ///     Automatically uploaded or not?
         /// </summary>
         public bool Slurped { get; set; }
     }

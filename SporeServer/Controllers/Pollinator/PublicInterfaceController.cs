@@ -1,16 +1,22 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿/*
+ * SporeServer - https://github.com/Rosalie241/SporeServer
+ *  Copyright (C) 2021 Rosalie Wanders <rosalie@mailbox.org>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero General Public License version 3.
+ *  You should have received a copy of the GNU Affero General Public License
+ *  along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Data;
 using SporeServer.Models;
-using SporeServer.Models.Xml;
+using SporeServer.Services;
+using SporeServer.SporeTypes;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace SporeServer.Controllers.Pollinator
@@ -22,26 +28,25 @@ namespace SporeServer.Controllers.Pollinator
     {
         private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
-        private readonly IWebHostEnvironment _env;
-        public PublicInterfaceController(SporeServerContext context, UserManager<SporeServerUser> userManager, IWebHostEnvironment env)
+        private readonly IAssetManager _assetManager;
+
+        public PublicInterfaceController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager)
         {
             _context = context;
             _userManager = userManager;
-            _env = env;
+            _assetManager = assetManager;
         }
 
         // POST /pollinator/public-interface/AssetUploadServlet
         [HttpPost("AssetUploadServlet")]
         public async Task<IActionResult> AssetUploadServlet([FromForm] AssetUploadForm formAsset)
         {
-            Console.WriteLine($"Pollinator/public-interface/AssetUploadServlet{Request.QueryString}");
-
-            int slurpValue = 0;
+            Console.WriteLine($"/pollinator/public-interface/AssetUploadServlet{Request.QueryString}");
 
             // the game client always sends the slurp query
             // and it's always either 0 or 1
             if (!Request.Query.ContainsKey("slurp") ||
-                !int.TryParse(Request.Query["slurp"], out slurpValue) ||
+                !int.TryParse(Request.Query["slurp"], out int slurpValue) ||
                 (slurpValue != 0 && slurpValue != 1))
             {
                 return Ok();
@@ -65,6 +70,19 @@ namespace SporeServer.Controllers.Pollinator
                 parentId = 0;
             }
 
+            // the game always sends the type id
+            // make sure we can parse it
+            // and that's it a valid id
+            if (!Int64.TryParse(formAsset.TypeId.TrimStart('0', 'x'),
+                    NumberStyles.HexNumber,
+                    null,
+                    out Int64 typeId) ||
+                !Enum.IsDefined(typeof(SporeAssetType), typeId))
+            {
+                Console.WriteLine($"invalid type id: {typeId}");
+                return Ok();
+            }
+
             var user = await _userManager.GetUserAsync(User);
 
             // make sure the requested assetId is the user's nextAssetId
@@ -83,58 +101,23 @@ namespace SporeServer.Controllers.Pollinator
                 return Ok();
             }
 
-            string baseFilePath = Path.Combine(_env.WebRootPath, "static", "usercontent");
-            string xmlFile = Path.Combine(baseFilePath, $"{asset.AssetId}.xml");
-            string pngFile = Path.Combine(baseFilePath, $"{asset.AssetId}.png");
-
-            try
+            // make sure the asset doesn't go over any limits
+            if ((formAsset.Description != null &&
+                formAsset.Description.Length > 256) ||
+                (formAsset.ModelData != null && 
+                formAsset.ModelData.FileName.Length > 32) ||
+                (formAsset.Tags != null && 
+                formAsset.Tags.Length > 256))
             {
-                // make sure the directory exists
-                if (!Directory.Exists(baseFilePath))
-                {
-                    Directory.CreateDirectory(baseFilePath);
-                }
-
-                // make sure we can load the xml
-                // and validate it
-                SporeModel model = SporeModel.SerializeFromXml(formAsset.ModelData.OpenReadStream());
-                SporeModel.Validate(model);
-
-                // save PNG & XML
-                System.IO.File.WriteAllText(xmlFile, SporeModel.DeserializeToxml(model));
-                using (Stream stream = System.IO.File.OpenWrite(pngFile))
-                {
-                    await formAsset.ThumbnailData.CopyToAsync(stream);
-                    await stream.FlushAsync();
-                }
-            }
-            catch (Exception e)
-            {
-                // cleanup when failed
-                foreach (string file in new string[] { xmlFile, pngFile })
-                {
-                    if (System.IO.File.Exists(file))
-                    {
-                        System.IO.File.Delete(file);
-                    }
-                }
-
-                Console.WriteLine(e);
                 return Ok();
             }
 
-            // update the previously unused asset
-            asset.Used = true;
-            asset.Timestamp = DateTime.Now;
-            asset.ParentAssetId = parentId;
-            asset.Name = formAsset.ModelData.FileName;
-            asset.Description = formAsset.Description;
-            asset.Size = formAsset.ModelData.Length;
-            asset.Slurped = slurpValue == 1;
-            _context.Assets.Update(asset);
-
-            // save the database
-            await _context.SaveChangesAsync();
+            // save the asset
+            await _assetManager.AddAsync(formAsset, 
+                asset,
+                parentId,
+                (slurpValue == 1),
+                (SporeAssetType)typeId);
 
             return Ok();
         }

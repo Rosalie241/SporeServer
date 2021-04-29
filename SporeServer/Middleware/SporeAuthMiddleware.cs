@@ -1,9 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿/*
+ * SporeServer - https://github.com/Rosalie241/SporeServer
+ *  Copyright (C) 2021 Rosalie Wanders <rosalie@mailbox.org>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero General Public License version 3.
+ *  You should have received a copy of the GNU Affero General Public License
+ *  along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using SporeServer.Areas.Identity.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -45,7 +52,7 @@ namespace SporeServer.Middleware
             if (user != null)
             {
                 // attempt to login using password
-                SignInResult result = await signInManager.PasswordSignInAsync(user, password, false, false);
+                SignInResult result = await signInManager.PasswordSignInAsync(user, password, false, true);
                 if (result == SignInResult.Success)
                 {
                     // authenticate current context aswell

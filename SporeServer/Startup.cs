@@ -17,6 +17,7 @@ using Microsoft.Extensions.Hosting;
 using SporeServer;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Middleware;
+using SporeServer.Services;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -35,6 +36,8 @@ namespace SporeServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IAssetManager, AssetManager>();
+
             services.AddControllers();
             services.AddRazorPages();
         }
@@ -71,6 +74,7 @@ namespace SporeServer
             {
                 Console.WriteLine($"{context.HttpContext.Request.Method} {context.HttpContext.Request.Path}{context.HttpContext.Request.QueryString}");
                 Console.WriteLine(context.HttpContext.Response.StatusCode);
+                await Task.Delay(0);
             });
         }
     }

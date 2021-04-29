@@ -46,5 +46,25 @@ namespace SporeServer.Models
         ///     Asset PNG
         /// </summary>
         public IFormFile ThumbnailData { get; set; }
+
+        /// <summary>
+        ///     Image 1
+        /// </summary>
+        public IFormFile ImageData { get; set; }
+
+        /// <summary>
+        ///     Image 2
+        /// </summary>
+        public IFormFile ImageData_2 { get; set; }
+
+        /// <summary>
+        ///     Image 3
+        /// </summary>
+        public IFormFile ImageData_3 { get; set; }
+
+        /// <summary>
+        ///     Image 4
+        /// </summary>
+        public IFormFile ImageData_4 { get; set; }
     }
 }

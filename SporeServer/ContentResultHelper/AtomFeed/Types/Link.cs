@@ -7,16 +7,27 @@
  *  You should have received a copy of the GNU Affero General Public License
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-using System;
+using System.Xml.Serialization;
 
-namespace SporeServer.SporeTypes
+namespace SporeServer.ContentResultHelper.AtomFeed.Types
 {
-    public enum SporeAssetType : Int64
+    public class Link
     {
-        Creature = 0x2b978c46,
-        Building = 0x2399be55,
-        Vehicle = 0x24682294,
-        Ufo = 0x476a98c7,
-        Adventure = 0x366a930d
-    };
+        public Link()
+        {
+
+        }
+
+        public Link(string url)
+        {
+            Href = url;
+            Rel = "self";
+        }
+
+        [XmlAttribute("rel")]
+        public string Rel { get; set; }
+
+        [XmlAttribute("href")]
+        public string Href { get; set; }
+    }
 }

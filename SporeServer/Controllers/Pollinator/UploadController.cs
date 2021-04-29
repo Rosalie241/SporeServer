@@ -1,11 +1,21 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿/*
+ * SporeServer - https://github.com/Rosalie241/SporeServer
+ *  Copyright (C) 2021 Rosalie Wanders <rosalie@mailbox.org>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero General Public License version 3.
+ *  You should have received a copy of the GNU Affero General Public License
+ *  along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SporeServer.Areas.Identity.Data;
+using SporeServer.ContentResultHelper.Xml;
+using SporeServer.ContentResultHelper.Xml.Templates.Pollinator.Upload;
 using SporeServer.Data;
+using SporeServer.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SporeServer.Controllers.Pollinator
@@ -17,17 +27,21 @@ namespace SporeServer.Controllers.Pollinator
     {
         private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
+        private readonly IAssetManager _assetManager;
 
-        public UploadController(SporeServerContext context, UserManager<SporeServerUser> userManager)
+        public UploadController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager)
         {
             _context = context;
             _userManager = userManager;
+            _assetManager = assetManager;
         }
 
         // GET /pollinator/upload/status/{id}
         [HttpGet("status/{id}")]
         public async Task<IActionResult> Status(Int64 id)
         {
+            Console.WriteLine($"/pollinator/Upload/Status/{id}");
+
             Int64 nextId = id;
 
             var user = await _userManager.GetUserAsync(User);
@@ -48,33 +62,19 @@ namespace SporeServer.Controllers.Pollinator
             // reserve a new asset
             if (success)
             {
-                var newAsset = new SporeServerAsset()
+                // when reserving a new asset fails, error out
+                if (!await _assetManager.ReserveAsync(user))
                 {
-                    Used = false,
-                    Author = user
-                };
+                    return StatusCode(500);
+                }
 
-                await _context.Assets.AddAsync(newAsset);
-                await _context.SaveChangesAsync();
-
-                // update user
-                user.NextAssetId = newAsset.AssetId;
-                await _userManager.UpdateAsync(user);
-
-                // tell the client about it
-                nextId = newAsset.AssetId;
+                // tell the client about the new id
+                nextId = user.NextAssetId;
             }
 
-            Console.WriteLine("/Pollinator/Upload/Status/" + id);
-
-            // TODO, use serialization for this
-            // Success
-            // Failed
-            return new ContentResult()
-            {
-                ContentType = "text/xml",
-                Content = $@"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""yes""?><PollinatorResponse><next-id>{nextId}</next-id><Status>{(success ? "Success" : "Failed")}</Status></PollinatorResponse>"
-            };
+            return XmlBuilder.CreateFromTemplate<StatusTemplate>(
+                    new StatusTemplate(nextId, success)
+                ).ToContentResult();
         }
 
     }

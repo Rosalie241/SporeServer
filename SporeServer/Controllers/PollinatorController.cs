@@ -13,9 +13,10 @@ using Microsoft.AspNetCore.Mvc;
 using SporeServer.Areas.Identity.Data;
 using System;
 using System.Threading.Tasks;
-using SporeServer.AtomFeed;
-using SporeServer.AtomFeed.Templates.Pollinator;
+using SporeServer.ContentResultHelper.AtomFeed;
+using SporeServer.ContentResultHelper.AtomFeed.Templates.Pollinator;
 using SporeServer.Data;
+using SporeServer.Services;
 
 namespace SporeServer.Controllers
 {
@@ -26,11 +27,13 @@ namespace SporeServer.Controllers
     {
         private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
+        private readonly IAssetManager _assetManager;
 
-        public PollinatorController(SporeServerContext context, UserManager<SporeServerUser> userManager)
+        public PollinatorController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager)
         {
             _context = context;
             _userManager = userManager;
+            _assetManager = assetManager;
         }
 
         // GET /pollinator/handshake
@@ -38,27 +41,20 @@ namespace SporeServer.Controllers
         public async Task<IActionResult> HandShake()
         {
             var user = await _userManager.GetUserAsync(User);
+            var asset = await _context.Assets.FindAsync(user.NextAssetId);
 
-            if (user.NextAssetId == 0)
+            // reserve new asset when 
+            //      * user has no reserved asset
+            //      * user has a used asset
+            if (user.NextAssetId == 0 ||
+                (asset != null && asset.Used))
             {
-                // reserve new asset for user
-                var asset = new SporeServerAsset()
+                // when reserving a new asset fails, error out
+                if (!await _assetManager.ReserveAsync(user))
                 {
-                    Used = false,
-                    Author = user
-                };
-
-                await _context.Assets.AddAsync(asset);
-                await _context.SaveChangesAsync();
-
-                // update user
-                user.NextAssetId = asset.AssetId;
-                await _userManager.UpdateAsync(user);
+                    return StatusCode(500);
+                }
             }
-
-            Console.WriteLine(AtomFeedBuilder.CreateFromTemplate<HandshakeTemplate>(
-                    new HandshakeTemplate(user)
-                ).ToContentResult().Content);
 
             return AtomFeedBuilder.CreateFromTemplate<HandshakeTemplate>(
                     new HandshakeTemplate(user)
