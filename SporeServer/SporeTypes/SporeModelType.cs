@@ -18,7 +18,7 @@ namespace SporeServer.SporeTypes
         TribeCreature = 0x372e2c04,
         CivCreature = 0xccc35c46,
         SpaceCreature = 0x65672ade,
-        AdventureCreature = 0x4178b8e8,
+        AdventurerCreature = 0x4178b8e8,
 
         // Buildings
         BuildingCityHall = 0x99e92f05,
@@ -49,16 +49,16 @@ namespace SporeServer.SporeTypes
         // Ufo Vehicle
         VehicleUfo = 0x98e03c0d,
 
-        // Adventures
-        AdventureUnset = 0x20790816,
-        AdventureTemplate = 0x27818fe6,
-        AdventureAttack = 0x287adcdc,
-        AdventureDefend = 0xc34c5e14,
-        AdventureSocialize = 0xfb734cd1,
-        AdventureExplore = 0x37fd4e0d,
-        AdventureQuest = 0xc422519e,
-        AdventureStory = 0xb4707f8f,
-        AdventureCollect = 0x25a6ea6e,
-        AdventurePuzzle = 0xe27ddad4
+        // Scenarios/Adventures
+        ScenarioUnset = 0x20790816,
+        ScenarioGenreTemplate = 0x27818fe6,
+        ScenarioGenreAttack = 0x287adcdc,
+        ScenarioGenreDefend = 0xc34c5e14,
+        ScenarioGenreSocialize = 0xfb734cd1,
+        ScenarioGenreExplore = 0x37fd4e0d,
+        ScenarioGenreQuest = 0xc422519e,
+        ScenarioGenreStory = 0xb4707f8f,
+        ScenarioGenreCollect = 0x25a6ea6e,
+        ScenarioGenrePuzzle = 0xe27ddad4
     }
 }
