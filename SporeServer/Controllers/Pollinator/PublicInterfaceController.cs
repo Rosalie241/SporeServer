@@ -26,13 +26,11 @@ namespace SporeServer.Controllers.Pollinator
     [ApiController]
     public class PublicInterfaceController : ControllerBase
     {
-        private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
         private readonly IAssetManager _assetManager;
 
-        public PublicInterfaceController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager)
+        public PublicInterfaceController(UserManager<SporeServerUser> userManager, IAssetManager assetManager)
         {
-            _context = context;
             _userManager = userManager;
             _assetManager = assetManager;
         }
@@ -65,7 +63,7 @@ namespace SporeServer.Controllers.Pollinator
             // when we can't find the asset,
             // reset parentId
             if (parentId != 0 &&
-                (await _context.Assets.FindAsync(parentId)) == null)
+                (await _assetManager.FindByIdAsync(parentId)) == null)
             {
                 parentId = 0;
             }
@@ -91,7 +89,7 @@ namespace SporeServer.Controllers.Pollinator
                 return Ok();
             }
 
-            var asset = await _context.Assets.FindAsync(formAsset.AssetId);
+            var asset = await _assetManager.FindByIdAsync(formAsset.AssetId);
 
             // make sure the asset exists and
             // make sure it isn't already used

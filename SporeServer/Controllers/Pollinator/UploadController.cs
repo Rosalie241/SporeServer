@@ -11,8 +11,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SporeServer.Areas.Identity.Data;
-using SporeServer.ContentResultHelper.Xml;
-using SporeServer.ContentResultHelper.Xml.Templates.Pollinator.Upload;
+using SporeServer.Builder.Xml;
+using SporeServer.Builder.Xml.Templates.Pollinator.Upload;
 using SporeServer.Data;
 using SporeServer.Services;
 using System;
@@ -45,7 +45,7 @@ namespace SporeServer.Controllers.Pollinator
             Int64 nextId = id;
 
             var user = await _userManager.GetUserAsync(User);
-            var asset = await _context.Assets.FindAsync(id);
+            var asset = await _assetManager.FindByIdAsync(id);
 
             // we're only successful when
             //  * the asset exists
@@ -72,7 +72,7 @@ namespace SporeServer.Controllers.Pollinator
                 nextId = user.NextAssetId;
             }
 
-            return XmlBuilder.CreateFromTemplate<StatusTemplate>(
+            return XmlBuilder.CreateFromTemplate(
                     new StatusTemplate(nextId, success)
                 ).ToContentResult();
         }

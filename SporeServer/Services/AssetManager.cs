@@ -10,6 +10,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Data;
@@ -365,6 +366,32 @@ namespace SporeServer.Services
                 _logger.LogError($"ReserveAsync: Failed To Reserve Asset For User {user.Id}: {e}");
                 return false;
             }
+        }
+
+        public async Task<SporeServerAsset> FindByIdAsync(Int64 id, bool includeAuthor)
+        {
+            try
+            {
+                if (includeAuthor)
+                {
+                    return await _context.Assets.Include(a => a.Author)
+                        .FirstOrDefaultAsync(a => a.AssetId == id);
+                }
+                else
+                {
+                    return await _context.Assets.FindAsync(id);
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"FindByIdAsync: Failed To Find Asset {id}: {e}");
+                return null;
+            }
+        }
+        
+        public async Task<SporeServerAsset> FindByIdAsync(Int64 id)
+        {
+            return await FindByIdAsync(id, false);
         }
     }
 }

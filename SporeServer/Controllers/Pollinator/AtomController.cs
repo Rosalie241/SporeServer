@@ -9,8 +9,16 @@
  */
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SporeServer.Areas.Identity.Data;
+using SporeServer.Builder.AtomFeed;
+using SporeServer.Builder.AtomFeed.Templates.Pollinator.Atom;
+using SporeServer.Data;
+using SporeServer.Services;
 using SporeServer.SporeTypes;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace SporeServer.Controllers.Pollinator
@@ -20,16 +28,13 @@ namespace SporeServer.Controllers.Pollinator
     [ApiController]
     public class AtomController : ControllerBase
     {
-        // GET /pollinator/atom/asset
-        [HttpGet("asset")]
-        public IActionResult Asset()
+        private readonly SporeServerContext _context;
+        private readonly IAssetManager _assetManager;
+        public AtomController(SporeServerContext context, IAssetManager assetManager)
         {
-            //Console.WriteLine(Request.QueryString);
-            Console.WriteLine($"/pollinator/atom/Asset{Request.QueryString}");
-
-            return Ok();
+            _context = context;
+            _assetManager = assetManager;
         }
-
 
         // GET /pollinator/atom/randomAsset
         [HttpGet("randomAsset")]
@@ -104,48 +109,49 @@ namespace SporeServer.Controllers.Pollinator
             return Ok();
         }
 
-        // GET /pollinator/atom/asset/{id}
-        [HttpGet("asset/{id}")]
-        public IActionResult Asset(Int64 Id)
+        // GET /pollinator/atom/asset/{id?}
+        [HttpGet("asset/{id?}")]
+        public async Task<IActionResult> Asset(Int64? id)
         {
-            Console.WriteLine($"/pollinator/atom/asset/{Id}");
+            Console.WriteLine($"/pollinator/atom/asset/{id}{Request.QueryString}");
 
-            string date = XmlConvert.ToString(DateTime.Now, XmlDateTimeSerializationMode.Utc);
-            return new ContentResult()
+            var assets = new List<SporeServerAsset>();
+
+            if (id != null)
             {
-                Content = $@"<?xml version=""1.0"" encoding=""UTF-8""?>
-<feed xmlns=""https://www.w3.org/2005/Atom"" xmlns:sp=""https://spore.com/atom"">
-   <id>tag:spore.com,2006:asset</id>
-   <title>asset</title>
-   <updated>{date}</updated>
-   <link rel=""self"" href=""https://pollinator.spore.com/pollinator/atom/asset"" />
-   <entry>
-      <id>tag:spore.com,2006:asset/{Id}</id>
-      <title>Test Download</title>
-      <link rel=""alternate"" href=""https://pollinator.spore.com/pollinator/sporepedia#qry=sast-{Id}"" />
-      <updated>{date}</updated>
-      <author>
-         <name>Test Author</name>
-         <uri>99999999999</uri>
-      </author>
-      <modeltype>0x9ea3031a</modeltype>
-      <locale />
-      <modeltype>0x9ea3031a</modeltype>
-      <sp:ownership>
-         <sp:original name=""id"" type=""int"">0</sp:original>
-         <sp:parent name=""id"" type=""int"">0</sp:parent>
-      </sp:ownership>
-      <content type=""html"">
-         <img src=""https://static.spore.com/tmp/501073471139.png"" />
-      </content>
-      <link rel=""enclosure"" href=""https://static.spore.com/tmp/501073471139.png"" type=""image/png"" length=""26078"" />
-      <link rel=""enclosure"" href=""https://static.spore.com/tmp/501073471139.xml"" type=""application/x-creature+xml"" />
-   </entry>
-</feed>",
-                ContentType = "application/atom+xml"
+                // parameter is asset id
+                var asset = await _assetManager.FindByIdAsync((Int64)id, true);
+                if (asset != null)
+                {
+                    assets.Add(asset);
+                }
+            }
+            else
+            {
+                // loop over all id queries
+                foreach (var idQuery in Request.Query["id"])
+                {
+                    // make sure we can parse the id
+                    // and that the asset exists
+                    if (Int64.TryParse(idQuery, out Int64 assetId))
+                    {
+                        var asset = await _assetManager.FindByIdAsync(assetId, true);
+                        if (asset != null)
+                        {
+                            assets.Add(asset);
+                        }
+                    }
+                }
+            }
 
+            Console.WriteLine(AtomFeedBuilder.CreateFromTemplate(
+                    new AssetTemplate(assets.ToArray())
+                ).ToContentResult().Content);
 
-            };
+            return AtomFeedBuilder.CreateFromTemplate(
+                    new AssetTemplate(assets.ToArray())
+                ).ToContentResult();
+       
         }
 
         // GET /pollinator/atom/subscribe

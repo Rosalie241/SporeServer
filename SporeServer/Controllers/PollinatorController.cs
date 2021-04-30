@@ -13,8 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using SporeServer.Areas.Identity.Data;
 using System;
 using System.Threading.Tasks;
-using SporeServer.ContentResultHelper.AtomFeed;
-using SporeServer.ContentResultHelper.AtomFeed.Templates.Pollinator;
+using SporeServer.Builder.AtomFeed;
+using SporeServer.Builder.AtomFeed.Templates.Pollinator;
 using SporeServer.Data;
 using SporeServer.Services;
 
@@ -25,13 +25,11 @@ namespace SporeServer.Controllers
     [Route("[controller]")]
     public class PollinatorController : ControllerBase
     {
-        private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
         private readonly IAssetManager _assetManager;
 
-        public PollinatorController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager)
+        public PollinatorController(UserManager<SporeServerUser> userManager, IAssetManager assetManager)
         {
-            _context = context;
             _userManager = userManager;
             _assetManager = assetManager;
         }
@@ -41,7 +39,7 @@ namespace SporeServer.Controllers
         public async Task<IActionResult> HandShake()
         {
             var user = await _userManager.GetUserAsync(User);
-            var asset = await _context.Assets.FindAsync(user.NextAssetId);
+            var asset = await _assetManager.FindByIdAsync(user.NextAssetId);
 
             // reserve new asset when 
             //      * user has no reserved asset
@@ -56,7 +54,7 @@ namespace SporeServer.Controllers
                 }
             }
 
-            return AtomFeedBuilder.CreateFromTemplate<HandshakeTemplate>(
+            return AtomFeedBuilder.CreateFromTemplate(
                     new HandshakeTemplate(user)
                 ).ToContentResult();
         }

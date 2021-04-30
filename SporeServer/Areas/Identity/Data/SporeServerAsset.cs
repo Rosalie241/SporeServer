@@ -16,7 +16,7 @@ namespace SporeServer.Areas.Identity.Data
     public class SporeServerAsset
     {
         /// <summary>
-        ///     The primary key
+        ///     Asset Id
         /// </summary>
         [Key]
         public Int64 AssetId { get; set; }
