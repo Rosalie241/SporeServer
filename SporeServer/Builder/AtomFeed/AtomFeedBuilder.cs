@@ -58,7 +58,7 @@ namespace SporeServer.Builder.AtomFeed
         public static XmlElement AddCustomElement(XmlDocument document, XmlElement parent, string name, string value)
         {
             // special handling for sp: elements
-            string? prefix = null, namespaceUri = null;
+            string prefix = null, namespaceUri = null;
             if (name.StartsWith("sp:"))
             {
                 prefix = "sp";
@@ -98,6 +98,23 @@ namespace SporeServer.Builder.AtomFeed
             return attribute;
         }
 
+        public static XmlElement AddAuthorElement(XmlDocument document, XmlElement parent, string name, string uri)
+        {
+            // <author />
+            //
+            var authorElement = AddCustomElement(document, parent, "author", null);
+            // <name />
+            AddCustomElement(document, authorElement, "name", name);
+            // <uri />
+            AddCustomElement(document, authorElement, "uri", uri);
+            return authorElement;
+        }
+
+        public static XmlElement AddAuthorElement(XmlDocument document, string name, string uri)
+        {
+            return AddAuthorElement(document, (XmlElement)document.LastChild, name, uri);
+        }
+
         public static XmlElement AddFeedEntry(XmlDocument document, XmlElement parent, string id, string title, DateTime updated, string subtitle, string authorName, string authorUri, int? subCount, string link)
         {
             // <entry />
@@ -119,11 +136,7 @@ namespace SporeServer.Builder.AtomFeed
             //
             if (authorName != null || authorUri != null)
             {
-                var authorElement = AddCustomElement(document, entryElement, "author", null);
-                // <name />
-                AddCustomElement(document, authorElement, "name", authorName);
-                // <uri />
-                AddCustomElement(document, authorElement, "uri", authorUri);
+                AddAuthorElement(document, entryElement, authorName, authorUri);
             }
 
             // <subcount />

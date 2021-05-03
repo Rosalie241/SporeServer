@@ -75,10 +75,6 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
     {
         private readonly string _xml;
 
-        public HandshakeTemplate()
-        {
-        }
-
         public HandshakeTemplate(SporeServerUser user)
         {
             // <handshake />
