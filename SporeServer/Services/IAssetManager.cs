@@ -56,5 +56,12 @@ namespace SporeServer.Services
         /// <param name="id"></param>
         /// <returns></returns>
         Task<SporeServerAsset> FindByIdAsync(Int64 id);
+
+        /// <summary>
+        ///     Tries to find all assets from author id, returns null when not found
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<SporeServerAsset[]> FindAllByUserIdAsync(Int64 authorId);
     }
 }

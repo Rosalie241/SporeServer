@@ -18,8 +18,10 @@ using SporeServer.Models;
 using SporeServer.Models.Xml;
 using SporeServer.SporeTypes;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SporeServer.Services
@@ -401,6 +403,21 @@ namespace SporeServer.Services
         public async Task<SporeServerAsset> FindByIdAsync(Int64 id)
         {
             return await FindByIdAsync(id, false);
+        }
+
+        public async Task<SporeServerAsset[]> FindAllByUserIdAsync(Int64 authorId)
+        {
+            try
+            {
+                // return a list of assets which are used & have the same author id
+                return await _context.Assets.Where(a => a.Used && a.AuthorId == authorId).ToArrayAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"FindAllByUserIdAsync: Failed To Find Assets For {authorId}: {e}");
+                return null;
+            }
+            
         }
     }
 }
