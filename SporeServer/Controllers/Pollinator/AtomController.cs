@@ -8,6 +8,7 @@
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SporeServer.Areas.Identity.Data;
@@ -30,10 +31,12 @@ namespace SporeServer.Controllers.Pollinator
     {
         private readonly SporeServerContext _context;
         private readonly IAssetManager _assetManager;
-        public AtomController(SporeServerContext context, IAssetManager assetManager)
+        private readonly UserManager<SporeServerUser> _userManager;
+        public AtomController(SporeServerContext context, IAssetManager assetManager, UserManager<SporeServerUser> userManager)
         {
             _context = context;
             _assetManager = assetManager;
+            _userManager = userManager;
         }
 
         // GET /pollinator/atom/randomAsset
@@ -159,22 +162,32 @@ namespace SporeServer.Controllers.Pollinator
         public IActionResult Subscribe()
         {
             Console.WriteLine($"/pollinator/atom/subscribe{Request.QueryString}");
-
-            foreach (var a in Request.Query)
-            {
-                Console.WriteLine($"{a.Key}: {String.Join(' ', a.Value)}");
-            }
-
             return Ok();
         }
 
         // GET /pollinator/atom/user/{userId}
         [HttpGet("user/{userId}")]
-        public IActionResult AtomUser(Int64 userId)
+        public async Task<IActionResult> AtomUser(Int64 userId)
         {
-            Console.WriteLine("/pollinator/atom/user/" + userId);
-            return Ok();
-        }
+            Console.WriteLine($"/pollinator/atom/user/{userId}{Request.QueryString}");
 
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+
+            // make sure the user exists
+            if (user == null)
+            {
+                return Ok();
+            }
+
+            var assets = await _assetManager.FindAllByUserIdAsync(userId);
+
+            Console.WriteLine(AtomFeedBuilder.CreateFromTemplate(
+                    new UserTemplate(user, assets)
+                ).ToContentResult().Content);
+
+            return AtomFeedBuilder.CreateFromTemplate(
+                    new UserTemplate(user, assets)
+                ).ToContentResult();
+        }
     }
 }
