@@ -1,0 +1,3385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+    <block>
+      <id>0xcce7e453</id>
+      <filename>BE_classic_01</filename>
+      <name>Barn Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcce7e450</id>
+      <filename>BE_classic_02</filename>
+      <name>Civic Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="2">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcce7e451</id>
+      <filename>BE_classic_03</filename>
+      <name>Tower Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>pointy</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcce7e456</id>
+      <filename>BE_classic_04</filename>
+      <name>Dome Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>pointy</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcce7e457</id>
+      <filename>BE_classic_05</filename>
+      <name>Cubicle</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcce7e454</id>
+      <filename>BE_classic_06</filename>
+      <name>Columnar</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcce7e455</id>
+      <filename>BE_classic_07</filename>
+      <name>Octo-cottage</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="4">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>angular</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcce7e45a</id>
+      <filename>BE_classic_08</filename>
+      <name>Candominium</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcde7e5c6</id>
+      <filename>BE_classic_13</filename>
+      <name>Glazier Box</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcde7e5c1</id>
+      <filename>BE_classic_14</filename>
+      <name>Beveled Bay</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcde7e5c0</id>
+      <filename>BE_classic_15</filename>
+      <name>Porthole</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>RoundSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcde7e5c3</id>
+      <filename>BE_classic_16</filename>
+      <name>New Colonial</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="2">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcde7e5c2</id>
+      <filename>BE_classic_17</filename>
+      <name>Double Doors</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="4">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>rectiliear</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcde7e5cd</id>
+      <filename>BE_classic_18</filename>
+      <name>Civics Lesson</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="4">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>rectiliear</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>blocky</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcde7e5cc</id>
+      <filename>BE_classic_19</filename>
+      <name>Double-Deco</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>rectiliear</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xcae7e10c</id>
+      <filename>BE_classic_20</filename>
+      <name>Lancet Columns</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="4">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>rectiliear</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xdd4eaf83</id>
+      <filename>BE_connector_classic_01</filename>
+      <name>Colaba Causeway</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xdd4eaf80</id>
+      <filename>BE_connector_classic_02</filename>
+      <name>Kesher</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="4">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xdd4eaf81</id>
+      <filename>BE_connector_classic_03</filename>
+      <name>Attache</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="3">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xdd4eaf86</id>
+      <filename>BE_connector_classic_04</filename>
+      <name>Connexion</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="4">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x0c37cc37</id>
+      <filename>BE_connector_fortress_01</filename>
+      <name>Overpassed</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="2">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x0c37cc34</id>
+      <filename>BE_connector_fortress_02</filename>
+      <name>Fastenate</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="2">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x0c37cc35</id>
+      <filename>BE_connector_fortress_03</filename>
+      <name>Marry Way</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="2">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x0c37cc32</id>
+      <filename>BE_connector_fortress_04</filename>
+      <name>Weaver</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="2">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x4c0e3e4a</id>
+      <filename>BE_connector_organic_01</filename>
+      <name>Correlation Station</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="3">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x4c0e3e49</id>
+      <filename>BE_connector_organic_02</filename>
+      <name>Walkthrough</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="3">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x4c0e3e48</id>
+      <filename>BE_connector_organic_03</filename>
+      <name>Hitch</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="4">
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>frilly</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x4c0e3e4f</id>
+      <filename>BE_connector_organic_04</filename>
+      <name>Promenada</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="3">
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xc90af331</id>
+      <filename>BE_connector_platonic_01</filename>
+      <name>Rejoinder</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="5">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>basic</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>angular</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xc90af332</id>
+      <filename>BE_connector_platonic_02</filename>
+      <name>Up Periscope</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="3">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>basic</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xc90af333</id>
+      <filename>BE_connector_platonic_03</filename>
+      <name>Colonanade</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="5">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>basic</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>angular</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xc90af334</id>
+      <filename>BE_connector_platonic_04</filename>
+      <name>Loggia</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="3">
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>basic</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5283c6c3</id>
+      <filename>BE_connector_scary_01</filename>
+      <name>Piazza Della Spora</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="4">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>playful</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5283c6c0</id>
+      <filename>BE_connector_scary_02</filename>
+      <name>Portico</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="5">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>playful</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5283c6c1</id>
+      <filename>BE_connector_scary_03</filename>
+      <name>Stoa way</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="5">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>playful</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5283c6c6</id>
+      <filename>BE_connector_scary_04</filename>
+      <name>Ponte Vexio</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="5">
+        <aesthetic>conical</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>playful</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x007ad275</id>
+      <filename>BE_connector_tech_01</filename>
+      <name>Passage</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="7">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>angular</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x007ad276</id>
+      <filename>BE_connector_tech_02</filename>
+      <name>Veranda</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="4">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x007ad277</id>
+      <filename>BE_connector_tech_03</filename>
+      <name>Jetway</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="7">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>angular</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x007ad270</id>
+      <filename>BE_connector_tech_04</filename>
+      <name>Skywalked</name>
+      <editor>Building</editor>
+      <type>Connector</type>
+      <aestheticTags count="4">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xe9fabef0</id>
+      <filename>BE_Details_Awning_01</filename>
+      <name>Awning</name>
+      <editor>Building</editor>
+      <type>Balcony</type>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xe9fabef3</id>
+      <filename>BE_Details_Awning_02</filename>
+      <name>Lashed Awning</name>
+      <editor>Building</editor>
+      <type>Balcony</type>
+      <aestheticTags count="2">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xe9fabef2</id>
+      <filename>BE_Details_Awning_03</filename>
+      <name>Awning of Doom</name>
+      <editor>Building</editor>
+      <type>Balcony</type>
+      <aestheticTags count="2">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xe9fabef5</id>
+      <filename>BE_Details_Awning_04</filename>
+      <name>Hive Cover</name>
+      <editor>Building</editor>
+      <type>Balcony</type>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xf242d152</id>
+      <filename>BE_Details_Balcony_01</filename>
+      <name>Raw Demagogue</name>
+      <editor>Building</editor>
+      <type>Balcony</type>
+      <aestheticTags count="2">
+        <aesthetic>medieval</aesthetic>
+        <aesthetic>balcony</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xf242d151</id>
+      <filename>BE_Details_Balcony_02</filename>
+      <name>Chief's Perch</name>
+      <editor>Building</editor>
+      <type>Balcony</type>
+      <aestheticTags count="4">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>balcony</aesthetic>
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xf242d150</id>
+      <filename>BE_Details_Balcony_03</filename>
+      <name>Bully Pulpit</name>
+      <editor>Building</editor>
+      <type>Balcony</type>
+      <aestheticTags count="4">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>balcony</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xf242d157</id>
+      <filename>BE_Details_Balcony_04</filename>
+      <name>Charismatic</name>
+      <editor>Building</editor>
+      <type>Balcony</type>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>balcony</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x058d8169</id>
+      <filename>BE_Details_Chimney_01</filename>
+      <name>Soot Belcher</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="2">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x058d816a</id>
+      <filename>BE_Details_Chimney_02</filename>
+      <name>Smokey Fungi</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="2">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x058d816b</id>
+      <filename>BE_Details_Chimney_03</filename>
+      <name>Black Smoker</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="4">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x058d816c</id>
+      <filename>BE_Details_Chimney_04</filename>
+      <name>Carbon Vent</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="4">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x058d816d</id>
+      <filename>BE_Details_Chimney_05</filename>
+      <name>Bubble Tops</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="2">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x058d816e</id>
+      <filename>BE_Details_Chimney_06</filename>
+      <name>Old Spewie</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x058d816f</id>
+      <filename>BE_Details_Chimney_07</filename>
+      <name>Confetti Blower</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>playful</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x058d8160</id>
+      <filename>BE_Details_Chimney_08</filename>
+      <name>Little Puffer</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>playful</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x058d8161</id>
+      <filename>BE_Details_Chimney_09</filename>
+      <name>WWW</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="5">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>chimney</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x068d82db</id>
+      <filename>BE_Details_Chimney_10</filename>
+      <name>VVV</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="5">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>chimney</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x068d82da</id>
+      <filename>BE_Details_Chimney_11</filename>
+      <name>UUU</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="5">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>chimney</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x068d82d9</id>
+      <filename>BE_Details_Chimney_12</filename>
+      <name>TTT</name>
+      <editor>Building</editor>
+      <type>Chimney</type>
+      <aestheticTags count="5">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>chimney</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x0f8d9dd8</id>
+      <filename>BE_Details_Cupola_01</filename>
+      <name>Teepee</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <aestheticTags count="2">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x0f8d9ddb</id>
+      <filename>BE_Details_Cupola_02</filename>
+      <name>Fiercesom</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <aestheticTags count="4">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x0f8d9dda</id>
+      <filename>BE_Details_Cupola_03</filename>
+      <name>Jefferson</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <aestheticTags count="2">
+        <aesthetic>classic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x0f8d9ddd</id>
+      <filename>BE_Details_Cupola_04</filename>
+      <name>Carousel</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x0989a5e9</id>
+      <filename>BE_Details_FactoryLights_01</filename>
+      <name>Beamed</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x0989a5ea</id>
+      <filename>BE_Details_FactoryLights_02</filename>
+      <name>Spotty Light</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x82eaa290</id>
+      <filename>BE_Details_Flag_01</filename>
+      <name>Little Johnny</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Sign</subtype>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>detail</aesthetic>
+        <aesthetic>flag</aesthetic>
+      </aestheticTags>
+      <cost>2000</cost>
+      <complexity>8</complexity>
+    </block>
+    <block>
+      <id>0x82eaa293</id>
+      <filename>BE_Details_Flag_02</filename>
+      <name>Friar Tucker</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Sign</subtype>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>detail</aesthetic>
+        <aesthetic>flag</aesthetic>
+      </aestheticTags>
+      <cost>1500</cost>
+      <complexity>6</complexity>
+    </block>
+    <block>
+      <id>0x82eaa292</id>
+      <filename>BE_Details_Flag_03</filename>
+      <name>Mad Maid Marian</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Sign</subtype>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>detail</aesthetic>
+        <aesthetic>flag</aesthetic>
+      </aestheticTags>
+      <cost>2000</cost>
+      <complexity>8</complexity>
+    </block>
+    <block>
+      <id>0x82eaa295</id>
+      <filename>BE_Details_Flag_04</filename>
+      <name>Sherwood Fawks</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Flag</subtype>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>detail</aesthetic>
+        <aesthetic>flag</aesthetic>
+      </aestheticTags>
+      <cost>2000</cost>
+      <complexity>8</complexity>
+    </block>
+    <block>
+      <id>0x77ea6291</id>
+      <filename>BE_Details_Gear_01</filename>
+      <name>Twirl Gear</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Gear</subtype>
+      <aestheticTags count="3">
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x77ea6292</id>
+      <filename>BE_Details_Gear_02</filename>
+      <name>Fancy Fan</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Gear</subtype>
+      <aestheticTags count="3">
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x77ea6293</id>
+      <filename>BE_Details_Gear_03</filename>
+      <name>Metal Twister</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Gear</subtype>
+      <aestheticTags count="3">
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>7500</cost>
+      <complexity>30</complexity>
+    </block>
+    <block>
+      <id>0x77ea6294</id>
+      <filename>BE_Details_Gear_04</filename>
+      <name>Aqua Swisher</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Gear</subtype>
+      <aestheticTags count="3">
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0xf54f583e</id>
+      <filename>BE_Details_Greeble_01</filename>
+      <name>Gear Boxen</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="3">
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>4500</cost>
+      <complexity>18</complexity>
+    </block>
+    <block>
+      <id>0xf54f583d</id>
+      <filename>BE_Details_Greeble_02</filename>
+      <name>Power Converter</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="3">
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>4500</cost>
+      <complexity>18</complexity>
+    </block>
+    <block>
+      <id>0xf54f583c</id>
+      <filename>BE_Details_Greeble_03</filename>
+      <name>Plasma Still</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="3">
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>4500</cost>
+      <complexity>18</complexity>
+    </block>
+    <block>
+      <id>0xf54f583b</id>
+      <filename>BE_Details_Greeble_04</filename>
+      <name>Fission Station</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="3">
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>6000</cost>
+      <complexity>24</complexity>
+    </block>
+    <block>
+      <id>0x25806a26</id>
+      <filename>BE_Details_House_01</filename>
+      <name>Lawn Art</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>house</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x25806a25</id>
+      <filename>BE_Details_House_02</filename>
+      <name>Window Boxing</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>house</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x25806a24</id>
+      <filename>BE_Details_House_03</filename>
+      <name>Wishing Well</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>house</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x25806a23</id>
+      <filename>BE_Details_House_04</filename>
+      <name>Pajaro Paradiso</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>house</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x25806a22</id>
+      <filename>BE_Details_House_05</filename>
+      <name>Overlook</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>medieval</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x25806a21</id>
+      <filename>BE_Details_House_06</filename>
+      <name>Stonewall</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x25806a20</id>
+      <filename>BE_Details_House_07</filename>
+      <name>Portal</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x25806a2f</id>
+      <filename>BE_Details_House_08</filename>
+      <name>Entree</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x25806a2e</id>
+      <filename>BE_Details_House_09</filename>
+      <name>Light Cane</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>house</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x248068b4</id>
+      <filename>BE_Details_House_10</filename>
+      <name>Picnic Time</name>
+      <editor>Building</editor>
+      <type>Floor</type>
+      <aestheticTags count="2">
+        <aesthetic>house</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6c001726</id>
+      <filename>BE_Details_Light_01</filename>
+      <name>Street Lamp</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="3">
+        <aesthetic>medieval</aesthetic>
+        <aesthetic>light</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6c001725</id>
+      <filename>BE_Details_Light_02</filename>
+      <name>Torchiere</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="3">
+        <aesthetic>medieval</aesthetic>
+        <aesthetic>light</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6c001724</id>
+      <filename>BE_Details_Light_03</filename>
+      <name>Light Sphere</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="1">
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6c001723</id>
+      <filename>BE_Details_Light_04</filename>
+      <name>Industry Light</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6c001722</id>
+      <filename>BE_Details_Light_05</filename>
+      <name>Little Beam</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6c001721</id>
+      <filename>BE_Details_Light_06</filename>
+      <name>Orbit Shiner</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x6c001720</id>
+      <filename>BE_Details_Light_07</filename>
+      <name>Spot Light</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x6c00172f</id>
+      <filename>BE_Details_Light_08</filename>
+      <name>Fire Fly Beams</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6c00172e</id>
+      <filename>BE_Details_Light_09</filename>
+      <name>Cublious Sign</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Sign</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6b0015b4</id>
+      <filename>BE_Details_Light_10</filename>
+      <name>Mosko Sign</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Sign</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6b0015b5</id>
+      <filename>BE_Details_Light_11</filename>
+      <name>Lamski Sign</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Sign</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6b0015b6</id>
+      <filename>BE_Details_Light_12</filename>
+      <name>Ginog Sign</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Sign</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>2500</cost>
+      <complexity>10</complexity>
+    </block>
+    <block>
+      <id>0x6b0015b7</id>
+      <filename>BE_Details_Light_13</filename>
+      <name>Levanter Finder</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x6b0015b0</id>
+      <filename>BE_Details_Light_14</filename>
+      <name>Sciroco Vane</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x6b0015b1</id>
+      <filename>BE_Details_Light_15</filename>
+      <name>Huba Seeker</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x6b0015b2</id>
+      <filename>BE_Details_Light_16</filename>
+      <name>Chincook Sensor</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Light</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x5fbbab9f</id>
+      <filename>BE_Details_Plant_01</filename>
+      <name>Daisy May</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="1">
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>2000</cost>
+      <complexity>8</complexity>
+    </block>
+    <block>
+      <id>0x5fbbab9c</id>
+      <filename>BE_Details_Plant_02</filename>
+      <name>Viking Horn</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="1">
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>2000</cost>
+      <complexity>8</complexity>
+    </block>
+    <block>
+      <id>0x5fbbab9d</id>
+      <filename>BE_Details_Plant_03</filename>
+      <name>Sagrada Uva</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="1">
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>2000</cost>
+      <complexity>8</complexity>
+    </block>
+    <block>
+      <id>0x5fbbab9a</id>
+      <filename>BE_Details_Plant_04</filename>
+      <name>Anemone Planta</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="1">
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>2000</cost>
+      <complexity>8</complexity>
+    </block>
+    <block>
+      <id>0x67539388</id>
+      <filename>BE_Details_Pump_01</filename>
+      <name>Piston Pusher</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>5000</cost>
+      <complexity>20</complexity>
+    </block>
+    <block>
+      <id>0x6753938b</id>
+      <filename>BE_Details_Pump_02</filename>
+      <name>Kuba Steamer</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>4500</cost>
+      <complexity>18</complexity>
+    </block>
+    <block>
+      <id>0x6753938a</id>
+      <filename>BE_Details_Pump_03</filename>
+      <name>Tire Pouse</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>5000</cost>
+      <complexity>20</complexity>
+    </block>
+    <block>
+      <id>0x6753938d</id>
+      <filename>BE_Details_Pump_04</filename>
+      <name>Criket Pump</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>5000</cost>
+      <complexity>20</complexity>
+    </block>
+    <block>
+      <id>0x4a6d589e</id>
+      <filename>BE_Details_Radar_01</filename>
+      <name>Yepun Seeker</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x4a6d589d</id>
+      <filename>BE_Details_Radar_02</filename>
+      <name>Antu Receiver</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x4a6d589c</id>
+      <filename>BE_Details_Radar_03</filename>
+      <name>Qua-yen Sighter</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x4a6d589b</id>
+      <filename>BE_Details_Radar_04</filename>
+      <name>Me-li-pal Finder</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="3">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>4500</cost>
+      <complexity>18</complexity>
+    </block>
+    <block>
+      <id>0x296b1090</id>
+      <filename>BE_Details_Shapes_01</filename>
+      <name>Cubed</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x296b1093</id>
+      <filename>BE_Details_Shapes_02</filename>
+      <name>Pointed</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x296b1092</id>
+      <filename>BE_Details_Shapes_03</filename>
+      <name>Cylindra</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x296b1095</id>
+      <filename>BE_Details_Shapes_04</filename>
+      <name>Esphereal</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x296b1094</id>
+      <filename>BE_Details_Shapes_05</filename>
+      <name>Donut</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x296b1097</id>
+      <filename>BE_Details_Shapes_06</filename>
+      <name>Plop</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x296b1096</id>
+      <filename>BE_Details_Shapes_07</filename>
+      <name>Polyhedron</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x296b1099</id>
+      <filename>BE_Details_Shapes_08</filename>
+      <name>Parasol</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x296b1098</id>
+      <filename>BE_Details_Shapes_09</filename>
+      <name>Kickboard</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f3e</id>
+      <filename>BE_Details_Shapes_10</filename>
+      <name>Patch</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f3f</id>
+      <filename>BE_Details_Shapes_11</filename>
+      <name>Crayon Topper</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f3c</id>
+      <filename>BE_Details_Shapes_12</filename>
+      <name>Button</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f3d</id>
+      <filename>BE_Details_Shapes_13</filename>
+      <name>Batty</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f3a</id>
+      <filename>BE_Details_Shapes_14</filename>
+      <name>Acicularis</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f3b</id>
+      <filename>BE_Details_Shapes_15</filename>
+      <name>Tear Dropped</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f38</id>
+      <filename>BE_Details_Shapes_16</filename>
+      <name>Sands of Time</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f39</id>
+      <filename>BE_Details_Shapes_17</filename>
+      <name>Lozenge</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f36</id>
+      <filename>BE_Details_Shapes_18</filename>
+      <name>Pedoep</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x286b0f37</id>
+      <filename>BE_Details_Shapes_19</filename>
+      <name>Boxy</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x276b0d4b</id>
+      <filename>BE_Details_Shapes_20</filename>
+      <name>Puffer</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x276b0d4a</id>
+      <filename>BE_Details_Shapes_21</filename>
+      <name>Epee</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x276b0d49</id>
+      <filename>BE_Details_Shapes_22</filename>
+      <name>Fringe Grabber</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x276b0d48</id>
+      <filename>BE_Details_Shapes_23</filename>
+      <name>Mushroom Stalk</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x276b0d4f</id>
+      <filename>BE_Details_Shapes_24</filename>
+      <name>Tuning Time</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x276b0d4e</id>
+      <filename>BE_Details_Shapes_25</filename>
+      <name>Party Favor</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x276b0d4d</id>
+      <filename>BE_Details_Shapes_26</filename>
+      <name>Illumine</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x276b0d4c</id>
+      <filename>BE_Details_Shapes_27</filename>
+      <name>Acorn</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x276b0d43</id>
+      <filename>BE_Details_Shapes_28</filename>
+      <name>Your Turn</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>basic</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xb4813e29</id>
+      <filename>BE_Details_Themed_01</filename>
+      <name>Fortified Flair</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Roof</subtype>
+      <aestheticTags count="2">
+        <aesthetic>medieval</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xb4813e2a</id>
+      <filename>BE_Details_Themed_02</filename>
+      <name>Vacuole</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="2">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xb4813e2b</id>
+      <filename>BE_Details_Themed_03</filename>
+      <name>Hanging Fang</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="2">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xb4813e2c</id>
+      <filename>BE_Details_Themed_04</filename>
+      <name>Majestic Prong</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Wall</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>detail</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x1544e512</id>
+      <filename>BE_Details_Windmill_01</filename>
+      <name>El Quixote</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Windmill</subtype>
+      <aestheticTags count="2">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>windmill</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x1544e511</id>
+      <filename>BE_Details_Windmill_02</filename>
+      <name>Steampunk Mill</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Windmill</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>windmill</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x1544e510</id>
+      <filename>BE_Details_Windmill_03</filename>
+      <name>Artisan Mill</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Windmill</subtype>
+      <aestheticTags count="2">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>windmill</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0x1544e517</id>
+      <filename>BE_Details_Windmill_04</filename>
+      <name>Air Powered</name>
+      <editor>Building</editor>
+      <type>Detail</type>
+      <subtype>Windmill</subtype>
+      <aestheticTags count="2">
+        <aesthetic>techy</aesthetic>
+        <aesthetic>windmill</aesthetic>
+      </aestheticTags>
+      <cost>3500</cost>
+      <complexity>14</complexity>
+    </block>
+    <block>
+      <id>0xc17a9cf8</id>
+      <filename>BE_effect_details_flag_01</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xc17a9cfb</id>
+      <filename>BE_effect_details_flag_02</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xc17a9cfa</id>
+      <filename>BE_effect_details_flag_03</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xc17a9cfd</id>
+      <filename>BE_effect_details_flag_04</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xabd90b69</id>
+      <filename>BE_effect_details_Gear_01</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xabd90b6a</id>
+      <filename>BE_effect_details_Gear_02</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xabd90b6b</id>
+      <filename>BE_effect_details_Gear_03</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xabd90b6c</id>
+      <filename>BE_effect_details_Gear_04</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xa1bdf2f6</id>
+      <filename>BE_effect_details_Greeble_01</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xa1bdf2f5</id>
+      <filename>BE_effect_details_Greeble_02</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xa1bdf2f4</id>
+      <filename>BE_effect_details_Greeble_03</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xa1bdf2f3</id>
+      <filename>BE_effect_details_Greeble_04</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0x2296b087</id>
+      <filename>BE_effect_details_Plant_01</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0x2296b084</id>
+      <filename>BE_effect_details_Plant_02</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0x2296b085</id>
+      <filename>BE_effect_details_Plant_03</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0x2296b082</id>
+      <filename>BE_effect_details_Plant_04</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xe4695050</id>
+      <filename>BE_effect_details_Pump_01</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xe4695053</id>
+      <filename>BE_effect_details_Pump_02</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xe4695052</id>
+      <filename>BE_effect_details_Pump_03</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xe4695055</id>
+      <filename>BE_effect_details_Pump_04</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0x0dcc6ca6</id>
+      <filename>BE_effect_details_Radar_01</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0x0dcc6ca5</id>
+      <filename>BE_effect_details_Radar_02</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0x0dcc6ca4</id>
+      <filename>BE_effect_details_Radar_03</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0x0dcc6ca3</id>
+      <filename>BE_effect_details_Radar_04</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xd1d0780a</id>
+      <filename>be_effect_details_windmill_01</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xd1d07809</id>
+      <filename>be_effect_details_windmill_02</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xd1d07808</id>
+      <filename>be_effect_details_windmill_03</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0xd1d0780f</id>
+      <filename>be_effect_details_windmill_04</filename>
+      <name/>
+    </block>
+    <block>
+      <id>0x6a3842c7</id>
+      <filename>BE_fortress_01</filename>
+      <name>Narva Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="2">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a3842c4</id>
+      <filename>BE_fortress_02</filename>
+      <name>Ivangorod Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="2">
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a3842c5</id>
+      <filename>BE_fortress_03</filename>
+      <name>Merlon Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a3842c2</id>
+      <filename>BE_fortress_04</filename>
+      <name>Drum Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="4">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a3842c3</id>
+      <filename>BE_fortress_05</filename>
+      <name>Buttresshead</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="2">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a3842c0</id>
+      <filename>BE_fortress_06</filename>
+      <name>Castle Ramparts</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="2">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a3842c1</id>
+      <filename>BE_fortress_07</filename>
+      <name>Archway</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="2">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a3842ce</id>
+      <filename>BE_fortress_08</filename>
+      <name>Octo-Tower</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="2">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a3842cf</id>
+      <filename>BE_fortress_09</filename>
+      <name>Cobbled Portal</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>RoundSkylight</subtype>
+      <aestheticTags count="1">
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6b3844b9</id>
+      <filename>BE_fortress_10</filename>
+      <name>Machicolation</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="2">
+        <aesthetic>decorative</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6b3844b8</id>
+      <filename>BE_fortress_11</filename>
+      <name>Muntin</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="2">
+        <aesthetic>decorative</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6b3844bb</id>
+      <filename>BE_fortress_12</filename>
+      <name>Spoorish Lancet</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="2">
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6b3844ba</id>
+      <filename>BE_fortress_13</filename>
+      <name>Sci-Fi Slider</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="1">
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6b3844bd</id>
+      <filename>BE_fortress_14</filename>
+      <name>Cobbled Gate</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="2">
+        <aesthetic>medieval</aesthetic>
+        <aesthetic>pointy</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6b3844bc</id>
+      <filename>BE_fortress_15</filename>
+      <name>Drawbridge</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="1">
+        <aesthetic>medieval</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6b3844bf</id>
+      <filename>BE_fortress_16</filename>
+      <name>Portcullis</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="2">
+        <aesthetic>medieval</aesthetic>
+        <aesthetic>pointy</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x60bdd174</id>
+      <filename>BE_organic_fun_01</filename>
+      <name>Bubble Fab</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="2">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x60bdd177</id>
+      <filename>BE_organic_fun_02</filename>
+      <name>Bachelor Vat</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="2">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x60bdd176</id>
+      <filename>BE_organic_fun_03</filename>
+      <name>Octo-Lashings</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>airship</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x60bdd171</id>
+      <filename>BE_organic_fun_04</filename>
+      <name>Thinkin' Logs</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>airship</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x60bdd170</id>
+      <filename>BE_organic_fun_05</filename>
+      <name>Arched Hut Door</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="3">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x60bdd173</id>
+      <filename>BE_organic_fun_06</filename>
+      <name>Lashed Entrance</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="3">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x60bdd172</id>
+      <filename>BE_organic_fun_07</filename>
+      <name>Leather Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x60bdd17d</id>
+      <filename>BE_organic_fun_08</filename>
+      <name>Stretched Tarp</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="4">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x60bdd17c</id>
+      <filename>BE_organic_fun_09</filename>
+      <name>Wishbone Pane</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>frilly</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5fbdcf82</id>
+      <filename>BE_organic_fun_10</filename>
+      <name>Hearth Hole</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="4">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>frilly</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5fbdcf83</id>
+      <filename>BE_organic_fun_11</filename>
+      <name>Domed Ledge</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="4">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>frilly</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5fbdcf80</id>
+      <filename>BE_organic_fun_12</filename>
+      <name>Cream Topping</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>frilly</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5fbdcf81</id>
+      <filename>BE_organic_fun_13</filename>
+      <name>Berry Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="4">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>frilly</aesthetic>
+        <aesthetic>playful</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5fbdcf86</id>
+      <filename>BE_organic_fun_14</filename>
+      <name>Amoebic Outlook</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>frilly</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5fbdcf87</id>
+      <filename>BE_organic_fun_15</filename>
+      <name>Bio Window</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="3">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>frilly</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x5fbdcf84</id>
+      <filename>BE_organic_fun_16</filename>
+      <name>Tree Fort</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="4">
+        <aesthetic>oldfashioned</aesthetic>
+        <aesthetic>frilly</aesthetic>
+        <aesthetic>playful</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xaf877f21</id>
+      <filename>BE_Platonic_01</filename>
+      <name>Pyramid</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="5">
+        <aesthetic>conical</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>basic</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>blocky</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xaf877f22</id>
+      <filename>BE_Platonic_02</filename>
+      <name>Bivouac</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>basic</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xaf877f23</id>
+      <filename>BE_Platonic_03</filename>
+      <name>Top Cap</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="4">
+        <aesthetic>conical</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>basic</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xaf877f24</id>
+      <filename>BE_Platonic_04</filename>
+      <name>Buckyhome</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="2">
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>basic</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xaf877f25</id>
+      <filename>BE_Platonic_05</filename>
+      <name>Building Block</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>basic</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xaf877f26</id>
+      <filename>BE_Platonic_06</filename>
+      <name>Tube Cabin</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="2">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>basic</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xaf877f27</id>
+      <filename>BE_Platonic_07</filename>
+      <name>Octa-roost</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="4">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>basic</aesthetic>
+        <aesthetic>cylindrical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xaf877f28</id>
+      <filename>BE_Platonic_08</filename>
+      <name>Dollop Habitat</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="2">
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>basic</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6955a1b3</id>
+      <filename>BE_scary_01</filename>
+      <name>Scare-itecture</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6955a1b0</id>
+      <filename>BE_scary_02</filename>
+      <name>Bristly Abode</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="3">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6955a1b1</id>
+      <filename>BE_scary_03</filename>
+      <name>Bungle-oh!</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6955a1b6</id>
+      <filename>BE_scary_04</filename>
+      <name>The Haunt</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="4">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6955a1b7</id>
+      <filename>BE_scary_05</filename>
+      <name>Yagura Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="4">
+        <aesthetic>conical</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6955a1b4</id>
+      <filename>BE_scary_06</filename>
+      <name>Mempo Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="3">
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6955a1b5</id>
+      <filename>BE_scary_07</filename>
+      <name>Kabuto Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="3">
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6955a1ba</id>
+      <filename>BE_scary_08</filename>
+      <name>Himeji Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6955a1bb</id>
+      <filename>BE_scary_09</filename>
+      <name>Terror Nook</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="3">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a55a325</id>
+      <filename>BE_scary_10</filename>
+      <name>Horned Portal</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="3">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>pointy</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a55a324</id>
+      <filename>BE_scary_11</filename>
+      <name>Aperture</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="3">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>pointy</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a55a327</id>
+      <filename>BE_scary_12</filename>
+      <name>Egress</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="4">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a55a326</id>
+      <filename>BE_scary_13</filename>
+      <name>Fang Porthole</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a55a321</id>
+      <filename>BE_scary_14</filename>
+      <name>Trophy Porthole</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a55a320</id>
+      <filename>BE_scary_15</filename>
+      <name>Gaping Maw</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0x6a55a323</id>
+      <filename>BE_scary_16</filename>
+      <name>Portal Nostrils</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>scary</aesthetic>
+        <aesthetic>thorns</aesthetic>
+        <aesthetic>playful</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd86e4605</id>
+      <filename>BE_tech_01</filename>
+      <name>Futuro</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>deco</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>blocky</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd86e4606</id>
+      <filename>BE_tech_02</filename>
+      <name>Deco-Toaster</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="3">
+        <aesthetic>deco</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>blocky</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd86e4607</id>
+      <filename>BE_tech_03</filename>
+      <name>Maxx Ramparts</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="3">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>beveled</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd86e4600</id>
+      <filename>BE_tech_04</filename>
+      <name>Concentricle</name>
+      <editor>Building</editor>
+      <type>Structure</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="4">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>deco</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd86e4601</id>
+      <filename>BE_tech_05</filename>
+      <name>Cake Top Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="4">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>deco</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd86e4602</id>
+      <filename>BE_tech_06</filename>
+      <name>Balboa Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="5">
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>angular</aesthetic>
+        <aesthetic>techy</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd86e4603</id>
+      <filename>BE_tech_07</filename>
+      <name>Van Alen Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Round</subtype>
+      <aestheticTags count="3">
+        <aesthetic>conical</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>techy</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd86e460c</id>
+      <filename>BE_tech_08</filename>
+      <name>Gehry Roof</name>
+      <editor>Building</editor>
+      <type>Roof</type>
+      <subtype>Square</subtype>
+      <aestheticTags count="5">
+        <aesthetic>rectilinear</aesthetic>
+        <aesthetic>pointy</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>deco</aesthetic>
+        <aesthetic>angular</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd86e460d</id>
+      <filename>BE_tech_09</filename>
+      <name>Escape Hatch</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="4">
+        <aesthetic>spherical</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd96e47f7</id>
+      <filename>BE_tech_10</filename>
+      <name>Pressure Hatch</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="5">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd96e47f6</id>
+      <filename>BE_tech_11</filename>
+      <name>Irising Opening</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="3">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd96e47f5</id>
+      <filename>BE_tech_12</filename>
+      <name>Pod Bay Doors</name>
+      <editor>Building</editor>
+      <type>Door</type>
+      <aestheticTags count="5">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>angular</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd96e47f4</id>
+      <filename>BE_tech_13</filename>
+      <name>Vacuum Porthole</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>RoundSkylight</subtype>
+      <aestheticTags count="3">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd96e47f3</id>
+      <filename>BE_tech_14</filename>
+      <name>Bolted Porthole</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>RoundSkylight</subtype>
+      <aestheticTags count="4">
+        <aesthetic>cylindrical</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>steampunk</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd96e47f2</id>
+      <filename>BE_tech_15</filename>
+      <name>Window Flaps</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="5">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>angular</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+    <block>
+      <id>0xd96e47f1</id>
+      <filename>BE_tech_16</filename>
+      <name>Polygon Window</name>
+      <editor>Building</editor>
+      <type>Window</type>
+      <subtype>SquareSkylight</subtype>
+      <aestheticTags count="5">
+        <aesthetic>blocky</aesthetic>
+        <aesthetic>beveled</aesthetic>
+        <aesthetic>techy</aesthetic>
+        <aesthetic>angular</aesthetic>
+        <aesthetic>mechanical</aesthetic>
+      </aestheticTags>
+      <cost>500</cost>
+      <complexity>2</complexity>
+    </block>
+  </blocks>

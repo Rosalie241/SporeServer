@@ -1,0 +1,622 @@
+<achievements>
+<achievement>
+<id>0x0cc8b2c9!0x7e1737dc</id>
+<name>Spore Addict</name>
+<description>Spend 100 hours in your Spore galaxy</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x0625c63e</id>
+<name>Flight of the Bumblebee</name>
+<description>Fly for over 200 meters without touching the ground</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xd533234c</id>
+<name>Speedfreak</name>
+<description>Finish the Cell stage in under 8 minutes</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x75342816</id>
+<name>Scientist Hero</name>
+<description>Achieve Master Badge Level 10 as a Scientist</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xd49bf5db</id>
+<name>Conclusion</name>
+<description>Finish the Civilization stage by launching ICBMS and destroying all other cities</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x06529cdf</id>
+<name>Front Page News</name>
+<description>Have one of your creations or Sporecasts featured on www.spore.com</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x10000006</id>
+<name>Everyone's BFF</name>
+<description>Finish the Creature stage by befriending at least 20 other species</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xa385eb34</id>
+<name>Ghetto Blaster</name>
+<description>Create 10 Anthems</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x8deedbba</id>
+<name>Aluminum Cell</name>
+<description>Complete Cell stage on Hard setting</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x398218fd</id>
+<name>Trader Passion</name>
+<description>Play as a Trader</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x4cec7fab</id>
+<name>Iron Creature</name>
+<description>Complete Creature stage on Hard setting</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x064d3264</id>
+<name>Tribe stage unlocked</name>
+<description>Play enough of the Creature stage to unlock the Tribe stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x6545e161</id>
+<name>Super Pilot</name>
+<description>Spend at least 40 hours piloting your spaceship</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xd35167dc</id>
+<name>Military Strongman</name>
+<description>Finish the Civilization stage with more than 8 military cities</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x064d2514</id>
+<name>Creature stage unlocked</name>
+<description>Play enough of the Cell stage to unlock the Creature stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x1df0f64e</id>
+<name>Shaman Hero</name>
+<description>Achieve Master Badge Level 10 as a Shaman</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x064d35bd</id>
+<name>Space stage unlocked</name>
+<description>Play enough of the Civilization stage to unlock the Space stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xe1f5cf25</id>
+<name>Gunner</name>
+<description>Destroy at least 500 other space vessels</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x064d3560</id>
+<name>Civilization stage unlocked</name>
+<description>Play enough of the Tribe stage to unlock the Civilization stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x84ace4d5</id>
+<name>Warrior Passion</name>
+<description>Play as a Warrior</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x6d705bc8</id>
+<name>Starman</name>
+<description>Conquer all the other cities in the Civilization stage and launch your first space vessel</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xf3779820</id>
+<name>Biologist</name>
+<description>Make and publish 100 creatures</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x667933e7</id>
+<name>Civil Engineer</name>
+<description>Promote 20 alien Tribes to Civilizations</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x0599687e</id>
+<name>Warrior Hero</name>
+<description>Achieve Master Badge Level 10 as a Warrior</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xe3b7f7e6</id>
+<name>Epic Killer</name>
+<description>Kill an epic in Creature stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xb956386b</id>
+<name>Cell Addict</name>
+<description>Finish the Cell stage 25 times</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x3ddea588</id>
+<name>Trader Hero</name>
+<description>Achieve Master Badge Level 10 as a Trader</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x8e5839e1</id>
+<name>Scientist Passion</name>
+<description>Play as a Scientist</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xc072a0a6</id>
+<name>Spice Hoarder</name>
+<description>Control every resource node on the planet simultaneously</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x73f00565</id>
+<name>Identity Crisis</name>
+<description>Forge an alliance between two space-faring races of your own creation</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xefc9ec7a</id>
+<name>Split Personality</name>
+<description>Complete a "Change Archetype" mission</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x20000007</id>
+<name>Founder</name>
+<description>Complete the Tribal stage and build a city</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x2d806ed3</id>
+<name>Ecologist Hero</name>
+<description>Achieve Master Badge Level 10 as an Ecologist</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xbae19486</id>
+<name>Spore Fan</name>
+<description>Spend 50 hours in your Spore galaxy</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x10000002</id>
+<name>Cerberus</name>
+<description>Evolve a creature with three heads</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x9d1616b3</id>
+<name>Diplomatic Passion</name>
+<description>Play as a Diplomat</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x09847038</id>
+<name>Knight Passion</name>
+<description>Play as a Knight</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xa571049b</id>
+<name>Quietus Star</name>
+<description>Destroy 20 planets</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xa98fa57b</id>
+<name>Pacifist</name>
+<description>Finish the Cell stage without killing another creature</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x216abd79</id>
+<name>Rolling Thunder</name>
+<description>Complete the Civilization stage in less than an hour</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x06528ce8</id>
+<name>Rising Star</name>
+<description>Have 5 different Sporecasts subscribed to by at least 10 people</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xf3c5e40b</id>
+<name>Slugger</name>
+<description>Finish Creature stage without legs</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x10000005</id>
+<name>Max Power</name>
+<description>Build a creature with maximum stats in at least 4 abilities in Creature stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x06529a18</id>
+<name>Bad Baby!</name>
+<description>Have one of your assets banned</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xbcc06ea3</id>
+<name>Architect</name>
+<description>Create and share 50 buildings</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xe0b639d4</id>
+<name>Palm Greaser</name>
+<description>Pay 50 bribes in the Space stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x20000008</id>
+<name>Tribal Socialite</name>
+<description>Convert all 5 opposing tribes to your belief system</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xe2d1021c</id>
+<name>Missionary</name>
+<description>Finish the Civilization stage with more than 8 religious cities</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x7cb21213</id>
+<name>Shaman Passion</name>
+<description>Play as a Shaman</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x4b4d347e</id>
+<name>Thief</name>
+<description>Steal 50 crates of spice in the Space stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x8015dbf7</id>
+<name>Manifest Destiny</name>
+<description>Find Earth</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xeb5abcea</id>
+<name>Bard Passion</name>
+<description>Play as a Bard</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x41d06199</id>
+<name>Knight Hero</name>
+<description>Achieve Master Badge Level 10 as a Knight</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x2c8b38ae</id>
+<name>Speed Demon</name>
+<description>Finish Creature stage within an hour</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xfaed9b7e</id>
+<name>Completist</name>
+<description>Unlock all the parts in the Cell stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x20000009</id>
+<name>Vicious</name>
+<description>Kill all members of all 5 opposing tribes and raze their villages</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xc0e29cf0</id>
+<name>Bestial</name>
+<description>Play the Creature stage 10 times</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xfa4efdb1</id>
+<name>Steel Tribe</name>
+<description>Complete Tribe stage on Hard setting</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x47143c0d</id>
+<name>Evolver</name>
+<description>Finish Creature stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x20000001</id>
+<name>Domestic Bliss</name>
+<description>Domesticate and farm three different species</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x20000006</id>
+<name>Medic</name>
+<description>Heal one of your tribe members back to full health 5x in a single game</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x6fbc539a</id>
+<name>Foe</name>
+<description>Extinct at least 20 other species in Creature stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x9568e11f</id>
+<name>Alter Ego</name>
+<description>Play the Space stage as all 10 archetypes</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xe5fddec0</id>
+<name>Fear of Flying</name>
+<description>Finish the Civilization stage without ever buying an aircraft</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x060dd27f</id>
+<name>Pathological Cheater</name>
+<description>Use a cheat more than 50 times</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x20000003</id>
+<name>Tribal</name>
+<description>Complete the Tribal stage 10 times</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x20000004</id>
+<name>Ergonomically Terrific!</name>
+<description>Complete the Tribal stage in less than an hour</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x51b14e82</id>
+<name>Adamantium Civilization</name>
+<description>Complete Civilization stage on Hard setting</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x2b031bab</id>
+<name>Bard Hero</name>
+<description>Achieve Master Badge Level 10 as a Bard</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xd3869727</id>
+<name>Zealot Hero</name>
+<description>Achieve Master Badge Level 10 as a Zealot</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x99889638</id>
+<name>Automotive Engineer</name>
+<description>Make and publish 50 vehicles</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xb9ff8f07</id>
+<name>Wanderer Passion</name>
+<description>Play as a Wanderer</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xdb8060ba</id>
+<name>Galactic God</name>
+<description>Evolve from a cell to a space traveler in one continuous game</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xbc3c424d</id>
+<name>Relentless</name>
+<description>Complete the Civilization stage 10 times</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xea17c094</id>
+<name>Maxis Scout</name>
+<description>Earn 100 badges in the Space stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x2ea6824f</id>
+<name>Photographer</name>
+<description>Send a photo or video to a friend from Test Drive mode</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x20000002</id>
+<name>Watchful Parent</name>
+<description>Complete the Tribal stage without the death of a single tribe member</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x6e7b4971</id>
+<name>Survivor</name>
+<description>Finish Creature stage without dying</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x99bf707c</id>
+<name>Creator</name>
+<description>Spend 50 hours in the creators</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xfa91fc77</id>
+<name>Alter Ego's Alter Ego</name>
+<description>Achieve Master Badge Level 10 as all 10 archetypes</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x214732fb</id>
+<name>Deja Vu</name>
+<description>Discover something you created in another game</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x451ef13f</id>
+<name>Economist</name>
+<description>Finish the Civilization stage with more than 8 economic cities</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x8ecc8901</id>
+<name>Oh the Humanity!</name>
+<description>Destroy Earth</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xc24774b4</id>
+<name>Bio-Engineer</name>
+<description>Edit 25 creatures with the Creature Tweaker</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x7edeb516</id>
+<name>Zealot Passion</name>
+<description>Play as a Zealot</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x81f75a74</id>
+<name>Zoo Keeper</name>
+<description>Make 15 zoo planets</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x483bdf48</id>
+<name>Universe In A Box</name>
+<description>Play in every stage and every creator</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x10000001</id>
+<name>Socialite</name>
+<description>Meet 200 creatures made by other players</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xdaeb93cc</id>
+<name>Conquistador</name>
+<description>Capture 15 Star Systems</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xaaa4929a</id>
+<name>Can't Win For Losing</name>
+<description>Die at least once in every stage of Spore</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x0586e9d4</id>
+<name>Ecologist Passion</name>
+<description>Play as an Ecologist</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xcecf61f6</id>
+<name>Diplomatic Hero</name>
+<description>Achieve Master Badge Level 10 as a Diplomat</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xf9065832</id>
+<name>Landfall</name>
+<description>Finish the Cell stage and clamber onto the planet's surface</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x181282d4</id>
+<name>Devourer</name>
+<description>Eat 50 different species across any number of games</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x10000004</id>
+<name>Village Folks</name>
+<description>Have three posse members from different species</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x06529e50</id>
+<name>Social Engineer</name>
+<description>Make 5 Sporecasts of 50 creations or more</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xdb56ac5e</id>
+<name>Wanderer Hero</name>
+<description>Achieve Master Badge Level 10 as a Wanderer</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x19988ceb</id>
+<name>Quest Master</name>
+<description>Complete 150 missions in the Space stage</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xb3bfabf0</id>
+<name>42</name>
+<description>Find the center of the galaxy</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x1e859775</id>
+<name>Empire Builder</name>
+<description>Maximize colonies on 10 planets</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0x10000003</id>
+<name>General Custer</name>
+<description>Lead 30 posse members to their death</description>
+</achievement>
+<achievement>
+<id>0x0cc8b2c9!0xd6736ef2</id>
+<name>Careless Parent</name>
+<description>Lose 5 planets</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000051</id>
+<name>Military</name>
+<description>Military civilizations thrive on weapons and force.  They'll use every resource available to destroy other nations.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x0000004b</id>
+<name>Aggressive</name>
+<description>Aggressive tribes try to exterminate the competition.  They ruthlessly attack and hoard all the resources for themselves.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000046</id>
+<name>Predator</name>
+<description>Predatory creatures spend their lives searching for prey.  They'd sooner make extinct an entire species than "dance" or "charm".</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x0000005b</id>
+<name>Zealot</name>
+<description>Zealots are certain that their beliefs are the only truth that matters. Those who do not feel the same way are not worthy to exist in this galaxy.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000053</id>
+<name>Economic</name>
+<description>Economic civilizations use cash and trade routes to influence other nations.  They'll make alliances, but it's usually a better deal for them.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000057</id>
+<name>Bard</name>
+<description>Bards are the social, outgoing entertainers of the cosmos. The galaxy is their personal playground.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000044</id>
+<name>Omnivore</name>
+<description>Omnivorous cells eat any type of food available.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x0000004d</id>
+<name>Friendly</name>
+<description>Friendly tribes understand the importance of teamwork.  They form alliances to share resources and prosper with other tribes.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000055</id>
+<name>Religious</name>
+<description>Religious civilizations harness the power of words and ideas to convert other nations to their way of thinking.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x0000005f</id>
+<name>Scientist</name>
+<description>Scientists are logical and calculating. The galaxy exists to be studied and understood.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000067</id>
+<name>Wanderer</name>
+<description>Wanderers want to sample a little bit of everything. The galaxy is vast and they want to experience it all.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000042</id>
+<name>Herbivore</name>
+<description>Herbivorous cells consume a diet of plant matter.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000059</id>
+<name>Ecologist</name>
+<description>Ecologists are the protectors of nature. Species that attempt to exploit and corrupt the galaxy must be exterminated.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x0000005d</id>
+<name>Diplomat</name>
+<description>Diplomats are negotiators and problem solvers. Peace will come to the galaxy only through open communication between species.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000061</id>
+<name>Trader</name>
+<description>Traders are in it for the profit. Their only allegiance is to the almighty Sporebuck.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000049</id>
+<name>Adaptable</name>
+<description>Adaptable creatures have many friends and many enemies.  They make choices based on the current situation.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x0000004f</id>
+<name>Industrious</name>
+<description>Industrious tribes seize the moment, attacking or forming alliances when necessary.  They make great allies, but watch out.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000063</id>
+<name>Shaman</name>
+<description>Shamans understand that all life shares a common bond. The entire galaxy exists within us all.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000040</id>
+<name>Carnivore</name>
+<description>Carnivorous cells consume a diet of meat.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000065</id>
+<name>Warrior</name>
+<description>Warriors take what they want and never ask for permission. The galaxy is a prize to be claimed by the strongest.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000069</id>
+<name>Knight</name>
+<description>Knights are noble warriors that fight for right, not for personal gain. Peace will come to the galaxy only when evil has been vanquished.</description>
+</achievement>
+<achievement>
+<id>0x9a5acf10!0x00000147</id>
+<name>Social</name>
+<description>Social creatures are constantly searching for new friends and allies.  Meeting a new species is the highlight of their day.</description>
+</achievement>
+</achievements>

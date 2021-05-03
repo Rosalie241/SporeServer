@@ -1,0 +1,3456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<paints>
+    <paint>
+      <id>0x35915380</id>
+      <filename>be_airship_13</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x3591538a</id>
+      <filename>be_airship_19</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa88f741f</id>
+      <filename>be_bank_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>bank</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa88f741c</id>
+      <filename>be_bank_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>bank</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa88f741d</id>
+      <filename>be_bank_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>bank</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa88f741a</id>
+      <filename>be_bank_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>bank</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa88f741b</id>
+      <filename>be_bank_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>bank</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa88f7418</id>
+      <filename>be_bank_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>bank</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa88f7419</id>
+      <filename>be_bank_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>bank</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8f38ed19</id>
+      <filename>be_base_wall_trim_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>walltrim</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8f38ed18</id>
+      <filename>be_base_wall_trim_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>walltrim</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8f38ed1f</id>
+      <filename>be_base_wall_trim_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>walltrim</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8f38ed1d</id>
+      <filename>be_base_wall_trim_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>walltrim</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8f38ed13</id>
+      <filename>be_base_wall_trim_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>walltrim</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8f38ed12</id>
+      <filename>be_base_wall_trim_09</filename>
+      <aestheticTags count="1">
+        <aesthetic>walltrim</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8e38eba8</id>
+      <filename>be_base_wall_trim_10</filename>
+      <aestheticTags count="1">
+        <aesthetic>walltrim</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0343037e</id>
+      <filename>be_basic_bamboo_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0343037d</id>
+      <filename>be_basic_bamboo_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0343037c</id>
+      <filename>be_basic_bamboo_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0343037b</id>
+      <filename>be_basic_bamboo_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0343037a</id>
+      <filename>be_basic_bamboo_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x03430379</id>
+      <filename>be_basic_bamboo_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x03430378</id>
+      <filename>be_basic_bamboo_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x03430377</id>
+      <filename>be_basic_bamboo_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x03430376</id>
+      <filename>be_basic_bamboo_09</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0243018c</id>
+      <filename>be_basic_bamboo_10</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0243018d</id>
+      <filename>be_basic_bamboo_11</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0243018e</id>
+      <filename>be_basic_bamboo_12</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0243018f</id>
+      <filename>be_basic_bamboo_13</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x02430188</id>
+      <filename>be_basic_bamboo_14</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x02430189</id>
+      <filename>be_basic_bamboo_15</filename>
+      <aestheticTags count="1">
+        <aesthetic>bamboo</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7e6548bb</id>
+      <filename>be_basic_brick_large_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7e6548b8</id>
+      <filename>be_basic_brick_large_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7e6548b9</id>
+      <filename>be_basic_brick_large_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7e6548be</id>
+      <filename>be_basic_brick_large_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa7b311b7</id>
+      <filename>be_basic_brick_small_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x49ad649d</id>
+      <filename>be_basic_brick_small_01_with_trim</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa7b311b4</id>
+      <filename>be_basic_brick_small_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa7b311b5</id>
+      <filename>be_basic_brick_small_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa7b311b2</id>
+      <filename>be_basic_brick_small_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb015dc4</id>
+      <filename>be_basic_burlap_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>fabric</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8fb74272</id>
+      <filename>be_basic_leaf_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>organic</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8fb74271</id>
+      <filename>be_basic_leaf_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>organic</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8fb74270</id>
+      <filename>be_basic_leaf_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>organic</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17b6a46f</id>
+      <filename>be_basic_pebble_stone_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17b6a469</id>
+      <filename>be_basic_pebble_stone_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17b6a468</id>
+      <filename>be_basic_pebble_stone_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17b6a46b</id>
+      <filename>be_basic_pebble_stone_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17b6a46a</id>
+      <filename>be_basic_pebble_stone_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17b6a465</id>
+      <filename>be_basic_pebble_stone_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x5d6f4b2c</id>
+      <filename>be_basic_pebble_stone_large_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x5d6f4b2f</id>
+      <filename>be_basic_pebble_stone_large_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xfefab838</id>
+      <filename>be_basic_pebble_stone_small_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x51e2609e</id>
+      <filename>be_basic_plain_wood_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x51e2609d</id>
+      <filename>be_basic_plain_wood_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x51e2609c</id>
+      <filename>be_basic_plain_wood_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x51e2609b</id>
+      <filename>be_basic_plain_wood_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x51e2609a</id>
+      <filename>be_basic_plain_wood_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x51e26099</id>
+      <filename>be_basic_plain_wood_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x51e26098</id>
+      <filename>be_basic_plain_wood_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x51e26097</id>
+      <filename>be_basic_plain_wood_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x51e26096</id>
+      <filename>be_basic_plain_wood_09</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x50e25f2c</id>
+      <filename>be_basic_plain_wood_10</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x50e25f2e</id>
+      <filename>be_basic_plain_wood_12</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x50e25f2f</id>
+      <filename>be_basic_plain_wood_13</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x50e25f28</id>
+      <filename>be_basic_plain_wood_14</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x50e25f29</id>
+      <filename>be_basic_plain_wood_15</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x77eb6b24</id>
+      <filename>be_basic_shake_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>shake</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x77eb6b27</id>
+      <filename>be_basic_shake_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>shake</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x77eb6b26</id>
+      <filename>be_basic_shake_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>shake</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x77eb6b21</id>
+      <filename>be_basic_shake_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>shake</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x77eb6b20</id>
+      <filename>be_basic_shake_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>shake</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7da7e228</id>
+      <filename>be_basic_stucco_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7da7e229</id>
+      <filename>be_basic_stucco_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2e3ed9f7</id>
+      <filename>be_basic_stucco_03_with_trim</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7da7e22e</id>
+      <filename>be_basic_stucco_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x732f7c9c</id>
+      <filename>be_basic_stucco_04_with_trim</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7da7e22f</id>
+      <filename>be_basic_stucco_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7da7e22c</id>
+      <filename>be_basic_stucco_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x150dd61a</id>
+      <filename>be_basic_stucco_06_with_trim</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7da7e22d</id>
+      <filename>be_basic_stucco_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7da7e222</id>
+      <filename>be_basic_stucco_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x801a3a34</id>
+      <filename>be_basic_thatching_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>thatching</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x801a3a37</id>
+      <filename>be_basic_thatching_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>thatching</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x801a3a36</id>
+      <filename>be_basic_thatching_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>thatching</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x801a3a31</id>
+      <filename>be_basic_thatching_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>thatching</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x801a3a30</id>
+      <filename>be_basic_thatching_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>thatching</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xf3a9de7f</id>
+      <filename>be_basic_wood_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xf3a9de7c</id>
+      <filename>be_basic_wood_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xf3a9de7d</id>
+      <filename>be_basic_wood_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xf3a9de7a</id>
+      <filename>be_basic_wood_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xf3a9de7b</id>
+      <filename>be_basic_wood_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xf3a9de78</id>
+      <filename>be_basic_wood_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1980f498</id>
+      <filename>be_brick_stone_wall_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7500e493</id>
+      <filename>be_brutalist_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>brutal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7500e490</id>
+      <filename>be_brutalist_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>brutal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe01561a0</id>
+      <filename>be_cobble_stone_a</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe01561a3</id>
+      <filename>be_cobble_stone_b</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe01561a2</id>
+      <filename>be_cobble_stone_c</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb99f517e</id>
+      <filename>be_concrete_01</filename>
+      <aestheticTags count="2">
+        <aesthetic>stucco</aesthetic>
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb99f517d</id>
+      <filename>be_concrete_02</filename>
+      <aestheticTags count="2">
+        <aesthetic>stucco</aesthetic>
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb99f517c</id>
+      <filename>be_concrete_03</filename>
+      <aestheticTags count="2">
+        <aesthetic>stucco</aesthetic>
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb99f517b</id>
+      <filename>be_concrete_04</filename>
+      <aestheticTags count="2">
+        <aesthetic>stucco</aesthetic>
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb99f517a</id>
+      <filename>be_concrete_05</filename>
+      <aestheticTags count="2">
+        <aesthetic>stucco</aesthetic>
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb99f5179</id>
+      <filename>be_concrete_06</filename>
+      <aestheticTags count="2">
+        <aesthetic>stucco</aesthetic>
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb99f5178</id>
+      <filename>be_concrete_07</filename>
+      <aestheticTags count="2">
+        <aesthetic>stucco</aesthetic>
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xc3aa8205</id>
+      <filename>be_concrete_trim_03</filename>
+      <aestheticTags count="2">
+        <aesthetic>stucco</aesthetic>
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1085cd8d</id>
+      <filename>be_facets_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>facet</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1085cd8e</id>
+      <filename>be_facets_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>facet</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1085cd8f</id>
+      <filename>be_facets_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>facet</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1085cd88</id>
+      <filename>be_facets_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>facet</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa9b6700b</id>
+      <filename>be_giftwrap_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>giftwrap</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa9b67008</id>
+      <filename>be_giftwrap_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>giftwrap</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa9b67009</id>
+      <filename>be_giftwrap_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>giftwrap</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa9b6700e</id>
+      <filename>be_giftwrap_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>giftwrap</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe5210f0f</id>
+      <filename>be_glass_01</filename>
+      <aestheticTags count="2">
+        <aesthetic>glass</aesthetic>
+        <aesthetic>simple</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x4260d086</id>
+      <filename>be_japan_stone_wall_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xbacd0446</id>
+      <filename>be_matted_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>matted</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe8e0a5a8</id>
+      <filename>be_metal_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa87658bb</id>
+      <filename>be_new_shake_roof_a</filename>
+      <aestheticTags count="1">
+        <aesthetic>shake</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa87658b8</id>
+      <filename>be_new_shake_roof_b</filename>
+      <aestheticTags count="1">
+        <aesthetic>shake</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa87658b9</id>
+      <filename>be_new_shake_roof_c</filename>
+      <aestheticTags count="1">
+        <aesthetic>shake</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa87658bf</id>
+      <filename>be_new_shake_roof_e</filename>
+      <aestheticTags count="1">
+        <aesthetic>shake</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x736e9af9</id>
+      <filename>be_paint_stone_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x736e9afa</id>
+      <filename>be_paint_stone_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xc40166d0</id>
+      <filename>be_plaster_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe6b24450</id>
+      <filename>be_rivets_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x749f07a3</id>
+      <filename>be_roof_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>roof</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x749f07a0</id>
+      <filename>be_roof_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>roof</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x749f07a1</id>
+      <filename>be_roof_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>roof</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x749f07a6</id>
+      <filename>be_roof_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>roof</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x749f07a7</id>
+      <filename>be_roof_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>roof</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x749f07a4</id>
+      <filename>be_roof_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>roof</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x749f07a5</id>
+      <filename>be_roof_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>roof</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x44601f89</id>
+      <filename>be_round_pebble_stone_02_large_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2ec624b7</id>
+      <filename>be_simple_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>simple</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2ec624b4</id>
+      <filename>be_simple_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>simple</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2ec624b5</id>
+      <filename>be_simple_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>simple</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2ec624b2</id>
+      <filename>be_simple_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>simple</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2ec624b3</id>
+      <filename>be_simple_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>simple</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe0dd60ea</id>
+      <filename>be_stonewall_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe0dd60e9</id>
+      <filename>be_stonewall_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe0dd60e8</id>
+      <filename>be_stonewall_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe0dd60ef</id>
+      <filename>be_stonewall_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe0dd60ee</id>
+      <filename>be_stonewall_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe0dd60ed</id>
+      <filename>be_stonewall_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xe0dd60ec</id>
+      <filename>be_stonewall_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>stone</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8b1e00ec</id>
+      <filename>be_tarp_fabric_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>fabric</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x8b1e00ef</id>
+      <filename>be_tarp_fabric_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>fabric</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd86e4605</id>
+      <filename>be_tech_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd86e4606</id>
+      <filename>be_tech_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd86e4607</id>
+      <filename>be_tech_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd86e4600</id>
+      <filename>be_tech_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd86e4601</id>
+      <filename>be_tech_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd86e4602</id>
+      <filename>be_tech_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd86e4603</id>
+      <filename>be_tech_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd86e460c</id>
+      <filename>be_tech_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd86e460d</id>
+      <filename>be_tech_09</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47f7</id>
+      <filename>be_tech_10</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47f6</id>
+      <filename>be_tech_11</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47f5</id>
+      <filename>be_tech_12</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47f4</id>
+      <filename>be_tech_13</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47f3</id>
+      <filename>be_tech_14</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47f2</id>
+      <filename>be_tech_15</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47f1</id>
+      <filename>be_tech_16</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47f0</id>
+      <filename>be_tech_17</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47ff</id>
+      <filename>be_tech_18</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd96e47fe</id>
+      <filename>be_tech_19</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e496a</id>
+      <filename>be_tech_20</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e496b</id>
+      <filename>be_tech_21</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e4968</id>
+      <filename>be_tech_22</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e4969</id>
+      <filename>be_tech_23</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e496e</id>
+      <filename>be_tech_24</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e496f</id>
+      <filename>be_tech_25</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e496c</id>
+      <filename>be_tech_26</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e496d</id>
+      <filename>be_tech_27</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e4962</id>
+      <filename>be_tech_28</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xda6e4963</id>
+      <filename>be_tech_29</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4add</id>
+      <filename>be_tech_30</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4adc</id>
+      <filename>be_tech_31</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4adf</id>
+      <filename>be_tech_32</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4ade</id>
+      <filename>be_tech_33</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4ad9</id>
+      <filename>be_tech_34</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4ad8</id>
+      <filename>be_tech_35</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4adb</id>
+      <filename>be_tech_36</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4ada</id>
+      <filename>be_tech_37</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4ad5</id>
+      <filename>be_tech_38</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xdb6e4ad4</id>
+      <filename>be_tech_39</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fd8</id>
+      <filename>be_tech_40</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fd9</id>
+      <filename>be_tech_41</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fda</id>
+      <filename>be_tech_42</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fdb</id>
+      <filename>be_tech_43</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fdc</id>
+      <filename>be_tech_44</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fdd</id>
+      <filename>be_tech_45</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fde</id>
+      <filename>be_tech_46</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fdf</id>
+      <filename>be_tech_47</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fd0</id>
+      <filename>be_tech_48</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd46e3fd1</id>
+      <filename>be_tech_49</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e414b</id>
+      <filename>be_tech_50</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e414a</id>
+      <filename>be_tech_51</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e4149</id>
+      <filename>be_tech_52</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e4148</id>
+      <filename>be_tech_53</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e414f</id>
+      <filename>be_tech_54</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e414e</id>
+      <filename>be_tech_55</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e414d</id>
+      <filename>be_tech_56</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e414c</id>
+      <filename>be_tech_57</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e4143</id>
+      <filename>be_tech_58</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd56e4142</id>
+      <filename>be_tech_59</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd66e433e</id>
+      <filename>be_tech_60</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd66e433f</id>
+      <filename>be_tech_61</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd66e433c</id>
+      <filename>be_tech_62</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd66e433d</id>
+      <filename>be_tech_63</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd66e433a</id>
+      <filename>be_tech_64</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd66e433b</id>
+      <filename>be_tech_65</filename>
+      <aestheticTags count="1">
+        <aesthetic>tech</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x479e50d2</id>
+      <filename>be_theme_01</filename>
+    </paint>
+    <paint>
+      <id>0x1400338b</id>
+      <filename>be_tribe_fabric_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>fabric</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1400338c</id>
+      <filename>be_tribe_fabric_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>fabric</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1400338d</id>
+      <filename>be_tribe_fabric_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>fabric</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1400338e</id>
+      <filename>be_tribe_fabric_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>fabric</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7f54efc2</id>
+      <filename>be_twigs_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7f54efc3</id>
+      <filename>be_twigs_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7f54efc6</id>
+      <filename>be_twigs_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x41640c2c</id>
+      <filename>be_wood_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x41640c2f</id>
+      <filename>be_wood_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x41640c2e</id>
+      <filename>be_wood_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x41640c29</id>
+      <filename>be_wood_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x41640c28</id>
+      <filename>be_wood_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x41640c2b</id>
+      <filename>be_wood_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x41640c2a</id>
+      <filename>be_wood_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x33ac6ff8</id>
+      <filename>be_wood_plank_horizontal_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x33ac6ffb</id>
+      <filename>be_wood_plank_horizontal_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x33ac6ffa</id>
+      <filename>be_wood_plank_horizontal_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x33ac6ffd</id>
+      <filename>be_wood_plank_horizontal_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7c85404e</id>
+      <filename>be_wood_plank_horizontal_frame_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1f084eca</id>
+      <filename>be_wood_plank_h_crooked_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1f084ec9</id>
+      <filename>be_wood_plank_h_crooked_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1f084ec8</id>
+      <filename>be_wood_plank_h_crooked_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb228fe0e</id>
+      <filename>be_wood_plank_vertical_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb228fe0d</id>
+      <filename>be_wood_plank_vertical_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xb228fe0c</id>
+      <filename>be_wood_plank_vertical_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x376783f4</id>
+      <filename>be_wood_plank_v_crooked_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x376783f7</id>
+      <filename>be_wood_plank_v_crooked_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x15890b1d</id>
+      <filename>be_zany_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x15890b1e</id>
+      <filename>be_zany_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x15890b1f</id>
+      <filename>be_zany_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x15890b18</id>
+      <filename>be_zany_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x15890b19</id>
+      <filename>be_zany_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x15890b1a</id>
+      <filename>be_zany_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x15890b1b</id>
+      <filename>be_zany_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x15890b14</id>
+      <filename>be_zany_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x15890b15</id>
+      <filename>be_zany_09</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c8f</id>
+      <filename>be_zany_10</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c8e</id>
+      <filename>be_zany_11</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c8d</id>
+      <filename>be_zany_12</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c8c</id>
+      <filename>be_zany_13</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c8b</id>
+      <filename>be_zany_14</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c8a</id>
+      <filename>be_zany_15</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c89</id>
+      <filename>be_zany_16</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c88</id>
+      <filename>be_zany_17</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c87</id>
+      <filename>be_zany_18</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16890c86</id>
+      <filename>be_zany_19</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17890e63</id>
+      <filename>be_zany_21</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17890e66</id>
+      <filename>be_zany_24</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17890e67</id>
+      <filename>be_zany_25</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17890e64</id>
+      <filename>be_zany_26</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17890e6a</id>
+      <filename>be_zany_28</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17890e6b</id>
+      <filename>be_zany_29</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x18890fd5</id>
+      <filename>be_zany_30</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x18890fd4</id>
+      <filename>be_zany_31</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x18890fd7</id>
+      <filename>be_zany_32</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x18890fd6</id>
+      <filename>be_zany_33</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x18890fd1</id>
+      <filename>be_zany_34</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x18890fd0</id>
+      <filename>be_zany_35</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x18890fd3</id>
+      <filename>be_zany_36</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x18890fd2</id>
+      <filename>be_zany_37</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x18890fdd</id>
+      <filename>be_zany_38</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x118904d0</id>
+      <filename>be_zany_40</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x118904d1</id>
+      <filename>be_zany_41</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x118904d3</id>
+      <filename>be_zany_43</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x118904d4</id>
+      <filename>be_zany_44</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x118904d5</id>
+      <filename>be_zany_45</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x118904d6</id>
+      <filename>be_zany_46</filename>
+      <aestheticTags count="1">
+        <aesthetic>zany</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x1e128f28</id>
+      <filename>brick</filename>
+      <aestheticTags count="1">
+        <aesthetic>brick</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x118a52e2</id>
+      <filename>castlecrimgold</filename>
+    </paint>
+    <paint>
+      <id>0x50c6664d</id>
+      <filename>castlemarsand</filename>
+    </paint>
+    <paint>
+      <id>0x41daaeb6</id>
+      <filename>castleslategold</filename>
+    </paint>
+    <paint>
+      <id>0x68207e19</id>
+      <filename>ce_skinpaint_base_amigurumi</filename>
+    </paint>
+    <paint>
+      <id>0xd48c8616</id>
+      <filename>ce_skinpaint_base_amphibian</filename>
+    </paint>
+    <paint>
+      <id>0xd2bc5484</id>
+      <filename>ce_skinpaint_base_bacteria</filename>
+    </paint>
+    <paint>
+      <id>0xee9e7fb3</id>
+      <filename>ce_skinpaint_base_banded</filename>
+    </paint>
+    <paint>
+      <id>0x8ec5176c</id>
+      <filename>ce_skinpaint_base_blankmatte</filename>
+    </paint>
+    <paint>
+      <id>0x0156ac06</id>
+      <filename>ce_skinpaint_base_blankshiny</filename>
+    </paint>
+    <paint>
+      <id>0x42d9cefa</id>
+      <filename>ce_skinpaint_base_eggshell</filename>
+    </paint>
+    <paint>
+      <id>0x8e3b61ba</id>
+      <filename>ce_skinpaint_base_fishscales</filename>
+    </paint>
+    <paint>
+      <id>0xc42b891f</id>
+      <filename>ce_skinpaint_base_giraffe</filename>
+    </paint>
+    <paint>
+      <id>0x95540809</id>
+      <filename>ce_skinpaint_base_gradient</filename>
+    </paint>
+    <paint>
+      <id>0xf68e1a21</id>
+      <filename>ce_skinpaint_base_granite</filename>
+    </paint>
+    <paint>
+      <id>0xa9266f30</id>
+      <filename>ce_skinpaint_base_leather</filename>
+    </paint>
+    <paint>
+      <id>0x50a10802</id>
+      <filename>ce_skinpaint_base_longfur</filename>
+    </paint>
+    <paint>
+      <id>0x23f9b700</id>
+      <filename>ce_skinpaint_base_lumpy</filename>
+    </paint>
+    <paint>
+      <id>0x186abfa2</id>
+      <filename>ce_skinpaint_base_mantelloid</filename>
+    </paint>
+    <paint>
+      <id>0xf498f126</id>
+      <filename>ce_skinpaint_base_marble</filename>
+    </paint>
+    <paint>
+      <id>0x8c7aa8c3</id>
+      <filename>ce_skinpaint_base_melt</filename>
+    </paint>
+    <paint>
+      <id>0xbdc690bb</id>
+      <filename>ce_skinpaint_base_plateslarge</filename>
+    </paint>
+    <paint>
+      <id>0xf85500a7</id>
+      <filename>ce_skinpaint_base_platessmall</filename>
+    </paint>
+    <paint>
+      <id>0xe413f527</id>
+      <filename>ce_skinpaint_base_quilted</filename>
+    </paint>
+    <paint>
+      <id>0x8c077662</id>
+      <filename>ce_skinpaint_base_rubberband</filename>
+    </paint>
+    <paint>
+      <id>0x6cee3495</id>
+      <filename>ce_skinpaint_base_scallopshell</filename>
+    </paint>
+    <paint>
+      <id>0x71357e68</id>
+      <filename>ce_skinpaint_base_shortfur</filename>
+    </paint>
+    <paint>
+      <id>0xa3163e4a</id>
+      <filename>ce_skinpaint_base_snakescales</filename>
+    </paint>
+    <paint>
+      <id>0xfd5f5298</id>
+      <filename>ce_skinpaint_base_spotted</filename>
+    </paint>
+    <paint>
+      <id>0xeed0229d</id>
+      <filename>ce_skinpaint_base_stripesll</filename>
+    </paint>
+    <paint>
+      <id>0xedd02132</id>
+      <filename>ce_skinpaint_base_stripesml</filename>
+    </paint>
+    <paint>
+      <id>0x2fc1e149</id>
+      <filename>ce_skinpaint_base_tempered</filename>
+    </paint>
+    <paint>
+      <id>0x37c3d098</id>
+      <filename>ce_skinpaint_base_valuegradientdark</filename>
+    </paint>
+    <paint>
+      <id>0xb1d9f338</id>
+      <filename>ce_skinpaint_base_valuegradientlight</filename>
+    </paint>
+    <paint>
+      <id>0x9c359d13</id>
+      <filename>ce_skinpaint_base_vgcats</filename>
+    </paint>
+    <paint>
+      <id>0x421c1854</id>
+      <filename>ce_skinpaint_base_vittatum1</filename>
+    </paint>
+    <paint>
+      <id>0x421c1857</id>
+      <filename>ce_skinpaint_base_vittatum2</filename>
+    </paint>
+    <paint>
+      <id>0x421c1856</id>
+      <filename>ce_skinpaint_base_vittatum3</filename>
+    </paint>
+    <paint>
+      <id>0x421c1851</id>
+      <filename>ce_skinpaint_base_vittatum4</filename>
+    </paint>
+    <paint>
+      <id>0x3b32b52b</id>
+      <filename>ce_skinpaint_base_walrus</filename>
+    </paint>
+    <paint>
+      <id>0xeed1e21b</id>
+      <filename>ce_skinpaint_base_zebra</filename>
+    </paint>
+    <paint>
+      <id>0x32fe45f6</id>
+      <filename>ce_skinpaint_base_zebroid</filename>
+    </paint>
+    <paint>
+      <id>0xb80f36c3</id>
+      <filename>ce_skinpaint_coat_amigurumi</filename>
+    </paint>
+    <paint>
+      <id>0x6abd6aaf</id>
+      <filename>ce_skinpaint_coat_backandbelly</filename>
+    </paint>
+    <paint>
+      <id>0x216ee35e</id>
+      <filename>ce_skinpaint_coat_bacteria</filename>
+    </paint>
+    <paint>
+      <id>0x97e43b59</id>
+      <filename>ce_skinpaint_coat_banded</filename>
+    </paint>
+    <paint>
+      <id>0xcf48a38f</id>
+      <filename>ce_skinpaint_coat_blank</filename>
+    </paint>
+    <paint>
+      <id>0x47d7ef44</id>
+      <filename>ce_skinpaint_coat_cow</filename>
+    </paint>
+    <paint>
+      <id>0x5d74aad5</id>
+      <filename>ce_skinpaint_coat_crocodile</filename>
+    </paint>
+    <paint>
+      <id>0x626d5e6c</id>
+      <filename>ce_skinpaint_coat_fishscales</filename>
+    </paint>
+    <paint>
+      <id>0x8ac01a79</id>
+      <filename>ce_skinpaint_coat_giraffe</filename>
+    </paint>
+    <paint>
+      <id>0x6072d44f</id>
+      <filename>ce_skinpaint_coat_giraffeborder</filename>
+    </paint>
+    <paint>
+      <id>0xfaf08f43</id>
+      <filename>ce_skinpaint_coat_goostripe</filename>
+    </paint>
+    <paint>
+      <id>0x18b92317</id>
+      <filename>ce_skinpaint_coat_granite</filename>
+    </paint>
+    <paint>
+      <id>0x97dd66d8</id>
+      <filename>ce_skinpaint_coat_halftone</filename>
+    </paint>
+    <paint>
+      <id>0xf726d097</id>
+      <filename>ce_skinpaint_coat_kidney</filename>
+    </paint>
+    <paint>
+      <id>0x07804ba8</id>
+      <filename>ce_skinpaint_coat_lateral</filename>
+    </paint>
+    <paint>
+      <id>0x77159c72</id>
+      <filename>ce_skinpaint_coat_lizardo</filename>
+    </paint>
+    <paint>
+      <id>0x193f8552</id>
+      <filename>ce_skinpaint_coat_lumpy</filename>
+    </paint>
+    <paint>
+      <id>0x641caab1</id>
+      <filename>ce_skinpaint_coat_mantella</filename>
+    </paint>
+    <paint>
+      <id>0xea9d8441</id>
+      <filename>ce_skinpaint_coat_melt</filename>
+    </paint>
+    <paint>
+      <id>0x52811f23</id>
+      <filename>ce_skinpaint_coat_pebble</filename>
+    </paint>
+    <paint>
+      <id>0x6937e719</id>
+      <filename>ce_skinpaint_coat_plateslarge</filename>
+    </paint>
+    <paint>
+      <id>0x99093c61</id>
+      <filename>ce_skinpaint_coat_platessmall</filename>
+    </paint>
+    <paint>
+      <id>0x5bef811d</id>
+      <filename>ce_skinpaint_coat_polkadot</filename>
+    </paint>
+    <paint>
+      <id>0xbe9dd2b4</id>
+      <filename>ce_skinpaint_coat_ridgeslateral</filename>
+    </paint>
+    <paint>
+      <id>0x14ceb468</id>
+      <filename>ce_skinpaint_coat_ridgestiger</filename>
+    </paint>
+    <paint>
+      <id>0x070a7fc0</id>
+      <filename>ce_skinpaint_coat_rubberband</filename>
+    </paint>
+    <paint>
+      <id>0x58dec63b</id>
+      <filename>ce_skinpaint_coat_scallopshell</filename>
+    </paint>
+    <paint>
+      <id>0xe47d0e53</id>
+      <filename>ce_skinpaint_coat_stripesll</filename>
+    </paint>
+    <paint>
+      <id>0xe37d0cc0</id>
+      <filename>ce_skinpaint_coat_stripesml</filename>
+    </paint>
+    <paint>
+      <id>0x642258d5</id>
+      <filename>ce_skinpaint_coat_toupee</filename>
+    </paint>
+    <paint>
+      <id>0xa9bb0919</id>
+      <filename>ce_skinpaint_coat_turtle</filename>
+    </paint>
+    <paint>
+      <id>0xa9dedc76</id>
+      <filename>ce_skinpaint_coat_waldo</filename>
+    </paint>
+    <paint>
+      <id>0xda00909d</id>
+      <filename>ce_skinpaint_coat_walrus</filename>
+    </paint>
+    <paint>
+      <id>0x48b8e211</id>
+      <filename>ce_skinpaint_coat_washmatte</filename>
+    </paint>
+    <paint>
+      <id>0xdc96e6f3</id>
+      <filename>ce_skinpaint_coat_washshiny</filename>
+    </paint>
+    <paint>
+      <id>0x5024a411</id>
+      <filename>ce_skinpaint_coat_zebra</filename>
+    </paint>
+    <paint>
+      <id>0x9f720e4d</id>
+      <filename>ce_skinpaint_detail_amigurumi</filename>
+    </paint>
+    <paint>
+      <id>0x2ee74818</id>
+      <filename>ce_skinpaint_detail_bacteria</filename>
+    </paint>
+    <paint>
+      <id>0xdd5391a5</id>
+      <filename>ce_skinpaint_detail_blank</filename>
+    </paint>
+    <paint>
+      <id>0xf28d965b</id>
+      <filename>ce_skinpaint_detail_clydesdale</filename>
+    </paint>
+    <paint>
+      <id>0x3c54913a</id>
+      <filename>ce_skinpaint_detail_cow</filename>
+    </paint>
+    <paint>
+      <id>0x203219f6</id>
+      <filename>ce_skinpaint_detail_giraffelimbs</filename>
+    </paint>
+    <paint>
+      <id>0x8eb01dde</id>
+      <filename>ce_skinpaint_detail_giraffeunderside</filename>
+    </paint>
+    <paint>
+      <id>0xf0f59399</id>
+      <filename>ce_skinpaint_detail_goolimbs</filename>
+    </paint>
+    <paint>
+      <id>0x27dee652</id>
+      <filename>ce_skinpaint_detail_goosides</filename>
+    </paint>
+    <paint>
+      <id>0x0628c255</id>
+      <filename>ce_skinpaint_detail_goounderside</filename>
+    </paint>
+    <paint>
+      <id>0xe5ddf2c4</id>
+      <filename>ce_skinpaint_detail_granitelimbs</filename>
+    </paint>
+    <paint>
+      <id>0xb01c3ee8</id>
+      <filename>ce_skinpaint_detail_graniteunderside</filename>
+    </paint>
+    <paint>
+      <id>0x4fa07195</id>
+      <filename>ce_skinpaint_detail_halftonelimbs</filename>
+    </paint>
+    <paint>
+      <id>0x7a5430d1</id>
+      <filename>ce_skinpaint_detail_halftoneunderside</filename>
+    </paint>
+    <paint>
+      <id>0x50bc5115</id>
+      <filename>ce_skinpaint_detail_kidney</filename>
+    </paint>
+    <paint>
+      <id>0x5931245e</id>
+      <filename>ce_skinpaint_detail_lateral</filename>
+    </paint>
+    <paint>
+      <id>0x64a50d94</id>
+      <filename>ce_skinpaint_detail_lumpysides</filename>
+    </paint>
+    <paint>
+      <id>0x00dad470</id>
+      <filename>ce_skinpaint_detail_mantellajoints</filename>
+    </paint>
+    <paint>
+      <id>0x73edcc2e</id>
+      <filename>ce_skinpaint_detail_mantellaunderside</filename>
+    </paint>
+    <paint>
+      <id>0x12f7ee9a</id>
+      <filename>ce_skinpaint_detail_meltlimbs</filename>
+    </paint>
+    <paint>
+      <id>0x6f2d9c32</id>
+      <filename>ce_skinpaint_detail_meltunderside</filename>
+    </paint>
+    <paint>
+      <id>0xae92bfc7</id>
+      <filename>ce_skinpaint_detail_plateslarge</filename>
+    </paint>
+    <paint>
+      <id>0xfdedaead</id>
+      <filename>ce_skinpaint_detail_plateslargesides</filename>
+    </paint>
+    <paint>
+      <id>0x92d3a653</id>
+      <filename>ce_skinpaint_detail_platessmall</filename>
+    </paint>
+    <paint>
+      <id>0x1c782d6f</id>
+      <filename>ce_skinpaint_detail_polkadot</filename>
+    </paint>
+    <paint>
+      <id>0x15d2b90b</id>
+      <filename>ce_skinpaint_detail_quilted</filename>
+    </paint>
+    <paint>
+      <id>0x24be5316</id>
+      <filename>ce_skinpaint_detail_ridgeslateral</filename>
+    </paint>
+    <paint>
+      <id>0x5666236e</id>
+      <filename>ce_skinpaint_detail_ridgestiger</filename>
+    </paint>
+    <paint>
+      <id>0xcd86dbd6</id>
+      <filename>ce_skinpaint_detail_rubberband</filename>
+    </paint>
+    <paint>
+      <id>0xe76086cf</id>
+      <filename>ce_skinpaint_detail_scallopedshellunderside</filename>
+    </paint>
+    <paint>
+      <id>0xbd65935d</id>
+      <filename>ce_skinpaint_detail_sidewash</filename>
+    </paint>
+    <paint>
+      <id>0x11369359</id>
+      <filename>ce_skinpaint_detail_stripesll</filename>
+    </paint>
+    <paint>
+      <id>0x103691ce</id>
+      <filename>ce_skinpaint_detail_stripesml</filename>
+    </paint>
+    <paint>
+      <id>0xb824d59d</id>
+      <filename>ce_skinpaint_detail_suckers</filename>
+    </paint>
+    <paint>
+      <id>0xc2c7e62b</id>
+      <filename>ce_skinpaint_detail_vittatum</filename>
+    </paint>
+    <paint>
+      <id>0xf09862ba</id>
+      <filename>ce_skinpaint_detail_walruslimbs</filename>
+    </paint>
+    <paint>
+      <id>0x2c81b952</id>
+      <filename>ce_skinpaint_detail_walrusunderside</filename>
+    </paint>
+    <paint>
+      <id>0xa5164b92</id>
+      <filename>cl_skinpaint_cell_amigurumi</filename>
+    </paint>
+    <paint>
+      <id>0x791c8201</id>
+      <filename>cl_skinpaint_cell_amphibian</filename>
+    </paint>
+    <paint>
+      <id>0x70339dd1</id>
+      <filename>cl_skinpaint_cell_bacteria</filename>
+    </paint>
+    <paint>
+      <id>0xdcad3e09</id>
+      <filename>cl_skinpaint_cell_blankmatte</filename>
+    </paint>
+    <paint>
+      <id>0x6d854a7b</id>
+      <filename>cl_skinpaint_cell_blankshiny</filename>
+    </paint>
+    <paint>
+      <id>0xca7299f4</id>
+      <filename>cl_skinpaint_cell_cowleather</filename>
+    </paint>
+    <paint>
+      <id>0xa6481207</id>
+      <filename>cl_skinpaint_cell_doubledots</filename>
+    </paint>
+    <paint>
+      <id>0x04ed8115</id>
+      <filename>cl_skinpaint_cell_eggshellbanded</filename>
+    </paint>
+    <paint>
+      <id>0xcd215e47</id>
+      <filename>cl_skinpaint_cell_fishscales</filename>
+    </paint>
+    <paint>
+      <id>0x306b8dd8</id>
+      <filename>cl_skinpaint_cell_giraffe</filename>
+    </paint>
+    <paint>
+      <id>0xe50e0b10</id>
+      <filename>cl_skinpaint_cell_glasscreases</filename>
+    </paint>
+    <paint>
+      <id>0xfcb09f85</id>
+      <filename>cl_skinpaint_cell_granitehalftone</filename>
+    </paint>
+    <paint>
+      <id>0x7a2e9eb3</id>
+      <filename>cl_skinpaint_cell_lumpy</filename>
+    </paint>
+    <paint>
+      <id>0xbe0cf563</id>
+      <filename>cl_skinpaint_cell_marblesuckers</filename>
+    </paint>
+    <paint>
+      <id>0x7d39d956</id>
+      <filename>cl_skinpaint_cell_melt</filename>
+    </paint>
+    <paint>
+      <id>0x7039c4c3</id>
+      <filename>cl_skinpaint_cell_mesh</filename>
+    </paint>
+    <paint>
+      <id>0x8fb90228</id>
+      <filename>cl_skinpaint_cell_plateslarge</filename>
+    </paint>
+    <paint>
+      <id>0x2f363540</id>
+      <filename>cl_skinpaint_cell_platessmall</filename>
+    </paint>
+    <paint>
+      <id>0x0d79224f</id>
+      <filename>cl_skinpaint_cell_rubberband</filename>
+    </paint>
+    <paint>
+      <id>0x5c36ee15</id>
+      <filename>cl_skinpaint_cell_snakescales</filename>
+    </paint>
+    <paint>
+      <id>0x3b4a35b2</id>
+      <filename>cl_skinpaint_cell_spottedlizardo</filename>
+    </paint>
+    <paint>
+      <id>0xe4c02cce</id>
+      <filename>cl_skinpaint_cell_stripes</filename>
+    </paint>
+    <paint>
+      <id>0xbe9a5c8b</id>
+      <filename>cl_skinpaint_cell_subtlestripes</filename>
+    </paint>
+    <paint>
+      <id>0xc231ca82</id>
+      <filename>cl_skinpaint_cell_temperedmantella</filename>
+    </paint>
+    <paint>
+      <id>0xd4068cd8</id>
+      <filename>cl_skinpaint_cell_vgcatsbackstripe</filename>
+    </paint>
+    <paint>
+      <id>0x322a1bec</id>
+      <filename>concrete</filename>
+      <aestheticTags count="1">
+        <aesthetic>stucco</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x82dec1ea</id>
+      <filename>dirt</filename>
+      <aestheticTags count="1">
+        <aesthetic>dirt</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xadc6f13f</id>
+      <filename>greytheme</filename>
+    </paint>
+    <paint>
+      <id>0xd333acc2</id>
+      <filename>identity_paint</filename>
+      <aestheticTags count="1">
+        <aesthetic>1</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7a6e440e</id>
+      <filename>lines</filename>
+      <aestheticTags count="1">
+        <aesthetic>lines</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xbe6196f2</id>
+      <filename>templateblockpaint</filename>
+    </paint>
+    <paint>
+      <id>0xc9ccf3d5</id>
+      <filename>templateblockpainttheme</filename>
+    </paint>
+    <paint>
+      <id>0x25f64044</id>
+      <filename>templateskinpaint</filename>
+    </paint>
+    <paint>
+      <id>0x91ad3433</id>
+      <filename>templateskinpainttheme</filename>
+    </paint>
+    <paint>
+      <id>0xb07e839e</id>
+      <filename>themetemplate</filename>
+    </paint>
+    <paint>
+      <id>0x307df755</id>
+      <filename>ve_airship_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x307df753</id>
+      <filename>ve_airship_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x307df75c</id>
+      <filename>ve_airship_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x317df8c7</id>
+      <filename>ve_airship_10</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x317df8c4</id>
+      <filename>ve_airship_13</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x317df8c2</id>
+      <filename>ve_airship_15</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x317df8c1</id>
+      <filename>ve_airship_16</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x317df8ce</id>
+      <filename>ve_airship_19</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x327dfaba</id>
+      <filename>ve_airship_20</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x327dfab8</id>
+      <filename>ve_airship_22</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x327dfabe</id>
+      <filename>ve_airship_24</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x327dfabf</id>
+      <filename>ve_airship_25</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x327dfabc</id>
+      <filename>ve_airship_26</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x327dfabd</id>
+      <filename>ve_airship_27</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x327dfab2</id>
+      <filename>ve_airship_28</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x327dfab3</id>
+      <filename>ve_airship_29</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x337dfc2d</id>
+      <filename>ve_airship_30</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x337dfc2c</id>
+      <filename>ve_airship_31</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x337dfc2f</id>
+      <filename>ve_airship_32</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x337dfc29</id>
+      <filename>ve_airship_34</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x337dfc28</id>
+      <filename>ve_airship_35</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x337dfc2b</id>
+      <filename>ve_airship_36</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x337dfc2a</id>
+      <filename>ve_airship_37</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x337dfc25</id>
+      <filename>ve_airship_38</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x337dfc24</id>
+      <filename>ve_airship_39</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2c7df128</id>
+      <filename>ve_airship_40</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2c7df129</id>
+      <filename>ve_airship_41</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2c7df12a</id>
+      <filename>ve_airship_42</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2c7df12b</id>
+      <filename>ve_airship_43</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2c7df12c</id>
+      <filename>ve_airship_44</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2c7df12d</id>
+      <filename>ve_airship_45</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2c7df12e</id>
+      <filename>ve_airship_46</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2d7df29f</id>
+      <filename>ve_airship_54</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2d7df29d</id>
+      <filename>ve_airship_56</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2d7df29c</id>
+      <filename>ve_airship_57</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2d7df293</id>
+      <filename>ve_airship_58</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2e7df40f</id>
+      <filename>ve_airship_61</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2e7df40d</id>
+      <filename>ve_airship_63</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x2e7df40b</id>
+      <filename>ve_airship_65</filename>
+      <aestheticTags count="1">
+        <aesthetic>airship</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x3aaa8e7e</id>
+      <filename>ve_airship_canvas_01</filename>
+      <aestheticTags count="2">
+        <aesthetic>airship</aesthetic>
+        <aesthetic>fabric</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x3aaa8e7d</id>
+      <filename>ve_airship_canvas_02</filename>
+      <aestheticTags count="2">
+        <aesthetic>airship</aesthetic>
+        <aesthetic>fabric</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x27c65aac</id>
+      <filename>ve_airship_oldwood</filename>
+      <aestheticTags count="2">
+        <aesthetic>airship</aesthetic>
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x90a58511</id>
+      <filename>ve_airship_oldwood_02</filename>
+      <aestheticTags count="2">
+        <aesthetic>airship</aesthetic>
+        <aesthetic>wood</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xc94411f1</id>
+      <filename>ve_fantasy_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xc94411f2</id>
+      <filename>ve_fantasy_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xc94411f5</id>
+      <filename>ve_fantasy_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xc94411f6</id>
+      <filename>ve_fantasy_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xc94411f8</id>
+      <filename>ve_fantasy_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xc94411f9</id>
+      <filename>ve_fantasy_09</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xca441362</id>
+      <filename>ve_fantasy_11</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xca441361</id>
+      <filename>ve_fantasy_12</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0ee5bea5</id>
+      <filename>ve_fantasy_airship_13</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0de5bd34</id>
+      <filename>ve_fantasy_airship_27</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x0de5bd3a</id>
+      <filename>ve_fantasy_airship_29</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x12e5c4d5</id>
+      <filename>ve_fantasy_airship_57</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x972f502d</id>
+      <filename>ve_fantasy_alien_05b</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa8037346</id>
+      <filename>ve_fantasy_apple_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa8037345</id>
+      <filename>ve_fantasy_apple_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa8037343</id>
+      <filename>ve_fantasy_apple_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xee2cd4ff</id>
+      <filename>ve_fantasy_banana_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xcc48564a</id>
+      <filename>ve_fantasy_giraffe_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x58c74f9a</id>
+      <filename>ve_fantasy_glass_01</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>glass</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x22450b52</id>
+      <filename>ve_fantasy_horizontal_stripe_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x22450b51</id>
+      <filename>ve_fantasy_horizontal_stripe_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x22450b50</id>
+      <filename>ve_fantasy_horizontal_stripe_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x22450b57</id>
+      <filename>ve_fantasy_horizontal_stripe_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x22450b56</id>
+      <filename>ve_fantasy_horizontal_stripe_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xbf0ccc76</id>
+      <filename>ve_fantasy_leaf_01</filename>
+      <aestheticTags count="2">
+        <aesthetic>organic</aesthetic>
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xbf0ccc75</id>
+      <filename>ve_fantasy_leaf_02</filename>
+      <aestheticTags count="2">
+        <aesthetic>organic</aesthetic>
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xbf0ccc74</id>
+      <filename>ve_fantasy_leaf_03</filename>
+      <aestheticTags count="2">
+        <aesthetic>organic</aesthetic>
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x88f7835b</id>
+      <filename>ve_fantasy_matte_01</filename>
+    </paint>
+    <paint>
+      <id>0xbba59d0b</id>
+      <filename>ve_fantasy_melon_03</filename>
+      <aestheticTags count="2">
+        <aesthetic>organic</aesthetic>
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa02f58df</id>
+      <filename>ve_fantasy_old_car_08</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16f9be8f</id>
+      <filename>ve_fantasy_spots_01</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>spots</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16f9be8d</id>
+      <filename>ve_fantasy_spots_03</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>spots</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16f9be8a</id>
+      <filename>ve_fantasy_spots_04</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>spots</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16f9be8b</id>
+      <filename>ve_fantasy_spots_05</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>spots</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16f9be89</id>
+      <filename>ve_fantasy_spots_07</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>spots</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16f9be86</id>
+      <filename>ve_fantasy_spots_08</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>spots</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x16f9be87</id>
+      <filename>ve_fantasy_spots_09</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>spots</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x17f9c061</id>
+      <filename>ve_fantasy_spots_10</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>spots</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x3f9555da</id>
+      <filename>ve_fantasy_squid_spots_01</filename>
+      <aestheticTags count="2">
+        <aesthetic>fantasy</aesthetic>
+        <aesthetic>spots</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x6faf29a9</id>
+      <filename>ve_generic_diamond_grate_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x6faf29aa</id>
+      <filename>ve_generic_diamond_grate_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x9af5887b</id>
+      <filename>ve_generic_long_hole_grate_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa10a6a5f</id>
+      <filename>ve_generic_metal_panel_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa10a6a5c</id>
+      <filename>ve_generic_metal_panel_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa10a6a5b</id>
+      <filename>ve_generic_metal_panel_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa10a6a58</id>
+      <filename>ve_generic_metal_panel_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa10a6a59</id>
+      <filename>ve_generic_metal_panel_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa10a6a56</id>
+      <filename>ve_generic_metal_panel_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa10a6a57</id>
+      <filename>ve_generic_metal_panel_09</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa20a6c31</id>
+      <filename>ve_generic_metal_panel_10</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x578b9f2e</id>
+      <filename>ve_generic_pattern_gold_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x67614071</id>
+      <filename>ve_generic_pattern_silver_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x05f2c890</id>
+      <filename>ve_old_battleship_metal_02</filename>
+      <aestheticTags count="1">
+        <aesthetic>metal</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd39dbe37</id>
+      <filename>ve_old_car_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd39dbe35</id>
+      <filename>ve_old_car_03</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd39dbe32</id>
+      <filename>ve_old_car_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd39dbe33</id>
+      <filename>ve_old_car_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd39dbe31</id>
+      <filename>ve_old_car_07</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd39dbe3e</id>
+      <filename>ve_old_car_08</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd39dbe3f</id>
+      <filename>ve_old_car_09</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd49dbfa8</id>
+      <filename>ve_old_car_11</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd49dbfaa</id>
+      <filename>ve_old_car_13</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd49dbfac</id>
+      <filename>ve_old_car_15</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd49dbfaf</id>
+      <filename>ve_old_car_16</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd49dbfa1</id>
+      <filename>ve_old_car_18</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd49dbfa0</id>
+      <filename>ve_old_car_19</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd19dbad0</id>
+      <filename>ve_old_car_20</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd19dbad1</id>
+      <filename>ve_old_car_21</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xd19dbad2</id>
+      <filename>ve_old_car_22</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xf5967f30</id>
+      <filename>ve_old_car_glass_01</filename>
+      <aestheticTags count="2">
+        <aesthetic>oldcar</aesthetic>
+        <aesthetic>glass</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x010b5b15</id>
+      <filename>ve_old_car_matte_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa93e0af2</id>
+      <filename>ve_old_car_tire_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xa93e0af7</id>
+      <filename>ve_old_car_tire_04</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x4afd35d3</id>
+      <filename>ve_old_car_wheel_05</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x4afd35d0</id>
+      <filename>ve_old_car_wheel_06</filename>
+      <aestheticTags count="1">
+        <aesthetic>oldcar</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0x7af9d01f</id>
+      <filename>ve__fantasy_airship_10</filename>
+      <aestheticTags count="2">
+        <aesthetic>airship</aesthetic>
+        <aesthetic>fantasy</aesthetic>
+      </aestheticTags>
+    </paint>
+    <paint>
+      <id>0xca9c53a4</id>
+      <filename>wrinkle_test_01</filename>
+      <aestheticTags count="1">
+        <aesthetic>test</aesthetic>
+      </aestheticTags>
+    </paint>
+  </paints>
