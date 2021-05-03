@@ -39,19 +39,12 @@ namespace SporeServer.Pages.Community.Auth
                 return Page();
             }
 
-            var user = new SporeServerUser
-            {
-                UserName = info.DisplayName,
-                Email = info.Email
-            };
-
-            IdentityResult result = await _userManager.CreateAsync(
-                user, info.Password);
-
-            if (!result.Succeeded)
-            {
-                Console.WriteLine("FAILEDDD");
-            }
+            var result = await _userManager.CreateAsync(
+                new SporeServerUser
+                {
+                    UserName = info.DisplayName,
+                    Email = info.Email
+                }, info.Password);
 
             return Redirect($"https://community.spore.com/community/auth/registerNew?success={result.Succeeded}");
         }

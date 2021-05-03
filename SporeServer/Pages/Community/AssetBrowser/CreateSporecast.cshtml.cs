@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SporeServer.Pages.Community.AssetBrowser
 {
+    [Authorize]
     public class CreateSporecastModel : PageModel
     {
         public void OnGet()
