@@ -80,5 +80,14 @@ namespace SporeServer.Areas.Identity.Data
         ///     Automatically uploaded or not?
         /// </summary>
         public bool Slurped { get; set; }
+
+
+        // TODO, put this in a struct or something?
+        public string ModelFileUrl { get; set; }
+        public string ThumbFileUrl { get; set; }
+        public string ImageFileUrl { get; set; }
+        public string ImageFile2Url { get; set; }
+        public string ImageFile3Url { get; set; }
+        public string ImageFile4Url { get; set; }
     }
 }

@@ -1,0 +1,157 @@
+﻿@page "{id}"
+@model SporeServer.Pages.Community.AssetBrowser.LargeCard.LeaderBoardModel
+@{
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <base href="https://community.spore.com" />
+    <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game/buddy.css" />
+    <style type="text/css">
+        body {
+            background-color: #34454c;
+            color: #FFFFFF;
+        }
+
+        .adv-player-avatar {
+            height: 10px;
+            width: 10px;
+        }
+
+        .leaderRow {
+            background-color: #495E71;
+            margin: 4px;
+            font-size: 8px;
+            width: 235px;
+        }
+
+        .newScoreRow {
+            background-color: #AAAAAA;
+            margin: 4px;
+        }
+
+        .borderLeft {
+            border-left: 2px solid #283f5b;
+        }
+
+        .borderRight {
+            border-right: 2px solid #283f5b;
+        }
+
+        .scoreField {
+            position: absolute;
+            top: 0px;
+            left: 122px;
+            height: 25px;
+            width: 35px;
+            padding-left: 3px;
+            padding-top: 5px;
+        }
+
+        .timeField {
+            position: absolute;
+            top: 0px;
+            left: 162px;
+            height: 25px;
+            padding-left: 3px;
+            padding-top: 5px;
+        }
+
+        .nameField {
+            position: absolute;
+            top: 0px;
+            left: 25px;
+            height: 25px;
+            width: 90px;
+            padding-left: 4px;
+            padding-top: 5px;
+        }
+
+        .topNav {
+            font-size: 8px;
+            height: 15px;
+            margin: 4px;
+        }
+
+        #leaderboard h2 {
+            color: #FFFFFF;
+            text-align: left;
+            font-size: 8px;
+            margin-left: 2px;
+            margin-top: 4px;
+        }
+
+        #leaderboard {
+            background-image: url(/static/war/images/game/EP1/EP1CommentsPod.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 136px;
+            margin-left: 0px;
+        }
+
+        .buddyLink {
+            position: absolute;
+            top: 0px;
+            left: 2px;
+            width: 75px;
+        }
+
+        .worldLink {
+            position: absolute;
+            top: 0px;
+            left: 92px;
+            width: 75px;
+        }
+
+        .leaderLink {
+            position: absolute;
+            top: 0px;
+            left: 170px;
+            width: 65px;
+        }
+
+        .selectedarrow {
+            width: 5px;
+            height: 8px;
+            padding-top: 3px;
+        }
+
+        .fakeBG {
+            background-image: url(utfres://0x40484400!clear.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="leaderboard">
+        <h2>Adventure Leaders</h2>
+
+        <div class="topNav">
+            <div class="buddyLink">
+
+                <a href="/community/assetBrowser/largeCard/leaderboard/501091133207/BUDDIES">vs. Buddies</a>
+
+            </div>
+            <div class="worldLink">
+
+                <a href="/community/assetBrowser/largeCard/leaderboard/501091133207/WORLD">vs. World</a>
+
+            </div>
+            <div class="leaderLink">
+
+                <img src="/static/war/images/game/spd/nextArrow.png" alt="next" class="selectedarrow" />&nbsp;Leaders&nbsp;
+
+            </div>
+        </div>
+
+        <div class="topNav">
+            <div class="timeField">Time</div>
+            <div class="scoreField">Score</div>
+            <div class="nameField">Player</div>
+        </div>
+
+    </div>
+</body>
+
+</html>

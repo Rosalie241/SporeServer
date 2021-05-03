@@ -224,27 +224,18 @@ namespace SporeServer.Services
         }
 
         /// <summary>
-        ///     Updates the asset in the database
+        ///     Turns path into a relative url, returns null when path doesn't exist
         /// </summary>
-        /// <param name="asset"></param>
-        /// <param name="parentId"></param>
-        /// <param name="form"></param>
-        /// <param name="slurped"></param>
-        /// <param name="modelType"></param>
-        /// <param name="type"></param>
-        private async Task UpdateDatabaseAsset(SporeServerAsset asset, Int64 parentId, AssetUploadForm form, bool slurped, SporeModelType modelType, SporeAssetType type)
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private string GetRelativeUrlFromPath(string path)
         {
-            asset.Used = true;
-            asset.Timestamp = DateTime.Now;
-            asset.ParentAssetId = parentId;
-            asset.Name = form.ModelData.FileName;
-            asset.Description = form.Description;
-            asset.Size = form.ThumbnailData.Length;
-            asset.Slurped = slurped;
-            asset.ModelType = modelType;
-            asset.Type = type;
-            _context.Assets.Update(asset);
-            await _context.SaveChangesAsync();
+            if (!File.Exists(path))
+            {
+                return null;
+            }
+
+            return "static/" + Path.GetRelativePath(_staticDirectory, path).Replace('\\', '/');
         }
 
         public async Task<bool> AddAsync(AssetUploadForm form, SporeServerAsset asset, Int64 parentId, bool slurped, SporeAssetType type)
@@ -293,7 +284,25 @@ namespace SporeServer.Services
                 }
 
                 // update database
-                await UpdateDatabaseAsset(asset, parentId, form, slurped, (SporeModelType)model.Properties.ModelType, type);
+                asset.Used = true;
+                asset.Timestamp = DateTime.Now;
+                asset.ParentAssetId = parentId;
+                asset.Name = form.ModelData.FileName;
+                asset.Description = form.Description;
+                asset.Size = form.ThumbnailData.Length;
+                asset.Slurped = slurped;
+                // TODO, put this in a struct or whatever?
+                Console.WriteLine(GetRelativeUrlFromPath(files.ModelFile));
+                asset.ModelFileUrl = GetRelativeUrlFromPath(files.ModelFile);
+                asset.ThumbFileUrl = GetRelativeUrlFromPath(files.ThumbFile);
+                asset.ImageFileUrl = GetRelativeUrlFromPath(files.ImageFile);
+                asset.ImageFile2Url = GetRelativeUrlFromPath(files.ImageFile2);
+                asset.ImageFile3Url = GetRelativeUrlFromPath(files.ImageFile3);
+                asset.ImageFile4Url = GetRelativeUrlFromPath(files.ImageFile4);
+                asset.ModelType = (SporeModelType)model.Properties.ModelType;
+                asset.Type = type;
+                _context.Assets.Update(asset);
+                await _context.SaveChangesAsync();
 
                 _logger.LogInformation($"AddAsync: Added Asset {asset.AssetId}");
                 return true;

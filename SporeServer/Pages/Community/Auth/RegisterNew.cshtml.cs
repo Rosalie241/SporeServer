@@ -52,16 +52,8 @@ namespace SporeServer.Pages.Community.Auth
             {
                 Console.WriteLine("FAILEDDD");
             }
-            else
-            {
-                Console.WriteLine("REDIRECTING NOWWW");
-                Console.WriteLine(LocalRedirect(Request.Path + "?success=" + result.Succeeded).Url);
-            }
-                   
-            // TODO
-            return Redirect($"https://localhost/community/auth/registerNew?success={result.Succeeded}");
 
-            //return LocalRedirect(Request.Path + "?success=" + result.Succeeded);
+            return Redirect($"https://community.spore.com/community/auth/registerNew?success={result.Succeeded}");
         }
     }
 }

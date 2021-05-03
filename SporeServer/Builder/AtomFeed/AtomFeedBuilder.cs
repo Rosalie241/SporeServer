@@ -57,7 +57,16 @@ namespace SporeServer.Builder.AtomFeed
 
         public static XmlElement AddCustomElement(XmlDocument document, XmlElement parent, string name, string value)
         {
-            var element = document.CreateElement(name);
+            // special handling for sp: elements
+            string? prefix = null, namespaceUri = null;
+            if (name.StartsWith("sp:"))
+            {
+                prefix = "sp";
+                namespaceUri = "http://spore.com/atom";
+                name = name.Remove(0, 3);
+            }
+
+            var element = document.CreateElement(prefix, name, namespaceUri);
             if (value != null)
             {
                 element.InnerText = value;
@@ -137,12 +146,17 @@ namespace SporeServer.Builder.AtomFeed
             return AddFeedEntry(document, (XmlElement)document.LastChild, id, title, updated, subtitle, authorName, authorUri, subCount, link);
         }
 
-        public static XmlElement AddLinkElement(XmlDocument document, XmlElement parent, string rel, string url, string type, string length)
+        public static XmlElement AddLinkElement(XmlDocument document, XmlElement parent, string name, string rel, string url, string type, string length)
         {
             // <link />
             //
-            var linkElement = AddCustomElement(document, parent, "link");
-            AddCustomAttribute(document, linkElement, "rel", rel);
+            var linkElement = AddCustomElement(document, parent, name);
+
+            if (rel != null)
+            {
+                AddCustomAttribute(document, linkElement, "rel", rel);
+            }
+
             AddCustomAttribute(document, linkElement, "href", url);
 
             if (type != null)
@@ -156,6 +170,11 @@ namespace SporeServer.Builder.AtomFeed
             }
 
             return linkElement;
+        }
+
+        public static XmlElement AddLinkElement(XmlDocument document, XmlElement parent, string rel, string url, string type, string length)
+        {
+            return AddLinkElement(document, parent, "link", rel, url, type, length);
         }
 
         public static XmlElement AddLinkElement(XmlDocument document, string rel, string url, string type, string length)
