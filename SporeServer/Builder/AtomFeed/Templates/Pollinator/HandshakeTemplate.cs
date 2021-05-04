@@ -75,7 +75,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
     {
         private readonly string _xml;
 
-        public HandshakeTemplate(SporeServerUser user)
+        public HandshakeTemplate(SporeServerUser user, SporeServerSubscription[] subscriptions)
         {
             // <handshake />
             //
@@ -117,23 +117,19 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
 
             // <subscriptions />
             //
-            AtomFeedBuilder.AddCustomElement(document, "subscriptions");
-
-            // TODO
-            /*
-            foreach (buddy...) 
+            var subscriptionsFeed = AtomFeedBuilder.AddCustomElement(document, "subscriptions");
+            foreach (var subscription in subscriptions)
             {
                 AtomFeedBuilder.AddFeedEntry(document, subscriptionsFeed,
-                    id: $"tag:spore.com,2006:user/{buddy.Id}",
-                    title: $"{buddy.UserName}",
+                    id: $"tag:spore.com,2006:user/{subscription.UserId}",
+                    title: $"{subscription.User.UserName}",
                     updated: DateTime.Now,
                     subtitle: null,
-                    authorName: $"{buddy.UserName}",
-                    authorUri: $"{buddy.Id}",
+                    authorName: $"{subscription.User.UserName}",
+                    authorUri: $"{subscription.UserId}",
                     subCount: 0,
-                    link: $"https://pollinator.spore.com/pollinator/atom/user/{buddy.Id}");
+                    link: $"https://pollinator.spore.com/pollinator/atom/user/{subscription.UserId}");
             }
-            */
 
             // <invisible-feeds />
             //

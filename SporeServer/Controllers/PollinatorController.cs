@@ -27,11 +27,13 @@ namespace SporeServer.Controllers
     {
         private readonly UserManager<SporeServerUser> _userManager;
         private readonly IAssetManager _assetManager;
+        private readonly ISubscriptionManager _subscriptionManager;
 
-        public PollinatorController(UserManager<SporeServerUser> userManager, IAssetManager assetManager)
+        public PollinatorController(UserManager<SporeServerUser> userManager, IAssetManager assetManager, ISubscriptionManager subscriptionManager)
         {
             _userManager = userManager;
             _assetManager = assetManager;
+            _subscriptionManager = subscriptionManager;
         }
 
         // GET /pollinator/handshake
@@ -40,6 +42,7 @@ namespace SporeServer.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var asset = await _assetManager.FindByIdAsync(user.NextAssetId);
+            var subscriptions = _subscriptionManager.FindAllByAuthor(user);
 
             // reserve new asset when 
             //      * user has no reserved asset
@@ -55,7 +58,7 @@ namespace SporeServer.Controllers
             }
 
             return AtomFeedBuilder.CreateFromTemplate(
-                    new HandshakeTemplate(user)
+                    new HandshakeTemplate(user, subscriptions)
                 ).ToContentResult();
         }
 

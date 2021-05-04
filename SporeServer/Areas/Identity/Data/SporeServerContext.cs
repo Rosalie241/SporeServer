@@ -23,7 +23,14 @@ namespace SporeServer.Data
         {
         }
 
+        /// <summary>
+        ///     Database Assets
+        /// </summary>
         public DbSet<SporeServerAsset> Assets { get; set; }
+        /// <summary>
+        ///     Database Subscriptions
+        /// </summary>
+        public DbSet<SporeServerSubscription> Subscriptions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -10,17 +10,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Builder.AtomFeed;
 using SporeServer.Builder.AtomFeed.Templates.Pollinator.Atom;
-using SporeServer.Data;
 using SporeServer.Services;
 using SporeServer.SporeTypes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Xml;
 
 namespace SporeServer.Controllers.Pollinator
 {
@@ -30,10 +27,13 @@ namespace SporeServer.Controllers.Pollinator
     public class AtomController : ControllerBase
     {
         private readonly IAssetManager _assetManager;
+        private readonly ISubscriptionManager _subscriptionManager;
         private readonly UserManager<SporeServerUser> _userManager;
-        public AtomController(IAssetManager assetManager, UserManager<SporeServerUser> userManager)
+
+        public AtomController(IAssetManager assetManager, ISubscriptionManager subscriptionManager, UserManager<SporeServerUser> userManager)
         {
             _assetManager = assetManager;
+            _subscriptionManager = subscriptionManager;
             _userManager = userManager;
         }
 
@@ -126,11 +126,85 @@ namespace SporeServer.Controllers.Pollinator
        
         }
 
+        /// <summary>
+        ///     Simple helper function for atom/(un)subscribe which tries to get SporeServerUser from uriQuery, returns null when not found
+        /// </summary>
+        /// <param name="uriQuery"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        private async Task<SporeServerUser> GetUserFromUriQuery(string uriQuery)
+        {
+            // make sure the uri request contains
+            // the correct tag
+            if (!uriQuery.Contains("tag:spore.com,2006:user/"))
+            {
+                return null;
+            }
+
+            string uriUser = uriQuery.Remove(0, 24);
+
+            // make sure we can parse the user id
+            if (!Int64.TryParse(uriUser, out Int64 userId))
+            {
+                return null;
+            }
+
+            return await _userManager.FindByIdAsync($"{userId}");
+        }
+
         // GET /pollinator/atom/subscribe
         [HttpGet("subscribe")]
-        public IActionResult Subscribe()
+        public async Task<IActionResult> Subscribe()
         {
             Console.WriteLine($"/pollinator/atom/subscribe{Request.QueryString}");
+
+            var user = await GetUserFromUriQuery(Request.Query["uri"]);
+            if (user == null)
+            {
+                return Ok();
+            }
+
+            var author = await _userManager.GetUserAsync(User);
+
+            // only add subscription when the subscription doesn't already exist
+            if (_subscriptionManager.Find(author, user) == null)
+            {
+                // add subscription
+                if (!await _subscriptionManager.AddAsync(author, user))
+                {
+                    return StatusCode(500);
+                }
+            }
+
+            // redirect request to /user/{userId}
+            return await AtomUser(user.Id);
+        }
+
+        // GET /pollinator/atom/unsubscribe
+        [HttpGet("unsubscribe")]
+        public async Task<IActionResult> Unsubscribe()
+        {
+            Console.WriteLine($"/pollinator/atom/unsubscribe{Request.QueryString}");
+
+            var user = await GetUserFromUriQuery(Request.Query["uri"]);
+            if (user == null)
+            {
+                return Ok();
+            }
+
+            var author = await _userManager.GetUserAsync(User);
+            var subscription = _subscriptionManager.Find(author, user);
+
+            // only remove subscription when it exists
+            if (subscription != null)
+            {
+                // remove subscription
+                if (!await _subscriptionManager.RemoveAsync(subscription))
+                {
+                    return StatusCode(500);
+                }
+            }
+
             return Ok();
         }
 
