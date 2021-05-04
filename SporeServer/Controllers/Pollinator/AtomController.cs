@@ -29,36 +29,43 @@ namespace SporeServer.Controllers.Pollinator
     [ApiController]
     public class AtomController : ControllerBase
     {
-        private readonly SporeServerContext _context;
         private readonly IAssetManager _assetManager;
         private readonly UserManager<SporeServerUser> _userManager;
-        public AtomController(SporeServerContext context, IAssetManager assetManager, UserManager<SporeServerUser> userManager)
+        public AtomController(IAssetManager assetManager, UserManager<SporeServerUser> userManager)
         {
-            _context = context;
             _assetManager = assetManager;
             _userManager = userManager;
         }
 
         // GET /pollinator/atom/randomAsset
         [HttpGet("randomAsset")]
-        public IActionResult RandomAsset()
+        public async Task<IActionResult> RandomAsset()
         {
             Console.WriteLine($"/pollinator/atom/randomAsset{Request.QueryString}");
 
-            string modelType = Request.Query["asset.function"];
+            string functionString = Request.Query["asset.function"];
 
-            if (!Enum.IsDefined(typeof(SporeModelType), Int64.Parse(modelType)))
+            SporeServerAsset[] assets = null;
+
+            // make sure we can parse the function string
+            if (Int64.TryParse(functionString, out Int64 function))
             {
-                Console.WriteLine("UNDEFINED: " + modelType);
+                // we only support modeltypes for now,
+                // TODO: support archetypes/herdtypes
+                if (Enum.IsDefined(typeof(SporeModelType), function))
+                {
+                    var user = await _userManager.GetUserAsync(User);
+                    assets = await _assetManager.GetRandomAssetsAsync(user.Id, (SporeModelType)function);
+                }
+                else
+                {
+                    Console.WriteLine($"unsupported randomAsset function: {function}");
+                }
             }
-            else
-            {
-                SporeModelType type = (SporeModelType)Int64.Parse(modelType);
 
-                Console.WriteLine("DEFINED: " + type.ToString());
-            }
-
-            return Ok();
+            return AtomFeedBuilder.CreateFromTemplate(
+                    new RandomAssetTemplate(assets)
+                ).ToContentResult();
         }
 
         // GET /pollinator/atom/downloadQueue
