@@ -63,5 +63,13 @@ namespace SporeServer.Services
         /// <param name="id"></param>
         /// <returns></returns>
         Task<SporeServerAsset[]> FindAllByUserIdAsync(Int64 authorId);
+
+        /// <summary>
+        ///     Returns random list of assets with specified type, excludes assets made by author id
+        /// </summary>
+        /// <param name="authorId"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        Task<SporeServerAsset[]> GetRandomAssetsAsync(Int64 authorId, SporeModelType type);
     }
 }

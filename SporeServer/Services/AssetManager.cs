@@ -18,7 +18,6 @@ using SporeServer.Models;
 using SporeServer.Models.Xml;
 using SporeServer.SporeTypes;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -49,6 +48,7 @@ namespace SporeServer.Services
         private readonly string _staticDirectory;
         private readonly ILogger<AssetManager> _logger;
         private readonly UserManager<SporeServerUser> _userManager;
+        private readonly Random _random;
 
         public AssetManager(SporeServerContext context, IWebHostEnvironment env, ILogger<AssetManager> logger, UserManager<SporeServerUser> userManager)
         {
@@ -56,6 +56,7 @@ namespace SporeServer.Services
             _staticDirectory = Path.Combine(env.WebRootPath, "static");
             _logger = logger;
             _userManager = userManager;
+            _random = new Random();
         }
 
         /// <summary>
@@ -240,6 +241,19 @@ namespace SporeServer.Services
             return "static/" + Path.GetRelativePath(_staticDirectory, path).Replace('\\', '/');
         }
 
+        /// <summary>
+        ///     Returns a random number
+        /// </summary>
+        /// <param name="minimum"></param>
+        /// <param name="maximum"></param>
+        /// <returns></returns>
+        private int GetRandomNumber(int minimum, int maximum)
+        {
+            // TODO:
+            // use RandomNumberGenerator.GetInt32 when .NET6 is out
+            return _random.Next(minimum, maximum);
+        }
+
         public async Task<bool> AddAsync(AssetUploadForm form, SporeServerAsset asset, Int64 parentId, bool slurped, SporeAssetType type)
         {
             try
@@ -418,6 +432,50 @@ namespace SporeServer.Services
                 return null;
             }
             
+        }
+
+        public async Task<SporeServerAsset[]> GetRandomAssetsAsync(Int64 authorId, SporeModelType type)
+        {
+            try
+            {
+                // maximum of 5 assets per request
+                int amountOfItems = GetRandomNumber(0, 5);
+
+                // find only used assets which don't have the author specified by author id
+                // and make sure it's the type we want
+                var assets = await _context.Assets
+                        .Where(a => a.Used &&
+                                a.AuthorId != authorId &&
+                                a.ModelType == type).ToArrayAsync();
+                int assetsCount = assets.Length;
+
+                // make sure we find some assets
+                if (assetsCount == 0)
+                {
+                    return null;
+                }
+
+                // adjust amountOfItems as needed
+                if (assetsCount < amountOfItems)
+                {
+                    amountOfItems = assetsCount;
+                }
+
+                var retAssets = new SporeServerAsset[amountOfItems];
+
+                for (int i = 0; i < amountOfItems; i++)
+                {
+                    int randomIndex = GetRandomNumber(0, assetsCount);
+                    retAssets[i] = assets.ElementAt(randomIndex);
+                }
+
+                return retAssets;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"GetRandomAssets: Failed To Get random Assets: {e}");
+                return null;
+            }
         }
     }
 }
