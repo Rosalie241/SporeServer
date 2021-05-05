@@ -444,6 +444,7 @@ namespace SporeServer.Services
                 // find only used assets which don't have the author specified by author id
                 // and make sure it's the type we want
                 var assets = await _context.Assets
+                        .Include(a => a.Author)
                         .Where(a => a.Used &&
                                 a.AuthorId != authorId &&
                                 a.ModelType == type).ToArrayAsync();
