@@ -1,9 +1,7 @@
 # SporeServer
 A WIP Spore Server replacement
 
-
 # Projects
-
 * SporeServer
    * Replacement server
 
@@ -13,3 +11,11 @@ A WIP Spore Server replacement
    * SporeNewOpenssl
      * Spore mod which replaces the OpenSSL version
 	 * Spore mod which forces the game to use HTTPS
+
+# Special Thanks
+* Emd (Discord)
+* Splitwirez (Discord)
+* SM Kade (Discord)
+* 0KepOnline (Discord)
+* Chocice75 (Discord)
+* Metalblaze (Discord)
