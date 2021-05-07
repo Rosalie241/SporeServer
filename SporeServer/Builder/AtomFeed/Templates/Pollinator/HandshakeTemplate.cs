@@ -91,7 +91,10 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
 
             // <maxis-feeds />
             //
-            var maxisFeeds = AtomFeedBuilder.AddCustomElement(document, "maxis-feeds");
+            AtomFeedBuilder.AddCustomElement(document, "maxis-feeds");
+            /* We can remove this because
+             * the official server returns an empty feed at the url anyways
+             * maybe allow custom sporecasts here in the future?
             AtomFeedBuilder.AddFeedEntry(document, maxisFeeds,
                 id: "tag:spore.com,2006:maxis/adventures/en_US",
                 title: "Maxis Adventures",
@@ -101,6 +104,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
                 authorUri: null,
                 subCount: 0,
                 link: "https://pollinator.spore.com/pollinator/atom/maxis/adventures/en_US");
+            */
 
             // <my-feeds />
             //
