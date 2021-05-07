@@ -20,8 +20,14 @@ namespace SporeServer.Pages.Community.AssetBrowser
     [Authorize]
     public class AchievementsModel : PageModel
     {
+        public Int64[] UnlockedAchievementIds { get; set; }
+
         public void OnGet()
         {
+            // TODO
+            UnlockedAchievementIds = new Int64[]
+            {
+            };
         }
     }
 }
