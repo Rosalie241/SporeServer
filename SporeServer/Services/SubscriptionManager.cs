@@ -48,12 +48,6 @@ namespace SporeServer.Services
         {
             try
             {
-                // make sure the subscription exists
-                if (subscription == null)
-                {
-                    return true;
-                }
-
                 // remove subscription from database
                 _context.Subscriptions.Remove(subscription);
                 await _context.SaveChangesAsync();
