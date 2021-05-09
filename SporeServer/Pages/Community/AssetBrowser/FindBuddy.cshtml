@@ -4,17 +4,11 @@
 }
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-
-
-
-
-
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>Multiverse Journal : Find Buddy</title>
-    <!--<base href="http://community.spore.com">-->
+    <base href="https://community.spore.com" />
     <link rel="stylesheet" type="text/css" href="/css/game/buddy.css" />
     <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
 </head>
@@ -24,23 +18,20 @@
         <div id="search">
             <div id="searchmiddle">
                 <form method="get" action="/community/assetBrowser/findBuddy">
-                    <p><input type="text" name="searchText" size="30" value="rosa" class="text" /></p>
+                    <p><input type="text" name="searchText" size="30" value="@Model.SearchString" class="text" /></p>
                     <p><input type="submit" value="Search" class="submit" /></p>
                 </form>
             </div>
         </div>
         <div id="results">
             <div id="paging">
-                <div class="context">
-
-
-
-
-                    Showing 1-9 of 9 buddies
-
-
-
-                </div>
+                 @if (Model.Searched && Model.Users.Length != 0)
+                 {
+                     var length = Model.Users.Length;
+                     <div class="context">
+                         Showing 1-@(length) of @(length) buddies
+                     </div>
+                 }
                 <div class="next">
 
                 </div>
@@ -48,371 +39,57 @@
             <table class="buddyresults">
 
 
-
-
-
                 <tr>
-                    <td class="avatar ">
-
-
-                        <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
-
-
-
-                    </td>
-                    <td class="buddyname ">
-
-                        <a href="sporeprofile:501089776635" style="">Rosa_ (0)</a>
-
-
-
-                    </td>
-
-
-                    <td class="add "><a href="sporecast:tag:spore.com,2006:user/501089776635/Rosa_">Add</a></td>
-
-
-
+                    <td></td>
+                    <td></td>
+                    @if (!Model.Searched)
+                    {
+                        <td>
+                            Enter a friend's email address or Spore screen name to add them as a Buddy.
+                        </td>
+                    }
+                    else if (Model.Users.Length == 0)
+                    {
+                        <td>
+                            There are zero matches.
+                        </td>
+                    }
                 </tr>
 
-
-                <tr>
-                    <td class="avatar , odd">
-
-
-                        <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
-
-
-
-                    </td>
-                    <td class="buddyname , odd">
-
-                        <a href="sporeprofile:500556902523" style="">Ingar_Rosa (48)</a>
-
-                    </td>
-
-
-
-
-
-
-                    <td class="add , odd"><a href="sporecast:tag:spore.com,2006:user/500556902523/Ingar_Rosa">Add</a></td>
-
-
-
-                </tr>
-
-
-                <tr>
-                    <td class="avatar ">
-
-
-                        <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
-
-
-
-                    </td>
-                    <td class="buddyname ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <a href="sporeprofile:500692653741" style="">rosa_mayrhofer (0)</a>
-
-
-
-
-
-                    </td>
-
-
-
-
-
-
-                    <td class="add "><a href="sporecast:tag:spore.com,2006:user/500692653741/rosa_mayrhofer">Add</a></td>
-
-
-
-                </tr>
-
-
-                <tr>
-                    <td class="avatar , odd">
-
-
-                        <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
-
-
-
-                    </td>
-                    <td class="buddyname , odd">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <a href="sporeprofile:500755017589" style="">James_Rosa (0)</a>
-
-
-
-
-
-                    </td>
-
-
-
-
-
-
-                    <td class="add , odd"><a href="sporecast:tag:spore.com,2006:user/500755017589/James_Rosa">Add</a></td>
-
-
-
-                </tr>
-
-
-                <tr>
-                    <td class="avatar ">
-
-
-                        <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
-
-
-
-                    </td>
-                    <td class="buddyname ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <a href="sporeprofile:500903950747" style="">Tige-Rosa (0)</a>
-
-
-
-
-
-                    </td>
-
-
-
-
-
-
-                    <td class="add "><a href="sporecast:tag:spore.com,2006:user/500903950747/Tige-Rosa">Add</a></td>
-
-
-
-                </tr>
-
-
-                <tr>
-                    <td class="avatar , odd">
-
-
-
-                        <img src="/static/thumb/501/029/041/501029041306.png" alt="Avatar" class="avatar" />
-
-
-                    </td>
-                    <td class="buddyname , odd">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <a href="sporeprofile:500947488824" style="">Bruno_Rosa (2)</a>
-
-
-
-
-
-                    </td>
-
-
-
-
-
-
-                    <td class="add , odd"><a href="sporecast:tag:spore.com,2006:user/500947488824/Bruno_Rosa">Add</a></td>
-
-
-
-                </tr>
-
-
-                <tr>
-                    <td class="avatar ">
-
-
-                        <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
-
-
-
-                    </td>
-                    <td class="buddyname ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <a href="sporeprofile:501000409650" style="">rosa-elg (0)</a>
-
-
-
-
-
-                    </td>
-
-
-
-
-
-
-                    <td class="add "><a href="sporecast:tag:spore.com,2006:user/501000409650/rosa-elg">Add</a></td>
-
-
-
-                </tr>
-
-
-                <tr>
-                    <td class="avatar , odd">
-
-
-                        <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
-
-
-
-                    </td>
-                    <td class="buddyname , odd">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <a href="sporeprofile:500611423130" style="">General_La_Rosa (1)</a>
-
-
-
-
-
-                    </td>
-
-
-
-
-
-
-                    <td class="add , odd"><a href="sporecast:tag:spore.com,2006:user/500611423130/General_La_Rosa">Add</a></td>
-
-
-
-                </tr>
-
-
-                <tr>
-                    <td class="avatar ">
-
-
-                        <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
-
-
-
-                    </td>
-                    <td class="buddyname ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <a href="sporeprofile:500791549483" style="">rosa-rosus-rosae (0)</a>
-
-
-
-
-
-                    </td>
-
-
-
-
-
-
-                    <td class="add "><a href="sporecast:tag:spore.com,2006:user/500791549483/rosa-rosus-rosae">Add</a></td>
-
-
-
-                </tr>
-
-
-
-
+                @if (Model.Searched)
+                {
+                    @for (int i = 0; i < Model.Users.Length; i++)
+                    {
+                        var user = Model.Users[i];
+                        bool odd = i % 2 != 0;
+                        int assetCount = Model.GetAssetCountByUser(user.Id);
+                        <tr>
+                            <td class="avatar@(odd ? " , odd" : "")">
+                                <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
+                            </td>
+                            <td class="buddyname@(odd ? " , odd" : "")">
+                                <a href="sporeprofile:@(user.Id)" style="">@(user.UserName) (@(assetCount))</a>
+                            </td>
+                            @if (Model.CurrentUser.Id == user.Id)
+                            {
+                                <td class="self, add ">This is you</td>
+                            }
+                            else
+                            {
+                                <td class="add@(odd ? " , odd" : "")">
+                                    @if (Model.SubscribedUsers.Contains(user))
+                                    {
+                                        <a href="sporecast:unsubscribe:tag:spore.com,2006:user/@(user.Id)/@(user.UserName)">Remove buddy</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="sporecast:tag:spore.com,2006:user/@(user.Id)/@(user.UserName)">Add</a>
+                                    }
+                                </td>
+                            }
+                        </tr>
+                    }
+                }
             </table>
         </div>
     </div>

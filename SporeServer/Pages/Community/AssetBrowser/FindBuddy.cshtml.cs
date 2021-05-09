@@ -12,16 +12,93 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using SporeServer.Areas.Identity.Data;
+using SporeServer.Services;
 
 namespace SporeServer.Pages.Community.AssetBrowser
 {
     [Authorize]
     public class FindBuddyModel : PageModel
     {
-        public void OnGet()
+        private readonly UserManager<SporeServerUser> _userManager;
+        private readonly ISubscriptionManager _subscriptionManager;
+        private readonly IAssetManager _assetManager;
+
+        public FindBuddyModel(UserManager<SporeServerUser> userManager, ISubscriptionManager subscriptionManager, IAssetManager assetManager)
         {
+            _userManager = userManager;
+            _subscriptionManager = subscriptionManager;
+            _assetManager = assetManager;
+        }
+
+        /// <summary>
+        ///     Current User
+        /// </summary>
+        public SporeServerUser CurrentUser { get; set; }
+        /// <summary>
+        ///     User Subscribed Users list
+        /// </summary>
+        public SporeServerUser[] SubscribedUsers { get; set; }
+        /// <summary>
+        ///     Search Results
+        /// </summary>
+        public SporeServerUser[] Users { get; set; }
+        /// <summary>
+        ///     Search String
+        /// </summary>
+        public string SearchString { get; set; }
+        /// <summary>
+        ///     Whether it actually performed the search
+        /// </summary>
+        public bool Searched { get; set; }
+        /// <summary>
+        ///     returns Asset Count of given user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public int GetAssetCountByUser(Int64 userId)
+        {
+            var assets = _assetManager.FindAllByUserIdAsync(userId).Result;
+            return assets == null ? 0 : assets.Length;
+        }
+        
+        public async Task <IActionResult> OnGet()
+        {
+            string searchString = Request.Query["searchText"];
+
+            if (String.IsNullOrEmpty(searchString))
+            {
+                Searched = false;
+                return Page();
+            }
+
+            CurrentUser = await _userManager.GetUserAsync(User);
+
+            Users = await _userManager.Users
+                            .Where(u => 
+                                    u.UserName != null &&
+                                    (
+                                        (u.UserName.Contains(searchString)) ||
+                                        (u.Email == searchString)
+                                    )
+                                )
+                            .OrderBy(u => u.UserName)
+                            .Take(25)
+                            .ToArrayAsync();
+
+            SubscribedUsers = _subscriptionManager
+                                .FindAllByAuthor(CurrentUser)
+                                .Select(s => s.User)
+                                .ToArray();
+
+            SearchString = searchString;
+            Searched = true;
+
+            return Page();
         }
     }
 }
