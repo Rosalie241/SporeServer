@@ -1,0 +1,132 @@
+﻿@page "{id}"
+@model SporeServer.Pages.Community.AssetBrowser.ProfileModel
+@{
+}
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <base href="https://community.spore.com" />
+    <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game/buddy.css" />
+
+</head>
+
+<body>
+    <div class="pagetitle">
+        @(Model.ProfileUser.UserName)'s Page
+
+        @if (Model.CurrentUser.Id != Model.ProfileUser.Id)
+        {
+            @if (Model.Subscribed)
+            {
+                <a href="sporecast:unsubscribe:tag:spore.com,2006:user/@(Model.ProfileUser.Id)/@(Model.ProfileUser.UserName)">
+                    <img src="/static/war/images/game/spd/removeBuddy.png" style="margin-top: 10px; margin-left: 10px;" />
+                </a>
+            }
+            else
+            {
+                <a href="sporecast:tag:spore.com,2006:user/@(Model.ProfileUser.Id)/@(Model.ProfileUser.UserName)">
+                    <img src="/static/war/images/game/spd/addBuddy.png" style="margin-top: 10px; margin-left: 10px;" />
+                </a>
+            }
+        }
+    </div>
+
+    <div id="avatarAndAchievements" class="genericpagebucket" style="background-color: #283f5b; height: 200px; margin-bottom: 15px;">
+
+        <div class="avatarBucket">
+            <div class="noavatar"><img src="/static/war/images/game/spd/spd_NoAvatar.png" alt="Avatar" height="90px" width="90px" /></div>
+            <div style="margin-left: 17px; margin-top: 160px;">
+                @(Model.ProfileUser.UserName)
+
+                <!--<br /><span class="tagline">"really want spore..."</span>-->
+
+            </div>
+        </div>
+        <div style="margin-left: 180px; margin-bottom: 30px;">
+
+            <div class="header">
+                <div class="headerLeftNoIcon"></div>
+                <div class="headermiddlenoicon">
+                    <span class="headerTitle">Recent Achievements</span>
+
+                    <span class="headlink">
+
+
+                    </span>
+                </div>
+                <div class="headerRight"></div>
+            </div>
+            <div class="promo">
+                <!--<div id="achievements" class="genericpagebucket"
+                 style="margin: 0px 1px 0px 3px; padding: 0px 10px 0px 15px; clear: both;"> -->
+
+
+                <div class="h3" style="height: 130px; padding-top: 10px; padding-left: 20px; margin-left: 0px;">
+                    @(Model.ProfileUser.UserName) has not yet earned any achievements.
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footerLeft" style="background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png)">
+                </div>
+                <div class="footermiddle" style="background-image: url(utfres://0x40484400!spd_BottomTile.png)">
+                </div>
+                <div class="footerRight" style="background-image: url(utfres://0x40484400!spd_BottomRightCorner.png)">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="header">
+        <div class="headerLeftNoIcon"></div>
+        <div class="headermiddlenoicon">
+            <span class="headerTitle">Recent Creations</span>
+
+        </div>
+        <div class="headerRight"></div>
+    </div>
+    <div class="promo">
+        <div class="h3" style="height: 80px; padding: 10px 10px;">
+            @(Model.ProfileUser.UserName) has not yet shared any creations.
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footerLeft" style="background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png)">
+        </div>
+        <div class="footermiddle" style="background-image: url(utfres://0x40484400!spd_BottomTile.png)">
+        </div>
+        <div class="footerRight" style="background-image: url(utfres://0x40484400!spd_BottomRightCorner.png)">
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="headerLeftNoIcon"></div>
+        <div class="headermiddlenoicon">
+            <span class="headerTitle">Recent Sporecasts</span>
+
+        </div>
+        <div class="headerRight"></div>
+    </div>
+    <div class="promo">
+
+        <div class="h3" style="height: 100px; padding-top: 10px;">
+            @(Model.ProfileUser.UserName) has not yet created any sporecasts.
+        </div>
+
+        <div class="footer">
+            <div class="footerLeft" style="background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png)">
+            </div>
+            <div class="footermiddle" style="background-image: url(utfres://0x40484400!spd_BottomTile.png)">
+            </div>
+            <div class="footerRight" style="background-image: url(utfres://0x40484400!spd_BottomRightCorner.png)">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
