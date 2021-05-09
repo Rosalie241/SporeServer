@@ -97,7 +97,6 @@ using System.Xml.Serialization;
 
 namespace SporeServer.Builder.AtomFeed.Templates.Pollinator.Atom
 {
-    [XmlRoot("feed", Namespace = "http://www.w3.org/2005/Atom")]
     public class AssetTemplate : IAtomFeedTemplate
     {
         private readonly string _xml;
