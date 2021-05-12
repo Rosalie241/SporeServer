@@ -25,10 +25,10 @@ namespace SporeServer.Pages.Community.AssetBrowser
     public class FindBuddyModel : PageModel
     {
         private readonly UserManager<SporeServerUser> _userManager;
-        private readonly ISubscriptionManager _subscriptionManager;
+        private readonly IUserSubscriptionManager _subscriptionManager;
         private readonly IAssetManager _assetManager;
 
-        public FindBuddyModel(UserManager<SporeServerUser> userManager, ISubscriptionManager subscriptionManager, IAssetManager assetManager)
+        public FindBuddyModel(UserManager<SporeServerUser> userManager, IUserSubscriptionManager subscriptionManager, IAssetManager assetManager)
         {
             _userManager = userManager;
             _subscriptionManager = subscriptionManager;

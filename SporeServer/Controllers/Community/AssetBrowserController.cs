@@ -28,11 +28,14 @@ namespace SporeServer.Controllers.Community
         private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
         private readonly IAssetManager _assetManager;
-        public AssetBrowserController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager)
+        private readonly IAggregatorManager _aggregatorManager;
+
+        public AssetBrowserController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager, IAggregatorManager aggregatorManager)
         {
             _context = context;
             _userManager = userManager;
             _assetManager = assetManager;
+            _aggregatorManager = aggregatorManager;
         }
 
         // GET /community/assetBrowser/deleteAsset/{id}
@@ -61,6 +64,85 @@ namespace SporeServer.Controllers.Community
             await _assetManager.DeleteAsync(asset);
 
             return Ok();
+        }
+
+        /// <summary>
+        ///     Simple helper function for editSporecast which tries to get SporeServerAggregator from idQuery, returns null when not found
+        /// </summary>
+        /// <param name="uriQuery"></param>
+        /// <returns></returns>
+        private async Task<SporeServerAggregator> GetAggregatorFromIdQuery(string idQuery)
+        {
+            // make sure the uri request starts with
+            // the correct tag
+            if (!idQuery.StartsWith("tag:spore.com,2006:aggregator/"))
+            {
+                return null;
+            }
+
+            string uriAggregator = idQuery.Remove(0, 30);
+
+            // make sure we can parse the aggregator id
+            if (!Int64.TryParse(uriAggregator, out Int64 aggregatorId))
+            {
+                return null;
+            }
+
+            return await _aggregatorManager.FindByIdAsync(aggregatorId);
+        }
+
+        // GET /community/assetBrowser/editSporecast
+        [HttpGet("editSporecast")]
+        public async Task<IActionResult> EditSporecast()
+        {
+            Console.WriteLine($"/community/assetBrowser/editSporecast{Request.QueryString}");
+
+            var aggregator = await GetAggregatorFromIdQuery(Request.Query["scId"]);
+            if (aggregator == null)
+            {
+                return NotFound();
+            }
+
+            aggregator.Description = Request.Query["scDesc"];
+
+            // add requested assets
+            foreach (var addQuery in Request.Query["scAdd"])
+            {
+                if (Int64.TryParse(addQuery, out Int64 assetId))
+                {
+                    var asset = await _assetManager.FindByIdAsync(assetId);
+                    // only remove asset when it exists
+                    if (asset != null)
+                    {
+                        aggregator.Assets.Add(asset);
+                    }
+                }
+            }
+
+            // remove requested assets
+            foreach (var removeQuery in Request.Query["scRemove"])
+            {
+                if (Int64.TryParse(removeQuery, out Int64 assetId))
+                {
+                    var asset = await _assetManager.FindByIdAsync(assetId);
+                    // only remove asset when it exists
+                    // and is in the aggregator
+                    if (asset != null &&
+                        aggregator.Assets.Contains(asset))
+                    {
+                        aggregator.Assets.Remove(asset);
+                    }
+                }
+            }
+
+            // update aggregator
+            if (!await _aggregatorManager.UpdateAsync(aggregator))
+            {
+                return StatusCode(500);
+            }
+
+            // redirect to /pollinator/atom/aggregator/{id}
+            return Redirect($"https://pollinator.spore.com/pollinator/atom/aggregator/{aggregator.AggregatorId}");
         }
     }
 }

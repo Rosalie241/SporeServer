@@ -7,6 +7,7 @@
  *  You should have received a copy of the GNU Affero General Public License
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+using Microsoft.EntityFrameworkCore;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Models;
 using SporeServer.SporeTypes;
@@ -71,5 +72,11 @@ namespace SporeServer.Services
         /// <param name="type"></param>
         /// <returns></returns>
         Task<SporeServerAsset[]> GetRandomAssetsAsync(Int64 authorId, SporeModelType type);
+
+        /// <summary>
+        ///     Returns all assets
+        /// </summary>
+        /// <returns></returns>
+        DbSet<SporeServerAsset> GetAllAssets();
     }
 }

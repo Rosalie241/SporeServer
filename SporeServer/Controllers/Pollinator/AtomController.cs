@@ -27,13 +27,20 @@ namespace SporeServer.Controllers.Pollinator
     public class AtomController : ControllerBase
     {
         private readonly IAssetManager _assetManager;
-        private readonly ISubscriptionManager _subscriptionManager;
+        private readonly IAggregatorManager _aggregatorManager;
+        private readonly IUserSubscriptionManager _userSubscriptionManager;
+        private readonly IAggregatorSubscriptionManager _aggregatorSubscriptionManager;
         private readonly UserManager<SporeServerUser> _userManager;
 
-        public AtomController(IAssetManager assetManager, ISubscriptionManager subscriptionManager, UserManager<SporeServerUser> userManager)
+        public AtomController(IAssetManager assetManager, IAggregatorManager aggregatorManager, 
+                                IUserSubscriptionManager userSubscriptionManager, 
+                                IAggregatorSubscriptionManager aggregatorSubscriptionManager,  
+                                UserManager<SporeServerUser> userManager)
         {
             _assetManager = assetManager;
-            _subscriptionManager = subscriptionManager;
+            _aggregatorManager = aggregatorManager;
+            _userSubscriptionManager = userSubscriptionManager;
+            _aggregatorSubscriptionManager = aggregatorSubscriptionManager;
             _userManager = userManager;
         }
 
@@ -130,13 +137,12 @@ namespace SporeServer.Controllers.Pollinator
         ///     Simple helper function for atom/(un)subscribe which tries to get SporeServerUser from uriQuery, returns null when not found
         /// </summary>
         /// <param name="uriQuery"></param>
-        /// <param name="user"></param>
         /// <returns></returns>
         private async Task<SporeServerUser> GetUserFromUriQuery(string uriQuery)
         {
-            // make sure the uri request contains
+            // make sure the uri request starts with
             // the correct tag
-            if (!uriQuery.Contains("tag:spore.com,2006:user/"))
+            if (!uriQuery.StartsWith("tag:spore.com,2006:user/"))
             {
                 return null;
             }
@@ -152,32 +158,84 @@ namespace SporeServer.Controllers.Pollinator
             return await _userManager.FindByIdAsync($"{userId}");
         }
 
+        /// <summary>
+        ///     Simple helper function for atom/(un)subscribe which tries to get SporeServerAggregator from uriQuery, returns null when not found
+        /// </summary>
+        /// <param name="uriQuery"></param>
+        /// <returns></returns>
+        private async Task<SporeServerAggregator> GetAggregatorFromUriQuery(string uriQuery)
+        {
+            // make sure the uri request starts with
+            // the correct tag
+            if (!uriQuery.StartsWith("tag:spore.com,2006:aggregator/"))
+            {
+                return null;
+            }
+
+            string uriAggregator = uriQuery.Remove(0, 30);
+
+            // make sure we can parse the aggregator id
+            if (!Int64.TryParse(uriAggregator, out Int64 aggregatorId))
+            {
+                return null;
+            }
+
+
+            return await _aggregatorManager.FindByIdAsync(aggregatorId);
+        }
+
         // GET /pollinator/atom/subscribe
         [HttpGet("subscribe")]
         public async Task<IActionResult> Subscribe()
         {
             Console.WriteLine($"/pollinator/atom/subscribe{Request.QueryString}");
 
-            var user = await GetUserFromUriQuery(Request.Query["uri"]);
-            if (user == null)
+            string uriQuery = Request.Query["uri"];
+
+            var user = await GetUserFromUriQuery(uriQuery);
+            var aggregator = await GetAggregatorFromUriQuery(uriQuery);
+
+            if (user == null && aggregator == null)
             {
                 return Ok();
             }
 
             var author = await _userManager.GetUserAsync(User);
 
-            // only add subscription when the subscription doesn't already exist
-            if (_subscriptionManager.Find(author, user) == null)
-            {
-                // add subscription
-                if (!await _subscriptionManager.AddAsync(author, user))
+            if (user != null)
+            { // user subscription 
+                // only add subscription when the subscription doesn't already exist
+                // and if the requested user is not the author
+                if (_userSubscriptionManager.Find(author, user) == null &&
+                    user.Id != author.Id)
                 {
-                    return StatusCode(500);
+                    // add subscription
+                    if (!await _userSubscriptionManager.AddAsync(author, user))
+                    {
+                        return StatusCode(500);
+                    }
                 }
-            }
 
-            // redirect request to /user/{userId}
-            return await AtomUser(user.Id);
+                // redirect request to /user/{userId}
+                return await AtomUser(user.Id);
+            }
+            else
+            { // aggregator subscription
+                // only add subscription when the subscription doesn't already exist
+                // and if the requested aggregator author is not the author
+                if (_aggregatorSubscriptionManager.Find(author, aggregator) == null &&
+                    author.Id != aggregator.AuthorId)
+                {
+                    // add subscription
+                    if (!await _aggregatorSubscriptionManager.AddAsync(author, aggregator))
+                    {
+                        return StatusCode(500);
+                    }
+                }
+
+                // redirect request to /aggregator/{id}
+                return await Aggregator(aggregator.AggregatorId);
+            }
         }
 
         // GET /pollinator/atom/unsubscribe
@@ -186,22 +244,44 @@ namespace SporeServer.Controllers.Pollinator
         {
             Console.WriteLine($"/pollinator/atom/unsubscribe{Request.QueryString}");
 
-            var user = await GetUserFromUriQuery(Request.Query["uri"]);
-            if (user == null)
+            string uriQuery = Request.Query["uri"];
+
+            var user = await GetUserFromUriQuery(uriQuery);
+            var aggregator = await GetAggregatorFromUriQuery(uriQuery);
+
+            if (user == null && aggregator == null)
             {
                 return Ok();
             }
 
             var author = await _userManager.GetUserAsync(User);
-            var subscription = _subscriptionManager.Find(author, user);
 
-            // only remove subscription when it exists
-            if (subscription != null)
-            {
-                // remove subscription
-                if (!await _subscriptionManager.RemoveAsync(subscription))
+            if (user != null)
+            { // user subscription
+                var subscription = _userSubscriptionManager.Find(author, user);
+
+                // only remove subscription when it exists
+                if (subscription != null)
                 {
-                    return StatusCode(500);
+                    // remove subscription
+                    if (!await _userSubscriptionManager.RemoveAsync(subscription))
+                    {
+                        return StatusCode(500);
+                    }
+                }
+            }
+            else
+            { // aggregator subscription
+                var subscription = _aggregatorSubscriptionManager.Find(author, aggregator);
+
+                // only remove subscription when it exists
+                if (subscription != null)
+                {
+                    // remove subscription
+                    if (!await _aggregatorSubscriptionManager.RemoveAsync(subscription))
+                    {
+                        return StatusCode(500);
+                    }
                 }
             }
 
@@ -219,7 +299,7 @@ namespace SporeServer.Controllers.Pollinator
             // make sure the user exists
             if (user == null)
             {
-                return Ok();
+                return NotFound();
             }
 
             var assets = await _assetManager.FindAllByUserIdAsync(userId);
@@ -231,6 +311,50 @@ namespace SporeServer.Controllers.Pollinator
             return AtomFeedBuilder.CreateFromTemplate(
                     new UserTemplate(user, assets)
                 ).ToContentResult();
+        }
+
+        // GET /pollinator/atom/aggregator/{id}
+        [HttpGet("aggregator/{id}")]
+        public async Task<IActionResult> Aggregator(Int64 id)
+        {
+            Console.WriteLine($"/pollinator/atom/aggregator/{id}{Request.QueryString}");
+
+            var aggregator = await _aggregatorManager.FindByIdAsync(id);
+
+            // make sure the aggregator exists
+            if (aggregator == null)
+            {
+                return NotFound();
+            }
+
+            return AtomFeedBuilder.CreateFromTemplate(
+                    new AggregatorTemplate(aggregator)
+                ).ToContentResult();
+        }
+
+        // GET /pollinator/atom/delete
+        [HttpGet("delete")]
+        public async Task<IActionResult> Delete()
+        {
+            Console.WriteLine($"/pollinator/atom/delete{Request.QueryString}");
+
+            var aggregator = await GetAggregatorFromUriQuery(Request.Query["uri"]);
+
+            // make sure the aggregator exists
+            if (aggregator == null)
+            {
+                return Ok();
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+
+            // only remove aggregator when current user is the author
+            if (aggregator.AuthorId == user.Id)
+            {
+                await _aggregatorManager.RemoveAsync(aggregator);
+            }
+
+            return Ok();
         }
     }
 }

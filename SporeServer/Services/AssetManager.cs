@@ -308,7 +308,6 @@ namespace SporeServer.Services
                 asset.Size = form.ThumbnailData.Length;
                 asset.Slurped = slurped;
                 // TODO, put this in a struct or whatever?
-                Console.WriteLine(GetRelativeUrlFromPath(files.ModelFile));
                 asset.ModelFileUrl = GetRelativeUrlFromPath(files.ModelFile);
                 asset.ThumbFileUrl = GetRelativeUrlFromPath(files.ThumbFile);
                 asset.ImageFileUrl = GetRelativeUrlFromPath(files.ImageFile);
@@ -447,7 +446,8 @@ namespace SporeServer.Services
                         .Include(a => a.Author)
                         .Where(a => a.Used &&
                                 a.AuthorId != authorId &&
-                                a.ModelType == type).ToArrayAsync();
+                                a.ModelType == type)
+                        .ToArrayAsync();
                 int assetsCount = assets.Length;
 
                 // make sure we find some assets
@@ -477,6 +477,11 @@ namespace SporeServer.Services
                 _logger.LogError($"GetRandomAssets: Failed To Get random Assets: {e}");
                 return null;
             }
+        }
+
+        public DbSet<SporeServerAsset> GetAllAssets()
+        {
+            return _context.Assets;
         }
     }
 }

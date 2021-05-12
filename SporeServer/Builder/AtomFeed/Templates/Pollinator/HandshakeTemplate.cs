@@ -13,9 +13,9 @@ using System;
 /*
 <?xml version="1.0" encoding="UTF-8"?>
 <handshake xmlns="http://www.w3.org/2005/Atom" xmlns:sp="http://spore.com/atom">
-    <user-id>501089776600</user-id>
-    <screen-name>ExampleUserName</screen-name>
-    <next-id>501091100295</next-id>
+    <user-id>501089776639</user-id>
+    <screen-name>Rosalie1</screen-name>
+    <next-id>501091342362</next-id>
     <refresh-rate>120</refresh-rate>
     <maxis-feeds>
         <sp:entry>
@@ -26,25 +26,67 @@ using System;
             <sp:subcount>0</sp:subcount>
             <sp:link rel="self" href="http://pollinator.spore.com/pollinator/atom/maxis/adventures/en_US" />
         </sp:entry>
+        <sp:entry>
+            <sp:id>tag:spore.com,2006:maxis/robotchicken/en_US</sp:id>
+            <sp:title>Robot Chicken Adventures</sp:title>
+            <sp:updated>2009-06-22T23:02:41.138Z</sp:updated>
+            <sp:subtitle />
+            <sp:subcount>0</sp:subcount>
+            <sp:link rel="self" href="http://pollinator.spore.com/pollinator/atom/maxis/robotchicken/en_US" />
+        </sp:entry>
     </maxis-feeds>
     <my-feeds>
         <entry>
-            <id>tag:spore.com,2006:user/501089776639</id>
-            <title>ExampleUserName</title>
-            <updated>2021-04-19T10:53:41.754Z</updated>
+            <id>tag:spore.com,2006:aggregator/501091337611</id>
+            <title>adsasd</title>
+            <updated>2021-05-09T12:53:39.413Z</updated>
             <author>
-                <name>ExampleUserName</name>
-                <uri>501089776600</uri>
+                <name>Rosalie1</name>
+                <uri>501089776639</uri>
             </author>
             <subcount>0</subcount>
-            <link rel="self" href="http://pollinator.spore.com/pollinator/atom/user/501089776600" />
+            <link rel="self" href="http://pollinator.spore.com/pollinator/atom/aggregator/501091337611" />
+        </entry>
+        <entry>
+            <id>tag:spore.com,2006:aggregator/501091336836</id>
+            <title>test sporecast</title>
+            <updated>2021-05-09T12:22:01.768Z</updated>
+            <subtitle>test sporecast description</subtitle>
+            <author>
+                <name>Rosalie1</name>
+                <uri>501089776639</uri>
+            </author>
+            <subcount>0</subcount>
+            <link rel="self" href="http://pollinator.spore.com/pollinator/atom/aggregator/501091336836" />
+        </entry>
+        <entry>
+            <id>tag:spore.com,2006:user/501089776639</id>
+            <title>Rosalie1</title>
+            <updated>2021-04-19T10:53:41.754Z</updated>
+            <author>
+                <name>Rosalie1</name>
+                <uri>501089776639</uri>
+            </author>
+            <subcount>0</subcount>
+            <link rel="self" href="http://pollinator.spore.com/pollinator/atom/user/501089776639" />
         </entry>
     </my-feeds>
     <subscriptions>
         <entry>
+            <id>tag:spore.com,2006:user/500590056227</id>
+            <title>mark_live</title>
+            <updated>2021-05-09T16:23:20.246Z</updated>
+            <author>
+                <name>mark_live</name>
+                <uri>500590056227</uri>
+            </author>
+            <subcount>0</subcount>
+            <link rel="self" href="http://pollinator.spore.com/pollinator/atom/user/500590056227" />
+        </entry>
+        <entry>
             <id>tag:spore.com,2006:user/501071978458</id>
             <title>TheAWKLORD</title>
-            <updated>2021-04-24T03:04:40.824Z</updated>
+            <updated>2021-05-05T04:37:29.476Z</updated>
             <author>
                 <name>TheAWKLORD</name>
                 <uri>501071978458</uri>
@@ -52,15 +94,27 @@ using System;
             <subcount>0</subcount>
             <link rel="self" href="http://pollinator.spore.com/pollinator/atom/user/501071978458" />
         </entry>
+        <entry>
+            <id>tag:spore.com,2006:aggregator/500848614948</id>
+            <title>現代と未来の融合</title>
+            <updated>2021-05-09T16:04:50.050Z</updated>
+            <subtitle>This Sporecast's a set of vehicles &amp; buildings that combine with modern &amp; future. 11/24/15 FEATURED!</subtitle>
+            <author>
+                <name>Itapenguin</name>
+                <uri>500636289275</uri>
+            </author>
+            <subcount>18321</subcount>
+            <link rel="self" href="http://pollinator.spore.com/pollinator/atom/aggregator/500848614948" />
+        </entry>
     </subscriptions>
     <invisible-feeds>
         <sp:entry>
             <sp:id>tag:spore.com,2006:downloadQueue</sp:id>
-            <sp:title>ExampleUserName</sp:title>
-            <sp:updated>2021-04-30T14:29:54.268Z</sp:updated>
+            <sp:title>Rosalie1</sp:title>
+            <sp:updated>2021-05-09T16:23:20.247Z</sp:updated>
             <sp:author>
-                <sp:name>ExampleUserName</sp:name>
-                <sp:uri>501089776600</sp:uri>
+                <sp:name>Rosalie1</sp:name>
+                <sp:uri>501089776639</sp:uri>
             </sp:author>
             <sp:subcount>0</sp:subcount>
             <sp:link rel="self" href="https://pollinator.spore.com/pollinator/atom/downloadQueue" />
@@ -75,7 +129,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
     {
         private readonly string _xml;
 
-        public HandshakeTemplate(SporeServerUser user, SporeServerSubscription[] subscriptions)
+        public HandshakeTemplate(SporeServerUser user, SporeServerAggregator[] aggregators, SporeServerUserSubscription[] userSubscriptions, SporeServerAggregatorSubscription[] aggregatorSubscriptions)
         {
             // <handshake />
             //
@@ -109,6 +163,18 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
             // <my-feeds />
             //
             var myFeeds = AtomFeedBuilder.AddCustomElement(document, "my-feeds");
+            foreach (var aggregator in aggregators)
+            {
+                AtomFeedBuilder.AddFeedEntry(document, myFeeds,
+                    id: $"tag:spore.com,2006:aggregator/{aggregator.AggregatorId}",
+                    title: $"{aggregator.Name}",
+                    updated: DateTime.Now,
+                    subtitle: null,
+                    authorName: $"{aggregator.Author.UserName}",
+                    authorUri: $"{aggregator.AuthorId}",
+                    subCount: 0,
+                    link: $"https://pollinator.spore.com/pollinator/atom/aggregator/{aggregator.AggregatorId}");
+            }
             AtomFeedBuilder.AddFeedEntry(document, myFeeds,
                 id: $"tag:spore.com,2006:user/{user.Id}",
                 title: $"{user.UserName}",
@@ -122,7 +188,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
             // <subscriptions />
             //
             var subscriptionsFeed = AtomFeedBuilder.AddCustomElement(document, "subscriptions");
-            foreach (var subscription in subscriptions)
+            foreach (var subscription in userSubscriptions)
             {
                 AtomFeedBuilder.AddFeedEntry(document, subscriptionsFeed,
                     id: $"tag:spore.com,2006:user/{subscription.UserId}",
@@ -133,6 +199,18 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
                     authorUri: $"{subscription.UserId}",
                     subCount: 0,
                     link: $"https://pollinator.spore.com/pollinator/atom/user/{subscription.UserId}");
+            }
+            foreach (var subscription in aggregatorSubscriptions)
+            {
+                AtomFeedBuilder.AddFeedEntry(document, myFeeds,
+                    id: $"tag:spore.com,2006:aggregator/{subscription.AggregatorId}",
+                    title: $"{subscription.Aggregator.Name}",
+                    updated: subscription.Aggregator.Timestamp,
+                    subtitle: $"{subscription.Aggregator.Description}",
+                    authorName: $"{subscription.Aggregator.Author.UserName}",
+                    authorUri: $"{subscription.Aggregator.AuthorId}",
+                    subCount: 0,
+                    link: $"https://pollinator.spore.com/pollinator/atom/aggregator/{subscription.AggregatorId}");
             }
 
             // <invisible-feeds />

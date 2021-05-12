@@ -1,4 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*
+ * SporeServer - https://github.com/Rosalie241/SporeServer
+ *  Copyright (C) 2021 Rosalie Wanders <rosalie@mailbox.org>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero General Public License version 3.
+ *  You should have received a copy of the GNU Affero General Public License
+ *  along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Data;
@@ -9,12 +18,12 @@ using System.Threading.Tasks;
 
 namespace SporeServer.Services
 {
-    public class SubscriptionManager : ISubscriptionManager
+    public class UserSubscriptionManager : IUserSubscriptionManager
     {
         private readonly SporeServerContext _context;
-        private readonly ILogger<SubscriptionManager> _logger;
+        private readonly ILogger<UserSubscriptionManager> _logger;
 
-        public SubscriptionManager(SporeServerContext context, ILogger<SubscriptionManager> logger)
+        public UserSubscriptionManager(SporeServerContext context, ILogger<UserSubscriptionManager> logger)
         {
             _context = context;
             _logger = logger;
@@ -24,14 +33,14 @@ namespace SporeServer.Services
         {
             try
             {
-                var subscription = new SporeServerSubscription()
+                var subscription = new SporeServerUserSubscription()
                 {
                     Author = author,
                     User = user
                 };
 
                 // add subscription to database
-                await _context.Subscriptions.AddAsync(subscription);
+                await _context.UserSubscriptions.AddAsync(subscription);
                 await _context.SaveChangesAsync();
 
                 _logger.LogInformation($"AddAsync: Added Subscription {subscription.SubscriptionId} For User {author.Id}");
@@ -44,12 +53,12 @@ namespace SporeServer.Services
             }
         }
 
-        public async Task<bool> RemoveAsync(SporeServerSubscription subscription)
+        public async Task<bool> RemoveAsync(SporeServerUserSubscription subscription)
         {
             try
             {
                 // remove subscription from database
-                _context.Subscriptions.Remove(subscription);
+                _context.UserSubscriptions.Remove(subscription);
                 await _context.SaveChangesAsync();
 
                 _logger.LogInformation($"RemoveAsync: Removed Subscription {subscription.SubscriptionId}");
@@ -62,17 +71,17 @@ namespace SporeServer.Services
             }
         }
 
-        public SporeServerSubscription Find(SporeServerUser author, SporeServerUser user)
+        public SporeServerUserSubscription Find(SporeServerUser author, SporeServerUser user)
         {
-            return _context.Subscriptions
+            return _context.UserSubscriptions
                     .Where(s => s.AuthorId == author.Id && 
                                 s.UserId == user.Id)
                     .FirstOrDefault();
         }
 
-        public SporeServerSubscription[] FindAllByAuthor(SporeServerUser author)
+        public SporeServerUserSubscription[] FindAllByAuthor(SporeServerUser author)
         {
-            return _context.Subscriptions
+            return _context.UserSubscriptions
                     .Include(s => s.User)
                     .Where(s => s.AuthorId == author.Id)
                     .ToArray();

@@ -13,9 +13,9 @@ namespace SporeServer.Pages.Community.AssetBrowser
     public class ProfileModel : PageModel
     {
         private readonly UserManager<SporeServerUser> _userManager;
-        private readonly ISubscriptionManager _subscriptionManager;
+        private readonly IUserSubscriptionManager _subscriptionManager;
 
-        public ProfileModel(UserManager<SporeServerUser> userManager, ISubscriptionManager subscriptionManager)
+        public ProfileModel(UserManager<SporeServerUser> userManager, IUserSubscriptionManager subscriptionManager)
         {
             _userManager = userManager;
             _subscriptionManager = subscriptionManager;
@@ -38,6 +38,12 @@ namespace SporeServer.Pages.Community.AssetBrowser
         {
             ProfileUser = await _userManager.FindByIdAsync($"{id}");
             CurrentUser = await _userManager.GetUserAsync(User);
+
+            // make sure ProfileUser exists
+            if (ProfileUser == null)
+            {
+                return NotFound();
+            }
 
             Subscribed = _subscriptionManager.Find(CurrentUser, ProfileUser) != null;
 

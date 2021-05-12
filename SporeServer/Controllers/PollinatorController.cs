@@ -27,13 +27,17 @@ namespace SporeServer.Controllers
     {
         private readonly UserManager<SporeServerUser> _userManager;
         private readonly IAssetManager _assetManager;
-        private readonly ISubscriptionManager _subscriptionManager;
+        private readonly IUserSubscriptionManager _userSubscriptionManager;
+        private readonly IAggregatorManager _aggregatorManager;
+        private readonly IAggregatorSubscriptionManager _aggregatorSubscriptionManager;
 
-        public PollinatorController(UserManager<SporeServerUser> userManager, IAssetManager assetManager, ISubscriptionManager subscriptionManager)
+        public PollinatorController(UserManager<SporeServerUser> userManager, IAssetManager assetManager, IUserSubscriptionManager userSubscriptionManager, IAggregatorManager aggregatorManager, IAggregatorSubscriptionManager aggregatorSubscriptionManager)
         {
             _userManager = userManager;
             _assetManager = assetManager;
-            _subscriptionManager = subscriptionManager;
+            _userSubscriptionManager = userSubscriptionManager;
+            _aggregatorManager = aggregatorManager;
+            _aggregatorSubscriptionManager = aggregatorSubscriptionManager;
         }
 
         // GET /pollinator/handshake
@@ -42,7 +46,9 @@ namespace SporeServer.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var asset = await _assetManager.FindByIdAsync(user.NextAssetId);
-            var subscriptions = _subscriptionManager.FindAllByAuthor(user);
+            var aggregators = await _aggregatorManager.FindByAuthorAsync(user);
+            var userSubscriptions = _userSubscriptionManager.FindAllByAuthor(user);
+            var aggregatorSubscriptions = _aggregatorSubscriptionManager.FindAllByAuthor(user);
 
             // reserve new asset when 
             //      * user has no reserved asset
@@ -58,7 +64,7 @@ namespace SporeServer.Controllers
             }
 
             return AtomFeedBuilder.CreateFromTemplate(
-                    new HandshakeTemplate(user, subscriptions)
+                    new HandshakeTemplate(user, aggregators, userSubscriptions, aggregatorSubscriptions)
                 ).ToContentResult();
         }
 
@@ -69,6 +75,5 @@ namespace SporeServer.Controllers
             Console.WriteLine("/pollinator/telemetry");
             return Ok();
         }
-
     }
 }

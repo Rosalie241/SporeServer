@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace SporeServer.Areas.Identity.Data
 {
-    public class SporeServerSubscription
+    public class SporeServerUserSubscription
     {
         /// <summary>
-        ///     Subcription Id
+        ///     User Subcription Id
         /// </summary>
         [Key]
         public Int64 SubscriptionId { get; set; }
 
         /// <summary>
-        ///     Author Id of subscription
+        ///     Author Id of user subscription
         /// </summary>
         public Int64 AuthorId { get; set; }
         /// <summary>
-        ///     Author of subscription
+        ///     Author of user subscription
         /// </summary>
         public SporeServerUser Author { get; set; }
 
         /// <summary>
-        ///     SubscribedUser Id
+        ///     User Id
         /// </summary>
         public Int64 UserId { get; set; }
 

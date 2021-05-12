@@ -24,13 +24,21 @@ namespace SporeServer.Data
         }
 
         /// <summary>
-        ///     Database Assets
+        ///     Assets
         /// </summary>
         public DbSet<SporeServerAsset> Assets { get; set; }
         /// <summary>
-        ///     Database Subscriptions
+        ///     Aggregators/Sporecasts
         /// </summary>
-        public DbSet<SporeServerSubscription> Subscriptions { get; set; }
+        public DbSet<SporeServerAggregator> Aggregators { get; set; }
+        /// <summary>
+        ///     UserSubscriptions/Buddies
+        /// </summary>
+        public DbSet<SporeServerUserSubscription> UserSubscriptions { get; set; }
+        /// <summary>
+        ///     AggregatorSubscriptions/Sporecast subscription
+        /// </summary>
+        public DbSet<SporeServerAggregatorSubscription> AggregatorSubscriptions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -56,6 +64,12 @@ namespace SporeServer.Data
                     Used = false,
                     AuthorId = 1
                 });
+
+            // configure many to many relationship
+            // for aggregators
+            builder.Entity<SporeServerAggregator>()
+                .HasMany(a => a.Assets)
+                .WithMany(a => a.Aggregators);
 
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.

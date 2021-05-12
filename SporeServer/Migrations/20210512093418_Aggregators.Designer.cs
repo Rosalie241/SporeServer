@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SporeServer.Data;
 
 namespace SporeServer.Migrations
 {
     [DbContext(typeof(SporeServerContext))]
-    partial class SporeServerContextModelSnapshot : ModelSnapshot
+    [Migration("20210512093418_Aggregators")]
+    partial class Aggregators
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
