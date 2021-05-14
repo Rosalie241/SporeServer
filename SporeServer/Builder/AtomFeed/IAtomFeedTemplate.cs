@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SporeServer.Builder.AtomFeed
 {
-    interface IAtomFeedTemplate
+    public interface IAtomFeedTemplate
     {
         /// <summary>
         ///     Serializes the current class to a xml string

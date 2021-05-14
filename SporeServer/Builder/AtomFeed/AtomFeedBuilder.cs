@@ -22,9 +22,9 @@ namespace SporeServer.Builder.AtomFeed
             _xml = xml;
         }
 
-        public static AtomFeedBuilder CreateFromTemplate(object template)
+        public static AtomFeedBuilder CreateFromTemplate(IAtomFeedTemplate template)
         {
-            return new AtomFeedBuilder(((IAtomFeedTemplate)template).Serialize());
+            return new AtomFeedBuilder(template.Serialize());
         }
 
         public ContentResult ToContentResult()

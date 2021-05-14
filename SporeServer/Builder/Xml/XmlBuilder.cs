@@ -22,9 +22,9 @@ namespace SporeServer.Builder.Xml
             _xml = xml;
         }
 
-        public static XmlBuilder CreateFromTemplate(object template)
+        public static XmlBuilder CreateFromTemplate(IXmlTemplate template)
         {
-            return new XmlBuilder(((IXmlTemplate)template).Serialize());
+            return new XmlBuilder(template.Serialize());
         }
 
         public ContentResult ToContentResult()

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SporeServer.Builder.Xml
 {
-    interface IXmlTemplate
+    public interface IXmlTemplate
     {
         /// <summary>
         ///     Serializes the current class to a xml string
