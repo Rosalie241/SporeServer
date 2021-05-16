@@ -119,20 +119,5 @@ namespace SporeServer.Controllers.Pollinator
 
             return Ok();
         }
-
-        [HttpPost("SnapshotUploadServlet")]
-        public async Task<IActionResult> SnapshotUploadServlet()
-        {
-            Console.WriteLine("Pollinator/public-interface/SnapshotUploadServlet");
-
-            var file = System.IO.File.OpenWrite("postcard.txt");
-
-            await Request.Body.CopyToAsync(file);
-
-            file.Flush();
-            file.Close();
-
-            return Ok();
-        }
     }
 }
