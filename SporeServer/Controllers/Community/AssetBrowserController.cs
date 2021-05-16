@@ -53,15 +53,15 @@ namespace SporeServer.Controllers.Community
                 return Ok();
             }
 
-            // make sure the asset authorId
-            // is the current user id
-            if (asset.AuthorId != user.Id)
+            // make sure the asset author
+            // is the current user
+            if (asset.AuthorId == user.Id)
             {
-                return Ok();
+                if (!await _assetManager.DeleteAsync(asset))
+                {
+                    return StatusCode(500);
+                }
             }
-
-            // delete the asset
-            await _assetManager.DeleteAsync(asset);
 
             return Ok();
         }
