@@ -202,7 +202,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
             }
             foreach (var subscription in aggregatorSubscriptions)
             {
-                AtomFeedBuilder.AddFeedEntry(document, myFeeds,
+                AtomFeedBuilder.AddFeedEntry(document, subscriptionsFeed,
                     id: $"tag:spore.com,2006:aggregator/{subscription.AggregatorId}",
                     title: $"{subscription.Aggregator.Name}",
                     updated: subscription.Aggregator.Timestamp,
