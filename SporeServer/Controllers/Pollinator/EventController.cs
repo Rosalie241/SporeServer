@@ -8,9 +8,11 @@
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SporeServer.Areas.Identity.Data;
+using SporeServer.Services;
 using System;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace SporeServer.Controllers.Pollinator
@@ -20,16 +22,29 @@ namespace SporeServer.Controllers.Pollinator
     [ApiController]
     public class EventController : ControllerBase
     {
+        private readonly UserManager<SporeServerUser> _userManager;
+        private readonly IEventManager _eventManager;
+
+        public EventController(UserManager<SporeServerUser> userManager, IEventManager eventManager)
+        {
+            _userManager = userManager;
+            _eventManager = eventManager;
+        }
+
+
         // POST /pollinator/event/upload
         [HttpPost("upload")]
         public async Task<IActionResult> Upload()
         {
             Console.WriteLine($"/pollinator/event/upload{Request.QueryString}");
 
-            using (var stream = System.IO.File.Open("event.txt", FileMode.Create))
+            var author = await _userManager.GetUserAsync(User);
+
+            if (!await _eventManager.AddAsync(Request.Body, author))
             {
-                await Request.Body.CopyToAsync(stream);
+                return StatusCode(500);
             }
+
             return Ok();
         }
     }

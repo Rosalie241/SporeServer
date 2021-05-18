@@ -12,22 +12,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SporeServer.Areas.Identity.Data;
+using SporeServer.Services;
 
 namespace SporeServer.Pages.Community.AssetBrowser
 {
     [Authorize]
     public class AchievementsModel : PageModel
     {
+        private readonly IAchievementManager _achievementManager;
+        private readonly UserManager<SporeServerUser> _userManager;
+
+        public AchievementsModel(IAchievementManager achievementManager, UserManager<SporeServerUser> userManager)
+        {
+            _achievementManager = achievementManager;
+            _userManager = userManager;
+        }
+
         public Int64[] UnlockedAchievementIds { get; set; }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGet()
         {
-            // TODO
-            UnlockedAchievementIds = new Int64[]
-            {
-            };
+            var author = await _userManager.GetUserAsync(User);
+            UnlockedAchievementIds = await _achievementManager.FindAllByAuthorAsync(author);
+
+            return Page();
         }
     }
 }

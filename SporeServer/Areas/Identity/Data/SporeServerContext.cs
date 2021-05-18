@@ -39,6 +39,10 @@ namespace SporeServer.Data
         ///     AggregatorSubscriptions/Sporecast subscription
         /// </summary>
         public DbSet<SporeServerAggregatorSubscription> AggregatorSubscriptions { get; set; }
+        /// <summary>
+        ///     Unlocked Achievements
+        /// </summary>
+        public DbSet<SporeServerUnlockedAchievement> UnlockedAchievements { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
