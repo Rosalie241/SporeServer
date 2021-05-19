@@ -226,35 +226,44 @@ void Dispose()
 
 void AttachDetours()
 {
-	uint32_t base_addr = (uint32_t)GetModuleHandle(NULL);
+	DWORD_PTR base_addr = (DWORD_PTR)GetModuleHandle(NULL);
 
-	// RVA = 0xD7CA80
-	SSLCtxNewDetour::attach(base_addr + 0xD7CA80);
+	// RVA latest = 0xD7CA80
+	// RVA disc   = 0xD7F200
+	SSLCtxNewDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7F200, 0xD7CA80));
 
-	// RVA = 0xD7C580
-	SSLNewDetour::attach(base_addr + 0xD7C580);
+	// RVA latest = 0xD7C580
+	// RVA disc   = 0xD7ED00
+	SSLNewDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7ED00, 0xD7C580));
 
-	// RVA = 0xD7C460
-	SSLClearDetour::attach(base_addr + 0xD7C460);
+	// RVA latest = 0xD7C460
+	// RVA disc   = 0xD7EBE0
+	SSLClearDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7EBE0, 0xD7C460));
 
-	// RVA = 0xD7CE50
-	SSLConnectDetour::attach(base_addr + 0xD7CE50);
+	// RVA latest = 0xD7CE50
+	// RVA disc   = 0xD7F5D0
+	SSLConnectDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7F5D0, 0xD7CE50));
 
-	// RVA = 0xD7B430
-	SSLReadDetour::attach(base_addr + 0xD7B430);
+	// RVA latest = 0xD7B430
+	// RVA disc   = 0xD7DBB0
+	SSLReadDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7DBB0, 0xD7B430));
 
-	// RVA = 0xD7B4C0
-	SSLWriteDetour::attach(base_addr + 0xD7B4C0);
+	// RVA latest = 0xD7B4C0
+	// RVA disc   = 0xD7DC40
+	SSLWriteDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7DC40, 0xD7B4C0));
 
-	// RVA = 0x54EB60
-	GameFunctionDetour::attach(base_addr + 0x54EB60);
+	// RVA latest = 0x54EB60
+	// RVA disc   = 0x54F080
+	GameFunctionDetour::attach(base_addr + ModAPI::ChooseAddress(0x54F080, 0x54EB60));
 	
 #ifdef SPORENEWOPENSSL_FORCEHTTPS
-	// RVA = 0x2216E0
-	GameUseHttpsDetour::attach(base_addr + 0x2216E0);
+	// RVA latest = 0x2216E0
+	// RVA disc   = 0x221740
+	GameUseHttpsDetour::attach(base_addr + ModAPI::ChooseAddress(0x221740, 0x2216E0));
 
-	// RVA = 0x2217A0
-	GameUseHttpDetour::attach(base_addr + 0x2217A0);
+	// RVA latest = 0x2217A0
+	// RVA disc   = 0x221800
+	GameUseHttpDetour::attach(base_addr + ModAPI::ChooseAddress(0x221800, 0x2217A0));
 #endif
 	
 	DetourAttach(&(PVOID&)connect_real, connect_detour);
