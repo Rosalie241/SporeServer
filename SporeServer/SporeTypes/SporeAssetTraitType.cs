@@ -11,7 +11,7 @@ using System;
 
 namespace SporeServer.SporeTypes
 {
-    public enum SporeConsequenceTraitType : Int64
+    public enum SporeAssetTraitType : Int64
     {
         // CellGame
         CellGameCarnivore = 0xcfb01b93,
