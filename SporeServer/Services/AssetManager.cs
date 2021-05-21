@@ -18,6 +18,7 @@ using SporeServer.Models;
 using SporeServer.Models.Xml;
 using SporeServer.SporeTypes;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -304,6 +305,24 @@ namespace SporeServer.Services
                 asset.Timestamp = DateTime.Now;
                 asset.ParentAssetId = parentId;
                 asset.Name = form.ModelData.FileName;
+
+                var tags = new List<SporeServerAssetTag>();
+
+                if (form.Tags != null)
+                {
+                    foreach (string tagString in form.Tags.Split(","))
+                    {
+                        string trimmedTagString = tagString.TrimStart().TrimEnd();
+
+                        tags.Add(new SporeServerAssetTag()
+                        {
+                            Asset = asset,
+                            Tag = trimmedTagString
+                        });
+                    }
+                }
+
+                asset.Tags = tags;
                 asset.Description = form.Description;
                 asset.Size = form.ThumbnailData.Length;
                 asset.Slurped = slurped;

@@ -46,6 +46,10 @@ namespace SporeServer.Areas.Identity.Data
         /// </summary>
         public string Name { get; set; }
         /// <summary>
+        ///     Description of Asset
+        /// </summary>
+        public string Description { get; set; }
+        /// <summary>
         ///     ModelType of Asset
         /// </summary>
         public SporeModelType ModelType { get; set; }
@@ -54,13 +58,9 @@ namespace SporeServer.Areas.Identity.Data
         /// </summary>
         public SporeAssetType Type { get; set; }
         /// <summary>
-        ///     Description of Asset
-        /// </summary>
-        public string Description { get; set; }
-        /// <summary>
         ///     Tags of Asset
         /// </summary>
-        public string Tags { get; set; }
+        public ICollection<SporeServerAssetTag> Tags { get; set; }
         /// <summary>
         ///     FileSize of PNG
         /// </summary>

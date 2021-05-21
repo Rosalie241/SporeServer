@@ -75,6 +75,12 @@ namespace SporeServer.Data
                 .HasMany(a => a.Assets)
                 .WithMany(a => a.Aggregators);
 
+            // configure one to many relationship
+            // for asset tags
+            builder.Entity<SporeServerAsset>()
+                .HasMany(a => a.Tags)
+                .WithOne(t => t.Asset);
+
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
