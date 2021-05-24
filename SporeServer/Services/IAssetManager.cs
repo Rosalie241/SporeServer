@@ -44,12 +44,12 @@ namespace SporeServer.Services
         Task<bool> ReserveAsync(SporeServerUser user);
 
         /// <summary>
-        ///     Tries to find asset from id (optionally includes author), returns null when not found
+        ///     Tries to find asset from id (optionally includes extras), returns null when not found
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="includeAuthor"></param>
+        /// <param name="includeExtras"></param>
         /// <returns></returns>
-        Task<SporeServerAsset> FindByIdAsync(Int64 id, bool includeAuthor);
+        Task<SporeServerAsset> FindByIdAsync(Int64 id, bool includeExtras);
 
         /// <summary>
         ///     Tries to find asset from id, returns null when not found

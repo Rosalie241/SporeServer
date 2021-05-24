@@ -157,7 +157,30 @@ namespace SporeServer.Builder.AtomFeed.Helpers
             //
             AtomFeedBuilder.AddCustomElement(document, entryFeed, "summary", $"{asset.Description}");
 
-            // TODO, tags, traits
+            // <category />
+            //
+            if (asset.Tags != null)
+            {
+                for (int i = 0; i < asset.Tags.Count; i++)
+                {
+                    // <category scheme="tag" term="tag1" />
+                    // <category scheme="tag" term=" tag2" />
+                    var tag = asset.Tags.ElementAt(i);
+                    var categoryElement = AtomFeedBuilder.AddCustomElement(document, entryFeed, "category");
+                    AtomFeedBuilder.AddCustomAttribute(document, categoryElement, "scheme", "tag");
+                    AtomFeedBuilder.AddCustomAttribute(document, categoryElement, "term", $"{(i == 0 ? "" : " ")}{tag.Tag}");
+                }
+            }
+            if (asset.Traits != null)
+            {
+                foreach (var trait in asset.Traits)
+                {
+                    // <category scheme="consequence" term="0x2b35f523" />
+                    var categoryElement = AtomFeedBuilder.AddCustomElement(document, entryFeed, "category");
+                    AtomFeedBuilder.AddCustomAttribute(document, categoryElement, "scheme", "consequence");
+                    AtomFeedBuilder.AddCustomAttribute(document, categoryElement, "term", $"0x{(Int64)trait.TraitType:x}");
+                }
+            }
         }
 
         /// <summary>

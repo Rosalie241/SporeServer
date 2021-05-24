@@ -102,16 +102,16 @@ namespace SporeServer.Controllers.Pollinator
             // make sure the asset doesn't go over any limits
             if ((formAsset.Description != null &&
                 formAsset.Description.Length > 256) ||
-                (formAsset.ModelData != null && 
+                (formAsset.ModelData != null &&
                 formAsset.ModelData.FileName.Length > 32) ||
-                (formAsset.Tags != null && 
+                (formAsset.Tags != null &&
                 formAsset.Tags.Length > 256))
             {
                 return Ok();
             }
 
             // save the asset
-            await _assetManager.AddAsync(formAsset, 
+            await _assetManager.AddAsync(formAsset,
                 asset,
                 parentId,
                 (slurpValue == 1),

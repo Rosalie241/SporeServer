@@ -19,6 +19,7 @@ using SporeServer.Models.Xml;
 using SporeServer.SporeTypes;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -307,7 +308,6 @@ namespace SporeServer.Services
                 asset.Name = form.ModelData.FileName;
 
                 var tags = new List<SporeServerAssetTag>();
-
                 if (form.Tags != null)
                 {
                     foreach (string tagString in form.Tags.Split(","))
@@ -321,8 +321,36 @@ namespace SporeServer.Services
                         });
                     }
                 }
-
                 asset.Tags = tags;
+
+                var traits = new List<SporeServerAssetTrait>();
+                if (form.TraitGuids != null)
+                {
+                    foreach (string traitString in form.TraitGuids.Split(","))
+                    {
+                        string trimmedTraitString = traitString.TrimStart()
+                                                                .TrimStart('0', 'x')
+                                                                .TrimEnd();
+
+                        Console.WriteLine(trimmedTraitString);
+
+                        Int64 traitType = Int64.Parse(trimmedTraitString, NumberStyles.HexNumber);
+
+                        // make sure the trait id is valid
+                        if (!Enum.IsDefined(typeof(SporeAssetTraitType), traitType))
+                        {
+                            throw new Exception($"Invalid Trait Id: {traitType}");
+                        }
+
+                        traits.Add(new SporeServerAssetTrait()
+                        {
+                            Asset = asset,
+                            TraitType = (SporeAssetTraitType)traitType
+                        });
+                    }
+                }
+                asset.Traits = traits;
+
                 asset.Description = form.Description;
                 asset.Size = form.ThumbnailData.Length;
                 asset.Slurped = slurped;
@@ -411,14 +439,18 @@ namespace SporeServer.Services
             }
         }
 
-        public async Task<SporeServerAsset> FindByIdAsync(Int64 id, bool includeAuthor)
+        public async Task<SporeServerAsset> FindByIdAsync(Int64 id, bool includeExtras)
         {
             try
             {
-                if (includeAuthor)
+                if (includeExtras)
                 {
                     return await _context.Assets.Include(a => a.Author)
-                        .FirstOrDefaultAsync(a => a.AssetId == id);
+                                                .Include(a => a.Tags)
+                                                .Include(a => a.Traits)
+                                                .OrderByDescending(a => a.AssetId)
+                                                .AsSplitQuery()
+                                                .FirstOrDefaultAsync(a => a.AssetId == id);
                 }
                 else
                 {
@@ -442,7 +474,12 @@ namespace SporeServer.Services
             try
             {
                 // return a list of assets which are used & have the same author id
-                return await _context.Assets.Where(a => a.Used && a.AuthorId == authorId).ToArrayAsync();
+                return await _context.Assets.Where(a => a.Used && a.AuthorId == authorId)
+                                            .Include(a => a.Tags)
+                                            .Include(a => a.Traits)
+                                            .OrderByDescending(a => a.AssetId)
+                                            .AsSplitQuery()
+                                            .ToArrayAsync();
             }
             catch (Exception e)
             {

@@ -62,6 +62,10 @@ namespace SporeServer.Areas.Identity.Data
         /// </summary>
         public ICollection<SporeServerAssetTag> Tags { get; set; }
         /// <summary>
+        ///     Traits of Asset
+        /// </summary>
+        public ICollection<SporeServerAssetTrait> Traits { get; set; }
+        /// <summary>
         ///     FileSize of PNG
         /// </summary>
         public Int64 Size { get; set; }

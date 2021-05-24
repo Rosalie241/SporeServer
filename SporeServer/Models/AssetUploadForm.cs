@@ -24,8 +24,6 @@ namespace SporeServer.Models
         /// </summary>
         public Int64 AssetId { get; set; }
 
-        //public int[] traitguids { get; set; }
-        
         /// <summary>
         ///     Asset Description
         /// </summary>
@@ -37,13 +35,18 @@ namespace SporeServer.Models
         public string Tags { get; set; }
 
         /// <summary>
+        ///     Asset Traits
+        /// </summary>
+        public string TraitGuids { get; set; }
+
+        /// <summary>
         ///     Asset Xml,
         ///     filename is asset name
         /// </summary>
         public IFormFile ModelData { get; set; }
         
         /// <summary>
-        ///     Asset PNG
+        ///     Asset Thumbnail
         /// </summary>
         public IFormFile ThumbnailData { get; set; }
 
