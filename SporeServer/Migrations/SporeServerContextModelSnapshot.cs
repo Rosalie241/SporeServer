@@ -395,7 +395,7 @@ namespace SporeServer.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "71b6f87a-d297-4219-8c9e-1a78e34cee99",
+                            ConcurrencyStamp = "9fe3310a-b470-425c-b092-1b05a7306c7b",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NextAssetId = 0L,

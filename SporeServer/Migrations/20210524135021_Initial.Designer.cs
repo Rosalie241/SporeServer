@@ -9,15 +9,15 @@ using SporeServer.Data;
 namespace SporeServer.Migrations
 {
     [DbContext(typeof(SporeServerContext))]
-    [Migration("20210504154331_Subscriptions")]
-    partial class Subscriptions
+    [Migration("20210524135021_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
-                .HasAnnotation("ProductVersion", "5.0.5");
+                .HasAnnotation("ProductVersion", "5.0.6");
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<long>", b =>
                 {
@@ -145,6 +145,55 @@ namespace SporeServer.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAggregator", b =>
+                {
+                    b.Property<long>("AggregatorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AuthorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("SubscriberCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("AggregatorId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("Aggregators");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAggregatorSubscription", b =>
+                {
+                    b.Property<long>("SubscriptionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AggregatorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AuthorId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("SubscriptionId");
+
+                    b.HasIndex("AggregatorId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("AggregatorSubscriptions");
+                });
+
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAsset", b =>
                 {
                     b.Property<long>("AssetId")
@@ -187,9 +236,6 @@ namespace SporeServer.Migrations
                     b.Property<bool>("Slurped")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Tags")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("ThumbFileUrl")
                         .HasColumnType("longtext");
 
@@ -222,25 +268,61 @@ namespace SporeServer.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerSubscription", b =>
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetTag", b =>
                 {
-                    b.Property<long>("SubscriptionId")
+                    b.Property<long>("TagId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AssetId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Tag")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("TagId");
+
+                    b.HasIndex("AssetId");
+
+                    b.ToTable("SporeServerAssetTag");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetTrait", b =>
+                {
+                    b.Property<long>("TraitId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AssetId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("TraitType")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("TraitId");
+
+                    b.HasIndex("AssetId");
+
+                    b.ToTable("SporeServerAssetTrait");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerUnlockedAchievement", b =>
+                {
+                    b.Property<long>("UnlockedAchievementId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AchievementId")
                         .HasColumnType("bigint");
 
                     b.Property<long>("AuthorId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("SubscriptionId");
+                    b.HasKey("UnlockedAchievementId");
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Subscriptions");
+                    b.ToTable("UnlockedAchievements");
                 });
 
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerUser", b =>
@@ -315,13 +397,49 @@ namespace SporeServer.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4d3a6fdc-a22e-485b-b7fe-6ee72c9303bb",
+                            ConcurrencyStamp = "9fe3310a-b470-425c-b092-1b05a7306c7b",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NextAssetId = 0L,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         });
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerUserSubscription", b =>
+                {
+                    b.Property<long>("SubscriptionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AuthorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("SubscriptionId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserSubscriptions");
+                });
+
+            modelBuilder.Entity("SporeServerAggregatorSporeServerAsset", b =>
+                {
+                    b.Property<long>("AggregatorsAggregatorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AssetsAssetId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("AggregatorsAggregatorId", "AssetsAssetId");
+
+                    b.HasIndex("AssetsAssetId");
+
+                    b.ToTable("SporeServerAggregatorSporeServerAsset");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
@@ -375,6 +493,36 @@ namespace SporeServer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAggregator", b =>
+                {
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerUser", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAggregatorSubscription", b =>
+                {
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerAggregator", "Aggregator")
+                        .WithMany()
+                        .HasForeignKey("AggregatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerUser", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Aggregator");
+
+                    b.Navigation("Author");
+                });
+
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAsset", b =>
                 {
                     b.HasOne("SporeServer.Areas.Identity.Data.SporeServerUser", "Author")
@@ -386,7 +534,40 @@ namespace SporeServer.Migrations
                     b.Navigation("Author");
                 });
 
-            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerSubscription", b =>
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetTag", b =>
+                {
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerAsset", "Asset")
+                        .WithMany("Tags")
+                        .HasForeignKey("AssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Asset");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetTrait", b =>
+                {
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerAsset", "Asset")
+                        .WithMany("Traits")
+                        .HasForeignKey("AssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Asset");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerUnlockedAchievement", b =>
+                {
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerUser", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerUserSubscription", b =>
                 {
                     b.HasOne("SporeServer.Areas.Identity.Data.SporeServerUser", "Author")
                         .WithMany()
@@ -403,6 +584,28 @@ namespace SporeServer.Migrations
                     b.Navigation("Author");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SporeServerAggregatorSporeServerAsset", b =>
+                {
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerAggregator", null)
+                        .WithMany()
+                        .HasForeignKey("AggregatorsAggregatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerAsset", null)
+                        .WithMany()
+                        .HasForeignKey("AssetsAssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAsset", b =>
+                {
+                    b.Navigation("Tags");
+
+                    b.Navigation("Traits");
                 });
 #pragma warning restore 612, 618
         }
