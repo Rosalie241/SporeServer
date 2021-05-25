@@ -237,7 +237,7 @@ namespace SporeServer.Migrations
                     b.Property<string>("ThumbFileUrl")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime?>("Timestamp")
+                    b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime(6)");
 
                     b.Property<long>("Type")
@@ -261,6 +261,7 @@ namespace SporeServer.Migrations
                             ParentAssetId = 0L,
                             Size = 0L,
                             Slurped = false,
+                            Timestamp = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = 0L,
                             Used = false
                         });
@@ -315,6 +316,9 @@ namespace SporeServer.Migrations
 
                     b.Property<long>("AuthorId")
                         .HasColumnType("bigint");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("UnlockedAchievementId");
 
@@ -395,7 +399,7 @@ namespace SporeServer.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9fe3310a-b470-425c-b092-1b05a7306c7b",
+                            ConcurrencyStamp = "82b0da2b-cfd9-47e2-833b-a79f4c1428e2",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NextAssetId = 0L,

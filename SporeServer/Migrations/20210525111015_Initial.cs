@@ -221,7 +221,7 @@ namespace SporeServer.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ParentAssetId = table.Column<long>(type: "bigint", nullable: false),
                     Used = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     AuthorId = table.Column<long>(type: "bigint", nullable: false),
                     Name = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -263,6 +263,7 @@ namespace SporeServer.Migrations
                     UnlockedAchievementId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AuthorId = table.Column<long>(type: "bigint", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     AchievementId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
@@ -402,12 +403,12 @@ namespace SporeServer.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NextAssetId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1L, 0, "9fe3310a-b470-425c-b092-1b05a7306c7b", null, false, false, null, 0L, null, null, null, null, false, null, false, null });
+                values: new object[] { 1L, 0, "82b0da2b-cfd9-47e2-833b-a79f4c1428e2", null, false, false, null, 0L, null, null, null, null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "Assets",
                 columns: new[] { "AssetId", "AuthorId", "Description", "ImageFile2Url", "ImageFile3Url", "ImageFile4Url", "ImageFileUrl", "ModelFileUrl", "ModelType", "Name", "ParentAssetId", "Size", "Slurped", "ThumbFileUrl", "Timestamp", "Type", "Used" },
-                values: new object[] { 600000000000L, 1L, null, null, null, null, null, null, 0L, null, 0L, 0L, false, null, null, 0L, false });
+                values: new object[] { 600000000000L, 1L, null, null, null, null, null, null, 0L, null, 0L, 0L, false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0L, false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Aggregators_AuthorId",
