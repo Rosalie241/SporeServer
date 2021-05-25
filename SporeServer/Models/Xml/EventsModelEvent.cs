@@ -17,6 +17,7 @@ namespace SporeServer.Models.Xml
     public class EventsModelEvent
     {
         public Int64 Verb { get; set; }
+        public Int64 AssetId { get; set; }
         public DateTime Timestamp { get; set; }
         public Int64[] Args { get; set; }
     }

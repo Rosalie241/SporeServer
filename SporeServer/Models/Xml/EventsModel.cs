@@ -33,6 +33,8 @@ namespace SporeServer.Models.Xml
             {
                 Verb = Int64.Parse(eventNode.Attribute("verb").Value.TrimStart('0', 'x'),
                                     System.Globalization.NumberStyles.HexNumber),
+                AssetId = Int64.Parse(eventNode.Attribute("assetid").Value.TrimStart('0', 'x'),
+                                    System.Globalization.NumberStyles.HexNumber),
                 Args = eventNode.Descendants("arg").Select(a => Int64.Parse(a.Value)).ToArray()
             }).ToArray();
 
