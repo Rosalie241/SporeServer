@@ -31,7 +31,7 @@ namespace SporeServer.Builder.AtomFeed.Helpers
             var entryFeed = AtomFeedBuilder.AddFeedEntry(document,
                id: $"tag:spore.com,2006:asset/{asset.AssetId}",
                title: $"{asset.Name}",
-               updated: asset.Timestamp ?? DateTime.Now,
+               updated: asset.Timestamp,
                subtitle: null,
                authorName: $"{asset.Author.UserName}",
                authorUri: $"{asset.Author.Id}",

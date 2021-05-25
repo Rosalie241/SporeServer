@@ -32,7 +32,7 @@ namespace SporeServer.Areas.Identity.Data
         /// <summary>
         ///     Asset Timestamp
         /// </summary>
-        public DateTime? Timestamp { get; set; }
+        public DateTime Timestamp { get; set; }
         /// <summary>
         ///     Asset Author Id
         /// </summary>
