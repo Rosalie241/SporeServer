@@ -50,6 +50,7 @@ namespace SporeServer.Services
                 var achievement = new SporeServerUnlockedAchievement()
                 {
                     Author = author,
+                    Timestamp = DateTime.Now,
                     AchievementId = achievementId
                 };
 

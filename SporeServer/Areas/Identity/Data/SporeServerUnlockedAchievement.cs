@@ -31,6 +31,10 @@ namespace SporeServer.Areas.Identity.Data
         /// </summary>
         public SporeServerUser Author { get; set; }
         /// <summary>
+        ///     Unlocked Achievement Timestamp
+        /// </summary>
+        public DateTime Timestamp { get; set; }
+        /// <summary>
         ///     Unlocked Achievement Id
         /// </summary>
         public Int64 AchievementId { get; set; }
