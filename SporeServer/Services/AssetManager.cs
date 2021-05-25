@@ -332,8 +332,6 @@ namespace SporeServer.Services
                                                                 .TrimStart('0', 'x')
                                                                 .TrimEnd();
 
-                        Console.WriteLine(trimmedTraitString);
-
                         Int64 traitType = Int64.Parse(trimmedTraitString, NumberStyles.HexNumber);
 
                         // make sure the trait id is valid
