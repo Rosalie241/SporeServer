@@ -15,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
+using System.Globalization;
 
 namespace SporeServer.Models.Xml
 {
@@ -29,13 +30,23 @@ namespace SporeServer.Models.Xml
             var document = await XDocument.LoadAsync(stream, LoadOptions.None, new CancellationToken());
             var rootElement = document.Root;
 
-            eventsModel.Events = rootElement.Descendants("event").Select(eventNode => new EventsModelEvent()
+            eventsModel.Events = rootElement.Descendants("event").Select(eventNode => 
             {
-                Verb = Int64.Parse(eventNode.Attribute("verb").Value.TrimStart('0', 'x'),
-                                    System.Globalization.NumberStyles.HexNumber),
-                AssetId = Int64.Parse(eventNode.Attribute("assetid").Value.TrimStart('0', 'x'),
-                                    System.Globalization.NumberStyles.HexNumber),
-                Args = eventNode.Descendants("arg").Select(a => Int64.Parse(a.Value)).ToArray()
+                var eventsModel = new EventsModelEvent()
+                {
+                    Verb = Int64.Parse(eventNode.Attribute("verb").Value.TrimStart('0', 'x'),
+                                        NumberStyles.HexNumber),
+                    Args = eventNode.Descendants("arg").Select(a => Int64.Parse(a.Value)).ToArray()
+                };
+
+                var assetIdAttribute = eventNode.Attribute("assetid");
+                if (assetIdAttribute != null)
+                {
+                    eventsModel.AssetId = Int64.Parse(assetIdAttribute.Value.TrimStart('0', 'x'),
+                                                        NumberStyles.HexNumber);
+                }
+
+                return eventsModel;
             }).ToArray();
 
             return eventsModel;
