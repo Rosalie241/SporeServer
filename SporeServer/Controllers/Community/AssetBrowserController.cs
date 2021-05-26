@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Data;
 using SporeServer.Services;
+using SporeServer.SporeTypes;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -145,12 +146,27 @@ namespace SporeServer.Controllers.Community
             return Redirect($"https://pollinator.spore.com/pollinator/atom/aggregator/{aggregator.AggregatorId}");
         }
 
-
         // GET /community/assetBrowser/rate
         [HttpGet("rate")]
-        public IActionResult Rate()
+        public async Task<IActionResult> Rate()
         {
             Console.WriteLine($"/community/assetBrowser/rate{Request.QueryString}");
+
+            if (Int64.TryParse(Request.Query["assetId"], out Int64 assetId))
+            {
+                var author = await _userManager.GetUserAsync(User);
+                var asset = await _assetManager.FindByIdAsync(assetId);
+
+                // make sure the asset exists,
+                // is used and is an adventure
+                if (asset != null &&
+                    asset.Used &&
+                    asset.Type == SporeAssetType.Adventure)
+                {
+                    // TODO
+                }
+            }
+
             return Ok();
         }
     }
