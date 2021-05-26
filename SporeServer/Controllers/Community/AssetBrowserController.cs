@@ -144,5 +144,14 @@ namespace SporeServer.Controllers.Community
             // redirect to /pollinator/atom/aggregator/{id}
             return Redirect($"https://pollinator.spore.com/pollinator/atom/aggregator/{aggregator.AggregatorId}");
         }
+
+
+        // GET /community/assetBrowser/rate
+        [HttpGet("rate")]
+        public IActionResult Rate()
+        {
+            Console.WriteLine($"/community/assetBrowser/rate{Request.QueryString}");
+            return Ok();
+        }
     }
 }
