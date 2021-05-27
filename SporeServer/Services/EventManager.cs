@@ -22,11 +22,15 @@ namespace SporeServer.Services
     public class EventManager : IEventManager
     {
         private readonly IAchievementManager _achievementManager;
+        private readonly ILeaderboardManager _leaderboardManager;
+        private readonly IAssetManager _assetManager;
         private readonly ILogger<EventManager> _logger;
 
-        public EventManager(IAchievementManager achievementManager, ILogger<EventManager> logger)
+        public EventManager(IAchievementManager achievementManager, ILeaderboardManager leaderboardManager, IAssetManager assetManager, ILogger<EventManager> logger)
         {
             _achievementManager = achievementManager;
+            _leaderboardManager = leaderboardManager;
+            _assetManager = assetManager;
             _logger = logger;
         }
 
@@ -43,6 +47,29 @@ namespace SporeServer.Services
                         // Unlocked Achievement
                         case (Int64)SporeEventType.AchievementUnlocked:
                             await _achievementManager.UnlockAsync(eventsEvent.Args[0], author);
+                            break;
+
+                        // Add Leaderboard Entry
+                        case (Int64)SporeEventType.AddLeaderboardEntry:
+                            {
+                                var adventureAssetId = eventsEvent.AssetId;
+                                var percentageCompleted = (Int32)eventsEvent.Args[0];
+                                var timeInMs = (Int32)eventsEvent.Args[1];
+                                // Args[2] contains the amount of captain points earned
+                                // maybe a thing to track in the future?
+                                // seems to be unrequired for anything ingame though
+                                var captainAssetId = eventsEvent.Args[3];
+
+                                var adventureAsset = await _assetManager.FindByIdAsync(adventureAssetId);
+                                var captainAsset = await _assetManager.FindByIdAsync(captainAssetId);
+                                // make sure we can find the needed assets
+                                if (adventureAsset == null || captainAsset == null)
+                                {
+                                    break;
+                                }
+
+                                await _leaderboardManager.AddAsync(adventureAsset, captainAsset, percentageCompleted, timeInMs, author);
+                            }
                             break;
 
                         // Unsupported
