@@ -112,7 +112,7 @@ namespace SporeServer.Controllers.Community
                 if (Int64.TryParse(addQuery, out Int64 assetId))
                 {
                     var asset = await _assetManager.FindByIdAsync(assetId);
-                    // only remove asset when it exists
+                    // only add asset when it exists
                     if (asset != null)
                     {
                         aggregator.Assets.Add(asset);
