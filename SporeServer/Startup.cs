@@ -42,6 +42,7 @@ namespace SporeServer
             services.AddScoped<IAggregatorSubscriptionManager, AggregatorSubscriptionManager>();
             services.AddScoped<IEventManager, EventManager>();
             services.AddScoped<IAchievementManager, AchievementManager>();
+            services.AddScoped<ILeaderboardManager, LeaderboardManager>();
 
             services.AddControllers();
             services.AddRazorPages();
