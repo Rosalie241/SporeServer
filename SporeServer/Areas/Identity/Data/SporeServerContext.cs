@@ -43,6 +43,10 @@ namespace SporeServer.Data
         ///     Unlocked Achievements
         /// </summary>
         public DbSet<SporeServerUnlockedAchievement> UnlockedAchievements { get; set; }
+        /// <summary>
+        ///     Leaderboard Entries
+        /// </summary>
+        public DbSet<SporeServerLeaderboardEntry> LeaderboardEntries { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
