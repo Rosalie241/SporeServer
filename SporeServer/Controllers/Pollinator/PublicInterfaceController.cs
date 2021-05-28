@@ -62,12 +62,11 @@ namespace SporeServer.Controllers.Pollinator
 
             SporeServerAsset parentAsset = null;
 
-            // when we can't find the asset,
-            // reset parentId
-            if (parentId != 0 &&
-                (parentAsset = await _assetManager.FindByIdAsync(parentId)) == null)
+            // when parentId is not 0,
+            // try to find parent asset
+            if (parentId != 0)
             {
-                parentId = 0;
+                parentAsset = await _assetManager.FindByIdAsync(parentId);
             }
 
             // the game always sends the type id
