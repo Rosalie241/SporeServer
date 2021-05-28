@@ -23,11 +23,11 @@ namespace SporeServer.Services
         /// </summary>
         /// <param name="form"></param>
         /// <param name="asset"></param>
-        /// <param name="parentId"></param>
+        /// <param name="parentAsset"></param>
         /// <param name="slurped"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        Task<bool> AddAsync(AssetUploadForm form, SporeServerAsset asset, Int64 parentId, bool slurped, SporeAssetType type);
+        Task<bool> AddAsync(AssetUploadForm form, SporeServerAsset asset, SporeServerAsset parentAsset, bool slurped, SporeAssetType type);
 
         /// <summary>
         ///     Deletes asset

@@ -256,7 +256,7 @@ namespace SporeServer.Services
             return _random.Next(minimum, maximum);
         }
 
-        public async Task<bool> AddAsync(AssetUploadForm form, SporeServerAsset asset, Int64 parentId, bool slurped, SporeAssetType type)
+        public async Task<bool> AddAsync(AssetUploadForm form, SporeServerAsset asset, SporeServerAsset parentAsset, bool slurped, SporeAssetType type)
         {
             try
             {
@@ -304,7 +304,23 @@ namespace SporeServer.Services
                 // update database
                 asset.Used = true;
                 asset.Timestamp = DateTime.Now;
-                asset.ParentAssetId = parentId;
+                asset.OriginalAssetId = 0;
+                asset.ParentAssetId = 0;
+                if (parentAsset != null)
+                {
+                    // when original asset id of parent is 0,
+                    // the parent id is the original asset id
+                    // else follow the original asset id specified
+                    if (parentAsset.OriginalAssetId == 0)
+                    {
+                        asset.OriginalAssetId = parentAsset.AssetId;
+                    }
+                    else
+                    {
+                        asset.OriginalAssetId = parentAsset.OriginalAssetId;
+                    }
+                    asset.ParentAssetId = parentAsset.AssetId;
+                }
                 asset.Name = form.ModelData.FileName;
 
                 var tags = new List<SporeServerAssetTag>();

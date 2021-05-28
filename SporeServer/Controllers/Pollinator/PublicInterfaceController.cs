@@ -60,10 +60,12 @@ namespace SporeServer.Controllers.Pollinator
                 return Ok();
             }
 
+            SporeServerAsset parentAsset = null;
+
             // when we can't find the asset,
             // reset parentId
             if (parentId != 0 &&
-                (await _assetManager.FindByIdAsync(parentId)) == null)
+                (parentAsset = await _assetManager.FindByIdAsync(parentId)) == null)
             {
                 parentId = 0;
             }
@@ -113,7 +115,7 @@ namespace SporeServer.Controllers.Pollinator
             // save the asset
             if (!await _assetManager.AddAsync(formAsset,
                     asset,
-                    parentId,
+                    parentAsset,
                     (slurpValue == 1),
                     (SporeAssetType)typeId))
             {
