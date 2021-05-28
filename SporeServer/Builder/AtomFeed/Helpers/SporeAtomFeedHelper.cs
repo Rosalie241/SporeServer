@@ -121,7 +121,7 @@ namespace SporeServer.Builder.AtomFeed.Helpers
             var ownershipElement = AtomFeedBuilder.AddCustomElement(document, entryFeed, "sp:ownership");
             // <sp:original />
             // TODO?
-            var originalElement = AtomFeedBuilder.AddCustomElement(document, ownershipElement, "sp:original", $"{asset.AssetId}");
+            var originalElement = AtomFeedBuilder.AddCustomElement(document, ownershipElement, "sp:original", $"{asset.OriginalAssetId}");
             AtomFeedBuilder.AddCustomAttribute(document, originalElement, "name", "id");
             AtomFeedBuilder.AddCustomAttribute(document, originalElement, "type", "int");
             // <sp:parent />
