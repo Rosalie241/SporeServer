@@ -22,6 +22,10 @@ namespace SporeServer.Areas.Identity.Data
         [Key]
         public Int64 AssetId { get; set; }
         /// <summary>
+        ///     Original Asset Id
+        /// </summary>
+        public Int64 OriginalAssetId { get; set; }
+        /// <summary>
         ///     Parent Asset Id
         /// </summary>
         public Int64 ParentAssetId { get; set; }
