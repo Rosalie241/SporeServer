@@ -42,10 +42,10 @@ namespace SporeServer.Controllers.Pollinator
         {
             Console.WriteLine($"/pollinator/Upload/Status/{id}");
 
-            Int64 nextId = id;
-
             var user = await _userManager.GetUserAsync(User);
             var asset = await _assetManager.FindByIdAsync(id);
+
+            Int64 nextId = user.NextAssetId;
 
             // we're only successful when
             //  * the asset exists
@@ -57,7 +57,7 @@ namespace SporeServer.Controllers.Pollinator
                 && asset.Used
                 && asset.AuthorId == user.Id
                 && user.NextAssetId == id);
-            
+
             // when the requirements have been met,
             // reserve a new asset
             if (success)
