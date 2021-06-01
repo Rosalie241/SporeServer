@@ -25,13 +25,11 @@ namespace SporeServer.Controllers.Pollinator
     [ApiController]
     public class UploadController : ControllerBase
     {
-        private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
         private readonly IAssetManager _assetManager;
 
         public UploadController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager)
         {
-            _context = context;
             _userManager = userManager;
             _assetManager = assetManager;
         }
