@@ -26,14 +26,12 @@ namespace SporeServer.Controllers.Community
     [ApiController]
     public class AssetBrowserController : ControllerBase
     {
-        private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
         private readonly IAssetManager _assetManager;
         private readonly IAggregatorManager _aggregatorManager;
 
-        public AssetBrowserController(SporeServerContext context, UserManager<SporeServerUser> userManager, IAssetManager assetManager, IAggregatorManager aggregatorManager)
+        public AssetBrowserController(UserManager<SporeServerUser> userManager, IAssetManager assetManager, IAggregatorManager aggregatorManager)
         {
-            _context = context;
             _userManager = userManager;
             _assetManager = assetManager;
             _aggregatorManager = aggregatorManager;
@@ -45,7 +43,7 @@ namespace SporeServer.Controllers.Community
         {
             Console.WriteLine($"/community/assetBrowser/deleteAsset/{id}{Request.QueryString}");
 
-            var asset = await _context.Assets.FindAsync(id);
+            var asset = await _assetManager.FindByIdAsync(id);
             var user = await _userManager.GetUserAsync(User);
 
             // make sure the asset exists
