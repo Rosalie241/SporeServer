@@ -1,0 +1,3 @@
+[submodule "SporeMods/Spore-ModAPI"]
+	path = SporeMods/Spore-ModAPI
+	url = https://github.com/emd4600/Spore-ModAPI
