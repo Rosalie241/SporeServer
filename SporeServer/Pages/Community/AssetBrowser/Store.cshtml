@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <!--<base href="http://community.spore.com" />-->
+    <base href="https://community.spore.com" />
     <title>
         Asset Browser : Store
     </title>
@@ -16,12 +16,9 @@
 
 <body style="margin-bottom:0px;padding-bottom:0px;">
 
-    <div id="leftcontentsmall">
+    <div id="leftcontent@(Model.ShowBigBackground ? "" : "small")">
 
-
-
-        <div id="promotopsm">
-
+        <div id="promotop@(Model.ShowBigBackground ? "" : "sm")">
             <div class="header">
                 <img src="/static/war/images/game/spd/storehead_left.png" alt="" class="storeheaderLeft" />
                 <div class="headermiddle">
@@ -34,15 +31,12 @@
                     <p>Turn your Spore creatures into legendary Space Captains. Conquer quests, collect rewards, and even create and share your own missions!</p>
                 </div>
                 <div id="promocenterright">
-                    <div class="orderbutton"><a href="browser:http://eastore.ea.com/DRHM/servlet/ControllerServlet?ThemeID=1252400&amp;Action=DisplayProductDetailsPage&amp;SiteID=ea&amp;Locale=en_US&amp;Env=BASE&amp;productID=110592000">Buy Now</a></div>
+                    <div class="orderbutton"><a href="browser:https://www.origin.com/gbr/en-us/store/spore/spore-galactic-adventures/expansion/spore-galactic-adventures">Buy Now</a></div>
                 </div>
             </div>
         </div>
 
-
-
-        <div id="promocentersm">
-
+        <div id="promocenter@(Model.ShowBigBackground ? "" : "sm")">
             <div class="header">
                 <img src="/static/war/images/game/spd/storehead_left.png" alt="" class="storeheaderLeft" />
                 <div class="headermiddle">
@@ -63,8 +57,7 @@
 
 
 
-        <div id="promobottomsm">
-
+        <div id="promobottom@(Model.ShowBigBackground ? "" : "sm")">
             <div class="header">
                 <img src="/static/war/images/game/spd/storehead_left.png" alt="" class="storeheaderLeft" />
                 <div class="headermiddle">
@@ -77,16 +70,12 @@
                     <p>Proud of your creatures? Put them on a T-shirt, hat or poster. Make cool swag at Zazzle''s Spore Store.</p>
                 </div>
                 <div id="promobottomright">
-                    <div class="orderbutton"><a href="browser:http://www.zazzle.com/sporestore?CMPN=sporepedia2">Go to Zazzle</a></div>
+                    <div class="orderbutton"><a href="browser:https://web.archive.org/web/20080908193622/http://www.zazzle.com/sporestore?CMPN=sporepedia2">Go to Zazzle</a></div>
                 </div>
             </div>
         </div>
 
-
-
-
-        <div id="promofourthsm">
-
+        <div id="promofourth@(Model.ShowBigBackground ? "" : "sm")">
             <div class="header">
                 <img src="/static/war/images/game/spd/storehead_left.png" alt="" class="storeheaderLeft" />
                 <div class="headermiddle">
@@ -99,15 +88,18 @@
                     <p>Upload your Spore creature images, tell your story and share with friends.</p>
                 </div>
                 <div id="promocenterright">
-                    <div class="orderbutton"><a href="browser:http://www.mashon.com/spore">Create Your Own</a></div>
+                    <div class="orderbutton"><a href="browser:https://web.archive.org/web/20081009082642/http://www.mashon.com/spore/">Create Your Own</a></div>
                 </div>
             </div>
         </div>
 
     </div>
 
-
-
+    @if (Model.ShowBigBackground)
+    {
+        <div id="rightcontent">
+        </div>
+    }
 
 </body>
 

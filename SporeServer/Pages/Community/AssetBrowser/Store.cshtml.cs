@@ -20,8 +20,37 @@ namespace SporeServer.Pages.Community.AssetBrowser
     [Authorize]
     public class StoreModel : PageModel
     {
-        public void OnGet()
+        /// <summary>
+        ///     Whether to show the big background
+        /// </summary>
+        public bool ShowBigBackground { get; set; }
+
+
+        public IActionResult OnGet()
         {
+            // parse AppResolution header
+            // parse AppResolution header
+            var resolution = Request.Headers["AppResolution"].FirstOrDefault();
+            if (!String.IsNullOrEmpty(resolution))
+            {
+                // make sure it's in the right format
+                var splitResolution = resolution.Split('x');
+
+                if (splitResolution.Length == 2)
+                {
+                    // the official server
+                    // only checks the width,
+                    // so let's do the same here
+                    int width = Int32.Parse(splitResolution[0]);
+
+                    // show big background
+                    // when the resolution width
+                    // is large enough
+                    ShowBigBackground = width >= 1000;
+                }
+            }
+
+            return Page();
         }
     }
 }
