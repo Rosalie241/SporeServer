@@ -40,12 +40,13 @@ namespace SporeServer.Pages.Community.AssetBrowser
                     // the official server
                     // only checks the width,
                     // so let's do the same here
-                    int width = Int32.Parse(splitResolution[0]);
-
-                    // show big background
-                    // when the resolution width
-                    // is large enough
-                    ShowBigBackground = width >= 1000;
+                    if (Int32.TryParse(splitResolution[0], out int width))
+                    {
+                        // show big background
+                        // when the resolution width
+                        // is large enough
+                        ShowBigBackground = width >= 1000;
+                    }
                 }
             }
 
