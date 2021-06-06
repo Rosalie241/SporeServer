@@ -29,7 +29,6 @@ namespace SporeServer.Pages.Community.AssetBrowser
         public IActionResult OnGet()
         {
             // parse AppResolution header
-            // parse AppResolution header
             var resolution = Request.Headers["AppResolution"].FirstOrDefault();
             if (!String.IsNullOrEmpty(resolution))
             {
