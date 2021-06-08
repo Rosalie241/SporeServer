@@ -68,12 +68,13 @@ namespace SporeServer.Services
             }
         }
 
-        public async Task<long[]> FindAllByAuthorAsync(SporeServerUser author)
+        public async Task<Int64[]> FindAllByAuthorAsync(SporeServerUser author)
         {
             try
             {
                 return await _context.UnlockedAchievements
                                         .Where(u => u.AuthorId == author.Id)
+                                        .OrderBy(u => u.Timestamp)
                                         .Select(u => u.AchievementId)
                                         .ToArrayAsync();
             }
