@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
     <link rel="stylesheet" type="text/css" href="/css/game/main.css" />
     <link rel="stylesheet" type="text/css" href="/css/game/buddy.css" />
-
 </head>
 
 <body>
@@ -36,14 +35,14 @@
     </div>
 
     <div id="avatarAndAchievements" class="genericpagebucket" style="background-color: #283f5b; height: 200px; margin-bottom: 15px;">
-
         <div class="avatarBucket">
-            <div class="noavatar"><img src="/static/war/images/game/spd/spd_NoAvatar.png" alt="Avatar" height="90px" width="90px" /></div>
+            <div class="avatar">
+                <img src="/static/war/images/game/spd/spd_NoAvatar.png" alt="Avatar" height="90px" width="90px" class="assetavatar" style="margin-top: 42px;" />
+            </div>
             <div style="margin-left: 17px; margin-top: 160px;">
                 @(Model.ProfileUser.UserName)
 
-                <!--<br /><span class="tagline">"really want spore..."</span>-->
-
+                <br /><span class="tagline"><!--TODO--></span>
             </div>
         </div>
         <div style="margin-left: 180px; margin-bottom: 30px;">
@@ -54,29 +53,69 @@
                     <span class="headerTitle">Recent Achievements</span>
 
                     <span class="headlink">
-
-
+                        @if (Model.PreviousAchievementIndex >= 0)
+                        {
+                            <a href="/community/assetBrowser/profile/@(Model.ProfileUser.Id)?achievementIndex=@(Model.PreviousAchievementIndex)&amp;assetIndex=@(Model.AssetIndex)&amp;aggregatorIndex=@(Model.AggregatorIndex)" style="">
+                                Back
+                            </a>
+                        }
+                        @if (Model.NextAchievementIndex < Model.UnlockedAchievementCount)
+                        {
+                            <a href="/community/assetBrowser/profile/@(Model.ProfileUser.Id)?achievementIndex=@(Model.NextAchievementIndex)&amp;assetIndex=@(Model.AssetIndex)&amp;aggregatorIndex=@(Model.AggregatorIndex)" style="">
+                                See more
+                            </a>
+                        }
                     </span>
                 </div>
                 <div class="headerRight"></div>
             </div>
             <div class="promo">
-                <!--<div id="achievements" class="genericpagebucket"
-                 style="margin: 0px 1px 0px 3px; padding: 0px 10px 0px 15px; clear: both;"> -->
+                @if (Model.UnlockedAchievementCount == 0)
+                {
+                    <div class="h3" style="height: 130px; padding-top: 10px; padding-left: 20px; margin-left: 0px;">
+                        @(Model.ProfileUser.UserName) has not yet earned any achievements.
+                    </div>
+                }
+                else
+                {
+                    <div style="height: 150px;">
+                        @foreach (var achievementId in Model.UnlockedAchievementIds)
+                        {
+                            var achievement = SporeServer.SporeTypes.SporeAchievements.Achievements.First(a => a.Id == achievementId);
+                            <div class="achievement" style="padding: 0;">
+                                <b class="roundBoxTop" style="background-color: #495E71">
+                                    <b class="r1" style="background-color: #506c80;"></b>
+                                    <b class="r2" style="background-color: #506c80;"></b>
+                                    <b class="r3" style="background-color: #506c80;"></b>
+                                    <b class="r4" style="background-color: #506c80;"></b>
+                                </b>
 
+                                <div class="roundBoxContent" style="background-color: #506c80; padding: 0px 10px;">
+                                    <img src="utfres://0x260eb59c!@(achievement.UnlockedFileNameHash).png" alt="ach_image" height="30px" width="30px" class="ach_image" />
+                                    <div class="ach_title">
+                                        @(achievement.Name)
+                                    </div>
+                                    <div class="ach_desc">
+                                        @(achievement.Description)
+                                    </div>
+                                </div>
 
-                <div class="h3" style="height: 130px; padding-top: 10px; padding-left: 20px; margin-left: 0px;">
-                    @(Model.ProfileUser.UserName) has not yet earned any achievements.
-                </div>
+                                <b class="roundBoxBottom" style="background-color: #495E71;">
+                                    <b class="r4" style="background-color: #506c80;"></b>
+                                    <b class="r3" style="background-color: #506c80;"></b>
+                                    <b class="r2" style="background-color: #506c80;"></b>
+                                    <b class="r1" style="background-color: #506c80;"></b>
+                                </b>
+                            </div>
+                        }
+                    </div>
+                }
             </div>
 
             <div class="footer">
-                <div class="footerLeft" style="background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png)">
-                </div>
-                <div class="footermiddle" style="background-image: url(utfres://0x40484400!spd_BottomTile.png)">
-                </div>
-                <div class="footerRight" style="background-image: url(utfres://0x40484400!spd_BottomRightCorner.png)">
-                </div>
+                <div class="footerLeft" style="background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png)"></div>
+                <div class="footermiddle" style="background-image: url(utfres://0x40484400!spd_BottomTile.png)"></div>
+                <div class="footerRight" style="background-image: url(utfres://0x40484400!spd_BottomRightCorner.png)"></div>
             </div>
 
         </div>
@@ -85,48 +124,154 @@
         <div class="headerLeftNoIcon"></div>
         <div class="headermiddlenoicon">
             <span class="headerTitle">Recent Creations</span>
-
+            <span class="headlink">
+                @if (Model.PreviousAssetIndex >= 0)
+                {
+                    <a href="/community/assetBrowser/profile/@(Model.ProfileUser.Id)?achievementIndex=@(Model.AchievementIndex)&amp;assetIndex=@(Model.PreviousAssetIndex)&amp;aggregatorIndex=@(Model.AggregatorIndex)" style="">
+                        Back
+                    </a>
+                }
+                @if (Model.NextAssetIndex < Model.AssetCount)
+                {
+                    <a href="/community/assetBrowser/profile/@(Model.ProfileUser.Id)?achievementIndex=@(Model.AchievementIndex)&amp;assetIndex=@(Model.NextAssetIndex)&amp;aggregatorIndex=@(Model.AggregatorIndex)" style="">
+                        See more
+                    </a>
+                }
+            </span>
         </div>
         <div class="headerRight"></div>
     </div>
     <div class="promo">
-        <div class="h3" style="height: 80px; padding: 10px 10px;">
-            @(Model.ProfileUser.UserName) has not yet shared any creations.
-        </div>
+        @if (Model.AssetCount == 0)
+        {
+            <div class="h3" style="height: 80px; padding: 10px 10px;">
+                @(Model.ProfileUser.UserName) has not yet shared any creations.
+            </div>
+        }
+        else
+        {
+            @foreach (var asset in Model.Assets)
+            {
+                <div style="display:inline-block; width:85px; height:110px; text-align: center;">
+                    <div class="creation" style="display:block; padding: 0;">
+                        <b class="roundBoxTop" style="background-color: #495E71">
+                            <b class="r1" style="background-color: #506c80;"></b>
+                            <b class="r2" style="background-color: #506c80;"></b>
+                            <b class="r3" style="background-color: #506c80;"></b>
+                            <b class="r4" style="background-color: #506c80;"></b>
+                        </b>
+                        <div class="roundBoxContent" style="background-color: #506c80;">
+                            <img src="https://static.spore.com/@(asset.ThumbFileUrl)" width="60px" height="60px" alt="Rattleverm" style="background-color: #506c80;" />
+                        </div>
+                        <b class="roundBoxBottom" style="background-color: #495E71;">
+                            <b class="r4" style="background-color: #506c80;"></b>
+                            <b class="r3" style="background-color: #506c80;"></b>
+                            <b class="r2" style="background-color: #506c80;"></b>
+                            <b class="r1" style="background-color: #506c80;"></b>
+                        </b>
+                    </div>
+                    <div>
+                        <a href="spore:@(asset.AssetId).@((Int64)asset.ModelType)" style="font-size: 8px;">Download</a>
+                    </div>
+                </div>
+             }
+        }
     </div>
 
     <div class="footer">
-        <div class="footerLeft" style="background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png)">
-        </div>
-        <div class="footermiddle" style="background-image: url(utfres://0x40484400!spd_BottomTile.png)">
-        </div>
-        <div class="footerRight" style="background-image: url(utfres://0x40484400!spd_BottomRightCorner.png)">
-        </div>
+        <div class="footerLeft" style="background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png)"></div>
+        <div class="footermiddle" style="background-image: url(utfres://0x40484400!spd_BottomTile.png)"></div>
+        <div class="footerRight" style="background-image: url(utfres://0x40484400!spd_BottomRightCorner.png)"></div>
     </div>
 
     <div class="header">
         <div class="headerLeftNoIcon"></div>
         <div class="headermiddlenoicon">
             <span class="headerTitle">Recent Sporecasts</span>
-
+            <span class="headlink">
+                @if (Model.PreviousAggregatorIndex >= 0)
+                {
+                    <a href="/community/assetBrowser/profile/@(Model.ProfileUser.Id)?achievementIndex=@(Model.AchievementIndex)&amp;assetIndex=@(Model.AssetIndex)&amp;aggregatorIndex=@(Model.PreviousAggregatorIndex)" style="">
+                        Back
+                    </a>
+                }
+                @if (Model.NextAggregatorIndex < Model.AggregatorCount)
+                {
+                    <a href="/community/assetBrowser/profile/@(Model.ProfileUser.Id)?achievementIndex=@(Model.AchievementIndex)&amp;assetIndex=@(Model.AssetIndex)&amp;aggregatorIndex=@(Model.NextAggregatorIndex)" style="">
+                        See more
+                    </a>
+                }
+            </span>
         </div>
         <div class="headerRight"></div>
     </div>
     <div class="promo">
 
-        <div class="h3" style="height: 100px; padding-top: 10px;">
-            @(Model.ProfileUser.UserName) has not yet created any sporecasts.
-        </div>
+        @if (Model.AggregatorCount == 0)
+        {
+            <div class="h3" style="height: 100px; padding-top: 10px;">
+                @(Model.ProfileUser.UserName) has not yet created any sporecasts.
+            </div>
+        }
+        else
+        {
+            @foreach (var aggregator in Model.Aggregators)
+            {
+                <div class="sporecast" style="padding: 0;">
+                    <b class="roundBoxTop" style="background-color: #495E71">
+                        <b class="r1" style="background-color: #506c80;"></b>
+                        <b class="r2" style="background-color: #506c80;"></b>
+                        <b class="r3" style="background-color: #506c80;"></b>
+                        <b class="r4" style="background-color: #506c80;"></b>
+                    </b>
+                    <div class="roundBoxContent" style="background-color: #506c80; padding: 5px 10px;">
+                        <div style="display:block;width:100%;">
+                            <span class="title">@(aggregator.Name)</span>
+                            <div style="display:inline;">
+                                @if (Model.CurrentUser.Id != Model.ProfileUser.Id)
+                                {
+                                    @if (Model.AggregatorSubscriptions.Contains(aggregator.AggregatorId))
+                                    {
+                                        <a href="sporecast:unsubscribe:tag:spore.com,2006:aggregator/@(aggregator.AggregatorId)">
+                                            Unsubscribe
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="sporecast:tag:spore.com,2006:aggregator/@(aggregator.AggregatorId)">
+                                            Subscribe
+                                        </a>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <br />@(aggregator.Description)
+                        <div>
+                            @for (int i = 0; (i < 10 && i < aggregator.Assets.Count); i++)
+                            {
+                                var asset = aggregator.Assets.ElementAt(i);
+                                <img src="https://static.spore.com/@(asset.ThumbFileUrl)" width="50px" height="50px" alt="@(asset.Name)" />
+                            }
+                        </div>
+                    </div>
+                    <b class="roundBoxBottom" style="background-color: #495E71;">
+                        <b class="r4" style="background-color: #506c80;"></b>
+                        <b class="r3" style="background-color: #506c80;"></b>
+                        <b class="r2" style="background-color: #506c80;"></b>
+                        <b class="r1" style="background-color: #506c80;"></b>
+                    </b>
+                </div>
+            }
+        }
 
         <div class="footer">
-            <div class="footerLeft" style="background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png)">
-            </div>
-            <div class="footermiddle" style="background-image: url(utfres://0x40484400!spd_BottomTile.png)">
-            </div>
-            <div class="footerRight" style="background-image: url(utfres://0x40484400!spd_BottomRightCorner.png)">
-            </div>
+            <div class="footerLeft" style="background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png)"></div>
+            <div class="footermiddle" style="background-image: url(utfres://0x40484400!spd_BottomTile.png)"></div>
+            <div class="footerRight" style="background-image: url(utfres://0x40484400!spd_BottomRightCorner.png)"></div>
         </div>
     </div>
 </body>
 
 </html>
+
+
