@@ -49,23 +49,67 @@ namespace SporeServer.Pages.Community.AssetBrowser
         ///     Unlocked Achievement Ids
         /// </summary>
         public Int64[] UnlockedAchievementIds { get; set; }
-
+        /// <summary>
+        ///     Unlocked Achivements Count
+        /// </summary>
         public Int32 UnlockedAchievementCount { get; set; }
+        /// <summary>
+        ///     Current Achievement Index
+        /// </summary>
         public Int32 AchievementIndex { get; set; }
+        /// <summary>
+        ///     Next Achievement Index
+        /// </summary>
         public Int32 NextAchievementIndex { get; set; }
+        /// <summary>
+        ///     Previous Achievement Index
+        /// </summary>
         public Int32 PreviousAchievementIndex { get; set; }
 
+        /// <summary>
+        ///     Profile User Assets
+        /// </summary>
         public SporeServerAsset[] Assets { get; set; }
+        /// <summary>
+        ///     Asset Count
+        /// </summary>
         public Int32 AssetCount { get; set; }
+        /// <summary>
+        ///     Current Asset Index
+        /// </summary>
         public Int32 AssetIndex { get; set; }
+        /// <summary>
+        ///     Next Asset Index
+        /// </summary>
         public Int32 NextAssetIndex { get; set; }
+        /// <summary>
+        ///     Previous Asset Index
+        /// </summary>
         public Int32 PreviousAssetIndex { get; set; }
 
+        /// <summary>
+        ///     Profile User Aggregators
+        /// </summary>
         public SporeServerAggregator[] Aggregators { get; set; }
+        /// <summary>
+        ///     Current User Aggregator Subscriptions
+        /// </summary>
         public Int64[] AggregatorSubscriptions { get; set; }
+        /// <summary>
+        ///     Aggregator Count
+        /// </summary>
         public Int32 AggregatorCount { get; set; }
+        /// <summary>
+        ///     Current Aggregator Index
+        /// </summary>
         public Int32 AggregatorIndex { get; set; }
+        /// <summary>
+        ///     Next Aggregator Index
+        /// </summary>
         public Int32 NextAggregatorIndex { get; set; }
+        /// <summary>
+        ///     Previous Aggregator Index
+        /// </summary>
         public Int32 PreviousAggregatorIndex { get; set; }
 
         public async Task<IActionResult> OnGet(Int64 id)
@@ -82,10 +126,6 @@ namespace SporeServer.Pages.Community.AssetBrowser
             }
 
             Subscribed = _userSubscriptionManager.Find(CurrentUser, ProfileUser) != null;
-
-            AggregatorSubscriptions = _aggregatorSubscriptionManager.FindAllByAuthor(CurrentUser)
-                                             .Select(s => s.AggregatorId)
-                                             .ToArray();
 
             AchievementIndex = 0;
             NextAchievementIndex = 3;
@@ -126,34 +166,32 @@ namespace SporeServer.Pages.Community.AssetBrowser
             }
 
             var unlockedAchievementIds = await _achievementManager.FindAllByAuthorAsync(ProfileUser);
-
             UnlockedAchievementCount = unlockedAchievementIds == null ? 0 : unlockedAchievementIds.Length;
-            UnlockedAchievementIds = unlockedAchievementIds == null ? null : 
-                                        unlockedAchievementIds
+            UnlockedAchievementIds = unlockedAchievementIds?
                                         .Reverse()
                                         .Skip(AchievementIndex)
                                         .Take(3)
                                         .ToArray();
 
-            var creations = await _assetManager.FindAllByUserIdAsync(ProfileUser.Id);
-
-            AssetCount = creations == null ? 0 : creations.Length;
-            Assets = creations == null ? null :
-                                creations
-                                .OrderByDescending(a => a.Timestamp)
-                                .Skip(AssetIndex)
-                                .Take(10)
-                                .ToArray();
+            var assets = await _assetManager.FindAllByUserIdAsync(ProfileUser.Id);
+            AssetCount = assets == null ? 0 : assets.Length;
+            Assets = assets?
+                        .OrderByDescending(a => a.Timestamp)
+                        .Skip(AssetIndex)
+                        .Take(10)
+                        .ToArray();
 
             var aggregators = await _aggregatorManager.FindByAuthorAsync(ProfileUser);
-
             AggregatorCount = aggregators == null ? 0 : aggregators.Length;
-            Aggregators = aggregators == null ? null :
-                                aggregators
+            Aggregators = aggregators?
                                 .OrderByDescending(a => a.Timestamp)
                                 .Skip(AggregatorIndex)
                                 .Take(5)
                                 .ToArray();
+
+            AggregatorSubscriptions = _aggregatorSubscriptionManager.FindAllByAuthor(CurrentUser)
+                                            .Select(s => s.AggregatorId)
+                                            .ToArray();
 
             return Page();
         }
