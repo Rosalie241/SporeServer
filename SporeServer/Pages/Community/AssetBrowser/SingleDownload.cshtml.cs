@@ -120,11 +120,11 @@ namespace SporeServer.Pages.Community.AssetBrowser
             IOrderedQueryable<SporeServerAsset> orderedAssets = null;
             if (requestQuery == "SEARCH")
             {
-                orderedAssets = await PerformSearch(index);
+                orderedAssets = PerformSearch();
             }
             else if (requestQuery == "BROWSE")
             {
-                orderedAssets = await PerformBrowse(index);
+                orderedAssets = PerformBrowse();
             }
 
             // when the action was performed,
@@ -150,7 +150,7 @@ namespace SporeServer.Pages.Community.AssetBrowser
         /// <summary>
         ///     Performs a search when the requirements have been met
         /// </summary>
-        public async Task<IOrderedQueryable<SporeServerAsset>> PerformSearch(Int32? index)
+        public IOrderedQueryable<SporeServerAsset> PerformSearch()
         {
             var searchText = Request.Query["searchText"].ToString();
 
@@ -194,7 +194,7 @@ namespace SporeServer.Pages.Community.AssetBrowser
         /// <summary>
         ///     Performs a browse search when the requirements have been met
         /// </summary>
-        public async Task<IOrderedQueryable<SporeServerAsset>> PerformBrowse(Int32? index)
+        public IOrderedQueryable<SporeServerAsset> PerformBrowse()
         {
             var modelTypeQuery = Request.Query["modelType"].ToString();
             var modelTypes = new List<SporeModelType>();
