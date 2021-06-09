@@ -1,5 +1,6 @@
-﻿@page
+﻿@page "{index?}"
 @model SporeServer.Pages.Community.AssetBrowser.SingleDownloadModel
+@using SporeServer.SporeTypes 
 @{
 }
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -8,16 +9,642 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;" />
     <title>Search Online</title>
-    <!--<base href="http://community.spore.com" />-->
+    <base href="https://community.spore.com" />
     <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
     <link rel="stylesheet" type="text/css" href="/css/game/search.css" />
 </head>
 
+@if (Model.PerformedAction)
+{
 <body>
-    <div>
-        <p class="assetLinks">
-            <a href="spore:600000000004.3027271567">Download Creation</a>
-        </p>
+    &nbsp;&nbsp;&nbsp;<a href="/community/assetBrowser/singleDownload">&lt;&lt; Search again</a> @(Model.AssetCount > 0 ? $"Showing {Model.CurrentIndex + 1}-{Model.CurrentIndex + Model.AssetCount} of {Model.SearchCount}" : "")
+
+    <div class="next">
+        @if (Model.PreviousIndex >= 0)
+        {
+            <a href="/community/assetBrowser/singleDownload/@(Model.PreviousIndex)@(Request.QueryString)"><img src="/static/war/images/game/spd/previousArrow.png" width="7" height="10" alt="previous" />&nbsp;previous</a>
+        }
+        @if (Model.CurrentIndex + Model.AssetCount < Model.SearchCount)
+        {
+            <a href="/community/assetBrowser/singleDownload/@(Model.NextIndex)@(Request.QueryString)">next&nbsp;<img src="/static/war/images/game/spd/nextArrow.png" width="7" height="10" alt="next" class="nextarrow" /></a>
+        }
+    </div>
+
+    <div style="margin-top: 5px; margin-left:5px;">
+        @foreach (var asset in Model.Assets)
+        {
+            bool isAdventure = asset.Type == SporeAssetType.Adventure;
+            <div class="assetContainer">
+                <div class="assetBackground @(asset.ModelType.ToString().ToUpper())">
+                    <img src="https://static.spore.com/@(asset.ThumbFileUrl)" alt="@(asset.Name)" class="assetImage@(isAdventure ? " adv-assetImage" : "")" />
+                    <div class="assetTitle">
+                        @(asset.Name)
+                        <p class="assetAuthor">@(asset.Author.UserName)</p>
+                    </div>
+
+
+                    @if (isAdventure)
+                    { // TODO
+                        // TODO
+                        /*if (asset.CaptainUnlocked)
+                        {
+                            <div class="unlocked-capt-icon"></div>
+                        }*/
+                        <div class="adv-points adv-points-@(asset.ModelType.ToString().ToUpper())">
+                            <div class="adv-points-value ">
+                                <p class="assetLinks">15</p>
+                            </div>
+                        </div>
+
+                        <div class="adv-threebumps">
+                            <div class="adv-playcount-icon"></div>
+                            <div class="adv-playcount">
+                                <p class="assetLinks">0 plays</p>
+                            </div>
+                            <div class="difficulty-icon difficulty-icon-3"></div>
+                        </div>
+                    }
+                    else
+                    { // TODO
+                        <div class="non-adv-rating-icon rating-icon0"></div>
+                    }
+                </div>
+                <div class="linkContainer">
+                    <p class="assetLinks">
+                        <a href="spore:@(asset.AssetId).@((Int64)asset.ModelType)">Download Creation</a>
+                    </p>
+                    <p class="assetLinks">
+                        <a href="sporecast:tag:spore.com,2006:asset/@(asset.AssetId).@((Int64)asset.ModelType)">Add to Sporecast</a>
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (Model.AssetCount == 0)
+    {
+        <p>&nbsp;&nbsp;&nbsp;There are zero matches.<br/></p>
+    }
+
+</body>
+}
+else if (Model.BrowseType == "CRG")
+{ // creature browse page
+<body>
+    <div class="@(Model.ShowBigBackground ? "bigBgd crgBgd" : "")">
+        <div class="searchArea">
+            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+            <div class="browseHeader">Browse Creatures</div>
+            <div id="bevelHeader" style="height: 35px;">
+                <div style="margin-top:8px; margin-left: 15px;">
+                    <h2>Creature Type</h2>
+                </div>
+            </div>
+            <form method="get" action="/community/assetBrowser/singleDownload">
+                <div id="bevelSides" class="browseBevel_LV">
+                    <table class="browseTable">
+                        <tr>
+                            <td colspan="3" style="padding: 0px 0px 0px 0px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="modelType" value="9ea3031a;372e2c04;4178b8e8;ccc35c46;65672ade" />
+                                        </td>
+                                        <td>
+                                            All Creatures
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="9ea3031a" />Animals
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="372e2c04" />Tribal
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="4178b8e8" />Captain
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="ccc35c46" />Civilization
+                            </td>
+                            <td colspan="2">
+                                <input type="radio" name="modelType" value="65672ade" />Space
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="bevelFooter"></div>
+
+                <select name="filterView" class="dropdown">
+                    <option value="NEWEST" selected="@(Model.FilterView == "NEWEST")">
+                        Newest
+                    </option>
+                    <option value="OLDEST" selected="@(Model.FilterView == "OLDEST")">
+                        Oldest
+                    </option>
+                    <option value="TOP_RATED" selected="@(Model.FilterView == "TOP_RATED")">
+                        Most Popular
+                    </option>                   
+                    <option value="TOP_RATED_NEW" selected="@(Model.FilterView == "TOP_RATED_NEW")">
+                        Most Popular New
+                    </option>                   
+                    <option value="FEATURED" selected="@(Model.FilterView == "FEATURED")">
+                        Featured
+                    </option>
+                    <option value="RANDOM" selected="@(Model.FilterView == "RANDOM")">
+                        Random
+                    </option>
+                    <option value="CUTE_AND_CREEPY" selected="@(Model.FilterView == "CUTE_AND_CREEPY")">
+                        Creepy and Cute Parts Pack
+                    </option>
+                </select>
+
+                <input type="hidden" name="action" value="BROWSE" />
+                <input type="hidden" name="browseType" value="CRG" />
+                <input type="submit" value="Browse" class="submit" />
+            </form>
+        </div>
+    </div>
+</body>
+}
+else if (Model.BrowseType == "BLG")
+{ // building browse page
+<body>
+    <div class="@(Model.ShowBigBackground ? "bigBgd bldBgd" : "")">
+        <div class="searchArea">
+            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+            <div class="browseHeader">Browse Buildings</div>
+            <div id="bevelHeader" style="height: 35px;">
+                <div style="margin-top:8px; margin-left: 15px;">
+                    <h2>Building Type</h2>
+                </div>
+            </div>
+            <form method="get" action="/community/assetBrowser/singleDownload">
+                <div id="bevelSides" class="browseBevel_LV">
+                    <table class="browseTable">
+                        <tr>
+                            <td colspan="2" style="padding: 0px 0px 0px 0px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="modelType" value="4e3f7777;72c49181;99e92f05;47c10953" />
+                                        </td>
+                                        <td>
+                                            All Buildings
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="4e3f7777" /><img src="utfres://0x40484400!ico-bldng-houses.png" width="21" height="20" />House
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="72c49181" /><img src="utfres://0x40484400!ico-bldng-entertainment.png" width="21" height="20" />Entertainment
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="99e92f05" /><img src="utfres://0x40484400!ico-bldng-cityhall.png" width="21" height="20" />City Hall
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="47c10953" /><img src="utfres://0x40484400!ico-bldng-factory.png" width="21" height="20" />Factory
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="bevelFooter"></div>
+
+                <select name="filterView" class="dropdown">
+                    <option value="NEWEST" selected="@(Model.FilterView == "NEWEST")">
+                        Newest
+                    </option>
+                    <option value="OLDEST" selected="@(Model.FilterView == "OLDEST")">
+                        Oldest
+                    </option>
+                    <option value="TOP_RATED" selected="@(Model.FilterView == "TOP_RATED")">
+                        Most Popular
+                    </option>
+                    <option value="TOP_RATED_NEW" selected="@(Model.FilterView == "TOP_RATED_NEW")">
+                        Most Popular New
+                    </option>
+                    <option value="FEATURED" selected="@(Model.FilterView == "FEATURED")">
+                        Featured
+                    </option>
+                    <option value="RANDOM" selected="@(Model.FilterView == "RANDOM")">
+                        Random
+                    </option>
+                </select>
+
+                <input type="hidden" name="action" value="BROWSE" />
+                <input type="hidden" name="browseType" value="BLG" />
+                <input type="submit" value="Browse" class="submit" />
+            </form>
+        </div>
+    </div>
+</body>
+}
+else if (Model.BrowseType == "ADV")
+{ // adventure browse page
+<body>
+    <div class="@(Model.ShowBigBackground ? "bigBgd advBgd" : "")">
+        <div class="searchArea">
+            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+            <div class="browseHeader">Browse Adventures</div>
+            <form method="get" action="/community/assetBrowser/singleDownload">
+
+                <div style="position:absolute; top:0px; left:425px;">
+                    <div id="bevelHeader" class="bevelHeader_DIFF" style="height: 35px;">
+                        <div style="margin-top:8px; margin-left: 15px;">
+                            <h2>Difficulty</h2>
+                        </div>
+                    </div>
+                    <div id="bevelSides" class="browseBevel_DIFF">
+                        <table class="diffTable">
+                            <tr>
+                                <td><input type="checkbox" checked="checked" name="difficulty" value="1" class="diffCBox" /></td>
+                                <td><img src="utfres://0x40484400!difficulty1.png" width="49" height="21" class="diffImage" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" checked="checked" name="difficulty" value="2" class="diffCBox" /></td>
+                                <td><img src="utfres://0x40484400!difficulty2.png" width="49" height="21" class="diffImage" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" checked="checked" name="difficulty" value="3" class="diffCBox" /></td>
+                                <td><img src="utfres://0x40484400!difficulty3.png" width="49" height="21" class="diffImage" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" checked="checked" name="difficulty" value="4" class="diffCBox" /></td>
+                                <td><img src="utfres://0x40484400!difficulty4.png" width="49" height="21" class="diffImage" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" checked="checked" name="difficulty" value="5" class="diffCBox" /></td>
+                                <td><img src="utfres://0x40484400!difficulty5.png" width="49" height="21" class="diffImage" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="bevelFooter" class="bevelFooter_DIFF"></div>
+                </div>
+
+
+                <div id="bevelHeader" class="bevelHeader_ADV" style="height: 35px;">
+                    <div style="margin-top:8px; margin-left: 15px;">
+                        <h2>Adventure Type</h2>
+                    </div>
+                </div>
+                <div id="bevelSides" class="browseBevel_ADV">
+                    <table class="browseTable browseTable_ADV">
+                        <tr>
+                            <td colspan="2" style="padding: 0px 0px 0px 0px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="modelType" value="287adcdc;c34c5e14;fb734cd1;37fd4e0d;c422519e;b4707f8f;25a6ea6e;e27ddad4" />
+                                        </td>
+                                        <td>
+                                            All Adventures
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="287adcdc" /><img src="utfres://0x40484400!ico-adv-attack.png" width="21" height="20" />&nbsp;Attack
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="c34c5e14" /><img src="utfres://0x40484400!ico-adv-defend.png" width="21" height="20" />&nbsp;Defend
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="fb734cd1" /><img src="utfres://0x40484400!ico-adv-socialize.png" width="21" height="25" />&nbsp;Socialize
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="37fd4e0d" /><img src="utfres://0x40484400!ico-adv-explore.png" width="21" height="25" />&nbsp;Explore
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="c422519e" /><img src="utfres://0x40484400!ico-adv-quest.png" width="24" height="26" />&nbsp;Quest
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="b4707f8f" /><img src="utfres://0x40484400!ico-adv-story.png" width="21" height="20" />&nbsp;Story
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px; ">
+                                <input type="radio" name="modelType" value="25a6ea6e" /><img src="utfres://0x40484400!ico-adv-collect.png" width="24" height="24" />&nbsp;Collect
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="e27ddad4" /><img src="utfres://0x40484400!ico-adv-puzzle.png" width="21" height="25" />&nbsp;Puzzle
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="bevelFooter" class="bevelFooter_ADV"></div>
+
+                <div id="bevelHeader" style="height: 35px;">
+                    <div style="margin-top:8px; margin-left: 15px;">
+                        <h2>Language</h2>
+                    </div>
+                </div>
+                <div id="bevelSides" class="browseBevel_LANG">
+                    <select name="language" class="dropdown">
+                    <option value="ALL" selected="true" >All Languages</option>
+                        <option value="zh">Chinese</option>
+                        <option value="cs">Czech</option>
+                        <option value="da">Danish</option>
+                        <option value="nl">Dutch</option>
+                        <option value="en">English</option>
+                        <option value="fi">Finnish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="el">Greek</option>
+                        <option value="hu">Hungarian</option>
+                        <option value="it">Italian</option>
+                        <option value="ja">Japanese</option>
+                        <option value="ko">Korean</option>
+                        <option value="no">Norwegian</option>
+                        <option value="pl">Polish</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="ru">Russian</option>
+                        <option value="es">Spanish</option>
+                        <option value="sv">Swedish</option>
+                        <option value="th">Thai</option>
+                </select>
+                </div>
+                <div id="bevelFooter"></div>
+
+                <select name="filterView" class="dropdown">
+                    <option value="NEWEST" selected="@(Model.FilterView == "NEWEST")" >
+                        Newest
+                    </option>
+                    <option value="OLDEST" selected="@(Model.FilterView == "OLDEST")" >
+                        Oldest
+                    </option>
+                    <option value="TOP_RATED" selected="@(Model.FilterView == "TOP_RATED")" >
+                        Most Popular
+                    </option>                   
+                    <option value="TOP_RATED_NEW" selected="@(Model.FilterView == "TOP_RATED_NEW")" >
+                        Most Popular New
+                    </option>                   
+                    <option value="FEATURED" selected="@(Model.FilterView == "FEATURED")" >
+                        Featured
+                    </option>
+                    <option value="RANDOM" selected="@(Model.FilterView == "RANDOM")" >
+                        Random
+                    </option>
+                </select>
+
+                <input type="hidden" name="action" value="BROWSE" />
+                <input type="hidden" name="browseType" value="ADV" />
+                <input type="submit" value="Browse" class="submit" />
+            </form>
+        </div>
+    </div>
+</body>
+}
+else if (Model.BrowseType == "VCL_LND")
+{ // land vehicle browse page
+<body>
+    <div class="@(Model.ShowBigBackground ? "bigBgd lvBgd" : "")">
+        <div class="searchArea">
+            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+            <div class="browseHeader">Browse Land Vehicles</div>
+            <div id="bevelHeader" style="height: 35px;">
+                <div style="margin-top:8px; margin-left: 15px;">
+                    <h2>Land Vehicle Type</h2>
+                </div>
+            </div>
+            <form method="get" action="/community/assetBrowser/singleDownload">
+                <div id="bevelSides" class="browseBevel_LV">
+                    <table class="browseTable">
+                        <tr>
+                            <td colspan="2" style="padding: 0px 0px 0px 0px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="modelType" value="7d433fad;f670aa43;9ad7d4aa;bc1041e6" />
+                                        </td>
+                                        <td>
+                                            All Land Vehicles
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="7d433fad" /><img src="utfres://0x40484400!ico-vhcl-military.png" width="21" height="20" />&nbsp;Military
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="f670aa43" /><img src="utfres://0x40484400!ico-vhcl-economic.png" width="21" height="25" />&nbsp;Economic
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="9ad7d4aa" /><img src="utfres://0x40484400!ico-vhcl-religious.png" width="24" height="26" />&nbsp;Religious
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="bc1041e6" /><img src="utfres://0x40484400!ico-vhcl-colony.png" width="24" height="24" />&nbsp;Colony
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="bevelFooter"></div>
+
+                <select name="filterView" class="dropdown">
+                <option value="NEWEST" selected="@(Model.FilterView == "NEWEST")">
+                    Newest
+                </option>
+                <option value="OLDEST" selected="@(Model.FilterView == "OLDEST")">
+                    Oldest
+                </option>
+                <option value="TOP_RATED" selected="@(Model.FilterView == "TOP_RATED")">
+                    Most Popular
+                </option>                   
+                <option value="TOP_RATED_NEW" selected="@(Model.FilterView == "TOP_RATED_NEW")">
+                    Most Popular New
+                </option>                   
+                <option value="FEATURED" selected="@(Model.FilterView == "FEATURED")">
+                    Featured
+                </option>
+                <option value="RANDOM" selected="@(Model.FilterView == "RANDOM")">
+                    Random
+                </option>
+            </select>
+                <input type="hidden" name="action" value="BROWSE" />
+                <input type="hidden" name="browseType" value="VCL_LND" />
+                <input type="submit" value="Browse" class="submit" />
+            </form>
+        </div>
+    </div>
+</body>
+}
+else if (Model.BrowseType == "VCL_SEA")
+{ // sea vehicle browse page
+<body>
+    <div class="@(Model.ShowBigBackground ? "bigBgd svBgd" : "")">
+        <div class="searchArea">
+            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+            <div class="browseHeader">Browse Sea Vehicles</div>
+            <div id="bevelHeader" style="height: 35px;">
+                <div style="margin-top:8px; margin-left: 15px;">
+                    <h2>Sea Vehicle Type</h2>
+                </div>
+            </div>
+            <form method="get" action="/community/assetBrowser/singleDownload">
+                <div id="bevelSides" class="browseBevel_LV">
+                    <table class="browseTable">
+                        <tr>
+                            <td colspan="2" style="padding: 0px 0px 0px 0px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="modelType" value="8f963dcb;2a5147a9;1f2a25b6;c15695da" />
+                                        </td>
+                                        <td>
+                                            All Sea Vehicles
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="8f963dcb" /><img src="utfres://0x40484400!ico-vhcl-military.png" width="21" height="20" />&nbsp;Military
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="2a5147a9" /><img src="utfres://0x40484400!ico-vhcl-economic.png" width="21" height="25" />&nbsp;Economic
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="1f2a25b6" /><img src="utfres://0x40484400!ico-vhcl-religious.png" width="24" height="26" />&nbsp;Religious
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="c15695da" /><img src="utfres://0x40484400!ico-vhcl-colony.png" width="24" height="24" />&nbsp;Colony
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="bevelFooter"></div>
+                <select name="filterView" class="dropdown">
+                <option value="NEWEST" selected="@(Model.FilterView == "NEWEST")">
+                    Newest
+                </option>
+                <option value="OLDEST" selected="@(Model.FilterView == "OLDEST")">
+                    Oldest
+                </option>
+                <option value="TOP_RATED" selected="@(Model.FilterView == "TOP_RATED")">
+                    Most Popular
+                </option>                   
+                <option value="TOP_RATED_NEW" selected="@(Model.FilterView == "TOP_RATED_NEW")">
+                    Most Popular New
+                </option>                   
+                <option value="FEATURED" selected="@(Model.FilterView == "FEATURED")">
+                    Featured
+                </option>
+                <option value="RANDOM" selected="@(Model.FilterView == "RANDOM")">
+                    Random
+                </option>
+            </select>
+                <input type="hidden" name="action" value="BROWSE" />
+                <input type="hidden" name="browseType" value="VCL_SEA" />
+                <input type="submit" value="Browse" class="submit" />
+            </form>
+        </div>
+    </div>
+</body>
+}
+else if (Model.BrowseType == "VCL_AIR")
+{ // air vehicle browse page
+<body>
+    <div class="@(Model.ShowBigBackground ? "bigBgd avBgd" : "")">
+        <div class="searchArea">
+            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+            <div class="browseHeader">Browse Air Vehicles</div>
+            <div id="bevelHeader" style="height: 35px;">
+                <div style="margin-top:8px; margin-left: 15px;">
+                    <h2>Air Vehicle Type</h2>
+                </div>
+            </div>
+            <form method="get" action="/community/assetBrowser/singleDownload">
+                <div id="bevelSides" class="browseBevel_LV">
+                    <table class="browseTable">
+                        <tr>
+                            <td colspan="2" style="padding: 0px 0px 0px 0px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="modelType" value="441cd3e6;1a4e0708;449c040f;2090a11b" />
+                                        </td>
+                                        <td>
+                                            All Air Vehicles
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="441cd3e6" /><img src="utfres://0x40484400!ico-vhcl-military.png" width="21" height="20" />&nbsp;Military
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="1a4e0708" /><img src="utfres://0x40484400!ico-vhcl-economic.png" width="21" height="25" />&nbsp;Economic
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 4px;">
+                                <input type="radio" name="modelType" value="449c040f" /><img src="utfres://0x40484400!ico-vhcl-religious.png" width="24" height="26" />&nbsp;Religious
+                            </td>
+                            <td>
+                                <input type="radio" name="modelType" value="2090a11b" /><img src="utfres://0x40484400!ico-vhcl-colony.png" width="24" height="24" />&nbsp;Colony
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="bevelFooter"></div>
+
+                <select name="filterView" class="dropdown">
+                <option value="NEWEST" selected="@(Model.FilterView == "NEWEST")">
+                    Newest
+                </option>
+                <option value="OLDEST" selected="@(Model.FilterView == "OLDEST")">
+                    Oldest
+                </option>
+                <option value="TOP_RATED" selected="@(Model.FilterView == "TOP_RATED")">
+                    Most Popular
+                </option>                   
+                <option value="TOP_RATED_NEW" selected="@(Model.FilterView == "TOP_RATED_NEW")">
+                    Most Popular New
+                </option>                   
+                <option value="FEATURED" selected="@(Model.FilterView == "FEATURED")">
+                    Featured
+                </option>
+                <option value="RANDOM" selected="@(Model.FilterView == "RANDOM")">
+                    Random
+                </option>
+            </select>
+                <input type="hidden" name="action" value="BROWSE" />
+                <input type="hidden" name="browseType" value="VCL_AIR" />
+                <input type="submit" value="Browse" class="submit" />
+            </form>
+        </div>
+    </div>
+</body>
+}
+else
+{ // main starting page
+<body>
+    <div class="@(Model.ShowBigBackground ? "bigBgd startBgd" : "")">
         <div class="searchArea">
             <div id="bevelHeader" style="height: 35px;">
                 <div style="margin-top:8px; margin-left: 15px;">
@@ -113,19 +740,19 @@
                                     <option value="NEWEST" selected="true">
                                         Newest
                                     </option>
-                                    <option value="OLDEST" selected="true">
+                                    <option value="OLDEST">
                                         Oldest
                                     </option>
-                                    <option value="TOP_RATED" selected="true">
+                                    <option value="TOP_RATED">
                                         Most Popular
                                     </option>
-                                    <option value="TOP_RATED_NEW" selected="true">
+                                    <option value="TOP_RATED_NEW">
                                         Most Popular New
                                     </option>
-                                    <option value="FEATURED" selected="true">
+                                    <option value="FEATURED">
                                         Featured
                                     </option>
-                                    <option value="RANDOM" selected="true">
+                                    <option value="RANDOM">
                                         Random
                                     </option>
                                 </select>
@@ -140,5 +767,6 @@
         </div>
     </div>
 </body>
+}
 
 </html>

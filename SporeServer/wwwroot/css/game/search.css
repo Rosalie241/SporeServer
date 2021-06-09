@@ -99,70 +99,70 @@ p.assetAuthor{margin:1px 0px 2px 0px}
 .CREATURE {
 	background-image: url(utfres://0x40484400!spdCardCreatureCE.png);			
 }       
-.TRIBE_CREATURE{
+.TRIBECREATURE{
 	background-image: url(utfres://0x40484400!spdCardTribeCE.png);
 }
-.CIV_CREATURE{
+.CIVCREATURE{
 	background-image: url(utfres://0x40484400!spdCardCivCE.png);
 }
-.SPACE_CREATURE{
+.SPACECREATURE{
 	background-image: url(utfres://0x40484400!spdCardSpaceCE.png);
 }
-.ADVENTURE_CREATURE{
+.ADVENTURERCREATURE{
 	background-image: url(utfres://0x40484400!spdCardSpaceCE.png);
 }
-.CITY_HALL{
+.BUILDINGCITYHALL{
 	background-image: url(utfres://0x40484400!spdCardBuilding.png);
 }
-.HOUSE{
+.BUILDINGHOUSE{
 	background-image: url(utfres://0x40484400!spdCardBuilding.png);
 }
-.INDUSTRY{
+.BUILDINGINDUSTRY{
 	background-image: url(utfres://0x40484400!spdCardBuilding.png);
 }
-.ENTERTAINMENT{
+.BUILDINGENTERTAINMENT{
 	background-image: url(utfres://0x40484400!spdCardBuilding.png);
 }
-.MILITARY_LAND{
+.VEHICLEMILITARYLAND{
 	background-image: url(utfres://0x40484400!spdCardLandVE.png);
 }
-.MILITARY_WATER{
+.VEHICLEMILITARYWATER{
 	background-image: url(utfres://0x40484400!spdCardSea.png);
 }
-.MILITARY_AIR{
+.VEHICLEMILITARYAIR{
 	background-image: url(utfres://0x40484400!spdCardAirVE.png);
 }
-.ECONOMIC_LAND{
+.VEHICLEECONOMICLAND{
 	background-image: url(utfres://0x40484400!spdCardLandVE.png);
 }
-.ECONOMIC_WATER{
+.VEHICLEECONOMICWATER{
 	background-image: url(utfres://0x40484400!spdCardSea.png);
 }
-.ECONOMIC_AIR{
+.VEHICLEECONOMICAIR{
 	background-image: url(utfres://0x40484400!spdCardAirVE.png);
 }
-.CULTURAL_LAND{
+.VEHICLECULTURALLAND{
 	background-image: url(utfres://0x40484400!spdCardLandVE.png);
 }
-.CULTURAL_WATER{
+.VEHICLECULTURALWATER{
 	background-image: url(utfres://0x40484400!spdCardSea.png);
 }
-.CULTURAL_AIR{
+.VEHICLECULTURALAIR{
 	background-image: url(utfres://0x40484400!spdCardAirVE.png);
 }
-.COLONY_LAND{
+.VEHICLECOLONYLAND{
 	background-image: url(utfres://0x40484400!spdCardLandVE.png);
 }
-.COLONY_WATER{
+.VEHICLECOLONYWATER{
 	background-image: url(utfres://0x40484400!spdCardSea.png);
 }
-.COLONY_AIR{
+.VEHICLECOLONYAIR{
 	background-image: url(utfres://0x40484400!spdCardAirVE.png);
 }
-.UFO{
+.VEHICLEUFO{
 	background-image: url(utfres://0x40484400!spdCardUFO.png);
 }
-.ADV_UNSET, .ADV_TEMPLATE, .ADV_ATTACK, .ADV_DEFEND, .ADV_SOCIALIZE, .ADV_EXPLORE, .ADV_QUEST, .ADV_STORY, .ADV_COLLECT, .ADV_PUZZLE {
+.SCENARIOUNSET, .SCENARIOGENRETEMPLATE, .SCENARIOGENREATTACK, .SCENARIOGENREDEFEND, .SCENARIOGENRESOCIALIZE, .SCENARIOGENREEXPLORE, .SCENARIOGENREQUEST, .SCENARIOGENRESTORY, .SCENARIOGENRECOLLECT, .SCENARIOGENREPUZZLE {
 	background-image: url(utfres://0x40484400!spdCardUFO.png);
 }
 .adv-points-value {
@@ -182,34 +182,34 @@ p.assetAuthor{margin:1px 0px 2px 0px}
 	top: 45px;
 	right: 9px;
 }
-.adv-points-ADV_UNSET {
+.adv-points-SCENARIOUNSET {
 	background-image: url(utfres://0x40484400!Type-mini-nogenre.png);
 }
-.adv-points-ADV_TEMPLATE {
+.adv-points-SCENARIOGENRETEMPLATE {
 	background-image: url(utfres://0x40484400!Type-mini-template.png);
 }
-.adv-points-ADV_STORY {
+.adv-points-SCENARIOGENRESTORY {
 	background-image: url(utfres://0x40484400!Type-mini-story.png);
 }
-.adv-points-ADV_ATTACK {
+.adv-points-SCENARIOGENREATTACK {
 	background-image: url(utfres://0x40484400!Type-mini-attack.png);
 }
-.adv-points-ADV_DEFEND {
+.adv-points-SCENARIOGENREDEFEND {
 	background-image: url(utfres://0x40484400!Type-mini-defend.png);
 }
-.adv-points-ADV_SOCIALIZE {
+.adv-points-SCENARIOGENRESOCIALIZE {
 	background-image: url(utfres://0x40484400!Type-mini-socialize.png);
 }
-.adv-points-ADV_EXPLORE {
+.adv-points-SCENARIOGENREEXPLORE {
 	background-image: url(utfres://0x40484400!Type-mini-explore.png);
 }
-.adv-points-ADV_QUEST {
+.adv-points-SCENARIOGENREQUEST {
 	background-image: url(utfres://0x40484400!Type-mini-quest.png);
 }
-.adv-points-ADV_PUZZLE {
+.adv-points-SCENARIOGENREPUZZLE {
 	background-image: url(utfres://0x40484400!Type-mini-puzzle.png);
 }
-.adv-points-ADV_COLLECT {
+.adv-points-SCENARIOGENRECOLLECT {
 	background-image: url(utfres://0x40484400!Type-mini-collect.png);
 }
 .adv-threebumps {
