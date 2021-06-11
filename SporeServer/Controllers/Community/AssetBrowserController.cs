@@ -29,12 +29,14 @@ namespace SporeServer.Controllers.Community
         private readonly UserManager<SporeServerUser> _userManager;
         private readonly IAssetManager _assetManager;
         private readonly IAggregatorManager _aggregatorManager;
+        private readonly IRatingManager _ratingManager;
 
-        public AssetBrowserController(UserManager<SporeServerUser> userManager, IAssetManager assetManager, IAggregatorManager aggregatorManager)
+        public AssetBrowserController(UserManager<SporeServerUser> userManager, IAssetManager assetManager, IAggregatorManager aggregatorManager, IRatingManager ratingManager)
         {
             _userManager = userManager;
             _assetManager = assetManager;
             _aggregatorManager = aggregatorManager;
+            _ratingManager = ratingManager;
         }
 
         // GET /community/assetBrowser/deleteAsset/{id}
@@ -151,18 +153,52 @@ namespace SporeServer.Controllers.Community
         {
             Console.WriteLine($"/community/assetBrowser/rate{Request.QueryString}");
 
+            // make sure the rating query exists, and is either 0 or 1
+            if (Int32.TryParse(Request.Query["rating"], out Int32 ratingNumber))
+            {
+                if (ratingNumber != 0 &&
+                    ratingNumber != 1)
+                {
+                    return Ok();
+                }
+            }
+
+            bool rating = ratingNumber == 1;
+
+            // make sure we can parse the assetId query
             if (Int64.TryParse(Request.Query["assetId"], out Int64 assetId))
             {
                 var author = await _userManager.GetUserAsync(User);
                 var asset = await _assetManager.FindByIdAsync(assetId);
 
-                // make sure the asset exists,
-                // is used and is an adventure
+                // make sure the asset exists
                 if (asset != null &&
-                    asset.Used &&
-                    asset.Type == SporeAssetType.Adventure)
+                    asset.Used)
                 {
-                    // TODO
+                    // check if the rating already exists
+                    var assetRating = await _ratingManager.FindAsync(author, asset);
+                    if (assetRating != null)
+                    { // already exists, so update rating
+                        // only update rating when rating differs
+                        if (assetRating.Rating != rating)
+                        {
+                            assetRating.Rating = rating;
+
+                            // when updating fails, error out
+                            if (!await _ratingManager.UpdateAsync(assetRating))
+                            {
+                                return StatusCode(500);
+                            }
+                        }
+                    }
+                    else
+                    { // doesn't exist, so add rating
+                        // when adding the rating fails, error out
+                        if (!await _ratingManager.AddAsync(author, asset, rating))
+                        {
+                            return StatusCode(500);
+                        }
+                    }
                 }
             }
 
