@@ -39,6 +39,10 @@ namespace SporeServer.Areas.Identity.Data
         /// </summary>
         public SporeServerAsset Asset { get; set; }
         /// <summary>
+        ///     Timestamp
+        /// </summary>
+        public DateTime Timestamp { get; set; }
+        /// <summary>
         ///     Rating
         /// </summary>
         public bool Rating { get; set; }

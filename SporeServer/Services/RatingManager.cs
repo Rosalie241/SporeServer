@@ -76,6 +76,7 @@ namespace SporeServer.Services
                 {
                     Author = author,
                     Asset = asset,
+                    Timestamp = DateTime.Now,
                     Rating = rating
                 };
 
@@ -132,6 +133,9 @@ namespace SporeServer.Services
         {
             try
             {
+                // update timestamp
+                rating.Timestamp = DateTime.Now;
+
                 // update rating in database
                 _context.AssetRatings.Update(rating);
                 await _context.SaveChangesAsync();
