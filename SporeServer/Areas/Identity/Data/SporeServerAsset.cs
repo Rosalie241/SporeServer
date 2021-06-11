@@ -78,6 +78,10 @@ namespace SporeServer.Areas.Identity.Data
         /// </summary>
         public bool Slurped { get; set; }
         /// <summary>
+        ///     Asset Rating
+        /// </summary>
+        public float Rating { get; set; }
+        /// <summary>
         ///     Aggregators (needed to many to many database relationship)
         /// </summary>
         public ICollection<SporeServerAggregator> Aggregators { get; set; }
