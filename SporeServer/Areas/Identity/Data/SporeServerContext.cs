@@ -47,6 +47,10 @@ namespace SporeServer.Data
         ///     Leaderboard Entries
         /// </summary>
         public DbSet<SporeServerLeaderboardEntry> LeaderboardEntries { get; set; }
+        /// <summary>
+        ///     Asset Ratings
+        /// </summary>
+        public DbSet<SporeServerRating> AssetRatings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
