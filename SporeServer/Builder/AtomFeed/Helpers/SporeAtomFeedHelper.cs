@@ -59,7 +59,7 @@ namespace SporeServer.Builder.AtomFeed.Helpers
                 AtomFeedBuilder.AddCustomAttribute(document, statElement, "name", "difficulty");
                 AtomFeedBuilder.AddCustomAttribute(document, statElement, "type", "int");
                 // <sp:stat name="rating" />
-                statElement = AtomFeedBuilder.AddCustomElement(document, statsElement, "sp:stat", "10.0");
+                statElement = AtomFeedBuilder.AddCustomElement(document, statsElement, "sp:stat", $"{asset.Rating}");
                 AtomFeedBuilder.AddCustomAttribute(document, statElement, "name", "rating");
                 AtomFeedBuilder.AddCustomAttribute(document, statElement, "type", "float");
                 // <sp:stat name="pointvalue" />
