@@ -390,6 +390,24 @@ namespace SporeServer.Services
             }
         }
 
+        public async Task<bool> UpdateAsync(SporeServerAsset asset)
+        {
+            try
+            {
+                // update asset in database
+                _context.Assets.Update(asset);
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation($"UpdateAsync: Updated Asset {asset.AssetId}");
+                return true;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"UpdateAsync: Failed To Update Asset {asset.AssetId}: {e}");
+                return false;
+            }
+        }
+
         public async Task<bool> DeleteAsync(SporeServerAsset asset)
         {
             try

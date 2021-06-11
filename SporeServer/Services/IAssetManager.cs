@@ -30,6 +30,13 @@ namespace SporeServer.Services
         Task<bool> AddAsync(AssetUploadForm form, SporeServerAsset asset, SporeServerAsset parentAsset, bool slurped, SporeAssetType type);
 
         /// <summary>
+        ///     Updates asset
+        /// </summary>
+        /// <param name="asset"></param>
+        /// <returns></returns>
+        Task<bool> UpdateAsync(SporeServerAsset asset);
+
+        /// <summary>
         ///     Deletes asset
         /// </summary>
         /// <param name="asset"></param>
