@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SporeServer.Models
 {
-    public class RegisterInfo
+    public class RegisterNewQuery
     {
         [StringLength(20, MinimumLength = 1, ErrorMessage = "Email is required.")]
         [Required(ErrorMessage = "Email is required.")]

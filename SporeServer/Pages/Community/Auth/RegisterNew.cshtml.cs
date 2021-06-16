@@ -23,16 +23,14 @@ namespace SporeServer.Pages.Community.Auth
     [AllowAnonymous]
     public class RegisterNewModel : PageModel
     {
-        private readonly SporeServerContext _context;
         private readonly UserManager<SporeServerUser> _userManager;
 
-        public RegisterNewModel(SporeServerContext context, UserManager<SporeServerUser> userManager)
+        public RegisterNewModel(UserManager<SporeServerUser> userManager)
         {
-            _context = context;
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> OnGetAsync(RegisterInfo info)
+        public async Task<IActionResult> OnGetAsync([FromQuery] RegisterNewQuery query)
         {
             if (!ModelState.IsValid)
             {
@@ -42,9 +40,9 @@ namespace SporeServer.Pages.Community.Auth
             var result = await _userManager.CreateAsync(
                 new SporeServerUser
                 {
-                    UserName = info.DisplayName,
-                    Email = info.Email
-                }, info.Password);
+                    UserName = query.DisplayName,
+                    Email = query.Email
+                }, query.Password);
 
             return Redirect($"https://community.spore.com/community/auth/registerNew?success={result.Succeeded}");
         }
