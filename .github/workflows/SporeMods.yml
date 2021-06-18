@@ -1,0 +1,44 @@
+name: SporeMods
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Enable Developer Command Prompt
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: amd64
+      - name: Install Dependencies
+        run: |
+          choco install openssl --forcex86 -r -y
+          choco install 7zip -r -y
+      - name: Build Spore-ModAPI
+        run: |
+          cd "SporeMods\Spore-ModAPI\Spore ModAPI"
+          msbuild /p:Configuration=Release /p:Platform=x86
+          msbuild /p:Configuration="Release DLL" /p:Platform=x86
+      - name: Build SporeRedirectTraffic
+        run: |
+          cd SporeMods\SporeRedirectTraffic
+          msbuild /p:Configuration=Release /p:Platform=x86
+      - name: Build SporeNewOpenSSL
+        run: |
+          cd SporeMods\SporeNewOpenSSL
+          msbuild /p:Configuration=Release /p:Platform=x86
+      - name: Create SporeServer.sporemod
+        run: |
+          cd SporeMods
+          .\CreateSporeMod.bat
+      - uses: actions/upload-artifact@v2
+        with:
+          name: SporeServer.sporemod
+          path: SporeMods/bin/SporeServer.sporemod
