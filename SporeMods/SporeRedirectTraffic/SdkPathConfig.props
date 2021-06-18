@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <SporeSdkPath>C:\Users\Rosalie\source\repos\Spore-ModAPI\</SporeSdkPath>
+    <SporeSdkPath>..\Spore-ModAPI\</SporeSdkPath>
 	<SporeLauncherPath>C:\ProgramData\SPORE ModAPI Launcher Kit\</SporeLauncherPath>
   </PropertyGroup>
   <PropertyGroup />
