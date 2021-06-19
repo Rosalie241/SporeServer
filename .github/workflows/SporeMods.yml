@@ -28,6 +28,10 @@ jobs:
           cd "SporeMods\Spore-ModAPI\Spore ModAPI"
           msbuild /p:Configuration=Release /p:Platform=x86
           msbuild /p:Configuration="Release DLL" /p:Platform=x86
+      - name: Build SporeServerConfig
+        run: |
+          cd SporeMods\SporeServerConfig
+          msbuild /p:Configuration=Release /p:Platform=x86
       - name: Build SporeRedirectTraffic
         run: |
           cd SporeMods\SporeRedirectTraffic

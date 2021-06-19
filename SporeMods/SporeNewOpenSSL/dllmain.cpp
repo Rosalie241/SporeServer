@@ -35,6 +35,12 @@
 #include <Windows.h>
 #include <wincrypt.h>
 
+// needed for port overide setting
+#include "..\SporeServerConfig\SporeServerConfig.hpp"
+
+// needed for std::stoi
+#include <string>
+
 //
 // Libraries
 //
@@ -59,7 +65,9 @@ static SSL*			OpenSSL_SSL = nullptr;
 static SSL_CTX*		OpenSSL_CTX = nullptr;
 static std::mutex	OpenSSL_MTX;
 static int			OpenSSL_ThreadId = -1;
-
+static bool			SporeServerPortOverride = false;
+static uint16_t		SporeServerPort;
+static bool			SporeServerSslVerification = true;
 //
 // Helper functions
 //
@@ -83,16 +91,25 @@ static void DisplayError(const char* fmt, ...)
 static int (WINAPI* connect_real)(SOCKET, const sockaddr*, int) = connect;
 static int WINAPI connect_detour(SOCKET s, const sockaddr* name, int namelen)
 {
+	bool https = ntohs(((sockaddr_in*)name)->sin_port) == 443;
+
+	// override port when requested,
+	// and when we're using port 443
+	if (SporeServerPortOverride &&
+		https)
+	{
+		((sockaddr_in*)name)->sin_port = htons(SporeServerPort);
+	}
+
 	int ret = connect_real(s, name, namelen);
 
 	// we don't need openssl things
 	// when it can't connect or if it's HTTP
-	if (ret != 0 ||
-		ntohs(((sockaddr_in*)name)->sin_port) != 443)
+	if (ret != 0 || !https)
 	{
 		return ret;
 	}
-	
+
 	// does the game use this function?
 	if (SSL_set_fd(OpenSSL_SSL, s) != 1)
 	{
@@ -162,7 +179,7 @@ static_detour(SSLClearDetour, int(void*)) {
 static_detour(SSLConnectDetour, int(void*)) {
 	int detoured(void* ssl)
 	{
-		return SSL_connect(OpenSSL_SSL);;
+		return SSL_connect(OpenSSL_SSL);
 	}
 };
 
@@ -185,6 +202,12 @@ static_detour(SSLWriteDetour, int(void*, const void*, int)) {
 static_detour(GameValidateCertificate, int(int, char*)) {
 	int detoured(int arg1, char* servername)
 	{
+		// return success when verification is disabled
+		if (!SporeServerSslVerification)
+		{
+			return 0;
+		}
+
 		// openssl variables
 		unsigned char* x509_cert_buf = nullptr;
 		int x509_cert_len = 0;
@@ -339,6 +362,30 @@ static_detour(GameUseHttpDetour, bool(unsigned int, unsigned int, char*)) {
 
 void Initialize()
 {
+	if (!SporeServerConfig::Initialize())
+	{
+		DisplayError("SporeServerConfig::Initialize() Failed!");
+		return;
+	}
+
+	if (SporeServerConfig::GetValue("OverridePort", "0")
+		== "1")
+	{
+		int value = std::stoi(SporeServerConfig::GetValue("Port", "443"));
+		// make sure we can safely cast the value
+		if (value <= USHRT_MAX)
+		{
+			SporeServerPortOverride = true;
+			SporeServerPort = (uint16_t)value;
+		}
+	}
+
+	if (SporeServerConfig::GetValue("SslVerification", "1")
+		== "0")
+	{
+		SporeServerSslVerification = false;
+	}
+
 	// This method is executed when the game starts, before the user interface is shown
 	// Here you can do things such as:
 	//  - Add new cheats

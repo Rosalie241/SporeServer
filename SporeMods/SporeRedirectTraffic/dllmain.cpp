@@ -16,10 +16,23 @@
 
 #pragma comment(lib, "wsock32.lib")
 
+#include "..\SporeServerConfig\SporeServerConfig.hpp"
+
+static bool SporeServerHostOverride = false;
+static std::string SporeServerHost;
+
+static void DisplayError(const char* fmt, ...);
+
 static hostent* (WINAPI* gethostbyname_real)(const char*) = gethostbyname;
-static hostent* WINAPI gethostbyname_detour(const char*)
+static hostent* WINAPI gethostbyname_detour(const char* hostname)
 {
-	return gethostbyname_real("localhost");
+	// only override when requested
+	if (SporeServerHostOverride)
+	{
+		return gethostbyname_real(SporeServerHost.c_str());
+	}
+
+	return gethostbyname_real(hostname);
 }
 
 static void DisplayError(const char* fmt, ...)
@@ -34,9 +47,21 @@ static void DisplayError(const char* fmt, ...)
 	MessageBoxA(NULL, buf, "SporeRedirectTraffic", MB_OK | MB_ICONERROR);
 }
 
-
 void Initialize()
 {
+	if (!SporeServerConfig::Initialize())
+	{
+		DisplayError("SporeServerConfig::Initialize() Failed!");
+		return;
+	}
+
+	if (SporeServerConfig::GetValue("OverrideHost", "0")
+		== "1")
+	{
+		SporeServerHostOverride = true;
+		SporeServerHost = SporeServerConfig::GetValue("Host", "localhost");
+	}
+
 	// This method is executed when the game starts, before the user interface is shown
 	// Here you can do things such as:
 	//  - Add new cheats

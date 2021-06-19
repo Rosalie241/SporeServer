@@ -118,6 +118,11 @@
   <ItemGroup>
     <None Include="SdkPathConfig.props" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SporeServerConfig\SporeServerConfig.vcxproj">
+      <Project>{b4522ce4-3435-421f-be8d-20efd57980b4}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
