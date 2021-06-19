@@ -33,16 +33,14 @@ namespace SporeServerConfig
 		ConfigPath = appdata;
 		ConfigPath += "\\Spore\\Preferences\\SporeServer.ini";
 
-		const char* ConfigPath_cstr = ConfigPath.c_str();
-
 		// create config file when it doesn't exist
-		if (GetFileAttributesA(ConfigPath_cstr) == INVALID_FILE_ATTRIBUTES)
+		if (GetFileAttributesA(ConfigPath.c_str()) == INVALID_FILE_ATTRIBUTES)
 		{
-			WritePrivateProfileStringA(APP_NAME, "OverrideHost", "1", ConfigPath_cstr);
-			WritePrivateProfileStringA(APP_NAME, "Host", "localhost", ConfigPath_cstr);
-			WritePrivateProfileStringA(APP_NAME, "OverridePort", "0", ConfigPath_cstr);
-			WritePrivateProfileStringA(APP_NAME, "Port", "443", ConfigPath_cstr);
-			WritePrivateProfileStringA(APP_NAME, "SslVerification", "1", ConfigPath_cstr);
+			SetValue("OverrideHost", "1");
+			SetValue("Host", "localhost");
+			SetValue("OverridePort", "0");
+			SetValue("Port", "443");
+			SetValue("SslVerification", "1");
 		}
 
 		return true;
