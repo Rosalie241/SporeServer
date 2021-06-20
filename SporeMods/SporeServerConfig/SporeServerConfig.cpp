@@ -36,11 +36,11 @@ namespace SporeServerConfig
 		// create config file when it doesn't exist
 		if (GetFileAttributesA(ConfigPath.c_str()) == INVALID_FILE_ATTRIBUTES)
 		{
-			SetValue("OverrideHost", "1");
-			SetValue("Host", "localhost");
-			SetValue("OverridePort", "0");
-			SetValue("Port", "443");
-			SetValue("SslVerification", "1");
+			return SetValue("OverrideHost", "1") &&
+				SetValue("Host", "localhost") &&
+				SetValue("OverridePort", "0") &&
+				SetValue("Port", "443") &&
+				SetValue("SslVerification", "1");
 		}
 
 		return true;
