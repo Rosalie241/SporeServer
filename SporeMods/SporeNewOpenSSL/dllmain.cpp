@@ -374,7 +374,7 @@ void Initialize()
     {
         int value = std::stoi(SporeServerConfig::GetValue("Port", "443"));
         // make sure we can safely cast the value
-        if (value <= USHRT_MAX)
+        if (value >= 0 && value <= USHRT_MAX)
         {
             SporeServerPortOverride = true;
             SporeServerPort = (uint16_t)value;
