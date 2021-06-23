@@ -13,21 +13,21 @@
 
 namespace SporeServerConfig
 {
-	bool Initialize();
+    bool Initialize();
 
-	/// <summary>
-	///		Retrieves the value for keyName, returns defaultValue when not found
-	/// </summary>
-	/// <param name="keyName"></param>
-	/// <param name="defaultValue"></param>
-	/// <returns></returns>
-	std::string GetValue(std::string keyName, std::string defaultValue);
+    /// <summary>
+    ///		Retrieves the value for keyName, returns defaultValue when not found
+    /// </summary>
+    /// <param name="keyName"></param>
+    /// <param name="defaultValue"></param>
+    /// <returns></returns>
+    std::string GetValue(std::string keyName, std::string defaultValue);
 
-	/// <summary>
-	///		Sets the value for keyName with value
-	/// </summary>
-	/// <param name="keyName"></param>
-	/// <param name="value"></param>
-	/// <returns>Whether setting the value was successful</returns>
-	bool SetValue(std::string keyName, std::string value);
+    /// <summary>
+    ///		Sets the value for keyName with value
+    /// </summary>
+    /// <param name="keyName"></param>
+    /// <param name="value"></param>
+    /// <returns>Whether setting the value was successful</returns>
+    bool SetValue(std::string keyName, std::string value);
 }

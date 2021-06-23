@@ -20,43 +20,43 @@ static std::string ConfigPath;
 
 namespace SporeServerConfig
 {
-	bool Initialize()
-	{
-		char* appdata = getenv("APPDATA");
+    bool Initialize()
+    {
+        char* appdata = getenv("APPDATA");
 
-		if (appdata == nullptr)
-		{
-			// shouldn't happen
-			return false;
-		}
+        if (appdata == nullptr)
+        {
+            // shouldn't happen
+            return false;
+        }
 
-		ConfigPath = appdata;
-		ConfigPath += "\\Spore\\Preferences\\SporeServer.ini";
+        ConfigPath = appdata;
+        ConfigPath += "\\Spore\\Preferences\\SporeServer.ini";
 
-		// create config file when it doesn't exist
-		if (GetFileAttributesA(ConfigPath.c_str()) == INVALID_FILE_ATTRIBUTES)
-		{
-			return SetValue("OverrideHost", "1") &&
-				SetValue("Host", "localhost") &&
-				SetValue("OverridePort", "0") &&
-				SetValue("Port", "443") &&
-				SetValue("SslVerification", "1");
-		}
+        // create config file when it doesn't exist
+        if (GetFileAttributesA(ConfigPath.c_str()) == INVALID_FILE_ATTRIBUTES)
+        {
+            return SetValue("OverrideHost", "1") &&
+                SetValue("Host", "localhost") &&
+                SetValue("OverridePort", "0") &&
+                SetValue("Port", "443") &&
+                SetValue("SslVerification", "1");
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	std::string GetValue(std::string keyName, std::string defaultValue)
-	{
-		char buf[MAX_PATH];
+    std::string GetValue(std::string keyName, std::string defaultValue)
+    {
+        char buf[MAX_PATH];
 
-		GetPrivateProfileStringA(APP_NAME, keyName.c_str(), defaultValue.c_str(), buf, MAX_PATH, ConfigPath.c_str());
+        GetPrivateProfileStringA(APP_NAME, keyName.c_str(), defaultValue.c_str(), buf, MAX_PATH, ConfigPath.c_str());
 
-		return std::string(buf);
-	}
+        return std::string(buf);
+    }
 
-	bool SetValue(std::string keyName, std::string value)
-	{
-		return WritePrivateProfileStringA(APP_NAME, keyName.c_str(), value.c_str(), ConfigPath.c_str());
-	}
+    bool SetValue(std::string keyName, std::string value)
+    {
+        return WritePrivateProfileStringA(APP_NAME, keyName.c_str(), value.c_str(), ConfigPath.c_str());
+    }
 }

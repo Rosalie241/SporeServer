@@ -26,91 +26,91 @@ static void DisplayError(const char* fmt, ...);
 static hostent* (WINAPI* gethostbyname_real)(const char*) = gethostbyname;
 static hostent* WINAPI gethostbyname_detour(const char* hostname)
 {
-	// only override when requested
-	if (SporeServerHostOverride)
-	{
-		return gethostbyname_real(SporeServerHost.c_str());
-	}
+    // only override when requested
+    if (SporeServerHostOverride)
+    {
+        return gethostbyname_real(SporeServerHost.c_str());
+    }
 
-	return gethostbyname_real(hostname);
+    return gethostbyname_real(hostname);
 }
 
 static void DisplayError(const char* fmt, ...)
 {
-	char buf[200];
+    char buf[200];
 
-	va_list args;
-	va_start(args, fmt);
-	vsprintf(buf, fmt, args);
-	va_end(args);
+    va_list args;
+    va_start(args, fmt);
+    vsprintf(buf, fmt, args);
+    va_end(args);
 
-	MessageBoxA(NULL, buf, "SporeRedirectTraffic", MB_OK | MB_ICONERROR);
+    MessageBoxA(NULL, buf, "SporeRedirectTraffic", MB_OK | MB_ICONERROR);
 }
 
 void Initialize()
 {
-	if (!SporeServerConfig::Initialize())
-	{
-		DisplayError("SporeServerConfig::Initialize() Failed!");
-		return;
-	}
+    if (!SporeServerConfig::Initialize())
+    {
+        DisplayError("SporeServerConfig::Initialize() Failed!");
+        return;
+    }
 
-	if (SporeServerConfig::GetValue("OverrideHost", "0")
-		== "1")
-	{
-		SporeServerHostOverride = true;
-		SporeServerHost = SporeServerConfig::GetValue("Host", "localhost");
-	}
+    if (SporeServerConfig::GetValue("OverrideHost", "0")
+        == "1")
+    {
+        SporeServerHostOverride = true;
+        SporeServerHost = SporeServerConfig::GetValue("Host", "localhost");
+    }
 
-	// This method is executed when the game starts, before the user interface is shown
-	// Here you can do things such as:
-	//  - Add new cheats
-	//  - Add new simulator classes
-	//  - Add new game modes
-	//  - Add new space tools
-	//  - Change materials
+    // This method is executed when the game starts, before the user interface is shown
+    // Here you can do things such as:
+    //  - Add new cheats
+    //  - Add new simulator classes
+    //  - Add new game modes
+    //  - Add new space tools
+    //  - Change materials
 }
 
 void Dispose()
 {
-	// This method is called when the game is closing
+    // This method is called when the game is closing
 }
 
 
 void AttachDetours()
 {
-	if (DetourAttach(&(PVOID&)gethostbyname_real, gethostbyname_detour) != NO_ERROR)
-	{
-		DisplayError("DetourAttach(gethostbyname) Failed: %li", GetLastError());
-		return;
-	}
+    if (DetourAttach(&(PVOID&)gethostbyname_real, gethostbyname_detour) != NO_ERROR)
+    {
+        DisplayError("DetourAttach(gethostbyname) Failed: %li", GetLastError());
+        return;
+    }
 
-	// Call the attach() method on any detours you want to add
-	// For example: cViewer_SetRenderType_detour::attach(GetAddress(cViewer, SetRenderType));
+    // Call the attach() method on any detours you want to add
+    // For example: cViewer_SetRenderType_detour::attach(GetAddress(cViewer, SetRenderType));
 }
 
 // Generally, you don't need to touch any code here
-BOOL APIENTRY DllMain( HMODULE hModule,
-                       DWORD  ul_reason_for_call,
-                       LPVOID lpReserved
-					 )
+BOOL APIENTRY DllMain(HMODULE hModule,
+    DWORD  ul_reason_for_call,
+    LPVOID lpReserved
+)
 {
-	switch (ul_reason_for_call)
-	{
-	case DLL_PROCESS_ATTACH:
-		ModAPI::AddPostInitFunction(Initialize);
-		ModAPI::AddDisposeFunction(Dispose);
+    switch (ul_reason_for_call)
+    {
+    case DLL_PROCESS_ATTACH:
+        ModAPI::AddPostInitFunction(Initialize);
+        ModAPI::AddDisposeFunction(Dispose);
 
-		PrepareDetours(hModule);
-		AttachDetours();
-		CommitDetours();
-		break;
+        PrepareDetours(hModule);
+        AttachDetours();
+        CommitDetours();
+        break;
 
-	case DLL_PROCESS_DETACH:
-	case DLL_THREAD_ATTACH:
-	case DLL_THREAD_DETACH:
-		break;
-	}
-	return TRUE;
+    case DLL_PROCESS_DETACH:
+    case DLL_THREAD_ATTACH:
+    case DLL_THREAD_DETACH:
+        break;
+    }
+    return TRUE;
 }
 
