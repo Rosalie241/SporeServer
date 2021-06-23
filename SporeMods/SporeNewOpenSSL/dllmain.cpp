@@ -35,7 +35,7 @@
 #include <Windows.h>
 #include <wincrypt.h>
 
-// needed for port overide setting
+// needed for settings
 #include "..\SporeServerConfig\SporeServerConfig.hpp"
 
 // needed for std::stoi
