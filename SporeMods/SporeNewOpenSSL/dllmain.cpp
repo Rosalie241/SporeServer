@@ -372,12 +372,19 @@ void Initialize()
     if (SporeServerConfig::GetValue("OverridePort", "0")
         == "1")
     {
-        int value = std::stoi(SporeServerConfig::GetValue("Port", "443"));
-        // make sure we can safely cast the value
-        if (value >= 0 && value <= USHRT_MAX)
+        try
         {
-            SporeServerPortOverride = true;
-            SporeServerPort = (uint16_t)value;
+            int value = std::stoi(SporeServerConfig::GetValue("Port", "443"));
+            // make sure we can safely cast the value
+            if (value >= 0 && value <= USHRT_MAX)
+            {
+                SporeServerPortOverride = true;
+                SporeServerPort = (uint16_t)value;
+            }
+        }
+        catch (std::exception)
+        {
+            // ignore exception
         }
     }
 
