@@ -8,20 +8,54 @@
 //  along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
 // dllmain.cpp : Defines the entry point for the DLL application.
+
+//
+// Includes
+// 
+
 #define _CRT_SECURE_NO_WARNINGS
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+
 #include "stdafx.h"
 
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
+// needed for gethostbyname
 #include <WinSock2.h>
+
+// needed for settings
+#include "..\SporeServerConfig\SporeServerConfig.hpp"
+
+//
+// Libraries
+//
 
 #pragma comment(lib, "wsock32.lib")
 
-#include "..\SporeServerConfig\SporeServerConfig.hpp"
+//
+// Global variables
+//
 
-static bool SporeServerHostOverride = false;
+static bool        SporeServerHostOverride = false;
 static std::string SporeServerHost;
 
-static void DisplayError(const char* fmt, ...);
+//
+// Helper functions
+//
+
+static void DisplayError(const char* fmt, ...)
+{
+    char buf[200];
+
+    va_list args;
+    va_start(args, fmt);
+    vsprintf(buf, fmt, args);
+    va_end(args);
+
+    MessageBoxA(NULL, buf, "SporeRedirectTraffic", MB_OK | MB_ICONERROR);
+}
+
+//
+// Detour functions
+//
 
 static hostent* (WINAPI* gethostbyname_real)(const char*) = gethostbyname;
 static hostent* WINAPI gethostbyname_detour(const char* hostname)
@@ -35,17 +69,9 @@ static hostent* WINAPI gethostbyname_detour(const char* hostname)
     return gethostbyname_real(hostname);
 }
 
-static void DisplayError(const char* fmt, ...)
-{
-    char buf[200];
-
-    va_list args;
-    va_start(args, fmt);
-    vsprintf(buf, fmt, args);
-    va_end(args);
-
-    MessageBoxA(NULL, buf, "SporeRedirectTraffic", MB_OK | MB_ICONERROR);
-}
+//
+// Boilerplate
+//
 
 void Initialize()
 {
@@ -79,9 +105,12 @@ void Dispose()
 
 void AttachDetours()
 {
-    if (DetourAttach(&(PVOID&)gethostbyname_real, gethostbyname_detour) != NO_ERROR)
+    LONG ret = 0;
+
+    ret = DetourAttach(&(PVOID&)gethostbyname_real, gethostbyname_detour);
+    if (ret != NO_ERROR)
     {
-        DisplayError("DetourAttach(gethostbyname) Failed: %li", GetLastError());
+        DisplayError("DetourAttach(gethostbyname) Failed: %li", ret);
         return;
     }
 
