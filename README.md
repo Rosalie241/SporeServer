@@ -8,9 +8,8 @@ A WIP Spore Server replacement
 * SporeMods
    * SporeRedirectTraffic
      * Spore mod which redirects all network traffic
-   * SporeNewOpenssl
+   * SporeNewOpenSSL
      * Spore mod which replaces the OpenSSL version
-	 * Spore mod which forces the game to use HTTPS
 
 # Special Thanks
 * Emd (Discord)
