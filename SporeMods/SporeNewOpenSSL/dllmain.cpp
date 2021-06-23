@@ -51,18 +51,11 @@
 #pragma comment(lib, "ws2_32.lib")
 
 //
-// configure options
-//
-
-// forces HTTPS on all connections
-#define SPORENEWOPENSSL_FORCEHTTPS
-
-//
 // Global variables
 //
 
-static SSL* OpenSSL_SSL = nullptr;
-static SSL_CTX* OpenSSL_CTX = nullptr;
+static SSL*         OpenSSL_SSL = nullptr;
+static SSL_CTX*     OpenSSL_CTX = nullptr;
 static std::mutex   OpenSSL_MTX;
 static int          OpenSSL_ThreadId = -1;
 static bool         SporeServerPortOverride = false;
@@ -341,7 +334,6 @@ static_detour(GameValidateCertificate, int(int, char*)) {
     }
 };
 
-#ifdef SPORENEWOPENSSL_FORCEHTTPS
 static_detour(GameUseHttpsDetour, bool(unsigned int, unsigned int, char*)) {
     bool detoured(unsigned int arg1, unsigned int arg2, char* arg3)
     {
@@ -355,7 +347,6 @@ static_detour(GameUseHttpDetour, bool(unsigned int, unsigned int, char*)) {
         return GameUseHttpsDetour::original_function(arg1, arg2, arg3);
     }
 };
-#endif
 
 //
 // Boilerplate
@@ -440,7 +431,6 @@ void AttachDetours()
     // RVA disc   = 0x54F080
     GameValidateCertificate::attach(base_addr + ModAPI::ChooseAddress(0x54F080, 0x54EB60));
 
-#ifdef SPORENEWOPENSSL_FORCEHTTPS
     // RVA latest = 0x2216E0
     // RVA disc   = 0x221740
     GameUseHttpsDetour::attach(base_addr + ModAPI::ChooseAddress(0x221740, 0x2216E0));
@@ -448,7 +438,6 @@ void AttachDetours()
     // RVA latest = 0x2217A0
     // RVA disc   = 0x221800
     GameUseHttpDetour::attach(base_addr + ModAPI::ChooseAddress(0x221800, 0x2217A0));
-#endif
 
     DetourAttach(&(PVOID&)connect_real, connect_detour);
     DetourAttach(&(PVOID&)closesocket_real, closesocket_detour);
