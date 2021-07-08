@@ -37,6 +37,7 @@ namespace SporeServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IAssetManager, AssetManager>();
+            services.AddScoped<IAssetCommentManager, AssetCommentManager>();
             services.AddScoped<IUserSubscriptionManager, UserSubscriptionManager>();
             services.AddScoped<IAggregatorManager, AggregatorManager>();
             services.AddScoped<IAggregatorSubscriptionManager, AggregatorSubscriptionManager>();
