@@ -49,8 +49,9 @@ namespace SporeServer.Controllers.Community
             var user = await _userManager.GetUserAsync(User);
 
             // make sure the asset exists
+            // and is used
             if (asset == null ||
-                asset.Used)
+                !asset.Used)
             {
                 return Ok();
             }
