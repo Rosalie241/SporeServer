@@ -17,16 +17,45 @@
 </head>
 
 <body>
-    <!--TODO
+    @if (Model.AssetExists)
+    {
     <div id="gamesused">
         <h2>Games Used:</h2>
         <div class="gamesicons">
-
+            <img src="/static/war/images/content/packaging/Spore-icon.png" />
+            <!-- TODO
+                <img src="/static/war/images/content/packaging/BP1CreepyCuteIcon.png" class="multi" />
+                <img src="/static/war/images/content/packaging/Patch3InsectLimbsIcon.png" class="multi" />
+            -->
         </div>
     </div>
 
+    <div id="commentinput">
+        <h2>Add Comment</h2>
+        <form method="get" action="/community/assetBrowser/comment/@(Model.Asset.AssetId)">
+            <p><textarea name="comment" class="commenttext" cols="22" size="150"></textarea></p>
+            <p><input type="submit" value="Submit" class="submitcomment" /></p>
+        </form>
+    </div>
+
     <div id="commentmessaging">
-        No comments allowed yet.
-    </div>-->
+        @if (Model.CommentsCount == 0)
+        {
+            <p>There are no comments for this creation.</p>
+        }
+        else
+        {
+            @foreach (var comment in Model.Comments)
+            {
+                <div class="commentblock">
+                    <p>@(comment.Author.UserName) commented:</p>
+                    @(comment.Comment)<p/>
+                    Posted: @(comment.Timestamp)
+                    [<a href="/assetBrowser/flagComment/@(comment.CommentId)">Report</a>]<p/>
+                </div>
+            }
+        }
+    </div>
+    }
 </body>
 </html>
