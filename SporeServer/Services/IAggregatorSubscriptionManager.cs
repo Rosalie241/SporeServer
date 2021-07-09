@@ -39,13 +39,13 @@ namespace SporeServer.Services
         /// <param name="author"></param>
         /// <param name="user"></param>
         /// <returns></returns>
-        SporeServerAggregatorSubscription Find(SporeServerUser author, SporeServerAggregator aggregator);
+        Task<SporeServerAggregatorSubscription> FindAsync(SporeServerUser author, SporeServerAggregator aggregator);
 
         /// <summary>
         ///     Finds all subscriptions for author
         /// </summary>
         /// <param name="author"></param>
         /// <returns></returns>
-        SporeServerAggregatorSubscription[] FindAllByAuthor(SporeServerUser author);
+        Task<SporeServerAggregatorSubscription[]> FindAllByAuthorAsync(SporeServerUser author);
     }
 }

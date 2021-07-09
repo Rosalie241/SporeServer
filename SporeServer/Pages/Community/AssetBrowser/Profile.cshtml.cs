@@ -189,7 +189,8 @@ namespace SporeServer.Pages.Community.AssetBrowser
                                 .Take(5)
                                 .ToArray();
 
-            AggregatorSubscriptions = _aggregatorSubscriptionManager.FindAllByAuthor(CurrentUser)
+            var aggregatorSubscriptions = await _aggregatorSubscriptionManager.FindAllByAuthorAsync(CurrentUser);
+            AggregatorSubscriptions = aggregatorSubscriptions
                                             .Select(s => s.AggregatorId)
                                             .ToArray();
 

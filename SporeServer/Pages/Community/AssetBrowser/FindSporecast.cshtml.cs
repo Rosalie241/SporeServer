@@ -108,9 +108,9 @@ namespace SporeServer.Pages.Community.AssetBrowser
 
             UserAggregators = await _aggregatorManager.FindByAuthorAsync(author);
 
-            AggregatorSubscriptions = _aggregatorSubscriptionManager.FindAllByAuthor(author)
-                                                                    .Select(s => s.AggregatorId)
-                                                                    .ToArray();
+            var aggregatorSubscriptions = await _aggregatorSubscriptionManager.FindAllByAuthorAsync(author);
+            AggregatorSubscriptions = aggregatorSubscriptions.Select(s => s.AggregatorId)
+                                                                .ToArray();
             return Page();
         }
     }

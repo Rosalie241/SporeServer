@@ -71,21 +71,37 @@ namespace SporeServer.Services
             }
         }
 
-        public SporeServerAggregatorSubscription Find(SporeServerUser author, SporeServerAggregator aggregator)
+        public async Task<SporeServerAggregatorSubscription> FindAsync(SporeServerUser author, SporeServerAggregator aggregator)
         {
-            return _context.AggregatorSubscriptions
-                    .Where(s => s.AuthorId == author.Id &&
-                                s.AggregatorId == aggregator.AggregatorId)
-                    .FirstOrDefault();
+            try
+            {
+                return await _context.AggregatorSubscriptions
+                                        .Where(s => s.AuthorId == author.Id &&
+                                                    s.AggregatorId == aggregator.AggregatorId)
+                                        .FirstOrDefaultAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"FindAsync: Failed To Find Subscription: {e}");
+                return null;
+            }
         }
 
-        public SporeServerAggregatorSubscription[] FindAllByAuthor(SporeServerUser author)
+        public async Task<SporeServerAggregatorSubscription[]> FindAllByAuthorAsync(SporeServerUser author)
         {
-            return _context.AggregatorSubscriptions
-                    .Include(s => s.Aggregator)
-                    .Include(s => s.Aggregator.Author)
-                    .Where(s => s.AuthorId == author.Id)
-                    .ToArray();
+            try
+            {
+                return await _context.AggregatorSubscriptions
+                                        .Include(s => s.Aggregator)
+                                        .Include(s => s.Aggregator.Author)
+                                        .Where(s => s.AuthorId == author.Id)
+                                        .ToArrayAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"FindAllByAuthorAsync: Failed To Find By Author {author.Id}: {e}");
+                return null;
+            }
         }
     }
 }

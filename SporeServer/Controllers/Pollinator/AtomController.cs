@@ -223,7 +223,7 @@ namespace SporeServer.Controllers.Pollinator
             { // aggregator subscription
                 // only add subscription when the subscription doesn't already exist
                 // and if the requested aggregator author is not the author
-                if (_aggregatorSubscriptionManager.Find(author, aggregator) == null &&
+                if (await _aggregatorSubscriptionManager.FindAsync(author, aggregator) == null &&
                     author.Id != aggregator.AuthorId)
                 {
                     // add subscription
@@ -272,7 +272,7 @@ namespace SporeServer.Controllers.Pollinator
             }
             else
             { // aggregator subscription
-                var subscription = _aggregatorSubscriptionManager.Find(author, aggregator);
+                var subscription = await _aggregatorSubscriptionManager.FindAsync(author, aggregator);
 
                 // only remove subscription when it exists
                 if (subscription != null)
