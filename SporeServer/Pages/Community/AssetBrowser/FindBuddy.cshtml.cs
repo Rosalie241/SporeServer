@@ -25,13 +25,13 @@ namespace SporeServer.Pages.Community.AssetBrowser
     public class FindBuddyModel : PageModel
     {
         private readonly UserManager<SporeServerUser> _userManager;
-        private readonly IUserSubscriptionManager _subscriptionManager;
+        private readonly IUserSubscriptionManager _userSubscriptionManager;
         private readonly IAssetManager _assetManager;
 
-        public FindBuddyModel(UserManager<SporeServerUser> userManager, IUserSubscriptionManager subscriptionManager, IAssetManager assetManager)
+        public FindBuddyModel(UserManager<SporeServerUser> userManager, IUserSubscriptionManager userSubscriptionManager, IAssetManager assetManager)
         {
             _userManager = userManager;
-            _subscriptionManager = subscriptionManager;
+            _userSubscriptionManager = userSubscriptionManager;
             _assetManager = assetManager;
         }
 
@@ -90,10 +90,10 @@ namespace SporeServer.Pages.Community.AssetBrowser
                             .Take(25)
                             .ToArrayAsync();
 
-            SubscribedUsers = _subscriptionManager
-                                .FindAllByAuthor(CurrentUser)
-                                .Select(s => s.User)
-                                .ToArray();
+            var userSubscriptions = await _userSubscriptionManager.FindAllByAuthorAsync(CurrentUser);
+            SubscribedUsers = userSubscriptions
+                                        .Select(s => s.User)
+                                        .ToArray();
 
             SearchString = searchString;
             Searched = true;

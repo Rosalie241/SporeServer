@@ -125,7 +125,7 @@ namespace SporeServer.Pages.Community.AssetBrowser
                 return NotFound();
             }
 
-            Subscribed = _userSubscriptionManager.Find(CurrentUser, ProfileUser) != null;
+            Subscribed = await _userSubscriptionManager.FindAsync(CurrentUser, ProfileUser) != null;
 
             AchievementIndex = 0;
             NextAchievementIndex = 3;

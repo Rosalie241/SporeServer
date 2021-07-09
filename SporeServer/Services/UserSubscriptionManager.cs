@@ -71,20 +71,36 @@ namespace SporeServer.Services
             }
         }
 
-        public SporeServerUserSubscription Find(SporeServerUser author, SporeServerUser user)
+        public async Task<SporeServerUserSubscription> FindAsync(SporeServerUser author, SporeServerUser user)
         {
-            return _context.UserSubscriptions
-                    .Where(s => s.AuthorId == author.Id && 
-                                s.UserId == user.Id)
-                    .FirstOrDefault();
+            try
+            {
+                return await _context.UserSubscriptions
+                                        .Where(s => s.AuthorId == author.Id &&
+                                                    s.UserId == user.Id)
+                                        .FirstOrDefaultAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"FindAsync: Failed To Find Subscription: {e}");
+                return null;
+            }
         }
 
-        public SporeServerUserSubscription[] FindAllByAuthor(SporeServerUser author)
+        public async Task<SporeServerUserSubscription[]> FindAllByAuthorAsync(SporeServerUser author)
         {
-            return _context.UserSubscriptions
-                    .Include(s => s.User)
-                    .Where(s => s.AuthorId == author.Id)
-                    .ToArray();
+            try
+            {
+                return await _context.UserSubscriptions
+                                        .Include(s => s.User)
+                                        .Where(s => s.AuthorId == author.Id)
+                                        .ToArrayAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"FindAllByAuthorAsync: Failed To Find By Author {author.Id}: {e}");
+                return null;
+            }
         }
 
         public async Task<int> GetCountByUserAsync(SporeServerUser user)

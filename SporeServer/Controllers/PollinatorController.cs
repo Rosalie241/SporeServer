@@ -47,7 +47,7 @@ namespace SporeServer.Controllers
             var user = await _userManager.GetUserAsync(User);
             var asset = await _assetManager.FindByIdAsync(user.NextAssetId);
             var aggregators = await _aggregatorManager.FindByAuthorAsync(user);
-            var userSubscriptions = _userSubscriptionManager.FindAllByAuthor(user);
+            var userSubscriptions = await _userSubscriptionManager.FindAllByAuthorAsync(user);
             var aggregatorSubscriptions = await _aggregatorSubscriptionManager.FindAllByAuthorAsync(user);
 
             // reserve new asset when 

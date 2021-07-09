@@ -206,7 +206,7 @@ namespace SporeServer.Controllers.Pollinator
             { // user subscription 
                 // only add subscription when the subscription doesn't already exist
                 // and if the requested user is not the author
-                if (_userSubscriptionManager.Find(author, user) == null &&
+                if (await _userSubscriptionManager.FindAsync(author, user) == null &&
                     user.Id != author.Id)
                 {
                     // add subscription
@@ -258,7 +258,7 @@ namespace SporeServer.Controllers.Pollinator
 
             if (user != null)
             { // user subscription
-                var subscription = _userSubscriptionManager.Find(author, user);
+                var subscription = await _userSubscriptionManager.FindAsync(author, user);
 
                 // only remove subscription when it exists
                 if (subscription != null)
