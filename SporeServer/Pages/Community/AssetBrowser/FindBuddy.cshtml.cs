@@ -58,12 +58,11 @@ namespace SporeServer.Pages.Community.AssetBrowser
         /// <summary>
         ///     returns Asset Count of given user
         /// </summary>
-        /// <param name="userId"></param>
+        /// <param name="user"></param>
         /// <returns></returns>
-        public int GetAssetCountByUser(Int64 userId)
+        public async Task<Int32> GetAssetCountByUserAsync(SporeServerUser user)
         {
-            var assets = _assetManager.FindAllByUserIdAsync(userId).Result;
-            return assets == null ? 0 : assets.Length;
+            return await _assetManager.GetCountByAuthorAsync(user);
         }
         
         public async Task <IActionResult> OnGet()

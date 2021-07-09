@@ -62,7 +62,7 @@
                     {
                         var user = Model.Users[i];
                         bool odd = i % 2 != 0;
-                        int assetCount = Model.GetAssetCountByUser(user.Id);
+                        int assetCount = await Model.GetAssetCountByUserAsync(user);
                         <tr>
                             <td class="avatar@(odd ? " , odd" : "")">
                                 <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
