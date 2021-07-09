@@ -57,7 +57,7 @@ namespace SporeServer.Pages.Community.AssetBrowser
 
             SubscribeCount = await _userSubscriptionManager.GetCountByUserAsync(user);
             AggregatorCount = await _aggregatorManager.GetCountByAuthorAsync(user);
-            AssetCount = await _assetManager.GetCountByAuthor(user);
+            AssetCount = await _assetManager.GetCountByAuthorAsync(user);
 
             return Page();
         }

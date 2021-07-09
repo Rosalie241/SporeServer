@@ -567,7 +567,7 @@ namespace SporeServer.Services
             }
         }
 
-        public async Task<Int32> GetCountByAuthor(SporeServerUser author)
+        public async Task<Int32> GetCountByAuthorAsync(SporeServerUser author)
         {
             try
             {

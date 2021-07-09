@@ -85,7 +85,7 @@ namespace SporeServer.Services
         /// </summary>
         /// <param name="author"></param>
         /// <returns></returns>
-        Task<Int32> GetCountByAuthor(SporeServerUser author);
+        Task<Int32> GetCountByAuthorAsync(SporeServerUser author);
 
         /// <summary>
         ///     Returns all assets
