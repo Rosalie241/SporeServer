@@ -128,6 +128,21 @@ namespace SporeServer.Services
             }
         }
 
+        public async Task<Int32> GetCountByAuthorAsync(SporeServerUser author)
+        {
+            try
+            {
+                return await _context.Aggregators
+                                        .Where(a => a.AuthorId == author.Id)
+                                        .CountAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"GetCountByAuthorAsync: Failed To Get Count By Author {author.Id}: {e}");
+                return 0;
+            }
+        }
+
         public DbSet<SporeServerAggregator> GetAllAggregators()
         {
             return _context.Aggregators;
