@@ -86,5 +86,20 @@ namespace SporeServer.Services
                     .Where(s => s.AuthorId == author.Id)
                     .ToArray();
         }
+
+        public async Task<int> GetCountByUserAsync(SporeServerUser user)
+        {
+            try
+            {
+                return await _context.UserSubscriptions
+                                        .Where(s => s.UserId == user.Id)
+                                        .CountAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"GetCountByUserAsync: Failed To Get Count Of Subscriptions For {user.Id}: {e}");
+                return 0;
+            }
+        }
     }
 }
