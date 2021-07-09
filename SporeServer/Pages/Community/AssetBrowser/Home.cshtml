@@ -189,9 +189,9 @@
             <div class="usertext">
                 <h1 class="username">@User.Identity.Name</h1>
 
-                Subscribers: @(Model.GetSubscriberCountAsync())
-                <br /> Sporecasts: 0
-                <br /> Creations: 0
+                Subscribers: @(Model.SubscribeCount)
+                <br /> Sporecasts: @(Model.AggregatorCount)
+                <br /> Creations: @(Model.AssetCount)
 
                 <br />
 
