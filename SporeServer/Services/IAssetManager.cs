@@ -81,6 +81,13 @@ namespace SporeServer.Services
         Task<SporeServerAsset[]> GetRandomAssetsAsync(Int64 authorId, SporeModelType type);
 
         /// <summary>
+        ///     Returns count of assets by author
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns></returns>
+        Task<Int32> GetCountByAuthor(SporeServerUser author);
+
+        /// <summary>
         ///     Returns all assets
         /// </summary>
         /// <returns></returns>

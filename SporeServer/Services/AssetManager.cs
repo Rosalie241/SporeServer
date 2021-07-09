@@ -567,6 +567,21 @@ namespace SporeServer.Services
             }
         }
 
+        public async Task<Int32> GetCountByAuthor(SporeServerUser author)
+        {
+            try
+            {
+                return await _context.Assets
+                                        .Where(a => a.AuthorId == author.Id)
+                                        .CountAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"GetCountByAuthor: Failed To Get Count For {author.Id}: {e}");
+                return 0;
+            }
+        }
+
         public DbSet<SporeServerAsset> GetAllAssets()
         {
             return _context.Assets;
