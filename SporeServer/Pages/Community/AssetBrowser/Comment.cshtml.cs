@@ -43,7 +43,11 @@ namespace SporeServer.Pages.Community.AssetBrowser
         ///     Comments
         /// </summary>
         public SporeServerAssetComment[] Comments { get; set; }
+        /// <summary>
+        ///     Comments Count
+        /// </summary>
         public Int32 CommentsCount { get; set; }
+
         public async Task<IActionResult> OnGet(Int64 id)
         {
             Console.WriteLine($"/community/assetBrowser/comment/{id}");
