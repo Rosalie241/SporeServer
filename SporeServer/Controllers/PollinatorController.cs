@@ -17,6 +17,7 @@ using SporeServer.Builder.AtomFeed;
 using SporeServer.Builder.AtomFeed.Templates.Pollinator;
 using SporeServer.Data;
 using SporeServer.Services;
+using System.Collections.Generic;
 
 namespace SporeServer.Controllers
 {
@@ -49,6 +50,14 @@ namespace SporeServer.Controllers
             var aggregators = await _aggregatorManager.FindByAuthorAsync(user);
             var userSubscriptions = await _userSubscriptionManager.FindAllByAuthorAsync(user);
             var aggregatorSubscriptions = await _aggregatorSubscriptionManager.FindAllByAuthorAsync(user);
+            var aggregatorSubscriptionCounts = new List<Int32>();
+
+            // retrieve subscription count for each aggregator
+            foreach (var aggregator in aggregators)
+            {
+                var aggregatorSubscriptionCount = await _aggregatorSubscriptionManager.GetSubscriberCountAsync(aggregator);
+                aggregatorSubscriptionCounts.Add(aggregatorSubscriptionCount);
+            }
 
             // reserve new asset when 
             //      * user has no reserved asset
@@ -64,7 +73,7 @@ namespace SporeServer.Controllers
             }
 
             return AtomFeedBuilder.CreateFromTemplate(
-                    new HandshakeTemplate(user, aggregators, userSubscriptions, aggregatorSubscriptions)
+                    new HandshakeTemplate(user, aggregators, aggregatorSubscriptionCounts.ToArray(), userSubscriptions, aggregatorSubscriptions)
                 ).ToContentResult();
         }
 

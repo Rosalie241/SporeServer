@@ -129,7 +129,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
     {
         private readonly string _xml;
 
-        public HandshakeTemplate(SporeServerUser user, SporeServerAggregator[] aggregators, SporeServerUserSubscription[] userSubscriptions, SporeServerAggregatorSubscription[] aggregatorSubscriptions)
+        public HandshakeTemplate(SporeServerUser user, SporeServerAggregator[] aggregators, Int32[] aggregatorSubscriptionCounts, SporeServerUserSubscription[] userSubscriptions, SporeServerAggregatorSubscription[] aggregatorSubscriptions)
         {
             // <handshake />
             //
@@ -163,8 +163,10 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
             // <my-feeds />
             //
             var myFeeds = AtomFeedBuilder.AddCustomElement(document, "my-feeds");
-            foreach (var aggregator in aggregators)
+            for (int i = 0; i < aggregators.Length; i++)
             {
+                var aggregator = aggregators[i];
+                var aggregatorSubscriptionCount = aggregatorSubscriptionCounts[i];
                 AtomFeedBuilder.AddFeedEntry(document, myFeeds,
                     id: $"tag:spore.com,2006:aggregator/{aggregator.AggregatorId}",
                     title: $"{aggregator.Name}",
@@ -172,7 +174,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
                     subtitle: null,
                     authorName: $"{aggregator.Author.UserName}",
                     authorUri: $"{aggregator.AuthorId}",
-                    subCount: 0,
+                    subCount: aggregatorSubscriptionCount,
                     link: $"https://pollinator.spore.com/pollinator/atom/aggregator/{aggregator.AggregatorId}");
             }
             AtomFeedBuilder.AddFeedEntry(document, myFeeds,
