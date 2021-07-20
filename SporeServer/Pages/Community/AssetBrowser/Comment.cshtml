@@ -48,7 +48,7 @@
             @foreach (var comment in Model.Comments)
             {
                 <div class="commentblock">
-                    <p>@(comment.Author.UserName) commented:</p>
+                    <p><a href="sporeprofile:@(comment.AuthorId)" style="">@(comment.Author.UserName)</a> commented:</p>
                     @(comment.Comment)<p/>
                     Posted: @(comment.Timestamp)
                     [<a href="/assetBrowser/flagComment/@(comment.CommentId)">Report</a>]<p/>
