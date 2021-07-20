@@ -12,7 +12,7 @@
     "SporeServer": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
-      "applicationUrl": "http://localhost:80;https://localhost:443",
+      "applicationUrl": "http://localhost:5000;https://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
