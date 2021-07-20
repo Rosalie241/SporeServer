@@ -47,5 +47,12 @@ namespace SporeServer.Services
         /// <param name="author"></param>
         /// <returns></returns>
         Task<SporeServerAggregatorSubscription[]> FindAllByAuthorAsync(SporeServerUser author);
+
+        /// <summary>
+        ///     Gets subscruber count for aggregator
+        /// </summary>
+        /// <param name="aggregator"></param>
+        /// <returns></returns>
+        Task<Int32> GetSubscriberCountAsync(SporeServerAggregator aggregator);
     }
 }

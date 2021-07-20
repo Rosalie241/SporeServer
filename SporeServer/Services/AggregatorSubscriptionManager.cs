@@ -103,5 +103,20 @@ namespace SporeServer.Services
                 return null;
             }
         }
+
+        public async Task<Int32> GetSubscriberCountAsync(SporeServerAggregator aggregator)
+        {
+            try
+            {
+                return await _context.AggregatorSubscriptions
+                                        .Where(a => a.AggregatorId == aggregator.AggregatorId)
+                                        .CountAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"GetSubscriberCount: Failed To Get Subscriber Count For {aggregator.AggregatorId}: {e}");
+                return 0;
+            }
+        }
     }
 }
