@@ -39,7 +39,6 @@ namespace SporeServer.Services
                     Description = description,
                     Timestamp = DateTime.Now,
                     Author = author,
-                    SubscriberCount = 0,
                     Assets = assets
                 };
 

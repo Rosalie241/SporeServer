@@ -43,10 +43,6 @@ namespace SporeServer.Areas.Identity.Data
         /// </summary>
         public SporeServerUser Author { get; set; }
         /// <summary>
-        ///     Aggregator SubscriberCount
-        /// </summary>
-        public int SubscriberCount { get; set; }
-        /// <summary>
         ///     Aggregator Assets
         /// </summary>
         public ICollection<SporeServerAsset> Assets { get; set; }
