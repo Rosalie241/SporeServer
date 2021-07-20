@@ -71,7 +71,7 @@
                     <div class="promo">
                         <h3>by <a href="sporeprofile:@(aggregator.AuthorId)" style="">@(aggregator.Author.UserName)</a> </h3>
                         <p>
-                            @(aggregator.SubscriberCount) Subscribers
+                            @(await Model.GetSubscriberCountAsync(aggregator)) Subscribers
                             @if (!Model.UserAggregators.Contains(aggregator))
                             { // only add subscribe button when it isn't our own aggregator
                                 @if (Model.AggregatorSubscriptions.Contains(aggregator.AggregatorId))

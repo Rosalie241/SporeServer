@@ -61,7 +61,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator.Atom
     {
         private readonly string _xml;
 
-        public AggregatorTemplate(SporeServerAggregator aggregator)
+        public AggregatorTemplate(SporeServerAggregator aggregator, int subscriberCount)
         {
             // <feed />
             //
@@ -77,7 +77,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator.Atom
             // <author />
             AtomFeedBuilder.AddAuthorElement(document, $"{aggregator.Author.UserName}", $"{aggregator.Author.Id}");
             // <subcount />
-            AtomFeedBuilder.AddCustomElement(document, "subcount", $"{aggregator.SubscriberCount}");
+            AtomFeedBuilder.AddCustomElement(document, "subcount", $"{subscriberCount}");
             // <link />
             AtomFeedBuilder.AddLinkElement(document, "self", $"https://www.spore.com/pollinator/atom/aggregator/{aggregator.AggregatorId}", null, null);
 

@@ -327,8 +327,10 @@ namespace SporeServer.Controllers.Pollinator
                 return NotFound();
             }
 
+            var subscriberCount = await _aggregatorSubscriptionManager.GetSubscriberCountAsync(aggregator);
+
             return AtomFeedBuilder.CreateFromTemplate(
-                    new AggregatorTemplate(aggregator)
+                    new AggregatorTemplate(aggregator, subscriberCount)
                 ).ToContentResult();
         }
 

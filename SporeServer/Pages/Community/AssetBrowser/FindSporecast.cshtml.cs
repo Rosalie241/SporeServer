@@ -68,6 +68,11 @@ namespace SporeServer.Pages.Community.AssetBrowser
         /// </summary>
         public Int32 PreviousIndex { get; set; }
 
+        public async Task<Int32> GetSubscriberCountAsync(SporeServerAggregator aggregator)
+        {
+            return await _aggregatorSubscriptionManager.GetSubscriberCountAsync(aggregator);
+        }
+
         public async Task<IActionResult> OnGet(Int32? index)
         {
             Console.WriteLine($"/community/assetBrowser/findSporecast/{index}{Request.QueryString}");
