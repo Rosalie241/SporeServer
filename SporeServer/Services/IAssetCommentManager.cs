@@ -27,17 +27,52 @@ namespace SporeServer.Services
         public Task<bool> AddAsync(SporeServerAsset asset, SporeServerUser author, string comment);
 
         /// <summary>
+        ///     Approves comment
+        /// </summary>
+        /// <param name="comment"></param>
+        /// <returns></returns>
+        public Task<bool> ApproveAsync(SporeServerAssetComment comment);
+
+        /// <summary>
+        ///     Removes comment
+        /// </summary>
+        /// <param name="comment"></param>
+        /// <returns></returns>
+        public Task<bool> RemoveAsync(SporeServerAssetComment comment);
+
+        /// <summary>
+        ///     Finds comment with given id, returns null when not found
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Task<SporeServerAssetComment> FindByIdAsync(Int64 id);
+
+        /// <summary>
         ///     Finds all approved comments for asset
         /// </summary>
         /// <param name="asset"></param>
         /// <returns></returns>
-        public Task<SporeServerAssetComment[]> FindAllApprovedByAsset(SporeServerAsset asset);
+        public Task<SporeServerAssetComment[]> FindAllApprovedByAssetAsync(SporeServerAsset asset);
+
+        /// <summary>
+        ///     Finds all approved comments for asset author
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns></returns>
+        public Task<SporeServerAssetComment[]> FindAllApprovedByAssetAuthorAsync(SporeServerUser author);
+
+        /// <summary>
+        ///     Finds all unapproved comments for asset author
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns></returns>
+        public Task<SporeServerAssetComment[]> FindAllUnApprovedByAssetAuthorAsync(SporeServerUser author);
 
         /// <summary>
         ///     Finds all comments for assets from author
         /// </summary>
         /// <param name="author"></param>
         /// <returns></returns>
-        public Task<SporeServerAssetComment[]> FindAllByAssetAuthor(SporeServerUser author);
+        public Task<SporeServerAssetComment[]> FindAllByAssetAuthorAsync(SporeServerUser author);
     }
 }
