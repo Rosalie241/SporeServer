@@ -74,7 +74,7 @@ namespace SporeServer.Pages.Community.AssetBrowser
                 }
             }
 
-            Comments = await _assetCommentManager.FindAllApprovedByAsset(Asset);
+            Comments = await _assetCommentManager.FindAllApprovedByAssetAsync(Asset);
             CommentsCount = Comments == null ? 0 : Comments.Length;
             return Page();
         }
