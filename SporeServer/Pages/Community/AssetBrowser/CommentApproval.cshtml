@@ -8,7 +8,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;" />
     <title>AssetBrowser: Approve Comments</title>
-    <!--<base href="http://community.spore.com" />-->
+    <base href="https://community.spore.com" />
     <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
     <link rel="stylesheet" type="text/css" href="/css/game/main.css" />
     <style type="text/css">
@@ -26,7 +26,6 @@
 </head>
 
 <body>
-
     <div id="unapproved">
         <div class="header">
             <div class="headerLeftNoIcon"></div>
@@ -35,15 +34,59 @@
             </div>
             <div class="headerRight"></div>
         </div>
-        <div class="promo">
-
-
-
-            You have no comments to approve.
-
-
-
-        </div>
+        @if (!Model.HasUnapprovedComments)
+        {
+            <div class="promo">
+                You have no comments to approve.
+            </div>
+        }
+        else
+        {
+            <div class="promo">
+                <div class="toprow">
+                    <span class="paging">
+                        <!-- no page back -->
+                        <!-- no page forward -->
+                    </span>
+                    <span class="approveAllButton">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/community/assetBrowser/commentApproval/?approveAllComments=1">Approve All</a>
+                    </span>
+                </div>
+                @foreach (var comment in Model.UnapprovedComments)
+                {
+                    <div class="recentcomment" style="height: 100px;">
+                        <img src="https://static.spore.com/@(comment.Asset.ThumbFileUrl)" width="50" height="50" alt="thumbnail image" class="commentimg" />
+                        <div class="commenttext">
+                            <h2>@(comment.Asset.Name)</h2><br />
+                            <span>
+                                "@(comment.Comment)" (1)
+                                <div style="display:inline">
+                                    <span class="commentauthor">
+                                        by <a href="sporeprofile:@(comment.AuthorId)" style="">@(comment.Author.UserName)</a>
+                                    </span>
+                                </div>
+                                <span class="commentdate">@(comment.Timestamp)</span>
+                            </span>
+                            <div class="commentOptions">
+                                <a href="/community/assetBrowser/commentApproval/?approveComment=@(comment.CommentId)">
+                                    Approve
+                                </a>
+                                <a href="/community/assetBrowser/commentApproval/?rejectComment=@(comment.CommentId)">
+                                    Reject
+                                </a>
+                                <a href="/community/assetBrowser/commentApproval/?blockUser=@(comment.AuthorId)">
+                                    Block User
+                                </a>
+                                <a href="/community/assetBrowser/commentApproval/?reportUser=@(comment.AuthorId)">
+                                    Report User
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
         <div class="footer">
             <div class="footerLeft"></div>
             <div class="footermiddle"></div>
@@ -59,14 +102,47 @@
             </div>
             <div class="headerRight"></div>
         </div>
-        <div class="promo">
-
-
-            You have no approved comments.
-
-
-
-        </div>
+        @if (!Model.HasApprovedComments)
+        {
+            <div class="promo">
+                You have no approved comments.
+            </div>
+        }
+        else
+        {
+            <div class="promo">
+                <div class="next">
+                    <!-- no page back -->
+                    <!-- no page forward -->
+                </div>
+                @foreach (var comment in Model.ApprovedComments)
+                {
+                    <div class="recentcomment" style="height: 100px;">
+                        <img src="https://static.spore.com/@(comment.Asset.ThumbFileUrl)" width="50" height="50" alt="thumbnail image" class="commentimg" />
+                        <div class="commenttext">
+                            <h2>@(comment.Asset.Name)</h2><br />
+                            <span>
+                                "@(comment.Comment)"
+                                <div style="display:inline">
+                                    <span class="commentauthor">
+                                        by <a href="sporeprofile:@(comment.AuthorId)" style="">@(comment.Author.UserName)</a>
+                                    </span>
+                                </div>
+                                <span class="commentdate">@(comment.Timestamp)</span>
+                            </span>
+                            <div class="commentOptions">
+                                <a href="/community/assetBrowser/commentApproval/?rejectComment=@(comment.CommentId)">
+                                    Reject
+                                </a>
+                                <a href="/community/assetBrowser/commentApproval/?blockUser=@(comment.CommentId)">
+                                    Block User
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
         <div class="footer">
             <div class="footerLeft"></div>
             <div class="footermiddle"></div>
@@ -82,9 +158,26 @@
             </div>
             <div class="headerRight"></div>
         </div>
-        <div class="promo">
+        @if (true)
+        {
+            <div class="promo">
+                You have no blocked players.
+            </div>
+        }
+        else
+        { // TODO
+            <div class="promo">
+                <div>
+                    <ul>
+                        <li id="blockedUser-501074564698">
+                            0KepOnline
+                            <a href="/community/assetBrowser/commentApproval/?unblockUser=" class="unblock-link-button">Unblock User</a>
+                        </li>
 
-        </div>
+                    </ul>
+                </div>
+            </div>
+        }
         <div class="footer">
             <div class="footerLeft"></div>
             <div class="footermiddle"></div>
