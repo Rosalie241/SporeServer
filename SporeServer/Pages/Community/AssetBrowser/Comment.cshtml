@@ -39,6 +39,10 @@
     </div>
 
     <div id="commentmessaging">
+        @if (Model.HasSentComment)
+        {
+            <p>Your comment "@(Model.SentComment)" has been sent to @(Model.Asset.Author.UserName) for approval.</p>
+        }
         @if (Model.CommentsCount == 0)
         {
             <p>There are no comments for this creation.</p>

@@ -47,12 +47,20 @@ namespace SporeServer.Pages.Community.AssetBrowser
         ///     Comments Count
         /// </summary>
         public Int32 CommentsCount { get; set; }
+        /// <summary>
+        ///     Whether User Has Sent A Comment
+        /// </summary>
+        public bool HasSentComment { get; set; }
+        /// <summary>
+        ///     Sent Comment
+        /// </summary>
+        public string SentComment { get; set; }
 
         public async Task<IActionResult> OnGet(Int64 id)
         {
             Console.WriteLine($"/community/assetBrowser/comment/{id}");
 
-            Asset = await _assetManager.FindByIdAsync(id);
+            Asset = await _assetManager.FindByIdAsync(id, true);
             AssetExists = (Asset != null);
 
             if (!AssetExists)
@@ -62,16 +70,22 @@ namespace SporeServer.Pages.Community.AssetBrowser
 
             // if the comment query exists,
             // try to add the comment
-            string comment = Request.Query["comment"];
-            if (!String.IsNullOrEmpty(comment) && 
-                comment.Length <= 150)
+            SentComment = Request.Query["comment"];
+            HasSentComment = !String.IsNullOrEmpty(SentComment) && SentComment.Length <= 150;
+            if (HasSentComment)
             {
                 var author = await _userManager.GetUserAsync(User);
 
-                if (!await _assetCommentManager.AddAsync(Asset, author, comment))
+                if (!await _assetCommentManager.AddAsync(Asset, author, SentComment))
                 {
                     return StatusCode(500);
                 }
+
+                // no need to tell the user we've sent it
+                // to the asset author for approval, when
+                // the asset author comments on their own
+                // creation
+                HasSentComment = Asset.AuthorId != author.Id;
             }
 
             Comments = await _assetCommentManager.FindAllApprovedByAssetAsync(Asset);
