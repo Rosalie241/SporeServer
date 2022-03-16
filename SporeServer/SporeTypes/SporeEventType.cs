@@ -14,10 +14,16 @@ namespace SporeServer.SporeTypes
     public enum SporeEventType : Int64
     {
         AchievementUnlocked = 0x1edc82b0,
-        AddLeaderboardEntry = 0x2d59837b,
 
-        // creature stage
+        // Creature Stage
         CreatureBefriended = 0xcdb3f5d8,
         CreatureExtinction = 0xaba34d01,
+
+        // Adventures
+        AdventureWon = 0x2d59837b,
+        AdventureLost = 0x706ccb27,
+        AdventureCaptainStats = 0xd9d7edf2,
+        AdventureCaptainName = 0xa31b4d50,
+        AdventureCaptainUnlockedParts = 0x0fdb0e00,
     };
 }
