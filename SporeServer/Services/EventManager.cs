@@ -72,6 +72,14 @@ namespace SporeServer.Services
                             }
                             break;
 
+                        // Befriended creature
+                        case (Int64)SporeEventType.CreatureBefriended:
+                            break;
+
+                        // Extincted creature
+                        case (Int64)SporeEventType.CreatureExtinction:
+                            break;
+
                         // Unsupported
                         default:
                             _logger.LogWarning($"Invalid Event Verb 0x{eventsEvent.Verb:x}");
