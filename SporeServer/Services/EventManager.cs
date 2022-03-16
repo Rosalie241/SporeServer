@@ -74,7 +74,7 @@ namespace SporeServer.Services
 
                         // Unsupported
                         default:
-                            _logger.LogWarning($"Invalid Event Verb {eventsEvent.Verb}");
+                            _logger.LogWarning($"Invalid Event Verb 0x{eventsEvent.Verb:x}");
                             break;
                     }
                 }
