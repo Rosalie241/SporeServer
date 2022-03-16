@@ -49,8 +49,16 @@ namespace SporeServer.Services
                             await _achievementManager.UnlockAsync(eventsEvent.Args[0], author);
                             break;
 
-                        // Add Leaderboard Entry
-                        case (Int64)SporeEventType.AddLeaderboardEntry:
+                        // Befriended Creature
+                        case (Int64)SporeEventType.CreatureBefriended:
+                            break;
+
+                        // Extincted Creature
+                        case (Int64)SporeEventType.CreatureExtinction:
+                            break;
+
+                        // Adventure Won
+                        case (Int64)SporeEventType.AdventureWon:
                             {
                                 var adventureAssetId = eventsEvent.AssetId;
                                 var percentageCompleted = (Int32)eventsEvent.Args[0];
@@ -72,12 +80,20 @@ namespace SporeServer.Services
                             }
                             break;
 
-                        // Befriended creature
-                        case (Int64)SporeEventType.CreatureBefriended:
+                        // Adventure Lost
+                        case (Int64)SporeEventType.AdventureLost:
                             break;
 
-                        // Extincted creature
-                        case (Int64)SporeEventType.CreatureExtinction:
+                        // Adventure Captain Stats
+                        case (Int64)SporeEventType.AdventureCaptainStats:
+                            break;
+
+                        // Adventure Captain Name
+                        case (Int64)SporeEventType.AdventureCaptainName:
+                            break;
+
+                        // Adventure Captain Unlocked Parts
+                        case (Int64)SporeEventType.AdventureCaptainUnlockedParts:
                             break;
 
                         // Unsupported
