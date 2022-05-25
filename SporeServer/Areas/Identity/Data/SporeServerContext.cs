@@ -32,6 +32,10 @@ namespace SporeServer.Data
         /// </summary>
         public DbSet<SporeServerAssetComment> AssetComments { get; set; }
         /// <summary>
+        ///     Asset Comment Reports
+        /// </summary>
+        public DbSet<SporeServerAssetCommentReport> AssetCommentReports { get; set; }
+        /// <summary>
         ///     Aggregators/Sporecasts
         /// </summary>
         public DbSet<SporeServerAggregator> Aggregators { get; set; }
@@ -55,6 +59,10 @@ namespace SporeServer.Data
         ///     Asset Ratings
         /// </summary>
         public DbSet<SporeServerRating> AssetRatings { get; set; }
+        /// <summary>
+        ///     Blocked Users
+        /// </summary>
+        public DbSet<SporeServerBlockedUser> BlockedUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
