@@ -32,10 +32,6 @@ namespace SporeServer.Data
         /// </summary>
         public DbSet<SporeServerAssetComment> AssetComments { get; set; }
         /// <summary>
-        ///     Asset Comment Reports
-        /// </summary>
-        public DbSet<SporeServerAssetCommentReport> AssetCommentReports { get; set; }
-        /// <summary>
         ///     Aggregators/Sporecasts
         /// </summary>
         public DbSet<SporeServerAggregator> Aggregators { get; set; }

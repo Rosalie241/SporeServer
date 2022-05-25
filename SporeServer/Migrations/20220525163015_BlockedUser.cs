@@ -15,34 +15,6 @@ namespace SporeServer.Migrations
                 table: "Aggregators");
 
             migrationBuilder.CreateTable(
-                name: "AssetCommentReports",
-                columns: table => new
-                {
-                    ReportId = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    AuthorId = table.Column<long>(type: "bigint", nullable: false),
-                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    AssetCommentId = table.Column<long>(type: "bigint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AssetCommentReports", x => x.ReportId);
-                    table.ForeignKey(
-                        name: "FK_AssetCommentReports_AspNetUsers_AuthorId",
-                        column: x => x.AuthorId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AssetCommentReports_AssetComments_AssetCommentId",
-                        column: x => x.AssetCommentId,
-                        principalTable: "AssetComments",
-                        principalColumn: "CommentId",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "BlockedUsers",
                 columns: table => new
                 {
@@ -77,16 +49,6 @@ namespace SporeServer.Migrations
                 value: "84ec5d04-94fb-462a-8c8b-03bed55c050f");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AssetCommentReports_AssetCommentId",
-                table: "AssetCommentReports",
-                column: "AssetCommentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AssetCommentReports_AuthorId",
-                table: "AssetCommentReports",
-                column: "AuthorId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_BlockedUsers_AuthorId",
                 table: "BlockedUsers",
                 column: "AuthorId");
@@ -99,9 +61,6 @@ namespace SporeServer.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "AssetCommentReports");
-
             migrationBuilder.DropTable(
                 name: "BlockedUsers");
 

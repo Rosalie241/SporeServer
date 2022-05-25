@@ -304,30 +304,6 @@ namespace SporeServer.Migrations
                     b.ToTable("AssetComments");
                 });
 
-            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetCommentReport", b =>
-                {
-                    b.Property<long>("ReportId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("AssetCommentId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("AuthorId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("Timestamp")
-                        .HasColumnType("datetime(6)");
-
-                    b.HasKey("ReportId");
-
-                    b.HasIndex("AssetCommentId");
-
-                    b.HasIndex("AuthorId");
-
-                    b.ToTable("AssetCommentReports");
-                });
-
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetTag", b =>
                 {
                     b.Property<long>("TagId")
@@ -695,25 +671,6 @@ namespace SporeServer.Migrations
                         .IsRequired();
 
                     b.Navigation("Asset");
-
-                    b.Navigation("Author");
-                });
-
-            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetCommentReport", b =>
-                {
-                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerAssetComment", "AssetComment")
-                        .WithMany()
-                        .HasForeignKey("AssetCommentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerUser", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AssetComment");
 
                     b.Navigation("Author");
                 });
