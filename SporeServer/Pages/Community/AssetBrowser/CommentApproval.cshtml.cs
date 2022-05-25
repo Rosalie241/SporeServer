@@ -128,6 +128,27 @@ namespace SporeServer.Pages.Community.AssetBrowser
                 }
             }
 
+            var approveAllCommentsString = Request.Query["approveAllComments"].ToString();
+            if (Int64.TryParse(approveAllCommentsString, out Int64 approveAllComments))
+            {
+                // make sure approveAllComments is 1
+                if (approveAllComments == 1)
+                {
+                    // loop over each unapproved comment and try to approve it
+                    var unapprovedComments = await _assetCommentManager.FindAllUnApprovedByAssetAuthorAsync(author);
+                    if (unapprovedComments != null)
+                    {
+                        foreach (var comment in unapprovedComments)
+                        {
+                            if (!await _assetCommentManager.ApproveAsync(comment))
+                            {
+                                return StatusCode(500);
+                            }
+                        }
+                    }
+                }
+            }
+
             UnapprovedComments = await _assetCommentManager.FindAllUnApprovedByAssetAuthorAsync(author);
             HasUnapprovedComments = UnapprovedComments != null && UnapprovedComments.Length > 0;
 
