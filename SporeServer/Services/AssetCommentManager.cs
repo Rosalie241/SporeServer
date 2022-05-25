@@ -22,10 +22,12 @@ namespace SporeServer.Services
     {
         private readonly SporeServerContext _context;
         private readonly ILogger<AssetCommentManager> _logger;
-        public AssetCommentManager(SporeServerContext context, ILogger<AssetCommentManager> logger)
+        private readonly IBlockedUserManager _blockedUserManager;
+        public AssetCommentManager(SporeServerContext context, ILogger<AssetCommentManager> logger, IBlockedUserManager blockedUserManager)
         {
             _context = context;
             _logger = logger;
+            _blockedUserManager = blockedUserManager;
         }
 
         public async Task<bool> AddAsync(SporeServerAsset asset, SporeServerUser author, string comment)
@@ -153,12 +155,16 @@ namespace SporeServer.Services
         {
             try
             {
+                var blockedUserFind = await _blockedUserManager.FindAllByAuthorAsync(author);
+                var blockedUsers = blockedUserFind.Select(b => b.UserId);
+
                 return await _context.AssetComments
                                 .Include(c => c.Author)
                                 .Include(c => c.Asset)
-                                .Where(c => 
+                                .Where(c =>
                                     c.Asset.AuthorId == author.Id &&
                                     c.AuthorId != author.Id &&
+                                    !blockedUsers.Contains(c.AuthorId) &&
                                     !c.Approved)
                                 .OrderByDescending(c => c.Timestamp)
                                 .ToArrayAsync();
