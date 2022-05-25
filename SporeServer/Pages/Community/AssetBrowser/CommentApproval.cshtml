@@ -134,9 +134,12 @@
                                 <a href="/community/assetBrowser/commentApproval/?rejectComment=@(comment.CommentId)">
                                     Reject
                                 </a>
-                                <a href="/community/assetBrowser/commentApproval/?blockUser=@(comment.CommentId)">
-                                    Block User
-                                </a>
+                                @if (!Model.BlockedUserIds.Contains(comment.AuthorId))
+                                {
+                                    <a href="/community/assetBrowser/commentApproval/?blockUser=@(comment.AuthorId)">
+                                        Block User
+                                    </a>
+                                }
                             </div>
                         </div>
                     </div>
@@ -158,22 +161,24 @@
             </div>
             <div class="headerRight"></div>
         </div>
-        @if (true)
+        @if (!Model.HasBlockedUsers)
         {
             <div class="promo">
                 You have no blocked players.
             </div>
         }
         else
-        { // TODO
+        {
             <div class="promo">
                 <div>
                     <ul>
-                        <li id="blockedUser-501074564698">
-                            0KepOnline
-                            <a href="/community/assetBrowser/commentApproval/?unblockUser=" class="unblock-link-button">Unblock User</a>
-                        </li>
-
+                        @foreach (var blockedUser in Model.BlockedUsers)
+                        {
+                            <li id="blockedUser-@(blockedUser.User.Id)">
+                                @(blockedUser.User.UserName)
+                               <a href="/community/assetBrowser/commentApproval/?unblockUser=@(blockedUser.User.Id)" class="unblock-link-button">Unblock User</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

@@ -25,11 +25,13 @@ namespace SporeServer.Pages.Community.AssetBrowser
     {
         private readonly UserManager<SporeServerUser> _userManager;
         private readonly IAssetCommentManager _assetCommentManager;
+        private readonly IBlockedUserManager _blockedUserManager;
 
-        public CommentApprovalModel(UserManager<SporeServerUser> userManager, IAssetCommentManager assetCommentManager)
+        public CommentApprovalModel(UserManager<SporeServerUser> userManager, IAssetCommentManager assetCommentManager, IBlockedUserManager blockedUserManager)
         {
             _userManager = userManager;
             _assetCommentManager = assetCommentManager;
+            _blockedUserManager = blockedUserManager;
         }
 
         /// <summary>
@@ -48,12 +50,55 @@ namespace SporeServer.Pages.Community.AssetBrowser
         ///     Approved comments
         /// </summary>
         public SporeServerAssetComment[] ApprovedComments { get; set; }
+        /// <summary>
+        ///     Whether there are any blocked users
+        /// </summary>
+        public bool HasBlockedUsers { get; set; }
+        /// <summary>
+        ///     Blocked users
+        /// </summary>
+        public SporeServerBlockedUser[] BlockedUsers { get; set; }
+        /// <summary>
+        ///     Blocked user ids
+        /// </summary>
+        public Int64[] BlockedUserIds { get; set; }
 
         public async Task<IActionResult> OnGet()
         {
             Console.WriteLine($"{Request.Path}{Request.QueryString}");
 
             var author = await _userManager.GetUserAsync(User);
+
+            var unblockUserString = Request.Query["unblockUser"].ToString();
+            if (Int64.TryParse(unblockUserString, out Int64 userId))
+            {
+                var user = await _userManager.FindByIdAsync($"{userId}");
+                var blockedUser = await _blockedUserManager.FindAsync(author, user);
+                // only unblock user when block has been found
+                if (blockedUser != null)
+                {
+                    if (!await _blockedUserManager.RemoveAsync(blockedUser))
+                    {
+                        return StatusCode(500);
+                    }
+                }
+            }
+
+            var blockUserString = Request.Query["blockUser"].ToString();
+            if (Int64.TryParse(blockUserString, out userId))
+            {
+                var user = await _userManager.FindByIdAsync($"{userId}");
+                var blockedUser = await _blockedUserManager.FindAsync(author, user);
+                // only block user when user has been found
+                // and when no existing block has been found
+                if (user != null && blockedUser == null)
+                {
+                    if (!await _blockedUserManager.AddAsync(author, user))
+                    {
+                        return StatusCode(500);
+                    }
+                }
+            }
 
             var approveCommentString = Request.Query["approveComment"].ToString();
             if (Int64.TryParse(approveCommentString, out Int64 commentId))
@@ -88,6 +133,10 @@ namespace SporeServer.Pages.Community.AssetBrowser
 
             ApprovedComments = await _assetCommentManager.FindAllApprovedByAssetAuthorAsync(author);
             HasApprovedComments = ApprovedComments != null && ApprovedComments.Length > 0;
+
+            BlockedUsers = await _blockedUserManager.FindAllByAuthorAsync(author);
+            BlockedUserIds = BlockedUsers.Select(b => b.UserId).ToArray();
+            HasBlockedUsers = BlockedUsers != null && BlockedUsers.Length > 0;
 
             return Page();
         }
