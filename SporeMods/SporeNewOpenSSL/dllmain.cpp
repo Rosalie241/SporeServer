@@ -401,102 +401,18 @@ void Dispose()
 
 void AttachDetours()
 {
-    DWORD_PTR base_addr = (DWORD_PTR)GetModuleHandle(NULL);
-    LONG ret = 0;
+    SSLCtxNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117f200, 0x0117ca80)));
+    SSLNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117ed00, 0x0117c580)));
+    SSLClearDetour::attach(Address(ModAPI::ChooseAddress(0x0117ebe0, 0x0117c460)));
+    SSLConnectDetour::attach(Address(ModAPI::ChooseAddress(0x0117f5d0, 0x0117ce50)));
+    SSLReadDetour::attach(Address(ModAPI::ChooseAddress(0x0117dbb0, 0x0117b430)));
+    SSLWriteDetour::attach(Address(ModAPI::ChooseAddress(0x0117dc40, 0x0117b4c0)));
+    GameValidateCertificate::attach(Address(ModAPI::ChooseAddress(0x0094f080, 0x0094eb60)));
+    GameUseHttpsDetour::attach(Address(ModAPI::ChooseAddress(0x00621740, 0x006216e0)));
+    GameUseHttpDetour::attach(Address(ModAPI::ChooseAddress(0x00621800, 0x006217a0)));
 
-    // RVA latest = 0xD7CA80
-    // RVA disc   = 0xD7F200
-    ret = SSLCtxNewDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7F200, 0xD7CA80));
-    if (ret != NO_ERROR)
-    {
-        DisplayError("SSLCtxNewDetour::attach() Failed: %li", ret);
-        return;
-    }
-
-    // RVA latest = 0xD7C580
-    // RVA disc   = 0xD7ED00
-    ret = SSLNewDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7ED00, 0xD7C580));
-    if (ret != NO_ERROR)
-    {
-        DisplayError("SSLNewDetour::attach() Failed: %li", ret);
-        return;
-    }
-
-    // RVA latest = 0xD7C460
-    // RVA disc   = 0xD7EBE0
-    ret = SSLClearDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7EBE0, 0xD7C460));
-    if (ret != NO_ERROR)
-    {
-        DisplayError("SSLClearDetour::attach() Failed: %li", ret);
-        return;
-    }
-
-    // RVA latest = 0xD7CE50
-    // RVA disc   = 0xD7F5D0
-    ret = SSLConnectDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7F5D0, 0xD7CE50));
-    if (ret != NO_ERROR)
-    {
-        DisplayError("SSLConnectDetour::attach() Failed: %li", ret);
-        return;
-    }
-
-    // RVA latest = 0xD7B430
-    // RVA disc   = 0xD7DBB0
-    ret = SSLReadDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7DBB0, 0xD7B430));
-    if (ret != NO_ERROR)
-    {
-        DisplayError("SSLReadDetour::attach() Failed: %li", ret);
-        return;
-    }
-
-    // RVA latest = 0xD7B4C0
-    // RVA disc   = 0xD7DC40
-    ret = SSLWriteDetour::attach(base_addr + ModAPI::ChooseAddress(0xD7DC40, 0xD7B4C0));
-    if (ret != NO_ERROR)
-    {
-        DisplayError("SSLWriteDetour::attach() Failed: %li", ret);
-        return;
-    }
-
-    // RVA latest = 0x54EB60
-    // RVA disc   = 0x54F080
-    ret = GameValidateCertificate::attach(base_addr + ModAPI::ChooseAddress(0x54F080, 0x54EB60));
-    if (ret != NO_ERROR)
-    {
-        DisplayError("GameValidateCertificate::attach() Failed: %li", ret);
-        return;
-    }
-    // RVA latest = 0x2216E0
-    // RVA disc   = 0x221740
-    ret = GameUseHttpsDetour::attach(base_addr + ModAPI::ChooseAddress(0x221740, 0x2216E0));
-    if (ret != NO_ERROR)
-    {
-        DisplayError("GameUseHttpsDetour::attach() Failed: %li", ret);
-        return;
-    }
-
-    // RVA latest = 0x2217A0
-    // RVA disc   = 0x221800
-    ret = GameUseHttpDetour::attach(base_addr + ModAPI::ChooseAddress(0x221800, 0x2217A0));
-    if (ret != NO_ERROR)
-    {
-        DisplayError("GameUseHttpDetour::attach() Failed: %li", ret);
-        return;
-    }
-
-    ret = DetourAttach(&(PVOID&)connect_real, connect_detour);
-    if (ret != NO_ERROR)
-    {
-        DisplayError("DetourAttach(connect) Failed: %li", ret);
-        return;
-    }
-
-    ret = DetourAttach(&(PVOID&)closesocket_real, closesocket_detour);
-    if (ret != NO_ERROR)
-    {
-        DisplayError("DetourAttach(closesocket) Failed: %li", ret);
-        return;
-    }
+    DetourAttach(&(PVOID&)connect_real, connect_detour);
+    DetourAttach(&(PVOID&)closesocket_real, closesocket_detour);
 }
 
 

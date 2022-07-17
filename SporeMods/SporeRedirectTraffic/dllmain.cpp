@@ -105,14 +105,7 @@ void Dispose()
 
 void AttachDetours()
 {
-    LONG ret = 0;
-
-    ret = DetourAttach(&(PVOID&)gethostbyname_real, gethostbyname_detour);
-    if (ret != NO_ERROR)
-    {
-        DisplayError("DetourAttach(gethostbyname) Failed: %li", ret);
-        return;
-    }
+    DetourAttach(&(PVOID&)gethostbyname_real, gethostbyname_detour);
 
     // Call the attach() method on any detours you want to add
     // For example: cViewer_SetRenderType_detour::attach(GetAddress(cViewer, SetRenderType));
