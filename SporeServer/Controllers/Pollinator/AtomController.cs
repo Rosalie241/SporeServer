@@ -123,10 +123,6 @@ namespace SporeServer.Controllers.Pollinator
                 }
             }
 
-            Console.WriteLine(AtomFeedBuilder.CreateFromTemplate(
-                    new AssetTemplate(assets.ToArray())
-                ).ToContentResult().Content);
-
             return AtomFeedBuilder.CreateFromTemplate(
                     new AssetTemplate(assets.ToArray())
                 ).ToContentResult();
@@ -303,10 +299,6 @@ namespace SporeServer.Controllers.Pollinator
             }
 
             var assets = await _assetManager.FindAllByUserIdAsync(userId);
-
-            Console.WriteLine(AtomFeedBuilder.CreateFromTemplate(
-                    new UserTemplate(user, assets)
-                ).ToContentResult().Content);
 
             return AtomFeedBuilder.CreateFromTemplate(
                     new UserTemplate(user, assets)
