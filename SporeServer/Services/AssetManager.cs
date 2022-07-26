@@ -530,35 +530,14 @@ namespace SporeServer.Services
 
                 // find only used assets which don't have the author specified by author id
                 // and make sure it's the type we want
-                var assets = await _context.Assets
+                return await _context.Assets
                         .Include(a => a.Author)
                         .Where(a => a.Used &&
                                 a.AuthorId != authorId &&
                                 a.ModelType == type)
+                        .OrderBy(a => Guid.NewGuid()) // random order
+                        .Take(amountOfItems)
                         .ToArrayAsync();
-                int assetsCount = assets.Length;
-
-                // make sure we find some assets
-                if (assetsCount == 0)
-                {
-                    return null;
-                }
-
-                // adjust amountOfItems as needed
-                if (assetsCount < amountOfItems)
-                {
-                    amountOfItems = assetsCount;
-                }
-
-                var retAssets = new SporeServerAsset[amountOfItems];
-
-                for (int i = 0; i < amountOfItems; i++)
-                {
-                    int randomIndex = GetRandomNumber(0, assetsCount);
-                    retAssets[i] = assets.ElementAt(randomIndex);
-                }
-
-                return retAssets;
             }
             catch (Exception e)
             {
