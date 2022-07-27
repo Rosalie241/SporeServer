@@ -109,7 +109,7 @@ namespace SporeServer.Models.Xml
                 return null;
             }
 
-            return Convert.ToDouble(node.InnerText);
+            return Convert.ToDouble(node.InnerText, CultureInfo.InvariantCulture);
         }
 
         /// <summary>
