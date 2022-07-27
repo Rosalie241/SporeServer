@@ -79,7 +79,7 @@ namespace SporeServer.Models.Xml
                             LimbType = XmlHelper.ParseInt32_Null(transformNode?.SelectSingleNode("limbtype")),
                             MuscleScale = XmlHelper.ParseDouble(transformNode?.SelectSingleNode("musclescale")),
                             BaseMuscleScale = XmlHelper.ParseDouble(transformNode?.SelectSingleNode("basemusclescale")),
-                            Scale = double.Parse(transformNode.SelectSingleNode("scale").InnerText),
+                            Scale = XmlHelper.ParseDouble(transformNode?.SelectSingleNode("scale")),
                             Position = XmlHelper.ParseDoubleList(transformNode.SelectSingleNode("position")),
                             TriangleDirection = XmlHelper.ParseDoubleList(transformNode.SelectSingleNode("triangledirection")),
                             TrianglePickOrigin = XmlHelper.ParseDoubleList(transformNode.SelectSingleNode("trianglepickorigin")),
