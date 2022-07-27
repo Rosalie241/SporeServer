@@ -19,6 +19,7 @@ using SporeServer.Areas.Identity.Data;
 using SporeServer.Middleware;
 using SporeServer.Services;
 using System;
+using System.Globalization;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -58,6 +59,11 @@ namespace SporeServer
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Spore doesn't accept commas or such internally,
+            // so let's globally just use the InvariantCulture
+            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
+            CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
             app.UseMiddleware<SporeAuthMiddleware>();
 
