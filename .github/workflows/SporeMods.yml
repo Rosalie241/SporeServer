@@ -25,17 +25,9 @@ jobs:
           cd "SporeMods\Spore-ModAPI\Spore ModAPI"
           msbuild /m /p:Configuration=Release /p:Platform=x86
           msbuild /m /t:BuildDlls /p:BuildVer=180 /p:Config=Release /p:Platform=x86
-      - name: Build SporeServerConfig
+      - name: Build SporeServer
         run: |
-          cd SporeMods\SporeServerConfig
-          msbuild /m /p:Configuration=Release /p:Platform=x86
-      - name: Build SporeRedirectTraffic
-        run: |
-          cd SporeMods\SporeRedirectTraffic
-          msbuild /m /p:Configuration=Release /p:Platform=x86
-      - name: Build SporeNewOpenSSL
-        run: |
-          cd SporeMods\SporeNewOpenSSL
+          cd SporeMods\SporeServer
           msbuild /m /p:Configuration=Release /p:Platform=x86
       - name: Create SporeServer.sporemod
         run: |
