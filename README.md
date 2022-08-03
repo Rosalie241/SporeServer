@@ -6,10 +6,8 @@ A WIP Spore Server replacement
    * Replacement server
 
 * SporeMods
-   * SporeRedirectTraffic
-     * Spore mod which redirects all network traffic
-   * SporeNewOpenSSL
-     * Spore mod which replaces the OpenSSL version
+   * SporeServer
+     * Spore mod which is required to connect to a SporeServer instance
 
 # Special Thanks
 * Emd (Discord)

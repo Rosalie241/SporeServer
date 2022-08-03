@@ -13,13 +13,8 @@
 // Includes
 // 
 
-#define _CRT_SECURE_NO_WARNINGS
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
-
-// fix for openssl UI define
-#define UI TMPUI
 #include "stdafx.h"
-#undef UI
+#include "OpenSSL.hpp"
 
 // needed for connect
 #include <WinSock2.h>
@@ -36,19 +31,10 @@
 #include <wincrypt.h>
 
 // needed for settings
-#include "..\SporeServerConfig\SporeServerConfig.hpp"
+#include "Configuration.hpp"
 
 // needed for std::stoi
 #include <string>
-
-//
-// Libraries
-//
-
-#pragma comment(lib, "libssl32MT.lib")
-#pragma comment(lib, "libcrypto32MT.lib")
-#pragma comment(lib, "crypt32.lib")
-#pragma comment(lib, "ws2_32.lib")
 
 //
 // Global variables
@@ -61,22 +47,6 @@ static int          OpenSSL_ThreadId = -1;
 static bool         SporeServerPortOverride = false;
 static uint16_t     SporeServerPort;
 static bool         SporeServerSslVerification = true;
-
-//
-// Helper functions
-//
-
-static void DisplayError(const char* fmt, ...)
-{
-    char buf[200];
-
-    va_list args;
-    va_start(args, fmt);
-    vsprintf(buf, fmt, args);
-    va_end(args);
-
-    MessageBoxA(NULL, buf, "SporeNewOpenSSL", MB_OK | MB_ICONERROR);
-}
 
 //
 // Detour functions
@@ -107,7 +77,6 @@ static int WINAPI connect_detour(SOCKET s, const sockaddr* name, int namelen)
     // does the game use this function?
     if (SSL_set_fd(OpenSSL_SSL, s) != 1)
     {
-        DisplayError("SSL_set_fd(OpenSSL_SSL) Failed");
         return -1;
     }
 
@@ -191,7 +160,6 @@ static_detour(SSLWriteDetour, int(void*, const void*, int)) {
         return SSL_write(OpenSSL_SSL, buffer, num);
     }
 };
-
 
 static_detour(GameValidateCertificate, int(int, char*)) {
     int detoured(int arg1, char* servername)
@@ -349,23 +317,16 @@ static_detour(GameUseHttpDetour, bool(unsigned int, unsigned int, char*)) {
 };
 
 //
-// Boilerplate
+// Exported Functions
 //
 
-void Initialize()
+void OpenSSL::Initialize(void)
 {
-    if (!SporeServerConfig::Initialize())
-    {
-        DisplayError("SporeServerConfig::Initialize() Failed!");
-        return;
-    }
-
-    if (SporeServerConfig::GetValue("OverridePort", "0")
-        == "1")
+    if (Configuration::GetBoolValue(Configuration::Key::OverridePort))
     {
         try
         {
-            int value = std::stoi(SporeServerConfig::GetValue("Port", "443"));
+            int value = std::stoi(Configuration::GetStringValue(Configuration::Key::Port));
             // make sure we can safely cast the value
             if (value >= 0 && value <= USHRT_MAX)
             {
@@ -373,33 +334,16 @@ void Initialize()
                 SporeServerPort = (uint16_t)value;
             }
         }
-        catch (std::exception)
+        catch (...)
         {
             // ignore exception
         }
     }
 
-    if (SporeServerConfig::GetValue("SslVerification", "1")
-        == "0")
-    {
-        SporeServerSslVerification = false;
-    }
-
-    // This method is executed when the game starts, before the user interface is shown
-    // Here you can do things such as:
-    //  - Add new cheats
-    //  - Add new simulator classes
-    //  - Add new game modes
-    //  - Add new space tools
-    //  - Change materials
+    SporeServerSslVerification = Configuration::GetBoolValue(Configuration::Key::SSLVerification);
 }
 
-void Dispose()
-{
-    // This method is called when the game is closing
-}
-
-void AttachDetours()
+void OpenSSL::AttachDetours(void)
 {
     SSLCtxNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117f200, 0x0117ca80)));
     SSLNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117ed00, 0x0117c580)));
@@ -410,35 +354,6 @@ void AttachDetours()
     GameValidateCertificate::attach(Address(ModAPI::ChooseAddress(0x0094f080, 0x0094eb60)));
     GameUseHttpsDetour::attach(Address(ModAPI::ChooseAddress(0x00621740, 0x006216e0)));
     GameUseHttpDetour::attach(Address(ModAPI::ChooseAddress(0x00621800, 0x006217a0)));
-
     DetourAttach(&(PVOID&)connect_real, connect_detour);
     DetourAttach(&(PVOID&)closesocket_real, closesocket_detour);
 }
-
-
-// Generally, you don't need to touch any code here
-BOOL APIENTRY DllMain(HMODULE hModule,
-    DWORD  ul_reason_for_call,
-    LPVOID lpReserved
-)
-{
-    switch (ul_reason_for_call)
-    {
-    case DLL_PROCESS_ATTACH:
-        ModAPI::AddPostInitFunction(Initialize);
-        ModAPI::AddDisposeFunction(Dispose);
-
-        PrepareDetours(hModule);
-        AttachDetours();
-        CommitDetours();
-
-        break;
-
-    case DLL_PROCESS_DETACH:
-    case DLL_THREAD_ATTACH:
-    case DLL_THREAD_DETACH:
-        break;
-    }
-    return TRUE;
-}
-

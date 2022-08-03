@@ -3,6 +3,5 @@
 	description="This mod allows you to connect to a SporeServer" 
 	installerSystemVersion="1.0.1.1" 
 	dllsBuild="2.5.20">
-	<prerequisite>SporeRedirectTraffic.dll</prerequisite>
-	<prerequisite>SporeNewOpenSSL.dll</prerequisite>
+	<prerequisite>SporeServer.dll</prerequisite>
 </mod>
