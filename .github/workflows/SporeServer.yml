@@ -18,6 +18,10 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: |
+        cd SporeServer
+        dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: |
+        cd SporeServer
+        dotnet build --no-restore
