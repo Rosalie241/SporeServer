@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace SporeServer.Migrations
 {
     public partial class Initial : Migration
@@ -101,8 +103,7 @@ namespace SporeServer.Migrations
                     Description = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    AuthorId = table.Column<long>(type: "bigint", nullable: false),
-                    SubscriberCount = table.Column<int>(type: "int", nullable: false)
+                    AuthorId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -219,6 +220,7 @@ namespace SporeServer.Migrations
                 {
                     AssetId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    OriginalAssetId = table.Column<long>(type: "bigint", nullable: false),
                     ParentAssetId = table.Column<long>(type: "bigint", nullable: false),
                     Used = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -231,6 +233,7 @@ namespace SporeServer.Migrations
                     Type = table.Column<long>(type: "bigint", nullable: false),
                     Size = table.Column<long>(type: "bigint", nullable: false),
                     Slurped = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Rating = table.Column<float>(type: "float", nullable: false),
                     ModelFileUrl = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ThumbFileUrl = table.Column<string>(type: "longtext", nullable: true)
@@ -250,6 +253,33 @@ namespace SporeServer.Migrations
                     table.ForeignKey(
                         name: "FK_Assets_AspNetUsers_AuthorId",
                         column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "BlockedUsers",
+                columns: table => new
+                {
+                    BlockedUserId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    AuthorId = table.Column<long>(type: "bigint", nullable: false),
+                    UserId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlockedUsers", x => x.BlockedUserId);
+                    table.ForeignKey(
+                        name: "FK_BlockedUsers_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BlockedUsers_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -333,6 +363,103 @@ namespace SporeServer.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "AssetComments",
+                columns: table => new
+                {
+                    CommentId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    AssetId = table.Column<long>(type: "bigint", nullable: false),
+                    AuthorId = table.Column<long>(type: "bigint", nullable: false),
+                    Approved = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Comment = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AssetComments", x => x.CommentId);
+                    table.ForeignKey(
+                        name: "FK_AssetComments_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AssetComments_Assets_AssetId",
+                        column: x => x.AssetId,
+                        principalTable: "Assets",
+                        principalColumn: "AssetId",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "AssetRatings",
+                columns: table => new
+                {
+                    RatingId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    AuthorId = table.Column<long>(type: "bigint", nullable: false),
+                    AssetId = table.Column<long>(type: "bigint", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Rating = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AssetRatings", x => x.RatingId);
+                    table.ForeignKey(
+                        name: "FK_AssetRatings_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AssetRatings_Assets_AssetId",
+                        column: x => x.AssetId,
+                        principalTable: "Assets",
+                        principalColumn: "AssetId",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "LeaderboardEntries",
+                columns: table => new
+                {
+                    EntryId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    AssetId = table.Column<long>(type: "bigint", nullable: false),
+                    AuthorId = table.Column<long>(type: "bigint", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    PercentageCompleted = table.Column<int>(type: "int", nullable: false),
+                    TimeInMilliseconds = table.Column<long>(type: "bigint", nullable: false),
+                    CaptainId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LeaderboardEntries", x => x.EntryId);
+                    table.ForeignKey(
+                        name: "FK_LeaderboardEntries_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LeaderboardEntries_Assets_AssetId",
+                        column: x => x.AssetId,
+                        principalTable: "Assets",
+                        principalColumn: "AssetId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LeaderboardEntries_Assets_CaptainId",
+                        column: x => x.CaptainId,
+                        principalTable: "Assets",
+                        principalColumn: "AssetId",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "SporeServerAggregatorSporeServerAsset",
                 columns: table => new
                 {
@@ -403,12 +530,12 @@ namespace SporeServer.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NextAssetId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1L, 0, "82b0da2b-cfd9-47e2-833b-a79f4c1428e2", null, false, false, null, 0L, null, null, null, null, false, null, false, null });
+                values: new object[] { 1L, 0, "c536d83c-2c6c-448a-a82b-e1a58812c84a", null, false, false, null, 600000000000L, null, null, null, null, false, "f11be4da-ad08-43dd-980a-cd8b6080ddcc", false, null });
 
             migrationBuilder.InsertData(
                 table: "Assets",
-                columns: new[] { "AssetId", "AuthorId", "Description", "ImageFile2Url", "ImageFile3Url", "ImageFile4Url", "ImageFileUrl", "ModelFileUrl", "ModelType", "Name", "ParentAssetId", "Size", "Slurped", "ThumbFileUrl", "Timestamp", "Type", "Used" },
-                values: new object[] { 600000000000L, 1L, null, null, null, null, null, null, 0L, null, 0L, 0L, false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0L, false });
+                columns: new[] { "AssetId", "AuthorId", "Description", "ImageFile2Url", "ImageFile3Url", "ImageFile4Url", "ImageFileUrl", "ModelFileUrl", "ModelType", "Name", "OriginalAssetId", "ParentAssetId", "Rating", "Size", "Slurped", "ThumbFileUrl", "Timestamp", "Type", "Used" },
+                values: new object[] { 600000000000L, 1L, null, null, null, null, null, null, 0L, null, 0L, 0L, 0f, 0L, false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0L, false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Aggregators_AuthorId",
@@ -463,9 +590,54 @@ namespace SporeServer.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_AssetComments_AssetId",
+                table: "AssetComments",
+                column: "AssetId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AssetComments_AuthorId",
+                table: "AssetComments",
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AssetRatings_AssetId",
+                table: "AssetRatings",
+                column: "AssetId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AssetRatings_AuthorId",
+                table: "AssetRatings",
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Assets_AuthorId",
                 table: "Assets",
                 column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BlockedUsers_AuthorId",
+                table: "BlockedUsers",
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BlockedUsers_UserId",
+                table: "BlockedUsers",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LeaderboardEntries_AssetId",
+                table: "LeaderboardEntries",
+                column: "AssetId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LeaderboardEntries_AuthorId",
+                table: "LeaderboardEntries",
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LeaderboardEntries_CaptainId",
+                table: "LeaderboardEntries",
+                column: "CaptainId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SporeServerAggregatorSporeServerAsset_AssetsAssetId",
@@ -517,6 +689,18 @@ namespace SporeServer.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "AssetComments");
+
+            migrationBuilder.DropTable(
+                name: "AssetRatings");
+
+            migrationBuilder.DropTable(
+                name: "BlockedUsers");
+
+            migrationBuilder.DropTable(
+                name: "LeaderboardEntries");
 
             migrationBuilder.DropTable(
                 name: "SporeServerAggregatorSporeServerAsset");

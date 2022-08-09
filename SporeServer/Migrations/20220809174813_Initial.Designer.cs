@@ -6,45 +6,20 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SporeServer.Data;
 
+#nullable disable
+
 namespace SporeServer.Migrations
 {
     [DbContext(typeof(SporeServerContext))]
-    [Migration("20210611135139_SporeServerRatingTimestamp")]
-    partial class SporeServerRatingTimestamp
+    [Migration("20220809174813_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 64)
-                .HasAnnotation("ProductVersion", "5.0.6");
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<long>", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex");
-
-                    b.ToTable("AspNetRoles");
-                });
+                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
                 {
@@ -65,7 +40,7 @@ namespace SporeServer.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims");
+                    b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<long>", b =>
@@ -87,7 +62,7 @@ namespace SporeServer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims");
+                    b.ToTable("AspNetUserClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<long>", b =>
@@ -108,7 +83,7 @@ namespace SporeServer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins");
+                    b.ToTable("AspNetUserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
@@ -123,7 +98,7 @@ namespace SporeServer.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles");
+                    b.ToTable("AspNetUserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
@@ -142,7 +117,7 @@ namespace SporeServer.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens");
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAggregator", b =>
@@ -159,9 +134,6 @@ namespace SporeServer.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
-
-                    b.Property<int>("SubscriberCount")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime(6)");
@@ -277,6 +249,36 @@ namespace SporeServer.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetComment", b =>
+                {
+                    b.Property<long>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("Approved")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<long>("AssetId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AuthorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("AssetId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("AssetComments");
+                });
+
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetTag", b =>
                 {
                     b.Property<long>("TagId")
@@ -313,6 +315,27 @@ namespace SporeServer.Migrations
                     b.HasIndex("AssetId");
 
                     b.ToTable("SporeServerAssetTrait");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerBlockedUser", b =>
+                {
+                    b.Property<long>("BlockedUserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("AuthorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("BlockedUserId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BlockedUsers");
                 });
 
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerLeaderboardEntry", b =>
@@ -375,6 +398,33 @@ namespace SporeServer.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("AssetRatings");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerRole", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex");
+
+                    b.ToTable("AspNetRoles", (string)null);
                 });
 
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerUnlockedAchievement", b =>
@@ -464,18 +514,19 @@ namespace SporeServer.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4d454217-9284-4154-a0f0-d5f938160687",
+                            ConcurrencyStamp = "c536d83c-2c6c-448a-a82b-e1a58812c84a",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NextAssetId = 0L,
+                            NextAssetId = 600000000000L,
                             PhoneNumberConfirmed = false,
+                            SecurityStamp = "f11be4da-ad08-43dd-980a-cd8b6080ddcc",
                             TwoFactorEnabled = false
                         });
                 });
@@ -518,7 +569,7 @@ namespace SporeServer.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<long>", null)
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -545,7 +596,7 @@ namespace SporeServer.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<long>", null)
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -608,6 +659,25 @@ namespace SporeServer.Migrations
                     b.Navigation("Author");
                 });
 
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetComment", b =>
+                {
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerAsset", "Asset")
+                        .WithMany()
+                        .HasForeignKey("AssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerUser", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Asset");
+
+                    b.Navigation("Author");
+                });
+
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerAssetTag", b =>
                 {
                     b.HasOne("SporeServer.Areas.Identity.Data.SporeServerAsset", "Asset")
@@ -628,6 +698,25 @@ namespace SporeServer.Migrations
                         .IsRequired();
 
                     b.Navigation("Asset");
+                });
+
+            modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerBlockedUser", b =>
+                {
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerUser", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SporeServer.Areas.Identity.Data.SporeServerUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SporeServer.Areas.Identity.Data.SporeServerLeaderboardEntry", b =>
