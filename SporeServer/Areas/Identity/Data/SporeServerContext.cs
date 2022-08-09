@@ -16,7 +16,7 @@ using SporeServer.Areas.Identity.Data;
 
 namespace SporeServer.Data
 {
-    public class SporeServerContext : IdentityDbContext<SporeServerUser, IdentityRole<Int64>, Int64>
+    public class SporeServerContext : IdentityDbContext<SporeServerUser, SporeServerRole, Int64>
     {
         public SporeServerContext(DbContextOptions<SporeServerContext> options)
             : base(options)

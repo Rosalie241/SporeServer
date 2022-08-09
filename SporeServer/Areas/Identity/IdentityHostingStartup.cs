@@ -34,7 +34,7 @@ namespace SporeServer.Areas.Identity
                         new MariaDbServerVersion(new Version(10, 5, 9))
                 ));
 
-                services.AddIdentity<SporeServerUser, IdentityRole<Int64>>(options =>
+                services.AddIdentity<SporeServerUser, SporeServerRole>(options =>
                 {
                     // Password settings.
                     options.Password.RequireDigit = true;
