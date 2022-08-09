@@ -551,8 +551,10 @@ namespace SporeServer.Services
             try
             {
                 return await _context.Assets
-                                        .Where(a => a.AuthorId == author.Id)
-                                        .CountAsync();
+                                        .Where(a => 
+                                            a.Used &&
+                                            a.AuthorId == author.Id 
+                                        ).CountAsync();
             }
             catch (Exception e)
             {
