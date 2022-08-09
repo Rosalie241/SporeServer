@@ -73,7 +73,9 @@ namespace SporeServer.Data
             builder.Entity<SporeServerUser>()
                 .HasData(new SporeServerUser()
                 {
-                    Id = 1
+                    Id = 1,
+                    SecurityStamp = Guid.NewGuid().ToString("D"),
+                    NextAssetId = 600000000000
                 });
 
             // create dummy asset with starting id
