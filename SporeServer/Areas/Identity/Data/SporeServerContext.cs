@@ -75,6 +75,7 @@ namespace SporeServer.Data
                 {
                     Id = 1,
                     SecurityStamp = Guid.NewGuid().ToString("D"),
+                    LockoutEnabled = true,
                     NextAssetId = 600000000000
                 });
 
