@@ -37,12 +37,31 @@ namespace SporeServer.Pages.Community.Auth
                 return Page();
             }
 
-            var result = await _userManager.CreateAsync(
-                new SporeServerUser
-                {
-                    UserName = query.DisplayName,
-                    Email = query.Email
-                }, query.Password);
+            IdentityResult result;
+
+            // check if first user has been used already,
+            // if not, update the user
+            var firstUser = await _userManager.FindByIdAsync("1");
+            if (firstUser != null && String.IsNullOrEmpty(firstUser.UserName))
+            {
+                firstUser.UserName = query.DisplayName;
+                firstUser.Email = query.Email;
+
+                result = await _userManager.UpdateAsync(firstUser);
+                if (result.Succeeded)
+                { // add password when updating user succeeded
+                    result = await _userManager.AddPasswordAsync(firstUser, query.Password);
+                }
+            }
+            else
+            { // first user has already been used, so create a new one
+                result = await _userManager.CreateAsync(
+                    new SporeServerUser
+                    {
+                        UserName = query.DisplayName,
+                        Email = query.Email
+                    }, query.Password);
+            }
 
             return Redirect($"https://community.spore.com/community/auth/registerNew?success={result.Succeeded}");
         }
