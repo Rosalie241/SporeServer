@@ -5,6 +5,9 @@ A WIP Spore Server replacement
 * SporeServer
    * Replacement server
 
+* SporeServer.Utils
+   * Utilities for SporeServer (i.e to extract info from the extracted game files)
+
 * SporeMods
    * SporeServer
      * Spore mod which is required to connect to a SporeServer instance
