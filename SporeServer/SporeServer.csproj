@@ -24,4 +24,9 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="SporeServer.Tests" />
+  </ItemGroup>
+
+
 </Project>
