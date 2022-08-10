@@ -36,8 +36,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpPost("upload")]
         public async Task<IActionResult> Upload()
         {
-            Console.WriteLine($"/pollinator/event/upload{Request.QueryString}");
-
             var author = await _userManager.GetUserAsync(User);
 
             await _eventManager.AddAsync(Request.Body, author);

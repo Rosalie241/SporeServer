@@ -81,7 +81,6 @@ namespace SporeServer.Controllers
         [HttpPost("telemetry")]
         public IActionResult Telemetry()
         {
-            Console.WriteLine("/pollinator/telemetry");
             return Ok();
         }
     }

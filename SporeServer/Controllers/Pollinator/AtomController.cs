@@ -48,8 +48,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpGet("randomAsset")]
         public async Task<IActionResult> RandomAsset()
         {
-            Console.WriteLine($"/pollinator/atom/randomAsset{Request.QueryString}");
-
             string functionString = Request.Query["asset.function"];
 
             SporeServerAsset[] assets = null;
@@ -79,8 +77,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpGet("downloadQueue")]
         public async Task<IActionResult> DownloadQueue()
         {
-            Console.WriteLine($"/pollinator/atom/downloadQueue{Request.QueryString}");
-
             var user = await _userManager.GetUserAsync(User);
 
             return AtomFeedBuilder.CreateFromTemplate(
@@ -92,8 +88,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpGet("asset/{id?}")]
         public async Task<IActionResult> Asset(Int64? id)
         {
-            Console.WriteLine($"/pollinator/atom/asset/{id}{Request.QueryString}");
-
             var assets = new List<SporeServerAsset>();
 
             if (id != null)
@@ -133,8 +127,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpGet("subscribe")]
         public async Task<IActionResult> Subscribe()
         {
-            Console.WriteLine($"/pollinator/atom/subscribe{Request.QueryString}");
-
             string uriQuery = Request.Query["uri"];
 
             var user = await ControllerHelper.GetUserFromQuery(_userManager, uriQuery);
@@ -187,8 +179,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpGet("unsubscribe")]
         public async Task<IActionResult> Unsubscribe()
         {
-            Console.WriteLine($"/pollinator/atom/unsubscribe{Request.QueryString}");
-
             string uriQuery = Request.Query["uri"];
 
             var user = await ControllerHelper.GetUserFromQuery(_userManager, uriQuery);
@@ -237,8 +227,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> AtomUser(Int64 userId)
         {
-            Console.WriteLine($"/pollinator/atom/user/{userId}{Request.QueryString}");
-
             var user = await _userManager.FindByIdAsync(userId.ToString());
 
             // make sure the user exists
@@ -258,8 +246,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpGet("aggregator/{id}")]
         public async Task<IActionResult> Aggregator(Int64 id)
         {
-            Console.WriteLine($"/pollinator/atom/aggregator/{id}{Request.QueryString}");
-
             var aggregator = await _aggregatorManager.FindByIdAsync(id);
 
             // make sure the aggregator exists
@@ -279,8 +265,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpGet("delete")]
         public async Task<IActionResult> Delete()
         {
-            Console.WriteLine($"/pollinator/atom/delete{Request.QueryString}");
-
             var aggregator = await ControllerHelper.GetAggregatorFromQuery(_aggregatorManager, Request.Query["uri"]);
 
             // make sure the aggregator exists

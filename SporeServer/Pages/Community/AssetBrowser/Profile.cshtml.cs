@@ -114,8 +114,6 @@ namespace SporeServer.Pages.Community.AssetBrowser
 
         public async Task<IActionResult> OnGet(Int64 id)
         {
-            Console.WriteLine($"/community/assetBrowser/profile/{id}{Request.QueryString}");
-
             ProfileUser = await _userManager.FindByIdAsync($"{id}");
             CurrentUser = await _userManager.GetUserAsync(User);
 

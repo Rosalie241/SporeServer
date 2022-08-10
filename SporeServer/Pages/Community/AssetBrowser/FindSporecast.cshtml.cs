@@ -75,8 +75,6 @@ namespace SporeServer.Pages.Community.AssetBrowser
 
         public async Task<IActionResult> OnGet(Int32? index)
         {
-            Console.WriteLine($"/community/assetBrowser/findSporecast/{index}{Request.QueryString}");
-
             string searchString = Request.Query["searchText"];
 
             SearchString = searchString;

@@ -43,8 +43,6 @@ namespace SporeServer.Controllers.Community
         [HttpGet("deleteAsset/{id}")]
         public async Task<IActionResult> DeleteAsset(Int64 id)
         {
-            Console.WriteLine($"/community/assetBrowser/deleteAsset/{id}{Request.QueryString}");
-
             var asset = await _assetManager.FindByIdAsync(id);
             var user = await _userManager.GetUserAsync(User);
 
@@ -73,8 +71,6 @@ namespace SporeServer.Controllers.Community
         [HttpGet("editSporecast")]
         public async Task<IActionResult> EditSporecast()
         {
-            Console.WriteLine($"/community/assetBrowser/editSporecast{Request.QueryString}");
-
             var aggregator = await ControllerHelper.GetAggregatorFromQuery(_aggregatorManager, Request.Query["scId"]);
             if (aggregator == null)
             {
@@ -127,8 +123,6 @@ namespace SporeServer.Controllers.Community
         [HttpGet("rate")]
         public async Task<IActionResult> Rate()
         {
-            Console.WriteLine($"/community/assetBrowser/rate{Request.QueryString}");
-
             // make sure the rating query exists, and is either 0 or 1
             if (Int32.TryParse(Request.Query["rating"], out Int32 ratingNumber))
             {

@@ -39,8 +39,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpPost("AssetUploadServlet")]
         public async Task<IActionResult> AssetUploadServlet([FromForm] AssetUploadForm formAsset)
         {
-            Console.WriteLine($"/pollinator/public-interface/AssetUploadServlet{Request.QueryString}");
-
             // the game client always sends the slurp query
             // and it's always either 0 or 1
             if (!Request.Query.ContainsKey("slurp") ||

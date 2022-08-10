@@ -23,8 +23,6 @@ namespace SporeServer.Controllers.Community
         [HttpPost("SnapshotUploadServlet")]
         public IActionResult SnapshotUploadServlet([FromForm] SnapshotUploadForm file)
         {
-            Console.WriteLine("/community/public-interface/SnapshotUploadServlet");
-
             // TODO
             return Ok();
         }

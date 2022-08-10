@@ -58,8 +58,6 @@ namespace SporeServer.Pages.Community.AssetBrowser
 
         public async Task<IActionResult> OnGet(Int64 id)
         {
-            Console.WriteLine($"/community/assetBrowser/comment/{id}");
-
             Asset = await _assetManager.FindByIdAsync(id, true);
             AssetExists = (Asset != null);
 

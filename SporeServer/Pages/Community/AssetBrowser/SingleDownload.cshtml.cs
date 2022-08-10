@@ -80,8 +80,6 @@ namespace SporeServer.Pages.Community.AssetBrowser
 
         public async Task<IActionResult> OnGet(Int32? index)
         {
-            Console.WriteLine($"/community/assetBrowser/singleDownload{Request.QueryString}");
-
             BrowseType = Request.Query["browseType"];
             FilterView = Request.Query["filterView"];
             ShowBigBackground = false;

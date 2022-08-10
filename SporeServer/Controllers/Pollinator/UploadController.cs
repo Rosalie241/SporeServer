@@ -38,8 +38,6 @@ namespace SporeServer.Controllers.Pollinator
         [HttpGet("status/{id}")]
         public async Task<IActionResult> Status(Int64 id)
         {
-            Console.WriteLine($"/pollinator/Upload/Status/{id}");
-
             var user = await _userManager.GetUserAsync(User);
             var asset = await _assetManager.FindByIdAsync(id);
 

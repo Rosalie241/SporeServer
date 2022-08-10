@@ -65,8 +65,6 @@ namespace SporeServer.Pages.Community.AssetBrowser
 
         public async Task<IActionResult> OnGet()
         {
-            Console.WriteLine($"{Request.Path}{Request.QueryString}");
-
             var author = await _userManager.GetUserAsync(User);
 
             var unblockUserString = Request.Query["unblockUser"].ToString();

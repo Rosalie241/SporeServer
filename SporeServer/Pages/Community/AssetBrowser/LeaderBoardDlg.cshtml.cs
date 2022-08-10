@@ -50,8 +50,6 @@ namespace SporeServer.Pages.Community.AssetBrowser
                             e => e.PercentageCompleted
                         ).Take(10).ToArrayAsync();
 
-            Console.WriteLine($"/community/assetBrowser/LeaderboardDlg{Request.QueryString}");
-
             return Page();
         }
     }

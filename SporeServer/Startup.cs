@@ -10,12 +10,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using SporeServer;
 using SporeServer.Areas.Identity.Data;
+using SporeServer.Data;
 using SporeServer.Middleware;
 using SporeServer.Services;
 using System;
@@ -48,6 +51,11 @@ namespace SporeServer
             services.AddScoped<IRatingManager, RatingManager>();
             services.AddScoped<IBlockedUserManager, BlockedUserManager>();
 
+            services.AddHttpLogging(logging =>
+            {
+                logging.LoggingFields = HttpLoggingFields.RequestMethod | HttpLoggingFields.RequestPath | HttpLoggingFields.RequestQuery | HttpLoggingFields.ResponseStatusCode;
+            });
+
             services.AddControllers();
             services.AddRazorPages();
         }
@@ -78,6 +86,11 @@ namespace SporeServer
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            if (Configuration["AppSettings:EnableHTTPLogging"] == "1")
+            {
+                app.UseHttpLogging();
+            }
 
             app.UseEndpoints(endpoints =>
             {
