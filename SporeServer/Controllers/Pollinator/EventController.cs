@@ -40,11 +40,7 @@ namespace SporeServer.Controllers.Pollinator
 
             var author = await _userManager.GetUserAsync(User);
 
-            if (!await _eventManager.AddAsync(Request.Body, author))
-            {
-                return StatusCode(500);
-            }
-
+            await _eventManager.AddAsync(Request.Body, author);
             return Ok();
         }
     }
