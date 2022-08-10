@@ -112,15 +112,11 @@ namespace SporeServer.Controllers.Pollinator
             }
 
             // save the asset
-            if (!await _assetManager.AddAsync(formAsset,
-                    asset,
-                    parentAsset,
-                    (slurpValue == 1),
-                    (SporeAssetType)typeId))
-            {
-                return StatusCode(500);
-            }
-
+            await _assetManager.AddAsync(formAsset,
+                asset,
+                parentAsset,
+                (slurpValue == 1),
+                (SporeAssetType)typeId);
             return Ok();
         }
     }
