@@ -129,57 +129,6 @@ namespace SporeServer.Controllers.Pollinator
        
         }
 
-        /// <summary>
-        ///     Simple helper function for atom/(un)subscribe which tries to get SporeServerUser from uriQuery, returns null when not found
-        /// </summary>
-        /// <param name="uriQuery"></param>
-        /// <returns></returns>
-        private async Task<SporeServerUser> GetUserFromUriQuery(string uriQuery)
-        {
-            // make sure the uri request starts with
-            // the correct tag
-            if (!uriQuery.StartsWith("tag:spore.com,2006:user/"))
-            {
-                return null;
-            }
-
-            string uriUser = uriQuery.Remove(0, 24);
-
-            // make sure we can parse the user id
-            if (!Int64.TryParse(uriUser, out Int64 userId))
-            {
-                return null;
-            }
-
-            return await _userManager.FindByIdAsync($"{userId}");
-        }
-
-        /// <summary>
-        ///     Simple helper function for atom/(un)subscribe which tries to get SporeServerAggregator from uriQuery, returns null when not found
-        /// </summary>
-        /// <param name="uriQuery"></param>
-        /// <returns></returns>
-        private async Task<SporeServerAggregator> GetAggregatorFromUriQuery(string uriQuery)
-        {
-            // make sure the uri request starts with
-            // the correct tag
-            if (!uriQuery.StartsWith("tag:spore.com,2006:aggregator/"))
-            {
-                return null;
-            }
-
-            string uriAggregator = uriQuery.Remove(0, 30);
-
-            // make sure we can parse the aggregator id
-            if (!Int64.TryParse(uriAggregator, out Int64 aggregatorId))
-            {
-                return null;
-            }
-
-
-            return await _aggregatorManager.FindByIdAsync(aggregatorId);
-        }
-
         // GET /pollinator/atom/subscribe
         [HttpGet("subscribe")]
         public async Task<IActionResult> Subscribe()
@@ -188,8 +137,8 @@ namespace SporeServer.Controllers.Pollinator
 
             string uriQuery = Request.Query["uri"];
 
-            var user = await GetUserFromUriQuery(uriQuery);
-            var aggregator = await GetAggregatorFromUriQuery(uriQuery);
+            var user = await ControllerHelper.GetUserFromQuery(_userManager, uriQuery);
+            var aggregator = await ControllerHelper.GetAggregatorFromQuery(_aggregatorManager, uriQuery);
 
             if (user == null && aggregator == null)
             {
@@ -242,8 +191,8 @@ namespace SporeServer.Controllers.Pollinator
 
             string uriQuery = Request.Query["uri"];
 
-            var user = await GetUserFromUriQuery(uriQuery);
-            var aggregator = await GetAggregatorFromUriQuery(uriQuery);
+            var user = await ControllerHelper.GetUserFromQuery(_userManager, uriQuery);
+            var aggregator = await ControllerHelper.GetAggregatorFromQuery(_aggregatorManager, uriQuery);
 
             if (user == null && aggregator == null)
             {
@@ -332,7 +281,7 @@ namespace SporeServer.Controllers.Pollinator
         {
             Console.WriteLine($"/pollinator/atom/delete{Request.QueryString}");
 
-            var aggregator = await GetAggregatorFromUriQuery(Request.Query["uri"]);
+            var aggregator = await ControllerHelper.GetAggregatorFromQuery(_aggregatorManager, Request.Query["uri"]);
 
             // make sure the aggregator exists
             if (aggregator == null)

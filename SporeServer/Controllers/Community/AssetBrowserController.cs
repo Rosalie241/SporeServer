@@ -69,38 +69,13 @@ namespace SporeServer.Controllers.Community
             return Ok();
         }
 
-        /// <summary>
-        ///     Simple helper function for editSporecast which tries to get SporeServerAggregator from idQuery, returns null when not found
-        /// </summary>
-        /// <param name="uriQuery"></param>
-        /// <returns></returns>
-        private async Task<SporeServerAggregator> GetAggregatorFromIdQuery(string idQuery)
-        {
-            // make sure the uri request starts with
-            // the correct tag
-            if (!idQuery.StartsWith("tag:spore.com,2006:aggregator/"))
-            {
-                return null;
-            }
-
-            string uriAggregator = idQuery.Remove(0, 30);
-
-            // make sure we can parse the aggregator id
-            if (!Int64.TryParse(uriAggregator, out Int64 aggregatorId))
-            {
-                return null;
-            }
-
-            return await _aggregatorManager.FindByIdAsync(aggregatorId);
-        }
-
         // GET /community/assetBrowser/editSporecast
         [HttpGet("editSporecast")]
         public async Task<IActionResult> EditSporecast()
         {
             Console.WriteLine($"/community/assetBrowser/editSporecast{Request.QueryString}");
 
-            var aggregator = await GetAggregatorFromIdQuery(Request.Query["scId"]);
+            var aggregator = await ControllerHelper.GetAggregatorFromQuery(_aggregatorManager, Request.Query["scId"]);
             if (aggregator == null)
             {
                 return NotFound();
