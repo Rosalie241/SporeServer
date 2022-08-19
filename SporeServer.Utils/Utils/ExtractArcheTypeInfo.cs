@@ -212,7 +212,7 @@ namespace SporeServer.Utils.Utils
 
                 if (herbivoreVector.Num2 == 1 && herbivoreVector.Num3 == 2)
                 {
-                    mouthType = "Carn.";
+                    mouthType = "Herb.";
                 }
             }
 
