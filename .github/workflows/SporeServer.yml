@@ -19,13 +19,10 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: |
-        cd SporeServer
-        dotnet restore
+        dotnet restore /p:Configuration="Debug (.NET)"
     - name: Build
       run: |
-        cd SporeServer
-        dotnet build --no-restore
+        dotnet build --no-restore /p:Configuration="Debug (.NET)"
     - name: Test
       run: |
-        cd SporeServer.Tests
-        dotnet test
+        dotnet test /p:Configuration="Debug (.NET)"
