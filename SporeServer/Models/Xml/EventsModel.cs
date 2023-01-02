@@ -30,6 +30,9 @@ namespace SporeServer.Models.Xml
             var document = await XDocument.LoadAsync(stream, LoadOptions.None, new CancellationToken());
             var rootElement = document.Root;
 
+            Console.WriteLine(document.ToString());
+
+
             eventsModel.Events = rootElement.Descendants("event").Select(eventNode => 
             {
                 var eventsModel = new EventsModelEvent()

@@ -36,6 +36,9 @@
 // needed for std::stoi
 #include <string>
 
+// needed for 
+#include "AssetBrowserFeed.hpp"
+
 //
 // Global variables
 //
@@ -47,6 +50,11 @@ static int          OpenSSL_ThreadId = -1;
 static bool         SporeServerPortOverride = false;
 static uint16_t     SporeServerPort;
 static bool         SporeServerSslVerification = true;
+
+// needed for assetbrowserfeed category injection
+static std::string  HandshakeXml;
+static bool         LookForHandshakeEndpoint = true;
+static bool         ReadHandshakeXml = false;
 
 //
 // Detour functions
@@ -149,14 +157,46 @@ static_detour(SSLConnectDetour, int(void*)) {
 static_detour(SSLReadDetour, int(void*, void*, int)) {
     int detoured(void* ssl, void* buffer, int num)
     {
-        return SSL_read(OpenSSL_SSL, buffer, num);
+        int ret = SSL_read(OpenSSL_SSL, buffer, num);
+
+        if (ReadHandshakeXml)
+        {
+            HandshakeXml += std::string((char*)buffer, ret);
+
+            // find handshake xml element
+            if (HandshakeXml.find("</handshake>") != std::string::npos)
+            {
+                // try to find custom element that SporeServer provides
+                if (HandshakeXml.find("<inject-moderator-tools>true</inject-moderator-tools>") != std::string::npos)
+                {
+                    // inject moderator category to asset browser feed
+                    AssetBrowserFeed::InjectUrls();
+                    AssetBrowserFeed::InjectModeratorCategory();
+                }
+
+                HandshakeXml = "";
+                ReadHandshakeXml = false;
+            }
+        }
+
+        return ret;
     }
 };
-
 
 static_detour(SSLWriteDetour, int(void*, const void*, int)) {
     int detoured(void* ssl, const void* buffer, int num)
     {
+        if (LookForHandshakeEndpoint)
+        {
+            std::string bufferString = std::string((char*)buffer, num);
+
+            if (bufferString.find("GET /pollinator/handshake") != std::string::npos)
+            {
+                LookForHandshakeEndpoint = false;
+                ReadHandshakeXml = true;
+            }            
+        }
+
         return SSL_write(OpenSSL_SSL, buffer, num);
     }
 };

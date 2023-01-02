@@ -30,6 +30,11 @@ namespace SporeServer.Pages.Community.Auth
             _userManager = userManager;
         }
 
+        /// <summary>
+        ///     Error Message for when registration fails
+        /// </summary>
+        public string ErrorMessage { get; set; }
+
         public async Task<IActionResult> OnGetAsync([FromQuery] RegisterNewQuery query)
         {
             if (!ModelState.IsValid)
@@ -61,6 +66,29 @@ namespace SporeServer.Pages.Community.Auth
                         UserName = query.DisplayName,
                         Email = query.Email
                     }, query.Password);
+            }
+
+            if (Request.Query.ContainsKey("Post"))
+            {
+                foreach (var modelState in ViewData.ModelState.Values)
+                {
+                    foreach (var error in modelState.Errors)
+                    {
+                        ErrorMessage += error.ErrorMessage + " ";
+                    }
+                }
+            }
+            else if (Request.Query.ContainsKey("success"))
+            {
+                bool success = (Request.Query["success"] == "True");
+                if (success)
+                {
+                    ErrorMessage = "Successfully registered.";
+                }
+                else
+                {
+                    ErrorMessage = "Failed to register user.";
+                }
             }
 
             return Redirect($"https://community.spore.com/community/auth/registerNew?success={result.Succeeded}");

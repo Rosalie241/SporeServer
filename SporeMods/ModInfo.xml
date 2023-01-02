@@ -4,4 +4,5 @@
 	installerSystemVersion="1.0.1.1" 
 	dllsBuild="2.5.20">
 	<prerequisite>SporeServer.dll</prerequisite>
+	<prerequisite game="GalacticAdventures">SporeServer.package</prerequisite>
 </mod>

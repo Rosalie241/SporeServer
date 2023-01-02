@@ -7,9 +7,11 @@
  *  You should have received a copy of the GNU Affero General Public License
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+using SporeServer.Tests.Helpers;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
+using static SporeServer.Tests.Helpers.UserHelpers;
 
 namespace SporeServer.Tests
 {
@@ -57,8 +59,8 @@ namespace SporeServer.Tests
         {
             var client = _factory.CreateClient();
 
-            await TestsHelper.RegisterTestUser(client);
-            TestsHelper.LoginAsTestUser(client);
+            await UserHelpers.RegisterUser(client, Users.TestUser1);
+            UserHelpers.LoginAsUser(client, Users.TestUser1);
 
             HttpResponseMessage response;
             

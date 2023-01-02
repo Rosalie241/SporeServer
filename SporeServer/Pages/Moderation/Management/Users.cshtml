@@ -1,0 +1,73 @@
+﻿@page
+@model SporeServer.Pages.Moderation.Management.UsersModel
+@{
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>User Management</title>
+    <base href="https://community.spore.com" />
+    <link rel="stylesheet" type="text/css" href="/css/game/userManagement.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
+</head>
+
+<body>
+    <div id="userManagementContent">
+        <div id="search">
+            <div id="searchmiddle">
+                <form method="get" action="/Moderation/Management/Users">
+                    <p><input type="text" name="searchText" size="30" value="@Model.SearchString" class="text" /></p>
+                    <p><input type="submit" value="Search" name="action" class="submit" /></p>
+                    <p><input type="submit" value="Create" name="action" class="submit" /></p>
+                </form>
+            </div>
+        </div>
+        <div id="results">
+            <div id="paging">
+                 @if (Model.Users.Length != 0)
+                 {
+                     var length = Model.Users.Length;
+                     <div class="context">
+                         Showing 1-@(length) of @(length) users
+                     </div>
+                 }
+                <div class="next">
+
+                </div>
+            </div>
+            <table class="userManagementResults">
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 @for (int i = 0; i < Model.Users.Length; i++)
+                    {
+                        var user = Model.Users[i];
+                        bool odd = i % 2 != 0;
+                        int assetCount = 0; // await Model.GetAssetCountByUserAsync(user);
+                        <tr>
+                            <td class="avatar@(odd ? " , odd" : "")">
+                                <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
+                            </td>
+                            <td class="userid@(odd ? ", odd" : "")">
+                                <a href="sporeprofile:@(user.Id)" style="">@(user.Id)</a>
+                            </td>
+                            <td class="username@(odd ? " , odd" : "")">
+                                <a href="sporeprofile:@(user.Id)" style="">@(user.UserName)</a>
+                            </td>
+                            <td class="editButton@(odd ? " , odd" : "")">
+                                <a href="/Moderation/Management/User/Edit/@(user.Id)" style=""><img src="utfres://0x011c0bde!icon_settings.png" /></a>
+                            </td>
+                            <td class="banButton@(odd ? " , odd" : "")">
+                                <a href="sporeprofile:@(user.Id)" style=""><img src="utfres://AssetBrowserGraphics!0x9F681350.png" /></a>
+                            </td>
+                        </tr>
+                    }
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -5,6 +5,7 @@ mkdir "%CUR_DIR%\obj"
 mkdir "%CUR_DIR%\bin"
 
 copy "%CUR_DIR%\SporeServer\Bin\Release\SporeServer.dll" "%CUR_DIR%\obj\"
+copy "%CUR_DIR%\Package\SporeServer.package" "%CUR_DIR%\obj\"
 copy "%CUR_DIR%\ModInfo.xml" "%CUR_DIR%\obj\"
 
 cd "%CUR_DIR%\obj\"
