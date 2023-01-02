@@ -1,0 +1,50 @@
+﻿@page "{id}"
+@model SporeServer.Pages.Moderation.Management.User.EditModel
+@{
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>User Management: Create User</title>
+    <base href="https://community.spore.com" />
+    <link rel="stylesheet" type="text/css" href="/css/game/createUser.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game/antialias.css" />
+</head>
+
+<body>
+    <div class="@(true ? "bigBgd startBgd" : "")">
+        <div class="moderationToolsArea">
+            <div id="bevelHeader" style="height: 35px;">
+                <div style="margin-top:8px; margin-left: 15px;">
+                    <h2>Edit User</h2>
+                </div>
+            </div>
+            <div id="bevelSides" class="browseBevel">
+               <form method="get" action="/Moderation/Management/CreateUser">
+                    <table class="browseTable">
+                        <tr>
+                            <td style="padding: 0px 0px 0px 0px;">
+                                <table>
+                                    <tr>
+                                        <td>E-Mail</td>
+                                        <td><input type="text" name="searchText" size="30" value="" class="text" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Password</td>
+                                        <td><input type="text" name="searchText" size="30" value="" class="text" /></td>
+                                    </tr>
+                                </table>
+                                <input type="submit" value="Back" name="action" class="submit" />
+                                <input type="submit" value="Create" name="action" class="submit" />
+                            </td>
+                        </tr>
+                    </table>
+               </form>
+            </div>
+            <div id="bevelFooter"></div>
+        </div>
+    </div>
+</body>
+</html>

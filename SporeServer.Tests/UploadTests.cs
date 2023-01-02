@@ -7,6 +7,7 @@
  *  You should have received a copy of the GNU Affero General Public License
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+using SporeServer.Tests.Helpers;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -31,8 +32,8 @@ namespace SporeServer.Tests
         {
             var client = _factory.CreateClient();
 
-            await TestsHelper.RegisterTestUser(client);
-            TestsHelper.LoginAsTestUser(client);
+            await UserHelpers.RegisterUser(client, UserHelpers.Users.TestUser1);
+            UserHelpers.LoginAsUser(client, UserHelpers.Users.TestUser1);
 
             var response = await client.PostAsync("/pollinator/event/upload", new StringContent(eventXml));
 
@@ -46,10 +47,13 @@ namespace SporeServer.Tests
         {
             var client = _factory.CreateClient();
 
-            await TestsHelper.RegisterTestUser(client);
-            TestsHelper.LoginAsTestUser(client);
+            await UserHelpers.RegisterUser(client, UserHelpers.Users.TestUser1);
+            UserHelpers.LoginAsUser(client, UserHelpers.Users.TestUser1);
             
-            Int64 nextAssetId = await TestsHelper.GetTestUserAssetNextId(client);
+            Int64 nextAssetId = await UserHelpers.GetTestUserAssetNextId(client);
+
+            // make sure GetTestUserAssetNextId() succeeded
+            Assert.NotEqual(-1, nextAssetId);
 
             FileStream modelDataFileStream = File.OpenRead(modelDataFileName);
             FileStream thumbDataFileStream = File.OpenRead(thumbDataFileName);

@@ -129,7 +129,7 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
     {
         private readonly string _xml;
 
-        public HandshakeTemplate(SporeServerUser user, SporeServerAggregator[] aggregators, Int32[] aggregatorSubscriptionCounts, SporeServerUserSubscription[] userSubscriptions, SporeServerAggregatorSubscription[] aggregatorSubscriptions)
+        public HandshakeTemplate(SporeServerUser user, bool injectModeratorTools, SporeServerAggregator[] aggregators, Int32[] aggregatorSubscriptionCounts, SporeServerUserSubscription[] userSubscriptions, SporeServerAggregatorSubscription[] aggregatorSubscriptions)
         {
             // <handshake />
             //
@@ -142,6 +142,12 @@ namespace SporeServer.Builder.AtomFeed.Templates.Pollinator
             AtomFeedBuilder.AddCustomElement(document, "next-id", $"{user.NextAssetId}");
             // <refresh-rate />
             AtomFeedBuilder.AddCustomElement(document, "refresh-rate", "120");
+
+            // <inject-moderator-tools />
+            if (injectModeratorTools)
+            {
+                AtomFeedBuilder.AddCustomElement(document, "inject-moderator-tools", "true");
+            }
 
             // <maxis-feeds />
             //

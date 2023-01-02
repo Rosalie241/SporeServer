@@ -13,46 +13,47 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace SporeServer.Tests
+namespace SporeServer.Tests.Helpers
 {
-    internal static class TestsHelper
+    internal static class UserHelpers
     {
-        private class TestUserInfo
+        public static class Users
         {
-            public static readonly string Email = "tests@tests.com";
-            public static readonly string Password = "TestsUser1_";
-            public static readonly string DisplayName = "TestsUser";
+            public static UserInfo TestUser1 = new UserInfo() { Email = "tests@tests.com", Password = "TestsUser1_", DisplayName = "TestsUser" };
         }
 
-        private static bool HasRegisteredTestUser = false;
-        private static bool RegisteredReturnValue = false;
+        public struct UserInfo
+        {
+            public string Email { get; set; }
+            public string Password { get; set;  }
+            public string DisplayName { get; set;  }
+        }
 
         /// <summary>
         ///     Registers Test User
         /// </summary>
-        public static async Task<bool> RegisterTestUser(HttpClient client)
+        public static async Task<bool> RegisterUser(HttpClient client, UserInfo userInfo)
         {
-            // we should only try to register once
-            if (HasRegisteredTestUser)
+            var response = await client.GetAsync($"/community/auth/registerNew?Email={userInfo.Email}&Password={userInfo.Password}&DisplayName={userInfo.DisplayName}");
+
+            if (!response.IsSuccessStatusCode)
             {
-                return RegisteredReturnValue;
+                return false;
             }
 
-            var response = await client.GetAsync($"/community/auth/registerNew?Email={TestUserInfo.Email}&Password={TestUserInfo.Password}&DisplayName={TestUserInfo.DisplayName}");
 
-            HasRegisteredTestUser = true;
-            RegisteredReturnValue = response.IsSuccessStatusCode && (await response.Content.ReadAsStringAsync()).Contains("Successfully registered.");
-            return RegisteredReturnValue;
+
+            return (await response.Content.ReadAsStringAsync()).Contains("Successfully registered.");
         }
 
 
         /// <summary>
         ///     Sets required headers to login as Test User
         /// </summary>
-        public static void LoginAsTestUser(HttpClient client)
+        public static void LoginAsUser(HttpClient client, UserInfo userInfo)
         {
-            client.DefaultRequestHeaders.Add("Spore-User", TestUserInfo.Email);
-            client.DefaultRequestHeaders.Add("Spore-Password", TestUserInfo.Password);
+            client.DefaultRequestHeaders.Add("Spore-User", userInfo.Email);
+            client.DefaultRequestHeaders.Add("Spore-Password", userInfo.Password);
         }
 
         /// <summary>

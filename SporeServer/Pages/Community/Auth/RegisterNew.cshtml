@@ -1,29 +1,6 @@
 ﻿@page
 @model SporeServer.Pages.Community.Auth.RegisterNewModel
-@{
-    string ErrorMessage = "";
-    if (Request.Query.ContainsKey("Post"))
-    {
-        foreach (var modelState in ViewData.ModelState.Values)
-        {
-            foreach (var error in modelState.Errors)
-            {
-                ErrorMessage += error.ErrorMessage + " ";
-            }
-        }
-    }
-    else if (Request.Query.ContainsKey("success"))
-    {
-        bool success = (Request.Query["success"] == "True");
-        if (success)
-        {
-            ErrorMessage = "Successfully registered.";
-        }
-        else
-        {
-            ErrorMessage = "Failed to register user.";
-        }
-    }
+@{    
 }
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -88,7 +65,7 @@
                     </table>
                 </div>
                 <div id="regfooter"></div>
-                <div class="errorText">@ErrorMessage</div>
+                <div class="errorText">@Model.ErrorMessage</div>
                 <!-- unneeded?
                 <input type="hidden" name="upgrade" value="true" />
                 -->

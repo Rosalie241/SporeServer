@@ -47,6 +47,7 @@ namespace SporeServer.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var asset = await _assetManager.FindByIdAsync(user.NextAssetId);
+            var injectModeratorTools = User.IsInRole("Admin") || User.IsInRole("Moderator");
             var aggregators = await _aggregatorManager.FindByAuthorAsync(user);
             var userSubscriptions = await _userSubscriptionManager.FindAllByAuthorAsync(user);
             var aggregatorSubscriptions = await _aggregatorSubscriptionManager.FindAllByAuthorAsync(user);
@@ -73,7 +74,7 @@ namespace SporeServer.Controllers
             }
 
             return AtomFeedBuilder.CreateFromTemplate(
-                    new HandshakeTemplate(user, aggregators, aggregatorSubscriptionCounts.ToArray(), userSubscriptions, aggregatorSubscriptions)
+                    new HandshakeTemplate(user, injectModeratorTools, aggregators, aggregatorSubscriptionCounts.ToArray(), userSubscriptions, aggregatorSubscriptions)
                 ).ToContentResult();
         }
 

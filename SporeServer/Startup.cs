@@ -60,8 +60,36 @@ namespace SporeServer
             services.AddRazorPages();
         }
 
+        private async Task CreateUserRoles(IServiceProvider serviceProvider)
+        {
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<SporeServerRole>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<SporeServerUser>>();
+            string[] roleNames = { "Admin", "Moderator" };
+
+            foreach (var roleName in roleNames)
+            {
+                var roleExist = await roleManager.RoleExistsAsync(roleName);
+                if (!roleExist)
+                {
+                    await roleManager.CreateAsync(new SporeServerRole(roleName));
+                }
+            }
+
+            Console.WriteLine(Configuration["AppSettings:AdminUserId"]);
+
+            var adminUser = await userManager.FindByIdAsync(Configuration["AppSettings:AdminUserId"]);
+            if (adminUser != null)
+            {
+                Console.WriteLine(adminUser.UserName);
+                if (!await userManager.IsInRoleAsync(adminUser, "Admin"))
+                {
+                    await userManager.AddToRoleAsync(adminUser, "Admin");
+                }
+            }
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -98,12 +126,8 @@ namespace SporeServer
                 endpoints.MapRazorPages();
             });
 
-            app.UseStatusCodePages(async context =>
-            {
-                Console.WriteLine($"{context.HttpContext.Request.Method} {context.HttpContext.Request.Path}{context.HttpContext.Request.QueryString}");
-                Console.WriteLine(context.HttpContext.Response.StatusCode);
-                await Task.Delay(0);
-            });
+            // create user roles
+            CreateUserRoles(serviceProvider).Wait();
         }
     }
 }

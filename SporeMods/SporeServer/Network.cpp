@@ -28,6 +28,9 @@
 // needed for std::stoi
 #include <string>
 
+// needed for 
+#include "AssetBrowserFeed.hpp"
+
 //
 // Global variables
 //
@@ -35,6 +38,11 @@
 static bool     SporeServerPortOverride = false;
 static uint16_t SporeServerPort;
 static bool     SporeServerSslVerification = true;
+
+// needed for assetbrowserfeed category injection
+static std::string  HandshakeXml;
+static bool         LookForHandshakeEndpoint = true;
+static bool         ReadHandshakeXml = false;
 
 //
 // Detour functions
@@ -55,6 +63,53 @@ static int WINAPI connect_detour(SOCKET s, const sockaddr* name, int namelen)
 
     return connect_real(s, name, namelen);
 }
+
+static_detour(SSL_read, int(void*, void*, int)) {
+    int detoured(void* ssl, void* buffer, int num)
+    {
+        int ret = original_function(ssl, buffer, num);
+
+        if (ReadHandshakeXml)
+        {
+            HandshakeXml += std::string((char*)buffer, ret);
+
+            // find handshake xml element
+            if (HandshakeXml.find("</handshake>") != std::string::npos)
+            {
+                // try to find custom element that SporeServer provides
+                if (HandshakeXml.find("<inject-moderator-tools>true</inject-moderator-tools>") != std::string::npos)
+                {
+                    // inject moderator category to asset browser feed
+                    AssetBrowserFeed::InjectUrls();
+                    AssetBrowserFeed::InjectModeratorCategory();
+                }
+
+                HandshakeXml = "";
+                ReadHandshakeXml = false;
+            }
+        }
+
+        return ret;
+    }
+};
+
+static_detour(SSL_write, int(void*, const void*, int)) {
+    int detoured(void* ssl, const void* buffer, int num)
+    {
+        if (LookForHandshakeEndpoint)
+        {
+            std::string bufferString = std::string((char*)buffer, num);
+
+            if (bufferString.find("GET /pollinator/handshake") != std::string::npos)
+            {
+                LookForHandshakeEndpoint = false;
+                ReadHandshakeXml = true;
+            }            
+        }
+
+        return original_function(ssl, buffer, num);
+    }
+};
 
 static_detour(SSL_CTX_set_verify, void(void*, int, void*))
 {
@@ -252,6 +307,8 @@ void Network::Initialize(void)
 
 void Network::AttachDetours(void)
 {
+    SSL_read::attach(Address(ModAPI::ChooseAddress(0x0117dbb0, 0x0117b430)));
+    SSL_write::attach(Address(ModAPI::ChooseAddress(0x0117dc40, 0x0117b4c0)));
     SSL_CTX_set_verify::attach(Address(ModAPI::ChooseAddress(0x0117e2b0, 0x0117bb30)));
     NetSSLVerifyConnection::attach(Address(ModAPI::ChooseAddress(0x0094f080, 0x0094eb60)));
     GameUseHttpDetour::attach(Address(ModAPI::ChooseAddress(0x00621800, 0x006217a0)));
