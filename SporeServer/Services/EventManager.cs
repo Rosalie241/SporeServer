@@ -49,6 +49,22 @@ namespace SporeServer.Services
                             await _achievementManager.UnlockAsync(eventsEvent.Args[0], author);
                             break;
 
+
+
+                        // Cell Kills
+                        case (Int64)SporeEventType.CellKills:
+                            break;
+
+                        // Cell Deaths
+                        case (Int64)SporeEventType.CellDeaths:
+                            break;
+
+                        // Cell Time
+                        case (Int64)SporeEventType.CreatureBefriended:
+                            break;
+
+
+
                         // Befriended Creature
                         case (Int64)SporeEventType.CreatureBefriended:
                             break;
@@ -56,6 +72,70 @@ namespace SporeServer.Services
                         // Extincted Creature
                         case (Int64)SporeEventType.CreatureExtinction:
                             break;
+
+                        // Added Creature to Posse
+                        case (Int64)SporeEventType.CreaturePosse:
+                            break;
+
+
+
+                        // Found Epic
+                        case (Int64)SporeEventType.TribeEpic:
+                            break;
+
+                        // Killed Epic
+                        case (Int64)SporeEventType.TribeEpicKilled:
+                            break;
+
+                        // Domesticated Animal
+                        case (Int64)SporeEventType.TribeDomesticated:
+                            break;
+
+                        // Tribe Stage Finished
+                        case (Int64)SporeEventType.TribeSuccess:
+                            break;
+
+
+
+                        // Charmed Epic
+                        case (Int64)SporeEventType.CivEpicCharmed:
+                            break;
+
+                        // City Captured
+                        case (Int64)SporeEventType.CivCaptured:
+                            break;
+
+                        // Superweapon Used
+                        case (Int64)SporeEventType.CivSuperweapon:
+                            break;
+
+                        // Civilization Stage Finished
+                        case (Int64)SporeEventType.CivSuccess:
+                            break;
+
+
+
+                        // Allied
+                        case (Int64)SporeEventType.SpaceAllied:
+                            break;
+
+                        // Declared War
+                        case (Int64)SporeEventType.SpaceWar:
+                            break;
+
+                        // Added Spaceship to Posse
+                        case (Int64)SporeEventType.SpacePosse:
+                            break;
+
+                        // Epicized Creature
+                        case (Int64)SporeEventType.SpaceEpicized:
+                            break;
+
+                        // Eradicated Empire
+                        case (Int64)SporeEventType.SpaceEradicated:
+                            break;
+
+
 
                         // Adventure Won
                         case (Int64)SporeEventType.AdventureWon:
@@ -95,6 +175,8 @@ namespace SporeServer.Services
                         // Adventure Captain Unlocked Parts
                         case (Int64)SporeEventType.AdventureCaptainUnlockedParts:
                             break;
+
+
 
                         // Unsupported
                         default:
