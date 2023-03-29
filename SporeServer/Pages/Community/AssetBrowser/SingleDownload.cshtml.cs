@@ -208,7 +208,7 @@ namespace SporeServer.Pages.Community.AssetBrowser
             }
             else if (BrowseType == "UFO")
             {
-                modelTypeQuery = $"{(Int64)SporeModelType.VehicleUfo:x}";
+                modelTypeQuery = $"{(Int64)SporeModelType.VehicleUFO:x}";
             }
 
             // only validate query,

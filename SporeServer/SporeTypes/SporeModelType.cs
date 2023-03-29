@@ -46,8 +46,8 @@ namespace SporeServer.SporeTypes
         VehicleColonyWater = 0xc15695da,
         VehicleColonyAir = 0x2090a11b,
 
-        // Ufo Vehicle
-        VehicleUfo = 0x98e03c0d,
+        // Spaceships
+        VehicleUFO = 0x98e03c0d,
 
         // Scenarios/Adventures
         ScenarioUnset = 0x20790816,
