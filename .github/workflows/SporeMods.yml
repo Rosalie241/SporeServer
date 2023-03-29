@@ -33,7 +33,7 @@ jobs:
         run: |
           cd SporeMods
           .\CreateSporeMod.bat
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: SporeServer.sporemod
           path: SporeMods/bin/SporeServer.sporemod
