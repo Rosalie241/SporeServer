@@ -105,9 +105,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x8f5e1285,
                 Name = "Evolver",
                 Description = "Finish Creature stage",
-                // filename: 0xE8491003
+                // filename: sanecrouched
                 UnlockedFileNameHash = "0xe8491003",
-                // filename: 0x5D4ADA6E
+                // filename: sanecrouched_disabled
                 LockedFileNameHash = "0x5d4ada6e",
                 Secret = false
             },
@@ -453,9 +453,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x343100cc,
                 Name = "Epic Killer",
                 Description = "Kill an epic in Creature stage",
-                // filename: 0x9675ABA3
+                // filename: giantsbane
                 UnlockedFileNameHash = "0x9675aba3",
-                // filename: 0x5D98734E
+                // filename: giantsbane_disabled
                 LockedFileNameHash = "0x5d98734e",
                 Secret = false
             },
@@ -609,9 +609,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x256ed7f6,
                 Name = "Military Strongman",
                 Description = "Finish the Civilization stage with more than 8 military cities",
-                // filename: 0x8A3C22E1
+                // filename: militarystrongarm
                 UnlockedFileNameHash = "0x8a3c22e1",
-                // filename: 0xE26A43E4
+                // filename: militarystrongarm_disabled
                 LockedFileNameHash = "0xe26a43e4",
                 Secret = false
             },
@@ -969,9 +969,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x53f9ee27,
                 Name = "Ecologist Hero",
                 Description = "Achieve Master Badge Level 10 as an Ecologist",
-                // filename: 0x3ED0ABB5
+                // filename: EcologicalHero
                 UnlockedFileNameHash = "0x3ed0abb5",
-                // filename: 0x4CDFD088
+                // filename: EcologicalHero_disabled
                 LockedFileNameHash = "0x4cdfd088",
                 Secret = false
             },
@@ -1125,10 +1125,10 @@ namespace SporeServer.SporeTypes
                 Id = 0x00b5e59f,
                 Name = "Captain Academy",
                 Description = "Raise 10 Captains to Rank 10.",
-                // filename: 0xDC7DD1C5
-                UnlockedFileNameHash = "0xdc7dd1c5",
-                // filename: 0x49E3D878
-                LockedFileNameHash = "0x49e3d878",
+                // filename: CaptainAcademy
+                UnlockedFileNameHash = "0xad8aff3",
+                // filename: CaptainAcademy_disabled
+                LockedFileNameHash = "0x298d1b7e",
                 Secret = false
             },
             new SporeAchievement()
@@ -1137,9 +1137,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x16913702,
                 Name = "Industrious Trader",
                 Description = "Unlock all four Trader parts on a Captain.",
-                // filename: 0xA81B454B
+                // filename: TraderQuestmaster
                 UnlockedFileNameHash = "0xa81b454b",
-                // filename: 0x99D54836
+                // filename: TraderQuestmaster_disabled
                 LockedFileNameHash = "0x99d54836",
                 Secret = false
             },
@@ -1161,9 +1161,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x1c342ee2,
                 Name = "Intelligent Scientist",
                 Description = "Unlock all four Scientist parts on a Captain.",
-                // filename: 0x3ADFCF3F
+                // filename: ScientistQuestmaster
                 UnlockedFileNameHash = "0x3adfcf3f",
-                // filename: 0x5156255A
+                // filename: ScientistQuestmaster_disabled
                 LockedFileNameHash = "0x5156255a",
                 Secret = false
             },
@@ -1293,9 +1293,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x5c324dc2,
                 Name = "Delirious Designer",
                 Description = "Create 50 Adventures using only your own creations.",
-                // filename: 0x8F47CDF7
+                // filename: Delirious_Designer
                 UnlockedFileNameHash = "0x8f47cdf7",
-                // filename: 0xA26B2A32
+                // filename: Delirious_Designer_disabled
                 LockedFileNameHash = "0xa26b2a32",
                 Secret = false
             },
@@ -1317,9 +1317,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x61104b3d,
                 Name = "Faithful Zealot",
                 Description = "Unlock all four Zealot parts on a Captain.",
-                // filename: 0xC0FFD6F0
+                // filename: ZealotQuestmaster
                 UnlockedFileNameHash = "0xc0ffd6f0",
-                // filename: 0xF0EBCE0F
+                // filename: ZealotQuestmaster_disabled
                 LockedFileNameHash = "0xf0ebce0f",
                 Secret = false
             },
@@ -1353,9 +1353,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x79771a4d,
                 Name = "Universal Ecologist",
                 Description = "Unlock all four Ecologist parts on a Captain.",
-                // filename: 0x2DC31F4A
+                // filename: EcologistQuestmaster
                 UnlockedFileNameHash = "0x2dc31f4a",
-                // filename: 0x755D1B51
+                // filename: EcologistQuestmaster_disabled
                 LockedFileNameHash = "0x755d1b51",
                 Secret = false
             },
@@ -1365,9 +1365,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x819d7bab,
                 Name = "Fierce Warrior",
                 Description = "Unlock all four Warrior Parts on a Captain.",
-                // filename: 0x8ABED973
+                // filename: WarriorQuestmaster
                 UnlockedFileNameHash = "0x8abed973",
-                // filename: 0x5C267FFE
+                // filename: WarriorQuestmaster_disabled
                 LockedFileNameHash = "0x5c267ffe",
                 Secret = false
             },
@@ -1377,9 +1377,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x836a79ce,
                 Name = "Architect",
                 Description = "Place 500 Buildings into your Adventures.",
-                // filename: 0x5847ABC0
+                // filename: Architect_ADV
                 UnlockedFileNameHash = "0x5847abc0",
-                // filename: 0x429CB3FF
+                // filename: Architect_ADV_disabled
                 LockedFileNameHash = "0x429cb3ff",
                 Secret = false
             },
@@ -1397,14 +1397,14 @@ namespace SporeServer.SporeTypes
             },
             new SporeAchievement()
             {
-                // filename: ADV-CaptainAcademy
-                Id = 0x00b5e59f,
+                // filename: ADV-MyFirstCaptain
+                Id = 0x8b16db09,
                 Name = "My First Captain",
                 Description = "Raise a Captain to Rank 10.",
-                // filename: 0xDC7DD1C5
-                UnlockedFileNameHash = "0xdc7dd1c5",
-                // filename: 0x49E3D878
-                LockedFileNameHash = "0x49e3d878",
+                // filename: MyFirstCaptain
+                UnlockedFileNameHash = "0xc71c6c5d",
+                // filename: MyFirstCaptain_disabled
+                LockedFileNameHash = "0x14774d70",
                 Secret = false
             },
             new SporeAchievement()
@@ -1425,9 +1425,9 @@ namespace SporeServer.SporeTypes
                 Id = 0xa7a3dd49,
                 Name = "Just Diplomat",
                 Description = "Unlock all four Diplomat parts on a Captain.",
-                // filename: 0x72437DCD
+                // filename: DiplomatQuestmaster
                 UnlockedFileNameHash = "0x72437dcd",
-                // filename: 0xA98895C0
+                // filename: DiplomatQuestmaster_disabled
                 LockedFileNameHash = "0xa98895c0",
                 Secret = false
             },
@@ -1485,9 +1485,9 @@ namespace SporeServer.SporeTypes
                 Id = 0x00b5e59f,
                 Name = "Wise Shaman",
                 Description = "Unlock all four Shaman parts on a Captain.",
-                // filename: 0xDC7DD1C5
+                // filename: ShamanQuestmaster
                 UnlockedFileNameHash = "0xdc7dd1c5",
-                // filename: 0x49E3D878
+                // filename: ShamanQuestmaster_disabled
                 LockedFileNameHash = "0x49e3d878",
                 Secret = false
             },
@@ -1593,9 +1593,9 @@ namespace SporeServer.SporeTypes
                 Id = 0xf9ea822f,
                 Name = "Joyful Bard",
                 Description = "Unlock all four Bard parts on a Captain.",
-                // filename: 0xD9D677EC
+                // filename: BardQuestmaster
                 UnlockedFileNameHash = "0xd9d677ec",
-                // filename: 0x39683F1B
+                // filename: BardQuestmaster_disabled
                 LockedFileNameHash = "0x39683f1b",
                 Secret = false
             },
