@@ -12,10 +12,10 @@ jobs:
     runs-on: windows-2022
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: 'true'
-      - uses: microsoft/setup-msbuild@v1.0.3
+      - uses: microsoft/setup-msbuild@v1.1
       - name: Install Dependencies
         run: |
           choco install openssl --forcex86 -r -y
