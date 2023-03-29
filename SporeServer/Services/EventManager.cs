@@ -74,7 +74,7 @@ namespace SporeServer.Services
                             break;
 
                         // Found Epic
-                        case (Int64)SporeEventType.TribeEpic:
+                        case (Int64)SporeEventType.TribeEpicFound:
                             break;
 
                         // Killed Epic

@@ -27,7 +27,7 @@ namespace SporeServer.SporeTypes
         CreaturePosse = 0x5e4e0e1e,
 
         // Tribe Stage (TRG)
-        TribeEpic = 0x4f84bd4,
+        TribeEpicFound = 0x4f84bd4,
         TribeEpicKilled = 0x6e77f36f,
         TribeDomesticated = 0x3110f7cf,
         TribeSuccess = 0x8fd1273c,
