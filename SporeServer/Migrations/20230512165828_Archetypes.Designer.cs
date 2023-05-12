@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SporeServer.Data;
 
@@ -10,9 +11,11 @@ using SporeServer.Data;
 namespace SporeServer.Migrations
 {
     [DbContext(typeof(SporeServerContext))]
-    partial class SporeServerContextModelSnapshot : ModelSnapshot
+    [Migration("20230512165828_Archetypes")]
+    partial class Archetypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
