@@ -30,6 +30,12 @@ namespace SporeServer.Utils.Utils
             public Vector3[] Vector3Array;
         };
 
+        struct Uint32s
+        {
+            public string Name;
+            public string[] ValueArray;
+        };
+
         private static Vector3s ReadVector3sFromLines(string[] lines, int startingIndex)
         {
             string startingLine = lines[startingIndex];
@@ -65,6 +71,38 @@ namespace SporeServer.Utils.Utils
             };
         }
 
+        private static Uint32s ReadUint32sFromLines(string[] lines, int startingIndex)
+        {
+            string startingLine = lines[startingIndex];
+            if (!startingLine.StartsWith("uint32s"))
+            {
+                throw new Exception("not a uint32 list!");
+            }
+
+            List<string> uint32List = new List<string>();
+
+            int currentIndex = startingIndex + 1;
+            do
+            {
+                string line = lines[currentIndex];
+
+                if (line.StartsWith("end"))
+                {
+                    break;
+                }
+
+                uint32List.Add(line.Trim());
+
+                currentIndex++;
+            } while (!lines[currentIndex].StartsWith("end"));
+
+            return new Uint32s()
+            {
+                Name = startingLine.Split(' ')[1],
+                ValueArray = uint32List.ToArray()
+            };
+        }
+
         private static string GetRangeString(List<Vector3s> parentVector3sList, List<Vector3s> vector3sList, string name)
         {
             Vector3s vector3s = vector3sList.Where(v => v.Name == name).FirstOrDefault();
@@ -97,13 +135,10 @@ namespace SporeServer.Utils.Utils
         private static List<Vector3s> AddParentPropFileVector3s(string keyLine, string directory)
         {
             List<Vector3s> vector3sList = new List<Vector3s>();
+
             List<Vector3s> parentVector3sList = new List<Vector3s>();
 
             string parentFile = keyLine.Split("key parent herdtypes~!")[1];
-            if (parentFile == "default.prop")
-            {
-                return vector3sList;
-            }
 
             string fullPath = Path.Combine(directory, parentFile + ".prop_t");
             string[] lines = File.ReadAllLines(fullPath);
@@ -128,12 +163,45 @@ namespace SporeServer.Utils.Utils
             return vector3sList;
         }
 
+        private static List<Uint32s> AddParentPropFileUint3s(string keyLine, string directory)
+        {
+            List<Uint32s> uint32sList = new List<Uint32s>();
+            List<Uint32s> parentUint32sList = new List<Uint32s>();
+
+            string parentFile = keyLine.Split("key parent herdtypes~!")[1];
+
+            string fullPath = Path.Combine(directory, parentFile + ".prop_t");
+            string[] lines = File.ReadAllLines(fullPath);
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string line = lines[i];
+
+                if (line.StartsWith("key parent herdtypes~!"))
+                {
+                    parentUint32sList.AddRange(AddParentPropFileUint3s(line, directory));
+                }
+                else if (line.StartsWith("uint32s"))
+                {
+                    uint32sList.Add(ReadUint32sFromLines(lines, i));
+                }
+            }
+
+            // parent properties go last
+            uint32sList.AddRange(parentUint32sList);
+
+            return uint32sList;
+        }
+
         private static void ExtractPropInfo(string path)
         {
             string[] lines = File.ReadAllLines(path);
 
             List<Vector3s> vector3sList = new List<Vector3s>();
             List<Vector3s> parentVector3sList = new List<Vector3s>();
+
+            List<Uint32s> uint32sList = new List<Uint32s>();
+            List<Uint32s> parentUint32sList = new List<Uint32s>();
 
             for (int i = 0; i < lines.Length; i++)
             {
@@ -143,15 +211,20 @@ namespace SporeServer.Utils.Utils
                 if (line.StartsWith("key parent herdtypes~!"))
                 {
                     parentVector3sList.AddRange(AddParentPropFileVector3s(line, Path.GetDirectoryName(path)));
+                    parentUint32sList.AddRange(AddParentPropFileUint3s(line, Path.GetDirectoryName(path)));
                 }
-
-                if (line.StartsWith("vector3s"))
+                else if (line.StartsWith("vector3s"))
                 {
                     vector3sList.Add(ReadVector3sFromLines(lines, i));
+                }
+                else if (line.StartsWith("uint3s"))
+                {
+                    uint32sList.Add(ReadUint32sFromLines(lines, i));
                 }
             }
 
             string propFile = Path.GetFileName(path).Split(".prop.prop_t")[0];
+            string modelTypes = "N/A";
             string mouthType = "N/A";
             string cost = "N/A";
             string graspers = "N/A";
@@ -167,6 +240,18 @@ namespace SporeServer.Utils.Utils
             string spitLevel = "N/A";
             string totalAttack = "N/A";
             string healthLevel = "N/A";
+
+            // specify model types
+            string[] modelTypesArray = uint32sList.Where(v => v.Name == "ModelTypes").FirstOrDefault().ValueArray;
+            if (modelTypesArray == null)
+            { // fallback to parents
+                modelTypesArray = parentUint32sList.Where(v => v.Name == "ModelTypes").FirstOrDefault().ValueArray;
+                if (modelTypesArray == null)
+                { // should only happen to default.prop.prop_t
+                    modelTypesArray = new string[] { "" };
+                }
+            }
+            modelTypes = String.Join(" ", modelTypesArray);
 
             Vector3s carnivoreVector3s = vector3sList.Where(v => v.Name == "carnivore").FirstOrDefault();
             Vector3s herbivoreVector3s = vector3sList.Where(v => v.Name == "herbivore").FirstOrDefault();
@@ -238,7 +323,7 @@ namespace SporeServer.Utils.Utils
 
             healthLevel = GetRangeString(parentVector3sList, vector3sList, "healthCapRange");
 
-            Console.WriteLine($"| {propFile} | {mouthType} | {cost} | {graspers} | {feet} | {singLevel} | {danceLevel} | {charmLevel} | {poseLevel} | {totalSocial} | {biteLevel} | {strikeLevel} | {chargeLevel} | {spitLevel} | {totalAttack} | {healthLevel} |");
+            Console.WriteLine($"| {propFile} | {modelTypes} | {mouthType} | {cost} | {graspers} | {feet} | {singLevel} | {danceLevel} | {charmLevel} | {poseLevel} | {totalSocial} | {biteLevel} | {strikeLevel} | {chargeLevel} | {spitLevel} | {totalAttack} | {healthLevel} |");
         }
 
         public void Execute(string[] args)
@@ -250,8 +335,8 @@ namespace SporeServer.Utils.Utils
                 throw new DirectoryNotFoundException("path doesn't exist!");
             }
 
-            Console.WriteLine("| Prop File     | Mouth Type  | Cost  | Graspers | Feet | Sing | Dance | Charm | Pose | Total Social | Bite | Strike | Charge | Spit | Total Attack | Health |");
-            Console.WriteLine("|---------------|-------------|-------|----------|------|------|-------|-------|------|-------|------|--------|--------|------|-------|--------|");
+            Console.WriteLine("| Prop File     | Model Types | Mouth Type  | Cost  | Graspers | Feet | Sing | Dance | Charm | Pose | Total Social | Bite | Strike | Charge | Spit | Total Attack | Health |");
+            Console.WriteLine("|---------------|-------------|-------------|-------|----------|------|------|-------|-------|------|-------|------|--------|--------|------|-------|--------|");
 
             foreach (string file in Directory.GetFiles(path))
             {
