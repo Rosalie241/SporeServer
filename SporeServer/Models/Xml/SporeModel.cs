@@ -7,6 +7,7 @@
  *  You should have received a copy of the GNU Affero General Public License
  *  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+using SporeServer.SporeTypes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -633,7 +634,7 @@ namespace SporeServer.Models.Xml
                     }
                     element.AppendChild(actsElement);
                 }
-               
+
                 // <classes />
                 if (model.ScenarioResource.Classes != null)
                 {
@@ -733,12 +734,16 @@ namespace SporeServer.Models.Xml
 
         public static void Validate(SporeModel model)
         {
-            // TODO, add proper validation
-
+            // TODO: add more validation
 
             if (model.FormatVersion != null && model.FormatVersion != 18)
             {
                 throw new Exception($"Unsupported FormatVersion: {model.FormatVersion}");
+            }
+
+            if (!Enum.IsDefined(typeof(SporeModelType), model.Properties.ModelType))
+            {
+                throw new Exception($"Unsupported ModelType: 0x{model.Properties.ModelType:x}");
             }
 
             if (model.BlocksCount != null)
@@ -753,7 +758,6 @@ namespace SporeServer.Models.Xml
                     throw new Exception("Block count cannot be 0");
                 }
 
-
                 foreach (var block in model.Blocks)
                 {
                     if (block.Handles != null)
@@ -765,6 +769,259 @@ namespace SporeServer.Models.Xml
                     }
                 }
             }
+        }
+
+        public static SporeArcheType[] GetArcheTypes(SporeModel model)
+        {
+            var types = new List<SporeArcheType>(); ;
+
+            // create list of blocks that the model has
+            var blocks = new List<SporeTypes.SporeBlock>();
+
+            foreach (var block in model.Blocks)
+            {
+                var type = block.BlockId[0];
+                var id = block.BlockId[1];
+
+                foreach (var sporeBlock in SporeBlocks.Blocks)
+                {
+                    if (sporeBlock.BlockId == id && sporeBlock.BlockType == (SporeBlockType)type)
+                    {
+                        blocks.Add(sporeBlock);
+                    }
+                }
+            }
+
+            // retrieve values from blocks
+            int totalPrice = 0;
+            int complexityScore = 0;
+            bool isCarnivore = false;
+            bool isHerbivore = false;
+            int amountOfGraspers = 0;
+            int amountOfFeet = 0;
+
+            int healthLevel = 0;
+            int speedLevel = 0;
+            int singLevel = 0;
+            int danceLevel = 0;
+            int charmLevel = 0;
+            int poseLevel = 0;
+            int totalSocial = 0;
+
+            int biteLevel = 0;
+            int strikeLevel = 0;
+            int chargeLevel = 0;
+            int spitLevel = 0;
+            int totalAttack = 0;
+
+            SporeMouthType mouthType;
+
+            foreach(var block in blocks)
+            {
+                // set price & complexity
+                totalPrice += block.Price;
+                complexityScore += block.ComplexityScore;
+
+                // set levels
+                healthLevel = Math.Max(block.CapabilityHealth, healthLevel);
+                speedLevel = Math.Max(block.CapabilityCreatureSpeed, speedLevel);
+                singLevel = Math.Max(block.CapabilityVocalize, singLevel);
+                danceLevel = Math.Max(block.CapabilityDance, danceLevel);
+                charmLevel = Math.Max(block.CapabilityFlaunt, charmLevel);
+                poseLevel = Math.Max(block.CapabilityPosture, poseLevel);
+                biteLevel = Math.Max(block.CapabilityBite, biteLevel);
+                strikeLevel = Math.Max(block.CapabilityStrike, strikeLevel);
+                chargeLevel = Math.Max(block.CapabilityCharge, chargeLevel);
+                spitLevel = Math.Max(block.CapabilitySpit, spitLevel);
+
+                // set special properties
+                if (block.CapabilityCarnivorous > 0)
+                {
+                    isCarnivore = true;
+                }
+                if (block.CapabilityHerbivorous > 0)
+                {
+                    isHerbivore = true;
+                }
+
+                if (block.CapabilityGrasper > 0)
+                {
+                    amountOfGraspers++;
+                }
+                if (block.CapabilityFoot > 0)
+                {
+                    amountOfFeet++;
+                }
+            }
+
+            // set totals
+            totalSocial = singLevel + danceLevel + charmLevel + poseLevel;
+            totalAttack = biteLevel + strikeLevel + chargeLevel + spitLevel;
+            
+            // set modelType
+            SporeModelType modelType = (SporeModelType)model.Properties.ModelType;
+
+            // set mouthType
+            if (isHerbivore && isCarnivore)
+            {
+                mouthType = SporeMouthType.Omnivore;
+            }
+            else if (isCarnivore)
+            {
+                mouthType = SporeMouthType.Carnivore;
+            }
+            else
+            {
+                mouthType = SporeMouthType.Herbivore;
+            }
+
+            // check each archetype definition to see
+            // if any match the model we've been given
+            foreach (var definition in SporeArcheTypeDefinitions.Definitions)
+            {
+                // check model type
+                if (!definition.ModelTypes.Contains(modelType))
+                {
+                    continue;
+                }   
+
+                // check mouth type
+                if (!definition.MouthTypes.Contains(SporeMouthType.Any) &&
+                    !definition.MouthTypes.Contains(mouthType))
+                {
+                    continue;
+                }
+
+                // check cost
+                if ((definition.MinCost != -1 &&
+                    totalPrice < definition.MinCost) ||
+                    (definition.MaxCost != -1 &&
+                    totalPrice > definition.MaxCost))
+                {
+                    continue;
+                }
+
+                // check grasper amount
+                if ((definition.MinGraspers != -1 &&
+                    amountOfGraspers < definition.MinGraspers) ||
+                    (definition.MaxGraspers != -1 &&
+                    amountOfGraspers > definition.MaxGraspers))
+                {
+                    continue;
+                }
+
+                // check feet amount
+                if ((definition.MinFeet != -1 &&
+                    amountOfFeet < definition.MinFeet) ||
+                    (definition.MaxFeet != -1 &&
+                    amountOfFeet > definition.MaxFeet))
+                {
+                    continue;
+                }
+
+                // check sing level
+                if ((definition.MinSingLevel != -1 &&
+                    singLevel < definition.MinSingLevel) ||
+                    (definition.MaxSingLevel != -1 &&
+                    singLevel > definition.MaxSingLevel))
+                {
+                    continue;
+                }
+
+                // check dance level
+                if ((definition.MinDanceLevel != -1 &&
+                    danceLevel < definition.MinDanceLevel) ||
+                    (definition.MaxDanceLevel != -1 &&
+                    danceLevel > definition.MaxDanceLevel))
+                {
+                    continue;
+                }
+
+                // check charm level
+                if ((definition.MinCharmLevel != -1 &&
+                    charmLevel < definition.MinCharmLevel) ||
+                    (definition.MaxCharmLevel != -1 &&
+                    charmLevel > definition.MaxCharmLevel))
+                {
+                    continue;
+                }
+
+                // check pose level
+                if ((definition.MinPoseLevel != -1 &&
+                    poseLevel < definition.MinPoseLevel) ||
+                    (definition.MaxPoseLevel != -1 &&
+                    poseLevel > definition.MaxPoseLevel))
+                {
+                    continue;
+                }
+
+                // check total social level
+                if ((definition.MinTotalSocialLevel != -1 &&
+                    totalSocial < definition.MinTotalSocialLevel) ||
+                    (definition.MaxTotalSocialLevel != -1 &&
+                    totalSocial > definition.MaxTotalSocialLevel))
+                {
+                    continue;
+                }
+
+                // check bite level
+                if ((definition.MinBiteLevel != -1 &&
+                    biteLevel < definition.MinBiteLevel) ||
+                    (definition.MaxBiteLevel != -1 &&
+                    biteLevel > definition.MaxBiteLevel))
+                {
+                    continue;
+                }
+
+                // check strike level
+                if ((definition.MinStrikeLevel != -1 &&
+                    strikeLevel < definition.MinStrikeLevel) ||
+                    (definition.MaxStrikeLevel != -1 &&
+                    strikeLevel > definition.MaxStrikeLevel))
+                {
+                    continue;
+                }
+
+                // check charge level
+                if ((definition.MinChargeLevel != -1 &&
+                    chargeLevel < definition.MinChargeLevel) ||
+                    (definition.MaxChargeLevel != -1 &&
+                    chargeLevel > definition.MaxChargeLevel))
+                {
+                    continue;
+                }
+
+                // check spit level
+                if ((definition.MinSpitLevel != -1 &&
+                    spitLevel < definition.MinSpitLevel) ||
+                    (definition.MaxSpitLevel != -1 &&
+                    spitLevel > definition.MaxSpitLevel))
+                {
+                    continue;
+                }
+
+                // check total attack level
+                if ((definition.MinTotalAttackLevel != -1 &&
+                    totalAttack < definition.MinTotalAttackLevel) ||
+                    (definition.MaxTotalAttackLevel != -1 &&
+                    totalAttack > definition.MaxTotalAttackLevel))
+                {
+                    continue;
+                }
+
+                // check health level
+                if ((definition.MinHealthLevel != -1 &&
+                    healthLevel < definition.MinHealthLevel) ||
+                    (definition.MaxHealthLevel != -1 &&
+                    healthLevel > definition.MaxHealthLevel))
+                {
+                    continue;
+                }
+
+                types.Add(definition.ArcheType);
+            }
+
+            return types.ToArray();
         }
     }
 }

@@ -81,6 +81,14 @@ namespace SporeServer.Services
         Task<SporeServerAsset[]> GetRandomAssetsAsync(Int64 authorId, SporeModelType type);
 
         /// <summary>
+        ///     Returns random list of assets with specified archetype, excludes assets made by author id
+        /// </summary>
+        /// <param name="authorId"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        Task<SporeServerAsset[]> GetRandomAssetsAsync(Int64 authorId, SporeArcheType type);
+
+        /// <summary>
         ///     Returns count of assets by author
         /// </summary>
         /// <param name="author"></param>

@@ -10,6 +10,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Builder.AtomFeed;
 using SporeServer.Builder.AtomFeed.Templates.Pollinator.Atom;
@@ -31,17 +32,20 @@ namespace SporeServer.Controllers.Pollinator
         private readonly IUserSubscriptionManager _userSubscriptionManager;
         private readonly IAggregatorSubscriptionManager _aggregatorSubscriptionManager;
         private readonly UserManager<SporeServerUser> _userManager;
+        private readonly ILogger<AtomController> _logger;
 
         public AtomController(IAssetManager assetManager, IAggregatorManager aggregatorManager, 
                                 IUserSubscriptionManager userSubscriptionManager, 
                                 IAggregatorSubscriptionManager aggregatorSubscriptionManager,  
-                                UserManager<SporeServerUser> userManager)
+                                UserManager<SporeServerUser> userManager,
+                                ILogger<AtomController> logger)
         {
             _assetManager = assetManager;
             _aggregatorManager = aggregatorManager;
             _userSubscriptionManager = userSubscriptionManager;
             _aggregatorSubscriptionManager = aggregatorSubscriptionManager;
             _userManager = userManager;
+            _logger = logger;
         }
 
         // GET /pollinator/atom/randomAsset
@@ -55,16 +59,19 @@ namespace SporeServer.Controllers.Pollinator
             // make sure we can parse the function string
             if (Int64.TryParse(functionString, out Int64 function))
             {
-                // we only support modeltypes for now,
-                // TODO: support archetypes/herdtypes
                 if (Enum.IsDefined(typeof(SporeModelType), function))
                 {
                     var user = await _userManager.GetUserAsync(User);
                     assets = await _assetManager.GetRandomAssetsAsync(user.Id, (SporeModelType)function);
                 }
+                else if (Enum.IsDefined(typeof(SporeArcheType), function))
+                {
+                    var user = await _userManager.GetUserAsync(User);
+                    assets = await _assetManager.GetRandomAssetsAsync(user.Id, (SporeArcheType)function);
+                }
                 else
                 {
-                    Console.WriteLine($"unsupported randomAsset function: {function}");
+                    _logger.LogWarning($"RandomAsset: unknown function: {function:x}");
                 }
             }
 

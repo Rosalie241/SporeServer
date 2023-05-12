@@ -192,6 +192,24 @@ namespace SporeServer.Services
         }
 
         /// <summary>
+        ///     Retrieves the archetypes for a given SporeModel
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        private SporeArcheType[] GetSporeModelArcheTypes(SporeModel model)
+        {
+            try
+            {
+                return SporeModel.GetArcheTypes(model);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"GetSporeModelArcheTypes: Failed To Retrieve Archetypes: {e}");
+                return new SporeArcheType[] { };
+            }
+        }
+
+        /// <summary>
         ///     Deserialize SporeModel to xml
         /// </summary>
         /// <param name="model"></param>
@@ -365,6 +383,17 @@ namespace SporeServer.Services
                 }
                 asset.Traits = traits;
 
+                var archeTypes = new List<SporeServerAssetArcheType>();
+                foreach (var archeType in GetSporeModelArcheTypes(model))
+                {
+                    archeTypes.Add(new SporeServerAssetArcheType()
+                    {
+                        Asset = asset,
+                        ArcheType = archeType
+                    });
+                }
+                asset.ArcheTypes = archeTypes;
+
                 asset.Description = form.Description;
                 asset.Size = form.ThumbnailData.Length;
                 asset.Slurped = slurped;
@@ -535,6 +564,32 @@ namespace SporeServer.Services
                         .Where(a => a.Used &&
                                 a.AuthorId != authorId &&
                                 a.ModelType == type)
+                        .OrderBy(a => Guid.NewGuid()) // random order
+                        .Take(amountOfItems)
+                        .ToArrayAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"GetRandomAssets: Failed To Get random Assets: {e}");
+                return null;
+            }
+        }
+
+        public async Task<SporeServerAsset[]> GetRandomAssetsAsync(Int64 authorId, SporeArcheType type)
+        {
+            try
+            {
+                // maximum of 5 assets per request
+                int amountOfItems = GetRandomNumber(0, 5);
+
+                // find only used assets which don't have the author specified by author id
+                // and make sure it's the type we want
+                return await _context.Assets
+                        .Include(a => a.Author)
+                        .Include(a => a.ArcheTypes)
+                        .Where(a => a.Used &&
+                                a.AuthorId != authorId &&
+                                a.ArcheTypes.Any(a => a.ArcheType == type))
                         .OrderBy(a => Guid.NewGuid()) // random order
                         .Take(amountOfItems)
                         .ToArrayAsync();
