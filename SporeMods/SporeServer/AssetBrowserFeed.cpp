@@ -21,9 +21,9 @@ bool AssetBrowserFeed::InjectUrls(void)
         std::string Url;
     } urls[] =
     {
-        { 0x0100000, 0x53dd8c2, "/Moderation/Main"},
-        { 0x0100001, 0x53dd8c2, "/Moderation/Management/Users"},
-        { 0x0100002, 0x53dd8c2, "/Moderation/Management/Assets"},
+        { 0x0100000, 0x53dd8c2, "/Moderation/Management/Users"},
+        { 0x0100001, 0x53dd8c2, "/community/assetBrowser/singleDownload?manage=1"},
+        { 0x0100002, 0x53dd8c2, "/Moderation/Management/UserReports"},
     };
 
     for (const auto& url : urls)
