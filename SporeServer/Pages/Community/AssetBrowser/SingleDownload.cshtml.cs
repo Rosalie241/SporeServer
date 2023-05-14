@@ -17,9 +17,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using SporeServer.SporeTypes;
 using System.Globalization;
+using Microsoft.AspNetCore.Http;
 
 namespace SporeServer.Pages.Community.AssetBrowser
 {
@@ -49,6 +49,18 @@ namespace SporeServer.Pages.Community.AssetBrowser
         ///     Whether an action was performed
         /// </summary>
         public bool PerformedAction { get; set; }
+        /// <summary>
+        ///     Whether the management tools should be shown
+        /// </summary>
+        public bool ShowManageTools { get; set; }
+        /// <summary>
+        ///     Whether an asset was deleted
+        /// </summary>
+        public bool DeletedAsset { get; set; }
+        /// <summary>
+        ///     Custom query string
+        /// </summary>
+        public QueryString QueryString { get; set; }
         /// <summary>
         ///     Amount Of Filtered Items In Total
         /// </summary>
@@ -82,8 +94,10 @@ namespace SporeServer.Pages.Community.AssetBrowser
         {
             BrowseType = Request.Query["browseType"];
             FilterView = Request.Query["filterView"];
+            QueryString = Request.QueryString;
             ShowBigBackground = false;
             PageSize = 8;
+            DeletedAsset = false;
 
             // parse AppResolution header
             var resolution = Request.Headers["AppResolution"].FirstOrDefault();
@@ -112,6 +126,29 @@ namespace SporeServer.Pages.Community.AssetBrowser
                 }
             }
 
+            // parse 'deleteAsset' query
+            // and perform action if user has permission
+            var deleteAssetQuery = Request.Query["deleteAsset"];
+            if (Int64.TryParse(deleteAssetQuery, out Int64 assetId) &&
+                (User.IsInRole("Moderator") || User.IsInRole("Admin")))
+            {
+                // remove deleteAsset query
+                var filteredQueryString = Request.Query.ToList().Where(x => x.Key != "deleteAsset");
+                QueryString = QueryString.Create(filteredQueryString);
+
+                // try to find the asset from the ID
+                var asset = await _assetManager.FindByIdAsync(assetId);
+                if (asset != null)
+                { // when found, attempt to delete the asset
+                    if (!await _assetManager.DeleteAsync(asset))
+                    {
+                        return StatusCode(500);
+                    }
+
+                    DeletedAsset = true;
+                }
+            }
+
             // parse 'action' query
             // and perform action
             var requestQuery = Request.Query["action"];
@@ -123,6 +160,16 @@ namespace SporeServer.Pages.Community.AssetBrowser
             else if (requestQuery == "BROWSE")
             {
                 orderedAssets = PerformBrowse();
+            }
+            
+            // check if page has manage query,
+            // if so, verify if user has moderator or admin role,
+            // then display them
+            var manageQuery = Request.Query["manage"];
+            if (manageQuery == "1" && 
+                (User.IsInRole("Moderator") || User.IsInRole("Admin")))
+            {
+                ShowManageTools = true;
             }
 
             // when the action was performed,

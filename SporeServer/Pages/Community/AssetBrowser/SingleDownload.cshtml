@@ -17,16 +17,16 @@
 @if (Model.PerformedAction)
 {
 <body>
-    &nbsp;&nbsp;&nbsp;<a href="/community/assetBrowser/singleDownload">&lt;&lt; Search again</a> @(Model.AssetCount > 0 ? $"Showing {Model.CurrentIndex + 1}-{Model.CurrentIndex + Model.AssetCount} of {Model.SearchCount}" : "")
+    &nbsp;&nbsp;&nbsp;<a href="/community/assetBrowser/singleDownload@(Model.ShowManageTools ? "?manage=1" : "")">&lt;&lt; Search again</a> @(Model.AssetCount > 0 ? $"Showing {Model.CurrentIndex + 1}-{Model.CurrentIndex + Model.AssetCount} of {Model.SearchCount}" : "")
 
     <div class="next">
         @if (Model.PreviousIndex >= 0)
         {
-            <a href="/community/assetBrowser/singleDownload/@(Model.PreviousIndex)@(Request.QueryString)"><img src="/static/war/images/game/spd/previousArrow.png" width="7" height="10" alt="previous" />&nbsp;previous</a>
+            <a href="/community/assetBrowser/singleDownload/@(Model.PreviousIndex)@(Model.QueryString)"><img src="/static/war/images/game/spd/previousArrow.png" width="7" height="10" alt="previous" />&nbsp;previous</a>
         }
         @if (Model.CurrentIndex + Model.AssetCount < Model.SearchCount)
         {
-            <a href="/community/assetBrowser/singleDownload/@(Model.NextIndex)@(Request.QueryString)">next&nbsp;<img src="/static/war/images/game/spd/nextArrow.png" width="7" height="10" alt="next" class="nextarrow" /></a>
+            <a href="/community/assetBrowser/singleDownload/@(Model.NextIndex)@(Model.QueryString)">next&nbsp;<img src="/static/war/images/game/spd/nextArrow.png" width="7" height="10" alt="next" class="nextarrow" /></a>
         }
     </div>
 
@@ -70,12 +70,21 @@
                     }
                 </div>
                 <div class="linkContainer">
-                    <p class="assetLinks">
-                        <a href="spore:@(asset.AssetId).@((Int64)asset.ModelType)">Download Creation</a>
-                    </p>
-                    <p class="assetLinks">
-                        <a href="sporecast:tag:spore.com,2006:asset/@(asset.AssetId).@((Int64)asset.ModelType)">Add to Sporecast</a>
-                    </p>
+                    @if (Model.ShowManageTools)
+                    {
+                        <p class="assetLinks">
+                            <a href="@(Request.Path + Model.QueryString + $"&deleteAsset={asset.AssetId}")">Delete Creation</a>
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="assetLinks">
+                            <a href="spore:@(asset.AssetId).@((Int64)asset.ModelType)">Download Creation</a>
+                        </p>
+                        <p class="assetLinks">
+                            <a href="sporecast:tag:spore.com,2006:asset/@(asset.AssetId).@((Int64)asset.ModelType)">Add to Sporecast</a>
+                        </p>
+                    }
                 </div>
             </div>
         }
@@ -93,7 +102,7 @@ else if (Model.BrowseType == "CRG")
 <body>
     <div class="@(Model.ShowBigBackground ? "bigBgd crgBgd" : "")">
         <div class="searchArea">
-            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+            <a href="/community/assetBrowser/singleDownload@(Model.ShowManageTools ? "?manage=1" : "")">&lt;&lt; Back</a>
             <div class="browseHeader">Browse Creatures</div>
             <div id="bevelHeader" style="height: 35px;">
                 <div style="margin-top:8px; margin-left: 15px;">
@@ -166,6 +175,10 @@ else if (Model.BrowseType == "CRG")
 
                 <input type="hidden" name="action" value="BROWSE" />
                 <input type="hidden" name="browseType" value="CRG" />
+                @if (Model.ShowManageTools)
+                {
+                    <input type="hidden" name="manage" value="1" />
+                }
                 <input type="submit" value="Browse" class="submit" />
             </form>
         </div>
@@ -177,7 +190,7 @@ else if (Model.BrowseType == "BLG")
 <body>
     <div class="@(Model.ShowBigBackground ? "bigBgd bldBgd" : "")">
         <div class="searchArea">
-            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+                <a href="/community/assetBrowser/singleDownload@(Model.ShowManageTools ? "?manage=1" : "")">&lt;&lt; Back</a>
             <div class="browseHeader">Browse Buildings</div>
             <div id="bevelHeader" style="height: 35px;">
                 <div style="margin-top:8px; margin-left: 15px;">
@@ -244,6 +257,10 @@ else if (Model.BrowseType == "BLG")
 
                 <input type="hidden" name="action" value="BROWSE" />
                 <input type="hidden" name="browseType" value="BLG" />
+                @if (Model.ShowManageTools)
+                {
+                    <input type="hidden" name="manage" value="1" />
+                }
                 <input type="submit" value="Browse" class="submit" />
             </form>
         </div>
@@ -255,7 +272,7 @@ else if (Model.BrowseType == "ADV")
 <body>
     <div class="@(Model.ShowBigBackground ? "bigBgd advBgd" : "")">
         <div class="searchArea">
-            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+                <a href="/community/assetBrowser/singleDownload@(Model.ShowManageTools ? "?manage=1" : "")">&lt;&lt; Back</a>
             <div class="browseHeader">Browse Adventures</div>
             <form method="get" action="/community/assetBrowser/singleDownload">
 
@@ -405,6 +422,10 @@ else if (Model.BrowseType == "ADV")
 
                 <input type="hidden" name="action" value="BROWSE" />
                 <input type="hidden" name="browseType" value="ADV" />
+                @if (Model.ShowManageTools)
+                {
+                    <input type="hidden" name="manage" value="1" />
+                }
                 <input type="submit" value="Browse" class="submit" />
             </form>
         </div>
@@ -416,7 +437,7 @@ else if (Model.BrowseType == "VCL_LND")
 <body>
     <div class="@(Model.ShowBigBackground ? "bigBgd lvBgd" : "")">
         <div class="searchArea">
-            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+                <a href="/community/assetBrowser/singleDownload@(Model.ShowManageTools ? "?manage=1" : "")">&lt;&lt; Back</a>
             <div class="browseHeader">Browse Land Vehicles</div>
             <div id="bevelHeader" style="height: 35px;">
                 <div style="margin-top:8px; margin-left: 15px;">
@@ -482,6 +503,10 @@ else if (Model.BrowseType == "VCL_LND")
             </select>
                 <input type="hidden" name="action" value="BROWSE" />
                 <input type="hidden" name="browseType" value="VCL_LND" />
+                @if (Model.ShowManageTools)
+                {
+                    <input type="hidden" name="manage" value="1" />
+                }
                 <input type="submit" value="Browse" class="submit" />
             </form>
         </div>
@@ -493,7 +518,7 @@ else if (Model.BrowseType == "VCL_SEA")
 <body>
     <div class="@(Model.ShowBigBackground ? "bigBgd svBgd" : "")">
         <div class="searchArea">
-            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+                <a href="/community/assetBrowser/singleDownload@(Model.ShowManageTools ? "?manage=1" : "")">&lt;&lt; Back</a>
             <div class="browseHeader">Browse Sea Vehicles</div>
             <div id="bevelHeader" style="height: 35px;">
                 <div style="margin-top:8px; margin-left: 15px;">
@@ -558,6 +583,10 @@ else if (Model.BrowseType == "VCL_SEA")
             </select>
                 <input type="hidden" name="action" value="BROWSE" />
                 <input type="hidden" name="browseType" value="VCL_SEA" />
+                @if (Model.ShowManageTools)
+                {
+                    <input type="hidden" name="manage" value="1" />
+                }
                 <input type="submit" value="Browse" class="submit" />
             </form>
         </div>
@@ -569,7 +598,7 @@ else if (Model.BrowseType == "VCL_AIR")
 <body>
     <div class="@(Model.ShowBigBackground ? "bigBgd avBgd" : "")">
         <div class="searchArea">
-            <a href="/community/assetBrowser/singleDownload">&lt;&lt; Back</a>
+                <a href="/community/assetBrowser/singleDownload@(Model.ShowManageTools ? "?manage=1" : "")">&lt;&lt; Back</a>
             <div class="browseHeader">Browse Air Vehicles</div>
             <div id="bevelHeader" style="height: 35px;">
                 <div style="margin-top:8px; margin-left: 15px;">
@@ -635,6 +664,10 @@ else if (Model.BrowseType == "VCL_AIR")
             </select>
                 <input type="hidden" name="action" value="BROWSE" />
                 <input type="hidden" name="browseType" value="VCL_AIR" />
+                @if (Model.ShowManageTools)
+                {
+                    <input type="hidden" name="manage" value="1" />
+                }
                 <input type="submit" value="Browse" class="submit" />
             </form>
         </div>
@@ -659,6 +692,10 @@ else
                         <input type="hidden" name="action" value="SEARCH" />
                         <div style="position: absolute; top:-5px; left: 370px;">
                             <input type="submit" value="Search" class="submit" />
+                            @if (Model.ShowManageTools)
+                            {
+                                <input type="hidden" name="manage" value="1" />
+                            }
                         </div>
                     </div>
                     <div class="cboxContainer cboxLeft1">
@@ -761,6 +798,10 @@ else
                         </tr>
                     </table>
                     <input type="hidden" name="action" value="BROWSE" />
+                    @if (Model.ShowManageTools)
+                    {
+                        <input type="hidden" name="manage" value="1" />
+                    }
                 </form>
             </div>
             <div id="bevelFooter"></div>
