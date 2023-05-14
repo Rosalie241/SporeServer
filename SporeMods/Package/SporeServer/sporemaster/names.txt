@@ -1,0 +1,24 @@
+feed_MyCreations
+Link_AssetManagement
+Link_UserManagement
+sporepedia
+auto_AssetBrowserFeedItems_Link_AssetManagement
+Link_MySporePage
+Link_Achievements
+auto_AssetBrowserFeedCategories_SporeServerModeration
+Template
+AssetBrowserGraphics
+MyStuff
+Link_Template
+icon-sporepedia-sm
+icon-cityhall
+auto_AssetBrowserFeedCategories_MyStuff
+AssetBrowserFeedCategories
+SporeServer
+SporeServerModeration
+AssetBrowserFeedItems
+Link_UserReports
+auto_AssetBrowserFeedItems_Link_UserManagement
+locale~	0x2fabf01
+auto_AssetBrowserFeedItems_Link_UserReports
+Link_SporeStore
