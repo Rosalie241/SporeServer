@@ -1,0 +1,9 @@
+key parent AssetBrowserFeedCategories!Template.prop
+texts feedListCategoryName
+	(SporeServer!0x00000001) "SporeServer Moderation (PLACEHOLDER)"
+end
+keys feedListItems
+	Link_UserManagement
+	Link_AssetManagement
+	Link_UserReports
+end

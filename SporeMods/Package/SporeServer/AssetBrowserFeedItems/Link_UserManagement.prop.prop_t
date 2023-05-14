@@ -1,0 +1,9 @@
+key parent AssetBrowserFeedItems!Link_Template.prop
+texts feedListItemHeader
+	(SporeServer!0x00100001) "User Management (PLACEHOLDER)"
+end
+key feedListItemIconKey AssetBrowserGraphics!spd_feedicon_mysporepage.png
+texts feedListItemName
+	(SporeServer!0x00100001) "User Management (PLACEHOLDER)"
+end
+key feedListItemWebpageURLID 0x00100001
