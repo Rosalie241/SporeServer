@@ -46,7 +46,6 @@
                     {
                         var user = Model.Users[i];
                         bool odd = i % 2 != 0;
-                        int assetCount = 0; // await Model.GetAssetCountByUserAsync(user);
                         <tr>
                             <td class="avatar@(odd ? " , odd" : "")">
                                 <img src="/static/war/images/game/spd/NoAvatar.png" alt="Avatar" class="noavatar" />
@@ -57,12 +56,21 @@
                             <td class="username@(odd ? " , odd" : "")">
                                 <a href="sporeprofile:@(user.Id)" style="">@(user.UserName)</a>
                             </td>
-                            <td class="editButton@(odd ? " , odd" : "")">
-                                <a href="/Moderation/Management/User/Edit/@(user.Id)" style=""><img src="utfres://0x011c0bde!icon_settings.png" /></a>
-                            </td>
-                            <td class="banButton@(odd ? " , odd" : "")">
-                                <a href="sporeprofile:@(user.Id)" style=""><img src="utfres://AssetBrowserGraphics!0x9F681350.png" /></a>
-                            </td>
+                            @if (/* check if user isn't the current user */
+                                 Model.CurrentUser.Id != user.Id &&
+                                 /* check if user isn't an Admin */
+                                 !(await Model.IsUserInRoleAsync(user, "Admin")) &&
+                                 /* check if current user is a moderator, if so, they cannot manage other moderators */
+                                 ((await Model.IsUserInRoleAsync(Model.CurrentUser, "Moderator")) &&
+                                  !(await Model.IsUserInRoleAsync(user, "Moderator"))))
+                            {
+                                <td class="editButton@(odd ? " , odd" : "")">
+                                    <a href="/Moderation/Management/User/Edit/@(user.Id)" style=""><img src="utfres://0x011c0bde!icon_settings.png" /></a>
+                                </td>
+                                <td class="banButton@(odd ? " , odd" : "")">
+                                    <a href="sporeprofile:@(user.Id)" style=""><img src="utfres://AssetBrowserGraphics!0x9F681350.png" /></a>
+                                </td>
+                            }
                         </tr>
                     }
             </table>
