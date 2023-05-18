@@ -9,13 +9,14 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using SporeServer.Areas.Identity.Data;
-using SporeServer.Data;
 using SporeServer.Models;
 
 namespace SporeServer.Pages.Community.Auth
@@ -23,21 +24,26 @@ namespace SporeServer.Pages.Community.Auth
     [AllowAnonymous]
     public class RegisterNewModel : PageModel
     {
+        private readonly IConfiguration _configuration;
         private readonly UserManager<SporeServerUser> _userManager;
 
-        public RegisterNewModel(UserManager<SporeServerUser> userManager)
+        public RegisterNewModel(IConfiguration configuration, UserManager<SporeServerUser> userManager)
         {
+            _configuration = configuration;
             _userManager = userManager;
         }
 
         /// <summary>
-        ///     Error Message for when registration fails
+        ///     Whether registration is disabled
         /// </summary>
-        public string ErrorMessage { get; set; }
+        public bool DisableRegistration { get; set; }
 
         public async Task<IActionResult> OnGetAsync([FromQuery] RegisterNewQuery query)
         {
-            if (!ModelState.IsValid)
+            DisableRegistration = _configuration["AppSettings:DisableRegistration"] == "1";
+
+            if (DisableRegistration ||
+                !ModelState.IsValid)
             {
                 return Page();
             }
@@ -66,29 +72,6 @@ namespace SporeServer.Pages.Community.Auth
                         UserName = query.DisplayName,
                         Email = query.Email
                     }, query.Password);
-            }
-
-            if (Request.Query.ContainsKey("Post"))
-            {
-                foreach (var modelState in ViewData.ModelState.Values)
-                {
-                    foreach (var error in modelState.Errors)
-                    {
-                        ErrorMessage += error.ErrorMessage + " ";
-                    }
-                }
-            }
-            else if (Request.Query.ContainsKey("success"))
-            {
-                bool success = (Request.Query["success"] == "True");
-                if (success)
-                {
-                    ErrorMessage = "Successfully registered.";
-                }
-                else
-                {
-                    ErrorMessage = "Failed to register user.";
-                }
             }
 
             return Redirect($"https://community.spore.com/community/auth/registerNew?success={result.Succeeded}");
