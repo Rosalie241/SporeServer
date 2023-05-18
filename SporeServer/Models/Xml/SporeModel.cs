@@ -778,6 +778,12 @@ namespace SporeServer.Models.Xml
             // create list of blocks that the model has
             var blocks = new List<SporeTypes.SporeBlock>();
 
+            // ensure blocks exist
+            if (model.Blocks == null)
+            {
+                return types.ToArray();
+            }
+
             foreach (var block in model.Blocks)
             {
                 var type = block.BlockId[0];
