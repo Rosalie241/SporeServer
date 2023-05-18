@@ -9,21 +9,20 @@
  */
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using SporeServer;
 using SporeServer.Areas.Identity.Data;
 using SporeServer.Data;
 using SporeServer.Middleware;
 using SporeServer.Services;
 using System;
 using System.Globalization;
-using System.Net;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SporeServer
@@ -75,12 +74,15 @@ namespace SporeServer
                 }
             }
 
-            Console.WriteLine(Configuration["AppSettings:AdminUserId"]);
+            string userId = Configuration["AppSettings:AdminUserId"];
+            if (String.IsNullOrEmpty(userId))
+            {
+                return;
+            }
 
-            var adminUser = await userManager.FindByIdAsync(Configuration["AppSettings:AdminUserId"]);
+            var adminUser = await userManager.FindByIdAsync(userId);
             if (adminUser != null)
             {
-                Console.WriteLine(adminUser.UserName);
                 if (!await userManager.IsInRoleAsync(adminUser, "Admin"))
                 {
                     await userManager.AddToRoleAsync(adminUser, "Admin");
@@ -88,14 +90,62 @@ namespace SporeServer
             }
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
+        private async Task CreateAdminUser(IServiceProvider serviceProvider, ILogger<Startup> logger)
         {
-            if (env.IsDevelopment())
+            var userManager = serviceProvider.GetRequiredService<UserManager<SporeServerUser>>();
+
+            string userId = Configuration["AppSettings:AdminUserId"];
+            string email  = Configuration["AppSettings:AdminUserEmail"];
+            string userName = Configuration["AppSettings:AdminUserName"];
+            string password = Configuration["AppSettings:AdminUserPassword"];
+
+            if (String.IsNullOrEmpty(email) ||
+                String.IsNullOrEmpty(userName) ||
+                String.IsNullOrEmpty(password))
             {
-                app.UseDeveloperExceptionPage();
+                return;
             }
 
+            IdentityResult result;
+
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+            { // fallback to using email as identifier
+                user = await userManager.FindByEmailAsync(email);
+            }
+
+            if (user != null && 
+                (String.IsNullOrEmpty(user.UserName) ||
+                 String.IsNullOrEmpty(user.PasswordHash)))
+            {
+                user.UserName = userName;
+                user.Email    = email;
+
+                result = await userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                { // add password when updating user succeeded
+                    result = await userManager.AddPasswordAsync(user, password);
+                }
+
+                if (result.Succeeded)
+                { // add user to role when adding password succeeds
+                    result = await userManager.AddToRoleAsync(user, "Admin");
+                }    
+
+                if (result.Succeeded)
+                {
+                    logger.LogInformation("Successfully registered admin user");
+                }
+                else
+                {
+                    logger.LogInformation($"Failed to register admin user: {String.Join(", ", result.Errors.Select(e => e.Description))}");
+                }
+            }
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider, ILogger<Startup> logger)
+        {
             // Spore doesn't accept commas or such internally,
             // so let's globally just use the InvariantCulture
             CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
@@ -128,6 +178,9 @@ namespace SporeServer
 
             // create user roles
             CreateUserRoles(serviceProvider).Wait();
+
+            // create admin user
+            CreateAdminUser(serviceProvider, logger).Wait();
         }
     }
 }
