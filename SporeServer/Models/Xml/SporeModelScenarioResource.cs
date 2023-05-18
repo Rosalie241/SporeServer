@@ -12,9 +12,9 @@ namespace SporeServer.Models.Xml
     {
         public Int32? AvatarLocked { get; set; }
         public Int32? AllowedPosseMembers { get; set; }
-        public string WinText { get; set; }
-        public string LoseText { get; set; }
-        public string IntroText { get; set; }
+        public string? WinText { get; set; }
+        public string? LoseText { get; set; }
+        public string? IntroText { get; set; }
         public Int64? Type { get; set; }
         public Int64[]? AvatarAsset { get; set; }
         public SporeModelScenarioResourceAct[] Acts { get; set; }

@@ -173,9 +173,9 @@ namespace SporeServer.Models.Xml
                 {
                     AvatarLocked = XmlHelper.ParseInt32_Null(scenarioResourceNode.SelectSingleNode("bAvatarLocked")),
                     AllowedPosseMembers = XmlHelper.ParseInt32_Null(scenarioResourceNode.SelectSingleNode("numAllowedPosseMembers")),
-                    WinText = scenarioResourceNode.SelectSingleNode("winText").InnerText,
-                    LoseText = scenarioResourceNode.SelectSingleNode("loseText").InnerText,
-                    IntroText = scenarioResourceNode.SelectSingleNode("introText").InnerText,
+                    WinText = XmlHelper.ParseString_Null(scenarioResourceNode.SelectSingleNode("winText")),
+                    LoseText = XmlHelper.ParseString_Null(scenarioResourceNode.SelectSingleNode("loseText")),
+                    IntroText = XmlHelper.ParseString_Null(scenarioResourceNode.SelectSingleNode("introText")),
                     Type = XmlHelper.ParseInt64_Null(scenarioResourceNode.SelectSingleNode("type")),
                     AvatarAsset = XmlHelper.ParseInt64List(scenarioResourceNode.SelectSingleNode("mAvatarAsset").SelectSingleNode("ID"))
                 };
