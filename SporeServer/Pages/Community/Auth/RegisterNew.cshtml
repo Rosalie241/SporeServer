@@ -1,6 +1,29 @@
 ﻿@page
 @model SporeServer.Pages.Community.Auth.RegisterNewModel
-@{    
+@{
+    string ErrorMessage = "";
+    if (!Model.DisableRegistration && Request.Query.ContainsKey("Post"))
+    {
+        foreach (var modelState in ViewData.ModelState.Values)
+        {
+            foreach (var error in modelState.Errors)
+            {
+                ErrorMessage += error.ErrorMessage + " ";
+            }
+        }
+    }
+    else if (!Model.DisableRegistration && Request.Query.ContainsKey("success"))
+    {
+        bool success = (Request.Query["success"] == "True");
+        if (success)
+        {
+            ErrorMessage = "Successfully registered.";
+        }
+        else
+        {
+            ErrorMessage = "Failed to register user.";
+        }
+    }
 }
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,53 +48,64 @@
 
 <body>
     <div id="content">
-        <div class="blurbHeader"><h1>Register your game to get these benefits:</h1></div>
-        <div id="container">
-            <div class="creatureBlurb">
-                <div class="benefitsList">
-                    <ul>
-                        <li class="tightlist">Share Content</li>
-                        <li class="tightlist">Send Postcards</li>
-                        <li class="tightlist">Build your own MySpore page</li>
-                        
-                    </ul>
-                </div>
+        @if (Model.DisableRegistration)
+        {
+            <h1>Registration has been disabled on this SporeServer instance, ask the owner for an account!</h1>
+            <div id="container">
+                <!-- Spore needs this, otherwise it throws an error at the registration screen -->
+                <form id="register" action="@Request.Path" method="post">
+                </form>
             </div>
-
-            <!-- the Spore web engine doesn't respect 'method' here, so use current url -->
-            <form id="register" class="spform" action="@Request.Path" method="post">
-                <div id="header" style="height: 35px;" />
-                <!--<div id="header" style="height: 35px;">
-                    <div class="alreadyHeader"><h2>Already have an EA account?&nbsp;&nbsp;&nbsp;Enter your info here:</h2></div>
-                </div>-->
-                <div id="regsides">
-                    <table class="userinfo">
-                        <tr>
-                            <td class="user"><h2>Email Address</h2></td>
-                            <td class="user"><h2>Password</h2></td>
-                            <td class="user"><h2>Create a Spore Screen Name</h2></td>
-                        </tr>
-                        <tr>
-                            <td class="user"><input id="Email" name="Email" type="text" value="" /></td>
-                            <td class="user"><input id="Password" name="Password" type="password" value="" size="16" /></td>
-                            <td class="user"><input id="DisplayName" name="DisplayName" type="text" value="" size="16" /></td>
-                        </tr>
-                        <tr>
-                            <td class="user" style="padding-top: 5px;" colspan="2">
-                                <a href="browser:https://www.spore.com/auth/help"><span class="helptext">Need help with password or registering?</span></a>
-                            </td>
-                            <td class="user"><span class="helptext">5-16 letters or numbers.</span></td>
-                        </tr>
-                    </table>
+        }
+        else
+        {
+            <div class="blurbHeader"><h1>Register your game to get these benefits:</h1></div>
+            <div id="container">
+                <div class="creatureBlurb">
+                    <div class="benefitsList">
+                        <ul>
+                            <li class="tightlist">Share Content</li>
+                            <li class="tightlist">Send Postcards</li>
+                            <li class="tightlist">Build your own MySpore page</li>
+                        </ul>
+                    </div>
                 </div>
-                <div id="regfooter"></div>
-                <div class="errorText">@Model.ErrorMessage</div>
-                <!-- unneeded?
-                <input type="hidden" name="upgrade" value="true" />
-                -->
-                <input type="hidden" name="post" value="1" />
-            </form>
-        </div>
+
+                <!-- the Spore web engine doesn't respect 'method' here, so use current url -->
+                <form id="register" class="spform" action="@Request.Path" method="post">
+                    <div id="header" style="height: 35px;" />
+                    <!--<div id="header" style="height: 35px;">
+                        <div class="alreadyHeader"><h2>Already have an EA account?&nbsp;&nbsp;&nbsp;Enter your info here:</h2></div>
+                    </div>-->
+                    <div id="regsides">
+                        <table class="userinfo">
+                            <tr>
+                                <td class="user"><h2>Email Address</h2></td>
+                                <td class="user"><h2>Password</h2></td>
+                                <td class="user"><h2>Create a Spore Screen Name</h2></td>
+                            </tr>
+                            <tr>
+                                <td class="user"><input id="Email" name="Email" type="text" value="" /></td>
+                                <td class="user"><input id="Password" name="Password" type="password" value="" size="16" /></td>
+                                <td class="user"><input id="DisplayName" name="DisplayName" type="text" value="" size="16" /></td>
+                            </tr>
+                            <tr>
+                                <td class="user" style="padding-top: 5px;" colspan="2">
+                                    <a href="browser:https://www.spore.com/auth/help"><span class="helptext">Need help with password or registering?</span></a>
+                                </td>
+                                <td class="user"><span class="helptext">5-16 letters or numbers.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="regfooter"></div>
+                    <div class="errorText">@ErrorMessage</div>
+                    <!-- unneeded?
+                    <input type="hidden" name="upgrade" value="true" />
+                    -->
+                    <input type="hidden" name="post" value="1" />
+                </form>
+            </div>
+        }
     </div>
 </body>
 </html>
