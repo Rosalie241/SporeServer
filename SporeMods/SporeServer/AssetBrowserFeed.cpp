@@ -14,6 +14,8 @@
 
 bool AssetBrowserFeed::InjectUrls(void)
 {
+    return true; // TODO: find out what's going wrong...
+
     struct
     {
         uint32_t Id1;

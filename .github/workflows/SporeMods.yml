@@ -1,10 +1,6 @@
 name: SporeMods
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -18,7 +14,7 @@ jobs:
       - uses: microsoft/setup-msbuild@v1.1
       - name: Install Dependencies
         run: |
-          choco install openssl --forcex86 -r -y
+          choco install openssl --version=1.1.1.2100 --forcex86 -r -y
           choco install 7zip -r -y
       - name: Build Spore-ModAPI
         run: |

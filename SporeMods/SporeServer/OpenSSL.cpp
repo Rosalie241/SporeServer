@@ -53,7 +53,7 @@ static bool         SporeServerSslVerification = true;
 
 // needed for assetbrowserfeed category injection
 static std::string  HandshakeXml;
-static bool         LookForHandshakeEndpoint = true;
+static bool         LookForHandshakeEndpoint = false;
 static bool         ReadHandshakeXml = false;
 
 //
@@ -385,12 +385,12 @@ void OpenSSL::Initialize(void)
 
 void OpenSSL::AttachDetours(void)
 {
-    SSLCtxNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117f200, 0x0117ca80)));
-    SSLNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117ed00, 0x0117c580)));
-    SSLClearDetour::attach(Address(ModAPI::ChooseAddress(0x0117ebe0, 0x0117c460)));
-    SSLConnectDetour::attach(Address(ModAPI::ChooseAddress(0x0117f5d0, 0x0117ce50)));
-    SSLReadDetour::attach(Address(ModAPI::ChooseAddress(0x0117dbb0, 0x0117b430)));
-    SSLWriteDetour::attach(Address(ModAPI::ChooseAddress(0x0117dc40, 0x0117b4c0)));
+    //SSLCtxNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117f200, 0x0117ca80)));
+    //SSLNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117ed00, 0x0117c580)));
+    //SSLClearDetour::attach(Address(ModAPI::ChooseAddress(0x0117ebe0, 0x0117c460)));
+    //SSLConnectDetour::attach(Address(ModAPI::ChooseAddress(0x0117f5d0, 0x0117ce50)));
+    //SSLReadDetour::attach(Address(ModAPI::ChooseAddress(0x0117dbb0, 0x0117b430)));
+    //SSLWriteDetour::attach(Address(ModAPI::ChooseAddress(0x0117dc40, 0x0117b4c0)));
     GameValidateCertificate::attach(Address(ModAPI::ChooseAddress(0x0094f080, 0x0094eb60)));
     GameUseHttpsDetour::attach(Address(ModAPI::ChooseAddress(0x00621740, 0x006216e0)));
     GameUseHttpDetour::attach(Address(ModAPI::ChooseAddress(0x00621800, 0x006217a0)));
