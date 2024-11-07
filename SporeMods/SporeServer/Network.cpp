@@ -7,21 +7,16 @@
 //  You should have received a copy of the GNU Affero General Public License
 //  along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
-// dllmain.cpp : Defines the entry point for the DLL application.
 
 //
 // Includes
 // 
 
 #include "stdafx.h"
-#include "OpenSSL.hpp"
+#include "Network.hpp"
 
 // needed for connect
 #include <WinSock2.h>
-
-// needed for SSL_connect, SSL_read, SSL_write
-#include <openssl/ssl.h>
-#include <openssl/err.h>
 
 // needed for mutex lock
 #include <mutex>
@@ -40,13 +35,9 @@
 // Global variables
 //
 
-static SSL*         OpenSSL_SSL = nullptr;
-static SSL_CTX*     OpenSSL_CTX = nullptr;
-static std::mutex   OpenSSL_MTX;
-static int          OpenSSL_ThreadId = -1;
-static bool         SporeServerPortOverride = false;
-static uint16_t     SporeServerPort;
-static bool         SporeServerSslVerification = true;
+static bool     SporeServerPortOverride = false;
+static uint16_t SporeServerPort;
+static bool     SporeServerSslVerification = true;
 
 //
 // Detour functions
@@ -65,104 +56,23 @@ static int WINAPI connect_detour(SOCKET s, const sockaddr* name, int namelen)
         ((sockaddr_in*)name)->sin_port = htons(SporeServerPort);
     }
 
-    int ret = connect_real(s, name, namelen);
-
-    // we don't need openssl things
-    // when it can't connect or if it's HTTP
-    if (ret != 0 || !https)
-    {
-        return ret;
-    }
-
-    // does the game use this function?
-    if (SSL_set_fd(OpenSSL_SSL, s) != 1)
-    {
-        return -1;
-    }
-
-    return 0;
+    return connect_real(s, name, namelen);
 }
 
-static int (WINAPI* closesocket_real)(SOCKET) = closesocket;
-static int WINAPI closesocket_detour(SOCKET s)
+static_detour(SSL_CTX_set_verify, void(void*, int, void*))
 {
-    // unlock the mutex here,
-    // the game always calls closesocket
-    if (OpenSSL_ThreadId == GetCurrentThreadId())
+    void detoured(void* ssl, int mode, void* callback)
     {
-        OpenSSL_ThreadId = -1;
-        OpenSSL_MTX.unlock();
-    }
-
-    return closesocket_real(s);
-}
-
-static_detour(SSLCtxNewDetour, void* (void*)) {
-    void* detoured(void* meth)
-    {
-        OpenSSL_CTX = SSL_CTX_new(TLS_method());
-        if (OpenSSL_CTX == nullptr)
-        {
-            return nullptr;
-        }
-
-        return original_function(meth);
+        // force SSL_VERIFY_NONE to disable verifying CA chain,
+        // this isn't that insecure because we force a hash match
+        // in NetSSLVerifyConnection anyways
+        // TODO: figure out how Spore sets the CA certificates
+        return original_function(ssl, 0x00, callback);
     }
 };
 
-static_detour(SSLNewDetour, void* (void*)) {
-    void* detoured(void* ssl_ctx)
-    {
-        // TODO, figure out what kinda locking the game uses
-        OpenSSL_MTX.lock();
-        OpenSSL_ThreadId = GetCurrentThreadId();
-
-        OpenSSL_SSL = SSL_new(OpenSSL_CTX);
-        if (OpenSSL_SSL == nullptr)
-        {
-            return nullptr;
-        }
-
-        return original_function(ssl_ctx);
-    }
-};
-
-static_detour(SSLClearDetour, int(void*)) {
-    int detoured(void* ssl)
-    {
-        if (SSL_clear(OpenSSL_SSL) != 1)
-        {
-            return 0;
-        }
-
-        return original_function(ssl);
-    }
-};
-
-static_detour(SSLConnectDetour, int(void*)) {
-    int detoured(void* ssl)
-    {
-        return SSL_connect(OpenSSL_SSL);
-    }
-};
-
-static_detour(SSLReadDetour, int(void*, void*, int)) {
-    int detoured(void* ssl, void* buffer, int num)
-    {
-        return SSL_read(OpenSSL_SSL, buffer, num);
-    }
-};
-
-
-static_detour(SSLWriteDetour, int(void*, const void*, int)) {
-    int detoured(void* ssl, const void* buffer, int num)
-    {
-        return SSL_write(OpenSSL_SSL, buffer, num);
-    }
-};
-
-static_detour(GameValidateCertificate, int(int, char*)) {
-    int detoured(int arg1, char* servername)
+static_detour(NetSSLVerifyConnection, int(void*, char*)) {
+    int detoured(void* ssl, char* servername)
     {
         // return success when verification is disabled
         if (!SporeServerSslVerification)
@@ -185,14 +95,16 @@ static_detour(GameValidateCertificate, int(int, char*)) {
         BOOL ret = false;
 
         // retrieve current certificate
-        X509* x509_cert = SSL_get_peer_certificate(OpenSSL_SSL);
+        // X509* x509_cert = SSL_get_peer_certificate(ssl);
+        void* x509_cert = STATIC_CALL(Address(ModAPI::ChooseAddress(0x0117db60, 0x0117b3e0)), void*, void*, ssl);
         if (x509_cert == nullptr)
         {
             goto out;
         }
 
         // extract encoded x509
-        x509_cert_len = i2d_X509(x509_cert, &x509_cert_buf);
+        // x509_cert_len = i2d_X509(x509_cert, &x509_cert_buf);
+        x509_cert_len = STATIC_CALL(Address(ModAPI::ChooseAddress(0x0117f700, 0x0117cf80)), int, Args(void*, unsigned char**), Args(x509_cert, &x509_cert_buf));
         if (x509_cert_len < 0)
         {
             goto out;
@@ -227,16 +139,18 @@ static_detour(GameValidateCertificate, int(int, char*)) {
         BYTE ignoredCertsHashes[][20] =
         {
             { // pollinator.spore.com
-                0xc8, 0xb2, 0x8f, 0xb, 0xd6,
-                0x63, 0x2, 0x1d, 0x9b, 0x9c,
-                0x36, 0x98, 0x82, 0xc, 0x76,
-                0x74, 0xc7, 0xa7, 0x15, 0xb3
+                0x26, 0x95, 0x77, 0x65,
+                0x5C, 0xDD, 0x70, 0x98,
+                0x74, 0x29, 0x72, 0x47,
+                0x99, 0xFB, 0xFF, 0x57,
+                0x38, 0xC7, 0x88, 0x74
             },
             { // community.spore.com
-                0xe6, 0xc8, 0x63, 0xf8, 0x55,
-                0xf1, 0xc3, 0x7b, 0x9b, 0x34,
-                0x78, 0xe6, 0xed, 0xaa, 0x85,
-                0x36, 0xb, 0x7, 0xf1, 0xc4
+                0xA9, 0x9B, 0xE0, 0xF2,
+                0xED, 0xC0, 0x7D, 0xA0,
+                0x7D, 0x9B, 0xC0, 0x84,
+                0x20, 0xC6, 0x3D, 0xF0,
+                0x3B, 0xD6, 0x9C, 0xC2
             }
         };
 
@@ -285,7 +199,8 @@ static_detour(GameValidateCertificate, int(int, char*)) {
     out:
         if (x509_cert != nullptr)
         {
-            X509_free(x509_cert);
+            // X509_free(x509_cert);
+            STATIC_CALL(Address(ModAPI::ChooseAddress(0x0117f730, 0x0117cfb0)), void, void*, x509_cert);
         }
         if (cert_ctx != nullptr)
         {
@@ -320,7 +235,7 @@ static_detour(GameUseHttpDetour, bool(unsigned int, unsigned int, char*)) {
 // Exported Functions
 //
 
-void OpenSSL::Initialize(void)
+void Network::Initialize(void)
 {
     if (Configuration::GetBoolValue(Configuration::Key::OverridePort))
     {
@@ -343,17 +258,11 @@ void OpenSSL::Initialize(void)
     SporeServerSslVerification = Configuration::GetBoolValue(Configuration::Key::SSLVerification);
 }
 
-void OpenSSL::AttachDetours(void)
+void Network::AttachDetours(void)
 {
-    SSLCtxNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117f200, 0x0117ca80)));
-    SSLNewDetour::attach(Address(ModAPI::ChooseAddress(0x0117ed00, 0x0117c580)));
-    SSLClearDetour::attach(Address(ModAPI::ChooseAddress(0x0117ebe0, 0x0117c460)));
-    SSLConnectDetour::attach(Address(ModAPI::ChooseAddress(0x0117f5d0, 0x0117ce50)));
-    SSLReadDetour::attach(Address(ModAPI::ChooseAddress(0x0117dbb0, 0x0117b430)));
-    SSLWriteDetour::attach(Address(ModAPI::ChooseAddress(0x0117dc40, 0x0117b4c0)));
-    GameValidateCertificate::attach(Address(ModAPI::ChooseAddress(0x0094f080, 0x0094eb60)));
+    SSL_CTX_set_verify::attach(Address(ModAPI::ChooseAddress(0x0117e2b0, 0x0117bb30)));
+    NetSSLVerifyConnection::attach(Address(ModAPI::ChooseAddress(0x0094f080, 0x0094eb60)));
     GameUseHttpsDetour::attach(Address(ModAPI::ChooseAddress(0x00621740, 0x006216e0)));
     GameUseHttpDetour::attach(Address(ModAPI::ChooseAddress(0x00621800, 0x006217a0)));
     DetourAttach(&(PVOID&)connect_real, connect_detour);
-    DetourAttach(&(PVOID&)closesocket_real, closesocket_detour);
 }

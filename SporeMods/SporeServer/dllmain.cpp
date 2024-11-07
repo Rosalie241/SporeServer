@@ -16,7 +16,7 @@
 #include "stdafx.h"
 
 #include "Configuration.hpp"
-#include "OpenSSL.hpp"
+#include "Network.hpp"
 #include "RedirectTraffic.hpp"
 
 //
@@ -30,7 +30,7 @@ void Initialize()
         MessageBoxA(nullptr, "Configuration::Initialize() Failed!", "SporeServer", MB_OK | MB_ICONERROR);
         return;
     }
-    OpenSSL::Initialize();
+    Network::Initialize();
     RedirectTraffic::Initialize();
 }
 
@@ -40,7 +40,7 @@ void Dispose()
 
 void AttachDetours()
 {
-    OpenSSL::AttachDetours();
+    Network::AttachDetours();
     RedirectTraffic::AttachDetours();
 }
 

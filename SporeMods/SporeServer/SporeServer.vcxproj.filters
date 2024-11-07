@@ -4,7 +4,7 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OpenSSL.cpp">
+    <ClCompile Include="Network.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RedirectTraffic.cpp">
@@ -21,7 +21,7 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OpenSSL.hpp">
+    <ClInclude Include="Network.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RedirectTraffic.hpp">

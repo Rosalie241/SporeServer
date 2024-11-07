@@ -7,14 +7,14 @@
 //  You should have received a copy of the GNU Affero General Public License
 //  along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
-#ifndef SPORENEWOPENSSL_HPP
-#define SPORENEWOPENSSL_HPP
+#ifndef SPORENETWORK_HPP
+#define SPORENETWORK_HPP
 
-namespace OpenSSL
+namespace Network
 {
     void Initialize(void);
 
     void AttachDetours(void);
 }
 
-#endif // SPORENEWOPENSSL_HPP
+#endif // SPORENETWORK_HPP
