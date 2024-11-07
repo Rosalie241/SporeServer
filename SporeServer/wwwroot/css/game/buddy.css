@@ -218,7 +218,7 @@ width: 100%;
 height: 13px;
 }
 .footermiddle {
-background-image: url(/static/war/images/game/spd/spd_BottomTile.png);
+background-image: url(utfres://0x40484400!spd_BottomTile.png);
 background-repeat:repeat-x;
 margin-left: 16px;
 margin-right: 14px;
@@ -233,7 +233,7 @@ top: 0px;
 left: 2px;
 width: 14px;
 height: 13px;
-background-image: url(/static/war/images/game/spd/spd_BottomLefttCorner.png);
+background-image: url(utfres://0x40484400!spd_BottomLefttCorner.png);
 background-repeat:no-repeat;
 }
 .footerRight {
@@ -242,7 +242,7 @@ top: 0px;
 right: 0px;
 width: 14px;
 height: 13px;
-background-image: url(/static/war/images/game/spd/spd_BottomRightCorner.png);
+background-image: url(utfres://0x40484400!spd_BottomRightCorner.png);
 background-repeat:no-repeat;
 }
 
@@ -251,7 +251,7 @@ width: 100%;
 height: 39px;
 }
 .headermiddle {
-background-image: url(/static/war/images/game/spd/spd_HeaderGraphicTile.png);
+background-image: url(utfres://0x40484400!spd_HeaderGraphicTile.png);
 background-repeat:repeat;
 margin-left: 37px;
 margin-right: 22px;
@@ -278,7 +278,7 @@ top: 0px;
 left: 0px;
 width: 37px;
 height: 39px;
-background-image: url(/static/war/images/game/spd/spd_HeaderGraphicLeft.png);
+background-image: url(utfres://0x40484400!spd_HeaderGraphicLeft.png);
 background-repeat:no-repeat;
 }
 .headerLeftrecent {
@@ -287,11 +287,11 @@ top: 0px;
 left: 0px;
 width: 26px;
 height: 39px;
-background-image: url(/static/war/images/game/spd/spd_HeaderGraphicLeft2.png);
+background-image: url(utfres://0x40484400!spd_HeaderGraphicLeft2.png);
 background-repeat:no-repeat;
 }
 .headermiddlerecent {
-background-image: url(/static/war/images/game/spd/spd_HeaderGraphicTile.png);
+background-image: url(utfres://0x40484400!spd_HeaderGraphicTile.png);
 background-repeat:repeat;
 margin-left: 26px;
 margin-right: 22px;
@@ -305,7 +305,7 @@ top: 0px;
 right: 0px;
 width: 22px;
 height: 39px;
-background-image: url(/static/war/images/game/spd/spd_HeaderGraphicRight.png);
+background-image: url(utfres://0x40484400!spd_HeaderGraphicRight.png);
 background-repeat:no-repeat;
 }
 .headericon {

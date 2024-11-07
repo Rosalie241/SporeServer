@@ -28,7 +28,7 @@ height: 60px;
 background-color:#162635;
 }
 #headermiddle {
-background-image: url(utfres://0x40484400!New_TileMiddle.png);
+background-image: url(/static/war/images/game/spd/New_TileMiddle.png);
 background-repeat:repeat;
 margin-left: 108px;
 margin-right: 123px;
@@ -85,7 +85,7 @@ margin-top: 4px;
 #searchmiddle {
 text-align:center;
 height: 45px;
-background-image: url(utfres://0x40484400!spd_LargeCard_AssetNameBkrd.png);
+background-image: url(/static/war/images/game/spd/spd_LargeCard_AssetNameBkrd.png);
 background-repeat:repeat; 
 }
 #search p {
@@ -225,13 +225,13 @@ height: 101px;
 	bottom: 0px;
 	left: 194px;
 	right: 309px;
-	background-image: url(utfres://0x40484400!FindBuddy_BottomTile.png);
+	background-image: url(/static/war/images/game/spd/FindBuddy_BottomTile.png);
 	background-repeat:repeat;
 	height: 101px;
 	text-align: center;
 }
 #allassets {
-poairio
+/*poairio*/
 margin-top:5px;
 border:1px solid #fff;
 }
