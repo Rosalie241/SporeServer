@@ -76,7 +76,7 @@ height: 39px;
 }
 
 .headermiddle, .headermiddlenoicon {
-background-image: url(/static/war/images/game/spd/spd_HeaderGraphicTile.png);
+background-image: url(utfres://0x40484400!spd_HeaderGraphicTile.png);
 background-repeat:repeat;
 margin-left: 37px;
 margin-right: 22px;
