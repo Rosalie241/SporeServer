@@ -115,11 +115,11 @@ static_detour(NetSSLVerifyConnection, int(void*, char*)) {
             X509_ASN_ENCODING,
             x509_cert_buf,
             x509_cert_len,
-            CERT_CREATE_CONTEXT_NOCOPY_FLAG,
+            0,
             nullptr);
         if (cert_ctx == nullptr)
         {
-            return 1;
+            goto out;
         }
 
         // retrieve hash of PCCERT_CONTEXT
