@@ -1,10 +1,6 @@
 name: SporeMods
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -12,13 +8,12 @@ jobs:
     runs-on: windows-2022
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: 'true'
-      - uses: microsoft/setup-msbuild@v1.1
+      - uses: microsoft/setup-msbuild@v2
       - name: Install Dependencies
         run: |
-          choco install openssl --forcex86 -r -y
           choco install 7zip -r -y
       - name: Build Spore-ModAPI
         run: |
@@ -33,7 +28,7 @@ jobs:
         run: |
           cd SporeMods
           .\CreateSporeMod.bat
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: SporeServer.sporemod
           path: SporeMods/bin/SporeServer.sporemod
