@@ -2,6 +2,48 @@
 @using SporeServer.SporeTypes;
 @model SporeServer.Pages.Community.AssetBrowser.CreateSporecastModel
 @{
+    Dictionary<string, string> ModelTypesDropdown = new Dictionary<string, string>
+    {
+        { "731352134",  "Creature" },
+            { "925772804",  "  Tribe Creature" },
+            { "3435355206", "  Civ Creature" },
+            { "1701259998", "  Space Creature" },
+            { "1098430696", "  Captain" },
+
+        { "597278293",  "Building" },
+            { "2582195973", "  City Hall" },
+            { "1312782199", "  House" },
+            { "1203833171", "  Factory" },
+            { "1925484929", "  Entertainment" },
+
+        { "610804372",  "Vehicle" },
+            { "2101559213", "  Military Land" },
+            { "2408988107", "  Military Water" },
+            { "1142739942", "  Military Air" },
+            { "4134578755", "  Economic Land" },
+            { "709969833",  "  Economic Water" },
+            { "441321224",  "  Economic Air" },
+            { "2597835946", "  Religious Land" },
+            { "522855862",  "  Religious Water" },
+            { "1151075343", "  Religious Air" },
+            { "3155182054", "  Colony Land" },
+            { "3243677146", "  Colony Water" },
+            { "546349339",  "  Colony Air" },
+
+        { "1198168263", "Spaceship" },
+
+        { "912954125",  "Adventures" },
+            { "544802838",  "  No Genre" },
+            { "662802406",  "  Template" },
+            { "679140572",  "  Attack" },
+            { "3276561940", "  Defend" },
+            { "4218637521", "  Socialize" },
+            { "939347469",  "  Explore" },
+            { "3290583454", "  Quest" },
+            { "3027271567", "  Story" },
+            { "631695982",  "  Collect" },
+            { "3799898836", "  Puzzle" }
+    };
 }
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,116 +67,12 @@
                 <p>
                     <select name="filter" class="dropdown">
                         <option value="">Type</option>
-
-                        <option value="731352134" selected="@(Model.FilterString == "731352134")">
-                            Creature
-                        </option>
-                        <option value="925772804" selected="@(Model.FilterString == "925772804")">
-                            &nbsp;&nbsp;Tribe Creature
-                        </option>
-                        <option value="3435355206" selected="@(Model.FilterString == "3435355206")">
-                            &nbsp;&nbsp;Civ Creature
-                        </option>
-                        <option value="1701259998" selected="@(Model.FilterString == "1701259998")">
-                            &nbsp;&nbsp;Space Creature
-                        </option>
-                        <option value="1098430696" selected="@(Model.FilterString == "1098430696")">
-                            &nbsp;&nbsp;Captain
-                        </option>
-
-                        <option value="597278293" selected="@(Model.FilterString == "597278293")">
-                            Building
-                        </option>
-                        <option value="2582195973" selected="@(Model.FilterString == "2582195973")">
-                            &nbsp;&nbsp;City Hall
-                        </option>
-                        <option value="1312782199" selected="@(Model.FilterString == "1312782199")">
-                            &nbsp;&nbsp;House
-                        </option>
-                        <option value="1203833171" selected="@(Model.FilterString == "1203833171")">
-                            &nbsp;&nbsp;Factory
-                        </option>
-                        <option value="1925484929" selected="@(Model.FilterString == "1925484929")">
-                            &nbsp;&nbsp;Entertainment
-                        </option>
-
-                        <option value="610804372" selected="@(Model.FilterString == "610804372")">
-                            Vehicle
-                        </option>
-                        <option value="2101559213" selected="@(Model.FilterString == "2101559213")">
-                            &nbsp;&nbsp;Military Land
-                        </option>
-                        <option value="2408988107" selected="@(Model.FilterString == "2408988107")">
-                            &nbsp;&nbsp;Military Water
-                        </option>
-                        <option value="1142739942" selected="@(Model.FilterString == "1142739942")">
-                            &nbsp;&nbsp;Military Air
-                        </option>
-                        <option value="4134578755" selected="@(Model.FilterString == "4134578755")">
-                            &nbsp;&nbsp;Economic Land
-                        </option>
-                        <option value="709969833" selected="@(Model.FilterString == "709969833")">
-                            &nbsp;&nbsp;Economic Water
-                        </option>
-                        <option value="441321224" selected="@(Model.FilterString == "441321224")">
-                            &nbsp;&nbsp;Economic Air
-                        </option>
-                        <option value="2597835946" selected="@(Model.FilterString == "2597835946")">
-                            &nbsp;&nbsp;Religious Land
-                        </option>
-                        <option value="522855862" selected="@(Model.FilterString == "522855862")">
-                            &nbsp;&nbsp;Religious Water
-                        </option>
-                        <option value="1151075343" selected="@(Model.FilterString == "1151075343")">
-                            &nbsp;&nbsp;Religious Air
-                        </option>
-                        <option value="3155182054" selected="@(Model.FilterString == "3155182054")">
-                            &nbsp;&nbsp;Colony Land
-                        </option>
-                        <option value="3243677146" selected="@(Model.FilterString == "3243677146")">
-                            &nbsp;&nbsp;Colony Water
-                        </option>
-                        <option value="546349339" selected="@(Model.FilterString == "546349339")">
-                            &nbsp;&nbsp;Colony Air
-                        </option>
-
-                        <option value="1198168263" selected="@(Model.FilterString == "1198168263")">
-                            Spaceship
-                        </option>
-
-                        <option value="912954125" selected="@(Model.FilterString == "912954125")">
-                            Adventures
-                        </option>
-                        <option value="544802838" selected="@(Model.FilterString == "544802838")">
-                            &nbsp;&nbsp;No Genre
-                        </option>
-                        <option value="662802406" selected="@(Model.FilterString == "662802406")">
-                            &nbsp;&nbsp;Template
-                        </option>
-                        <option value="679140572" selected="@(Model.FilterString == "679140572")">
-                            &nbsp;&nbsp;Attack
-                        </option>
-                        <option value="3276561940" selected="@(Model.FilterString == "3276561940")">
-                            &nbsp;&nbsp;Defend
-                        </option>
-                        <option value="4218637521" selected="@(Model.FilterString == "4218637521")">
-                            &nbsp;&nbsp;Socialize
-                        </option>
-                        <option value="939347469" selected="@(Model.FilterString == "939347469")">
-                            &nbsp;&nbsp;Explore
-                        </option>
-                        <option value="3290583454" selected="@(Model.FilterString == "3290583454")">
-                            &nbsp;&nbsp;Quest
-                        </option>
-                        <option value="3027271567" selected="@(Model.FilterString == "3027271567")">
-                            &nbsp;&nbsp;Story
-                        </option>
-                        <option value="631695982" selected="@(Model.FilterString == "631695982")">
-                            &nbsp;&nbsp;Collect
-                        </option>
-                        <option value="3799898836" selected="@(Model.FilterString == "3799898836")">
-                            &nbsp;&nbsp;Puzzle
-                        </option>
+                        @foreach (KeyValuePair<string, string> modelType in ModelTypesDropdown)
+                        {
+                            <option value="@modelType.Key" selected="@(Model.FilterString == modelType.Key)">
+                                @Html.Raw(modelType.Value.Replace(" ", "&nbsp;"))
+                            </option>
+                        }
                     </select>
                 </p>
 
