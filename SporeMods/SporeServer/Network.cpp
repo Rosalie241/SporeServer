@@ -18,9 +18,6 @@
 // needed for connect
 #include <WinSock2.h>
 
-// needed for mutex lock
-#include <mutex>
-
 // needed for certificate validation
 #include <Windows.h>
 #include <wincrypt.h>
@@ -71,7 +68,8 @@ static_detour(SSL_CTX_set_verify, void(void*, int, void*))
     }
 };
 
-static_detour(NetSSLVerifyConnection, int(void*, char*)) {
+static_detour(NetSSLVerifyConnection, int(void*, char*))
+{
     int detoured(void* ssl, char* servername)
     {
         // return success when verification is disabled
@@ -217,17 +215,11 @@ static_detour(NetSSLVerifyConnection, int(void*, char*)) {
     }
 };
 
-static_detour(GameUseHttpsDetour, bool(unsigned int, unsigned int, char*)) {
+static_detour(GameUseHttpDetour, bool(unsigned int, unsigned int, char*))
+{
     bool detoured(unsigned int arg1, unsigned int arg2, char* arg3)
     {
-        return original_function(arg1, arg2, arg3);
-    }
-};
-
-static_detour(GameUseHttpDetour, bool(unsigned int, unsigned int, char*)) {
-    bool detoured(unsigned int arg1, unsigned int arg2, char* arg3)
-    {
-        return GameUseHttpsDetour::original_function(arg1, arg2, arg3);
+        return STATIC_CALL(Address(ModAPI::ChooseAddress(0x00621740, 0x006216e0)), bool, Args(unsigned int, unsigned int, char*), Args(arg1, arg2, arg3));
     }
 };
 
@@ -262,7 +254,6 @@ void Network::AttachDetours(void)
 {
     SSL_CTX_set_verify::attach(Address(ModAPI::ChooseAddress(0x0117e2b0, 0x0117bb30)));
     NetSSLVerifyConnection::attach(Address(ModAPI::ChooseAddress(0x0094f080, 0x0094eb60)));
-    GameUseHttpsDetour::attach(Address(ModAPI::ChooseAddress(0x00621740, 0x006216e0)));
     GameUseHttpDetour::attach(Address(ModAPI::ChooseAddress(0x00621800, 0x006217a0)));
     DetourAttach(&(PVOID&)connect_real, connect_detour);
 }
